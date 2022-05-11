@@ -8,19 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		C2945651282B977700931872 /* weekleatApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2945650282B977700931872 /* weekleatApp.swift */; };
-		C2945653282B977700931872 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2945652282B977700931872 /* ContentView.swift */; };
 		C2945655282B977900931872 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2945654282B977900931872 /* Assets.xcassets */; };
 		C2945658282B977900931872 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2945657282B977900931872 /* Preview Assets.xcassets */; };
 		C294565F282B988A00931872 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C294565E282B988A00931872 /* ListItem.swift */; };
+		C2945665282BAB3200931872 /* Migra.otf in Resources */ = {isa = PBXBuildFile; fileRef = C2945664282BAB3200931872 /* Migra.otf */; };
+		C2945668282BB2F400931872 /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2945667282BB2F400931872 /* TagView.swift */; };
+		C294566B282BB7E300931872 /* WeekPlanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C294566A282BB7E300931872 /* WeekPlanner.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C294564D282B977700931872 /* weekleat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weekleat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2945650282B977700931872 /* weekleatApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weekleatApp.swift; sourceTree = "<group>"; };
-		C2945652282B977700931872 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C2945654282B977900931872 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C2945657282B977900931872 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C294565E282B988A00931872 /* ListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
+		C2945664282BAB3200931872 /* Migra.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Migra.otf; sourceTree = "<group>"; };
+		C2945666282BAD0300931872 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		C2945667282BB2F400931872 /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
+		C294566A282BB7E300931872 /* WeekPlanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekPlanner.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,11 +58,14 @@
 		C294564F282B977700931872 /* weekleat */ = {
 			isa = PBXGroup;
 			children = (
+				C2945666282BAD0300931872 /* Info.plist */,
 				C2945650282B977700931872 /* weekleatApp.swift */,
-				C2945652282B977700931872 /* ContentView.swift */,
 				C294565E282B988A00931872 /* ListItem.swift */,
+				C294566A282BB7E300931872 /* WeekPlanner.swift */,
+				C2945667282BB2F400931872 /* TagView.swift */,
 				C2945660282B9AB500931872 /* img */,
 				C2945654282B977900931872 /* Assets.xcassets */,
+				C2945663282BAAD500931872 /* fonts */,
 				C2945656282B977900931872 /* Preview Content */,
 			);
 			path = weekleat;
@@ -76,6 +84,14 @@
 			children = (
 			);
 			path = img;
+			sourceTree = "<group>";
+		};
+		C2945663282BAAD500931872 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				C2945664282BAB3200931872 /* Migra.otf */,
+			);
+			path = fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +153,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2945658282B977900931872 /* Preview Assets.xcassets in Resources */,
+				C2945665282BAB3200931872 /* Migra.otf in Resources */,
 				C2945655282B977900931872 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -149,8 +166,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C294565F282B988A00931872 /* ListItem.swift in Sources */,
-				C2945653282B977700931872 /* ContentView.swift in Sources */,
+				C294566B282BB7E300931872 /* WeekPlanner.swift in Sources */,
 				C2945651282B977700931872 /* weekleatApp.swift in Sources */,
+				C2945668282BB2F400931872 /* TagView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +300,7 @@
 				DEVELOPMENT_TEAM = A99SKRN3J4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = weekleat/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -311,6 +330,7 @@
 				DEVELOPMENT_TEAM = A99SKRN3J4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = weekleat/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct weekleatApp: App {
+    
+    init(){
+        UINavigationBar.appearance().largeTitleTextAttributes = [.font : UIFont(name: "Migra", size: 38)!]
+    }
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            WeekPlanner()
         }
     }
 }
