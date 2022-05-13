@@ -8,13 +8,15 @@
 import SwiftUI
 
 struct ListItem: View {
+    @State var rezept: Rezept
+    
     var body: some View {
         HStack {
             ZStack{
                 RoundedRectangle(cornerRadius: 10)
-                    .fill(Color("RedLight"))
+                    .fill(Color(rezept.colorTheme.rawValue))
                     .frame(width: 75, height: 75)
-                Image("pizza")
+                Image(rezept.foodType)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 65, height: 65)
@@ -22,10 +24,11 @@ struct ListItem: View {
             
             
             VStack(alignment: .leading, spacing: 5){
-                Text("Rezept")
-                    .font(Font.custom("Migra", size: 24))
+                Text(rezept.title)
+                    .font(Font.custom("Migra", size: 21))
                 HStack{
-                    TagView()
+                    TagView(rezept: $rezept)
+                    
                 }
             }.padding(EdgeInsets(top: 0, leading: 25, bottom: 0, trailing: 0))
             
@@ -44,7 +47,7 @@ struct ListItem: View {
 
 struct ListItem_Previews: PreviewProvider {
     static var previews: some View {
-        ListItem()
+        ListItem(rezept: Rezepte.dummyRezepte[2])
             .previewLayout(.fixed(width: 400, height: 90))
     }
 }

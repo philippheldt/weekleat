@@ -8,11 +8,14 @@
 import SwiftUI
 
 struct WeekPlanner: View {
+    @Binding var rezepte: [Rezept]
     var body: some View {
         NavigationView{
             
-            List(0..<7) { item in
-                ListItem()
+            List() {
+                ForEach($rezepte){ $rezept in
+                ListItem(rezept: rezept)
+                }
             }.navigationTitle("Wochenplan")
         }
     }
@@ -20,7 +23,8 @@ struct WeekPlanner: View {
 
 struct ListView_Previews: PreviewProvider {
     static var previews: some View {
-        WeekPlanner()
+        WeekPlanner(rezepte:
+                .constant(Rezepte.dummyRezepte))
 
     }
 }
