@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C2632766282F9E0D00B8E1B1 /* WrappingHStack in Frameworks */ = {isa = PBXBuildFile; productRef = C2632765282F9E0D00B8E1B1 /* WrappingHStack */; };
 		C28F381D282CFCBA0074079B /* Rezepte.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28F381C282CFCBA0074079B /* Rezepte.swift */; };
 		C28F381F282D1B6F0074079B /* ColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28F381E282D1B6F0074079B /* ColorTheme.swift */; };
 		C2945651282B977700931872 /* weekleatApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2945650282B977700931872 /* weekleatApp.swift */; };
@@ -37,6 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2632766282F9E0D00B8E1B1 /* WrappingHStack in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,6 +126,9 @@
 			dependencies = (
 			);
 			name = weekleat;
+			packageProductDependencies = (
+				C2632765282F9E0D00B8E1B1 /* WrappingHStack */,
+			);
 			productName = weekleat;
 			productReference = C294564D282B977700931872 /* weekleat.app */;
 			productType = "com.apple.product-type.application";
@@ -152,6 +157,9 @@
 				Base,
 			);
 			mainGroup = C2945644282B977700931872;
+			packageReferences = (
+				C2632764282F9E0D00B8E1B1 /* XCRemoteSwiftPackageReference "WrappingHStack" */,
+			);
 			productRefGroup = C294564E282B977700931872 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -387,6 +395,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C2632764282F9E0D00B8E1B1 /* XCRemoteSwiftPackageReference "WrappingHStack" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dkk/WrappingHStack";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C2632765282F9E0D00B8E1B1 /* WrappingHStack */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C2632764282F9E0D00B8E1B1 /* XCRemoteSwiftPackageReference "WrappingHStack" */;
+			productName = WrappingHStack;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C2945645282B977700931872 /* Project object */;
 }

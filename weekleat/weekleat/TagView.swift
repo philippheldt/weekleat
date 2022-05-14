@@ -5,12 +5,13 @@
 //  Created by Philipp Jenny on 11.05.22.
 //
 
+import WrappingHStack
 import SwiftUI
 
 struct TagView: View {
     @Binding var rezept: Rezept
     var body: some View {
-        HStack{
+        WrappingHStack{
             HStack{
                 ZStack{
                     Image(systemName: "person.2.fill")
@@ -37,7 +38,7 @@ struct TagView: View {
                         .foregroundColor(Color(rezept.colorTheme.darkColor))
                         .font(.system(size: 13))
                 }
-                Text(String(rezept.portion))
+                Text("Huuuuuuhuuuuu")
                     .font(.system(size: 13))
                     .foregroundColor(Color(rezept.colorTheme.darkColor))
             }
