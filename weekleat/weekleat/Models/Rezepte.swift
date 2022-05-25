@@ -27,11 +27,11 @@ struct Rezept: Identifiable {
 
 struct Rezepte {
     static let dummyRezepte = [
-        Rezept(title: "Pizza", portion: 5, tags: [.Schnell, .Veggi], colorTheme: .RedLight, foodType: "pizza"),
+        Rezept(title: "Pizza", portion: 5, tags: [.Schnell], colorTheme: .RedLight, foodType: "pizza"),
         Rezept(title: "Käsespätzle", portion: 2, tags: [.Schnell, .Veggi], colorTheme: .YellowLight, foodType: "pasta"),
-        Rezept(title: "Zucchini Pasta", portion: 5, tags: [.Schnell, .Veggi], colorTheme: .BlueMedium, foodType: "zucchini"),
-        Rezept(title: "Enchiladas", portion: 5, tags: [.Schnell, .Veggi], colorTheme: .RedDark, foodType: "enchilada"),
+        Rezept(title: "Zucchini Pasta", portion: 5, tags: [.Veggi], colorTheme: .BlueMedium, foodType: "zucchini"),
+        Rezept(title: "Enchiladas", portion: 5, tags: [.Lang], colorTheme: .RedDark, foodType: "enchilada"),
         Rezept(title: "Pfannkuchen", portion: 4, tags: [.Schnell, .Veggi], colorTheme: .YellowMedium, foodType: "pancake"),
-        Rezept(title: "Moussaka", portion: 5, tags: [.Schnell, .Veggi], colorTheme: .RedDark, foodType: "pizza"),
+        Rezept(title: "Moussaka", portion: 5, tags: [.Veggi], colorTheme: .RedLight, foodType: "pizza"),
     ]
 }

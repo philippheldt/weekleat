@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C2632766282F9E0D00B8E1B1 /* WrappingHStack in Frameworks */ = {isa = PBXBuildFile; productRef = C2632765282F9E0D00B8E1B1 /* WrappingHStack */; };
+		C270FC67283EB65300A47274 /* RezeptDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C270FC66283EB65300A47274 /* RezeptDetailView.swift */; };
 		C28F381D282CFCBA0074079B /* Rezepte.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28F381C282CFCBA0074079B /* Rezepte.swift */; };
 		C28F381F282D1B6F0074079B /* ColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28F381E282D1B6F0074079B /* ColorTheme.swift */; };
 		C2945651282B977700931872 /* weekleatApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2945650282B977700931872 /* weekleatApp.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C270FC66283EB65300A47274 /* RezeptDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RezeptDetailView.swift; sourceTree = "<group>"; };
 		C28F381C282CFCBA0074079B /* Rezepte.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rezepte.swift; sourceTree = "<group>"; };
 		C28F381E282D1B6F0074079B /* ColorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTheme.swift; sourceTree = "<group>"; };
 		C294564D282B977700931872 /* weekleat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weekleat.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -80,6 +82,7 @@
 				C2945650282B977700931872 /* weekleatApp.swift */,
 				C294565E282B988A00931872 /* ListItem.swift */,
 				C294566A282BB7E300931872 /* WeekPlanner.swift */,
+				C270FC66283EB65300A47274 /* RezeptDetailView.swift */,
 				C28F381B282CFC9D0074079B /* Models */,
 				C2945667282BB2F400931872 /* TagView.swift */,
 				C2945660282B9AB500931872 /* img */,
@@ -191,6 +194,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C294565F282B988A00931872 /* ListItem.swift in Sources */,
+				C270FC67283EB65300A47274 /* RezeptDetailView.swift in Sources */,
 				C28F381D282CFCBA0074079B /* Rezepte.swift in Sources */,
 				C2DA7FC9283E339B009B8FE0 /* TagIcons.swift in Sources */,
 				C294566B282BB7E300931872 /* WeekPlanner.swift in Sources */,

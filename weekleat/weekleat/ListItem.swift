@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ListItem: View {
     @State var rezept: Rezept
+    @Binding var showSheet: Bool
     
     var body: some View {
         HStack {
@@ -26,6 +27,7 @@ struct ListItem: View {
             VStack(alignment: .leading, spacing: 5){
                 Text(rezept.title)
                     .font(Font.custom("Migra", size: 21))
+                    .foregroundColor(.accentColor)
                 HStack{
                     TagView(rezept: $rezept, tags: rezept.tags)
                     
@@ -34,7 +36,9 @@ struct ListItem: View {
             
             Spacer()
             
-            Button(action: {}) {
+            Button(action: {
+                showSheet.toggle()
+            }) {
                 Image(systemName: "ellipsis")
                     .foregroundColor(.accentColor)
             } .padding(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5))
@@ -47,7 +51,7 @@ struct ListItem: View {
 
 struct ListItem_Previews: PreviewProvider {
     static var previews: some View {
-        ListItem(rezept: Rezepte.dummyRezepte[2])
+        ListItem(rezept: Rezepte.dummyRezepte[2], showSheet: .constant(false))
             .previewLayout(.fixed(width: 400, height: 90))
     }
 }
