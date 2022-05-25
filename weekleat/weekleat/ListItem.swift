@@ -27,7 +27,7 @@ struct ListItem: View {
                 Text(rezept.title)
                     .font(Font.custom("Migra", size: 21))
                 HStack{
-                    TagView(rezept: $rezept)
+                    TagView(rezept: $rezept, tags: rezept.tags)
                     
                 }
             }.padding(EdgeInsets(top: 0, leading: 25, bottom: 0, trailing: 0))
@@ -37,7 +37,7 @@ struct ListItem: View {
             Button(action: {}) {
                 Image(systemName: "ellipsis")
                     .foregroundColor(.accentColor)
-            } .padding()
+            } .padding(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5))
             
         }
         .padding(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
