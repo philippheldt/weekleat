@@ -29,7 +29,7 @@ struct ListItem: View {
                     .font(Font.custom("Migra", size: 21))
                     .foregroundColor(.accentColor)
                 HStack{
-                    TagView(rezept: $rezept, tags: rezept.tags)
+                    RecipieTagView(rezept: $rezept, tags: rezept.tags)
                     
                 }
             }.padding(EdgeInsets(top: 0, leading: 25, bottom: 0, trailing: 0))

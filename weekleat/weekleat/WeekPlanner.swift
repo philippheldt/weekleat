@@ -13,9 +13,15 @@ struct WeekPlanner: View {
     var body: some View {
         NavigationView{
             ZStack{
-                List() {
+                Color("PureWhite")
+                    .edgesIgnoringSafeArea(.all)
+                ScrollView {
                     ForEach($rezepte){ $rezept in
-                    ListItem(rezept: rezept, showSheet: $showSheet)
+                        ListItemElement(titleText: rezept.title, titleImage: rezept.foodType, color: rezept.colorTheme, tags: rezept.tags, backgroundColor: "BlueLight", portion: rezept.portion)
+                            .padding([.leading, .trailing])
+                            .onTapGesture {
+                                showSheet.toggle()
+                            }
                             .swipeActions{
                                 Button {
                                     print("Delete")

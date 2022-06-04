@@ -16,8 +16,10 @@
 		C2945658282B977900931872 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2945657282B977900931872 /* Preview Assets.xcassets */; };
 		C294565F282B988A00931872 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C294565E282B988A00931872 /* ListItem.swift */; };
 		C2945665282BAB3200931872 /* Migra.otf in Resources */ = {isa = PBXBuildFile; fileRef = C2945664282BAB3200931872 /* Migra.otf */; };
-		C2945668282BB2F400931872 /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2945667282BB2F400931872 /* TagView.swift */; };
+		C2945668282BB2F400931872 /* RecipieTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2945667282BB2F400931872 /* RecipieTagView.swift */; };
 		C294566B282BB7E300931872 /* WeekPlanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C294566A282BB7E300931872 /* WeekPlanner.swift */; };
+		C2B49DEA2848DC54002F695B /* SingleTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B49DE92848DC54002F695B /* SingleTagView.swift */; };
+		C2B49DEC2849F2F0002F695B /* ListItemElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B49DEB2849F2F0002F695B /* ListItemElement.swift */; };
 		C2DA7FC9283E339B009B8FE0 /* TagIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DA7FC8283E339B009B8FE0 /* TagIcons.swift */; };
 /* End PBXBuildFile section */
 
@@ -32,8 +34,10 @@
 		C294565E282B988A00931872 /* ListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
 		C2945664282BAB3200931872 /* Migra.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Migra.otf; sourceTree = "<group>"; };
 		C2945666282BAD0300931872 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		C2945667282BB2F400931872 /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
+		C2945667282BB2F400931872 /* RecipieTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipieTagView.swift; sourceTree = "<group>"; };
 		C294566A282BB7E300931872 /* WeekPlanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekPlanner.swift; sourceTree = "<group>"; };
+		C2B49DE92848DC54002F695B /* SingleTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleTagView.swift; sourceTree = "<group>"; };
+		C2B49DEB2849F2F0002F695B /* ListItemElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemElement.swift; sourceTree = "<group>"; };
 		C2DA7FC8283E339B009B8FE0 /* TagIcons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagIcons.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,10 +85,12 @@
 				C2945666282BAD0300931872 /* Info.plist */,
 				C2945650282B977700931872 /* weekleatApp.swift */,
 				C294565E282B988A00931872 /* ListItem.swift */,
+				C2B49DEB2849F2F0002F695B /* ListItemElement.swift */,
+				C2B49DE92848DC54002F695B /* SingleTagView.swift */,
 				C294566A282BB7E300931872 /* WeekPlanner.swift */,
 				C270FC66283EB65300A47274 /* RezeptDetailView.swift */,
 				C28F381B282CFC9D0074079B /* Models */,
-				C2945667282BB2F400931872 /* TagView.swift */,
+				C2945667282BB2F400931872 /* RecipieTagView.swift */,
 				C2945660282B9AB500931872 /* img */,
 				C2945654282B977900931872 /* Assets.xcassets */,
 				C2945663282BAAD500931872 /* fonts */,
@@ -198,9 +204,11 @@
 				C28F381D282CFCBA0074079B /* Rezepte.swift in Sources */,
 				C2DA7FC9283E339B009B8FE0 /* TagIcons.swift in Sources */,
 				C294566B282BB7E300931872 /* WeekPlanner.swift in Sources */,
+				C2B49DEA2848DC54002F695B /* SingleTagView.swift in Sources */,
 				C28F381F282D1B6F0074079B /* ColorTheme.swift in Sources */,
 				C2945651282B977700931872 /* weekleatApp.swift in Sources */,
-				C2945668282BB2F400931872 /* TagView.swift in Sources */,
+				C2945668282BB2F400931872 /* RecipieTagView.swift in Sources */,
+				C2B49DEC2849F2F0002F695B /* ListItemElement.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
