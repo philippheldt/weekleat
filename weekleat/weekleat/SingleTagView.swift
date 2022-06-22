@@ -13,13 +13,15 @@ struct SingleTagView: View {
     var backgroundColor: String
     var textContent: String
     var amount: Int
+    var detailText: String
     
-    init(iconName: String, color: ColorTheme, backgroundColor: String, textContent: String, amount: Int){
+    init(iconName: String, color: ColorTheme, backgroundColor: String, textContent: String, amount: Int, detailText: String){
         self.iconName = iconName
         self.color = color
         self.backgroundColor = backgroundColor
         self.textContent = textContent
         self.amount = amount
+        self.detailText = detailText
     }
     var body: some View {
         
@@ -33,7 +35,7 @@ struct SingleTagView: View {
                         .foregroundColor(Color(color.darkColor))
                         .font(.system(size: 13))
                 }
-                Text(textContent)
+                Text(textContent.count > 2 ? textContent : detailText )
                     .font(.system(size: 13))
                     .foregroundColor(Color(color.darkColor))
             }
@@ -69,7 +71,7 @@ struct SingleTagView: View {
 
 struct SingleTagView_Previews: PreviewProvider {
     static var previews: some View {
-        SingleTagView(iconName: "person.2", color: .RedDark, backgroundColor: "BlueLight", textContent: "Das ist der Titel", amount: 1)
+        SingleTagView(iconName: "person.2", color: .RedDark, backgroundColor: "BlueLight", textContent: "D", amount: 1, detailText: "platzhalter")
             .previewLayout(.sizeThatFits)
     }
 }

@@ -7,9 +7,11 @@
 
 import SwiftUI
 import WrappingHStack
+import Foundation
 
 struct RezeptDetailView: View {
     var sampleTags: [String] = ["5 Portionen", "schnell", "veggi", "pasta", "lecker", "liebling", "5", "Anderer Tag Name"]
+    var rezeptDetails: Rezept
     var body: some View {
         NavigationView{
             ZStack {
@@ -22,8 +24,8 @@ struct RezeptDetailView: View {
                         .foregroundColor(Color("Gray"))
                         .padding([.leading, .top, .trailing])
                     WrappingHStack{
-                        WrappingHStack(sampleTags, id: \.self){tag in
-                            SingleTagView(iconName: "person.2", color: .BlueDark, backgroundColor: "PureWhite", textContent: tag, amount: 1)
+                        WrappingHStack(rezeptDetails.tags, id: \.self){tag in
+                            SingleTagView(iconName: tag.IconOutline, color: rezeptDetails.colorTheme, backgroundColor: "PureWhite", textContent: tag.rawValue, amount: 1, detailText: "")
                         }
 
                     }
@@ -33,7 +35,9 @@ struct RezeptDetailView: View {
                             .edgesIgnoringSafeArea(.all)
                         ScrollView{
                             VStack{
-                                ListItemElement(titleText: "Nudeln", titleImage: "pasta", color: .YellowLight, tags: [.Schnell], backgroundColor: "BlueLight", portion: 0)
+                                ForEach(rezeptDetails.ingredients, id: \.id ){ ingredient in
+                                    ListItemElement(titleText: "\(ingredient.title)", titleImage: "pasta", color: rezeptDetails.colorTheme, tags: [ingredient.tag], backgroundColor: "BlueLight", portion: 0, detailText: "\(ingredient.amount)")
+                                }
                                 Spacer()
                             }
                             .padding([.leading, .top, .trailing])
@@ -45,7 +49,7 @@ struct RezeptDetailView: View {
                     Spacer()
                 }
             }
-            .navigationTitle("Rezept")
+            .navigationTitle(rezeptDetails.title)
             .toolbar{
                 ToolbarItem(placement: .cancellationAction) {
                     Button(action: {
@@ -68,6 +72,6 @@ struct RezeptDetailView: View {
 
 struct RezeptDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        RezeptDetailView()
+        RezeptDetailView(rezeptDetails: Rezepte.dummyRezepte[1])
     }
 }

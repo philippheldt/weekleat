@@ -14,14 +14,16 @@ struct ListItemElement: View {
         var tags: [TagIcon]
         var backgroundColor: String
         var portion: Int
+    var detailText: String
         
-    init(titleText: String, titleImage: String, color: ColorTheme, tags: [TagIcon], backgroundColor: String, portion: Int){
+    init(titleText: String, titleImage: String, color: ColorTheme, tags: [TagIcon], backgroundColor: String, portion: Int, detailText: String){
             self.titleText = titleText
             self.titleImage = titleImage
             self.color = color
             self.tags = tags
             self.backgroundColor = backgroundColor
             self.portion = portion
+        self.detailText = detailText
         }
     var body: some View {
         HStack{
@@ -43,10 +45,10 @@ struct ListItemElement: View {
                         .foregroundColor(.accentColor)
                     HStack{
                         if portion > 0 {
-                            SingleTagView(iconName: "person.2", color: color, backgroundColor: backgroundColor == "PureWhite" ? "BlueLight" : "PureWhite", textContent: String(portion), amount: 1)
+                            SingleTagView(iconName: "person.2", color: color, backgroundColor: backgroundColor == "PureWhite" ? "BlueLight" : "PureWhite", textContent: String(portion), amount: 1, detailText: detailText)
                         }
                         ForEach(tags, id: \.self){tag in
-                            SingleTagView(iconName: tag.IconOutline, color: color, backgroundColor: backgroundColor == "PureWhite" ? "BlueLight" : "PureWhite", textContent: tag.rawValue, amount: tags.count)
+                            SingleTagView(iconName: tag.IconOutline, color: color, backgroundColor: backgroundColor == "PureWhite" ? "BlueLight" : "PureWhite", textContent: tag.rawValue, amount: tags.count, detailText: detailText)
                         }
                       
                         
@@ -74,7 +76,7 @@ struct ListItemElement: View {
 
 struct ListItemElement_Previews: PreviewProvider {
     static var previews: some View {
-        ListItemElement(titleText: "Rezpettitel", titleImage: "pizza", color: .RedLight, tags: [.Veggi, .Schnell], backgroundColor: "BlueLight", portion: 5)
+        ListItemElement(titleText: "Rezpettitel", titleImage: "pizza", color: .RedLight, tags: [.Veggi, .Schnell], backgroundColor: "BlueLight", portion: 5, detailText: "Test")
             .previewLayout(.fixed(width: 400, height: 90))
     }
 }
