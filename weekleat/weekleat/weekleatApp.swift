@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 @main
 struct weekleatApp: App {
     @State private var rezepte = Rezepte.dummyRezepte
@@ -15,7 +16,7 @@ struct weekleatApp: App {
     }
     var body: some Scene {
         WindowGroup {
-            WeekPlanner(rezepte: $rezepte)
+            BottomBarNavigation()
         }
     }
 }

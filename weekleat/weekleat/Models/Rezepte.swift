@@ -31,7 +31,7 @@ struct Rezept: Identifiable {
 struct Rezepte {
     static let dummyRezepte = [
         Rezept(title: "Pizza", portion: 5, tags: [.Schnell], colorTheme: .RedLight, foodType: "pizza", ingredients: [Ingredients.init(title: "Mehl", amount: "500g", tag: .Schnell), Ingredients.init(title: "Eier", amount: "500g", tag: .Schnell)]),
-        Rezept(title: "Käsespätzle", portion: 2, tags: [.Schnell, .Veggi], colorTheme: .YellowLight, foodType: "pasta", ingredients: [Ingredients.init(title: "Mehl", amount: "500g", tag: .Veggi), Ingredients.init(title: "Eier", amount: "500g", tag: .Weight)]),
+        Rezept(title: "Käsespätzle", portion: 2, tags: [.Schnell, .Vegan], colorTheme: .YellowLight, foodType: "pasta", ingredients: [Ingredients.init(title: "Mehl", amount: "500g", tag: .Veggi), Ingredients.init(title: "Eier", amount: "500g", tag: .Weight)]),
         Rezept(title: "Zucchini Pasta", portion: 5, tags: [.Veggi], colorTheme: .BlueMedium, foodType: "zucchini", ingredients: [Ingredients.init(title: "Mehl", amount: "500g", tag: .Schnell), Ingredients.init(title: "Eier", amount: "500g", tag: .Schnell)]),
         Rezept(title: "Enchiladas", portion: 5, tags: [.Lang], colorTheme: .RedDark, foodType: "enchilada", ingredients: [Ingredients.init(title: "Mehl", amount: "500g", tag: .Schnell), Ingredients.init(title: "Eier", amount: "500g", tag: .Schnell)]),
         Rezept(title: "Pfannkuchen", portion: 4, tags: [.Schnell, .Veggi], colorTheme: .YellowMedium, foodType: "pancake", ingredients: [Ingredients.init(title: "Mehl", amount: "500g", tag: .Schnell), Ingredients.init(title: "Eier", amount: "500g", tag: .Schnell)]),

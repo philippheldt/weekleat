@@ -18,6 +18,7 @@
 		C2945665282BAB3200931872 /* Migra.otf in Resources */ = {isa = PBXBuildFile; fileRef = C2945664282BAB3200931872 /* Migra.otf */; };
 		C2945668282BB2F400931872 /* RecipieTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2945667282BB2F400931872 /* RecipieTagView.swift */; };
 		C294566B282BB7E300931872 /* WeekPlanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C294566A282BB7E300931872 /* WeekPlanner.swift */; };
+		C2AB072328646D1D00276B92 /* BottomBarNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AB072228646D1D00276B92 /* BottomBarNavigation.swift */; };
 		C2B49DEA2848DC54002F695B /* SingleTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B49DE92848DC54002F695B /* SingleTagView.swift */; };
 		C2B49DEC2849F2F0002F695B /* ListItemElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B49DEB2849F2F0002F695B /* ListItemElement.swift */; };
 		C2DA7FC9283E339B009B8FE0 /* TagIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DA7FC8283E339B009B8FE0 /* TagIcons.swift */; };
@@ -37,6 +38,7 @@
 		C2945666282BAD0300931872 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		C2945667282BB2F400931872 /* RecipieTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipieTagView.swift; sourceTree = "<group>"; };
 		C294566A282BB7E300931872 /* WeekPlanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekPlanner.swift; sourceTree = "<group>"; };
+		C2AB072228646D1D00276B92 /* BottomBarNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBarNavigation.swift; sourceTree = "<group>"; };
 		C2B49DE92848DC54002F695B /* SingleTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleTagView.swift; sourceTree = "<group>"; };
 		C2B49DEB2849F2F0002F695B /* ListItemElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemElement.swift; sourceTree = "<group>"; };
 		C2DA7FC8283E339B009B8FE0 /* TagIcons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagIcons.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				C2B49DEB2849F2F0002F695B /* ListItemElement.swift */,
 				C2B49DE92848DC54002F695B /* SingleTagView.swift */,
 				C294566A282BB7E300931872 /* WeekPlanner.swift */,
+				C2AB072228646D1D00276B92 /* BottomBarNavigation.swift */,
 				C270FC66283EB65300A47274 /* RezeptDetailView.swift */,
 				C28F381B282CFC9D0074079B /* Models */,
 				C2945667282BB2F400931872 /* RecipieTagView.swift */,
@@ -212,6 +215,7 @@
 				C2945651282B977700931872 /* weekleatApp.swift in Sources */,
 				C2EA28D2286316FA00E6F54A /* Ingredients.swift in Sources */,
 				C2945668282BB2F400931872 /* RecipieTagView.swift in Sources */,
+				C2AB072328646D1D00276B92 /* BottomBarNavigation.swift in Sources */,
 				C2B49DEC2849F2F0002F695B /* ListItemElement.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
