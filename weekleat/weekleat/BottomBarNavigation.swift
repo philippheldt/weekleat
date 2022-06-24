@@ -10,13 +10,17 @@ import SwiftUI
 struct BottomBarNavigation: View {
     @State var selectedIndex = 0
     @State private var rezepte = Rezepte.dummyRezepte
+    
+    @Environment(\.managedObjectContext) var moc // To be able to write in the Data Model also
+    @FetchRequest(sortDescriptors: []) var recipies: FetchedResults<Recipie> //Fetching (just reading Data from the Data Model)
+    
     let icons = ["book.closed","note.text","cart","gearshape"]
     let iconsFilled = ["book.closed.fill","square.fill","cart.fill","gearshape.fill"]
     var body: some View {
         VStack{
             ZStack{
                 switch selectedIndex {
-                case 0: Text("Rezeptsammlung")
+                case 0: RezeptSammlung()
                 case 1: WeekPlanner(rezepte: $rezepte)
                 case 2: Text("Einkaufsliste")
                 case 3: Text("Einstellungen")
@@ -34,34 +38,49 @@ struct BottomBarNavigation: View {
                         Button(action: {
                             self.selectedIndex = i
                         }, label: {
-                            Image(systemName: selectedIndex == i ? iconsFilled[i] : "")
+                            Image(systemName: iconsFilled[i])
                                 .font(.system(size: 30,
                                               weight: .regular,
                                               design: .default))
                                 .foregroundColor(Color("BlueMedium"))
+                                .opacity(selectedIndex == i ? 1 : 0)
                         })
                         
-                        Button(action: {
-                            self.selectedIndex = i
-                        }, label: {
-                            Image(systemName: icons[i])
-                                .font(.system(size: 30,
-                                              weight: .regular,
-                                              design: .default))
-                        })
+                        if i == 1 {
+                            Button(action: {
+                                self.selectedIndex = i
+                            }, label: {
+                                Image(systemName: icons[i])
+                                    .font(.system(size: 30,
+                                                  weight: .regular,
+                                                  design: .default))
+                                    .symbolRenderingMode(.palette)
+                                    .foregroundStyle(Color("PureWhite"), Color("BlueDark") )
+                            })
+                        } else {
+                            Button(action: {
+                                self.selectedIndex = i
+                            }, label: {
+                                Image(systemName: icons[i])
+                                    .font(.system(size: 30,
+                                                  weight: .regular,
+                                                  design: .default))
+                            })
+                        }
+                        
                         
                     }
-                   
+                    
                     Spacer()
                 }
                 
-
+                
             }
             .padding()
-
+            
             
         }
-     
+        
     }
 }
 
