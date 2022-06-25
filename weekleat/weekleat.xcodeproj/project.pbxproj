@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C259308B286641E600AD529D /* DataProto.swift in Sources */ = {isa = PBXBuildFile; fileRef = C259308A286641E600AD529D /* DataProto.swift */; };
-		C259308E2866427A00AD529D /* Weekleat.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C259308C2866427A00AD529D /* Weekleat.xcdatamodeld */; };
+		C259308E2866427A00AD529D /* Recipies.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C259308C2866427A00AD529D /* Recipies.xcdatamodeld */; };
 		C2593090286642D200AD529D /* Datacontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C259308F286642D200AD529D /* Datacontroller.swift */; };
 		C259309228664C3600AD529D /* AddRecipieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C259309128664C3600AD529D /* AddRecipieView.swift */; };
 		C259309528664F9300AD529D /* RezeptSammlung.swift in Sources */ = {isa = PBXBuildFile; fileRef = C259309428664F9300AD529D /* RezeptSammlung.swift */; };
@@ -71,7 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				C259308A286641E600AD529D /* DataProto.swift */,
-				C259308C2866427A00AD529D /* Weekleat.xcdatamodeld */,
+				C259308C2866427A00AD529D /* Recipies.xcdatamodeld */,
 				C259308F286642D200AD529D /* Datacontroller.swift */,
 			);
 			path = CoreData;
@@ -229,7 +229,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C259308B286641E600AD529D /* DataProto.swift in Sources */,
-				C259308E2866427A00AD529D /* Weekleat.xcdatamodeld in Sources */,
+				C259308E2866427A00AD529D /* Recipies.xcdatamodeld in Sources */,
 				C294565F282B988A00931872 /* ListItem.swift in Sources */,
 				C270FC67283EB65300A47274 /* RezeptDetailView.swift in Sources */,
 				C259309228664C3600AD529D /* AddRecipieView.swift in Sources */,
@@ -468,13 +468,13 @@
 /* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
-		C259308C2866427A00AD529D /* Weekleat.xcdatamodeld */ = {
+		C259308C2866427A00AD529D /* Recipies.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				C259308D2866427A00AD529D /* Recipies.xcdatamodel */,
 			);
 			currentVersion = C259308D2866427A00AD529D /* Recipies.xcdatamodel */;
-			path = Weekleat.xcdatamodeld;
+			path = Recipies.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
