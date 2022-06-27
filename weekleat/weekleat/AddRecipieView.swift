@@ -13,7 +13,7 @@ struct AddRecipieView: View {
     
     @State private var title = ""
     @State private var portion = 5
-   let step = 1
+    let step = 1
     let range = 1...50
     @State private var foodType = ""
     @State private var ingredients: [String] = []
@@ -43,16 +43,14 @@ struct AddRecipieView: View {
                                 let first = String($0.prefix(1)).capitalized
                                 let other = String($0.dropFirst())
                                 let all = first + other
-                               
+                                
                                 HStack {
-                                    Image("pasta")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: 1, height: 1)
+                                    //   Image("pasta")
+                                    //     .scaledToFit()
                                     Text(all)
-                                  
+                                    
                                 }
-                                   
+                                
                             }
                         }
                         .pickerStyle(MenuPickerStyle())
@@ -83,14 +81,15 @@ struct AddRecipieView: View {
                         newRecipie.title = title
                         newRecipie.portion = Int16(portion)
                         newRecipie.foodType = foodType
+                        
+                        
+                        
                         for ingredient in ingredients {
-                            if ingredientString != "" {
-                                ingredientString = "\(ingredientString),\(ingredient)"
-                            } else {
-                                ingredientString = ingredient
-                            }
+                            let newIngredient = Ingredient(context: moc)
+                            newIngredient.title = ingredient
+                            newRecipie.addToIngredients(newIngredient)
                         }
-                        print(ingredientString)
+                        
                         if foodType == "enchilada" || foodType == "pizza" {
                             newRecipie.colorTheme = 4
                         } else if foodType == "pasta" || foodType == "pancake" {

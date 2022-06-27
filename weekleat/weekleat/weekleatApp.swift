@@ -20,7 +20,7 @@ struct weekleatApp: App {
     var body: some Scene {
         WindowGroup {
             BottomBarNavigation()
-                .environment(\.managedObjectContext, dataController.container.viewContext) //Adding Data to Memory (Nit writing it on the Disk yet)
+                .environment(\.managedObjectContext, dataController.container.viewContext) //Adding Data to Memory (Not writing it on the Disk yet)
         }
     }
 }

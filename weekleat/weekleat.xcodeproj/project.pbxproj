@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		C259308B286641E600AD529D /* DataProto.swift in Sources */ = {isa = PBXBuildFile; fileRef = C259308A286641E600AD529D /* DataProto.swift */; };
-		C259308E2866427A00AD529D /* Recipies.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C259308C2866427A00AD529D /* Recipies.xcdatamodeld */; };
 		C2593090286642D200AD529D /* Datacontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C259308F286642D200AD529D /* Datacontroller.swift */; };
 		C259309228664C3600AD529D /* AddRecipieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C259309128664C3600AD529D /* AddRecipieView.swift */; };
 		C259309528664F9300AD529D /* RezeptSammlung.swift in Sources */ = {isa = PBXBuildFile; fileRef = C259309428664F9300AD529D /* RezeptSammlung.swift */; };
@@ -24,6 +23,11 @@
 		C2945668282BB2F400931872 /* RecipieTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2945667282BB2F400931872 /* RecipieTagView.swift */; };
 		C294566B282BB7E300931872 /* WeekPlanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C294566A282BB7E300931872 /* WeekPlanner.swift */; };
 		C2AB072328646D1D00276B92 /* BottomBarNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AB072228646D1D00276B92 /* BottomBarNavigation.swift */; };
+		C2AE2A5E28698BAD00CB0DA6 /* Weekleat.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C2AE2A5C28698BAD00CB0DA6 /* Weekleat.xcdatamodeld */; };
+		C2AE2A6B2869951100CB0DA6 /* Ingredient+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AE2A672869951100CB0DA6 /* Ingredient+CoreDataClass.swift */; };
+		C2AE2A6C2869951100CB0DA6 /* Ingredient+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AE2A682869951100CB0DA6 /* Ingredient+CoreDataProperties.swift */; };
+		C2AE2A6D2869951100CB0DA6 /* Recipie+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AE2A692869951100CB0DA6 /* Recipie+CoreDataClass.swift */; };
+		C2AE2A6E2869951100CB0DA6 /* Recipie+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AE2A6A2869951100CB0DA6 /* Recipie+CoreDataProperties.swift */; };
 		C2B49DEA2848DC54002F695B /* SingleTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B49DE92848DC54002F695B /* SingleTagView.swift */; };
 		C2B49DEC2849F2F0002F695B /* ListItemElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B49DEB2849F2F0002F695B /* ListItemElement.swift */; };
 		C2DA7FC9283E339B009B8FE0 /* TagIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DA7FC8283E339B009B8FE0 /* TagIcons.swift */; };
@@ -32,7 +36,6 @@
 
 /* Begin PBXFileReference section */
 		C259308A286641E600AD529D /* DataProto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProto.swift; sourceTree = "<group>"; };
-		C259308D2866427A00AD529D /* Recipies.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Recipies.xcdatamodel; sourceTree = "<group>"; };
 		C259308F286642D200AD529D /* Datacontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Datacontroller.swift; sourceTree = "<group>"; };
 		C259309128664C3600AD529D /* AddRecipieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecipieView.swift; sourceTree = "<group>"; };
 		C259309428664F9300AD529D /* RezeptSammlung.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RezeptSammlung.swift; sourceTree = "<group>"; };
@@ -49,6 +52,11 @@
 		C2945667282BB2F400931872 /* RecipieTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipieTagView.swift; sourceTree = "<group>"; };
 		C294566A282BB7E300931872 /* WeekPlanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekPlanner.swift; sourceTree = "<group>"; };
 		C2AB072228646D1D00276B92 /* BottomBarNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBarNavigation.swift; sourceTree = "<group>"; };
+		C2AE2A5D28698BAD00CB0DA6 /* Weekleat.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Weekleat.xcdatamodel; sourceTree = "<group>"; };
+		C2AE2A672869951100CB0DA6 /* Ingredient+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ingredient+CoreDataClass.swift"; sourceTree = "<group>"; };
+		C2AE2A682869951100CB0DA6 /* Ingredient+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ingredient+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C2AE2A692869951100CB0DA6 /* Recipie+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Recipie+CoreDataClass.swift"; sourceTree = "<group>"; };
+		C2AE2A6A2869951100CB0DA6 /* Recipie+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Recipie+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		C2B49DE92848DC54002F695B /* SingleTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleTagView.swift; sourceTree = "<group>"; };
 		C2B49DEB2849F2F0002F695B /* ListItemElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemElement.swift; sourceTree = "<group>"; };
 		C2DA7FC8283E339B009B8FE0 /* TagIcons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagIcons.swift; sourceTree = "<group>"; };
@@ -70,8 +78,12 @@
 		C2593089286641C900AD529D /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				C2AE2A672869951100CB0DA6 /* Ingredient+CoreDataClass.swift */,
+				C2AE2A682869951100CB0DA6 /* Ingredient+CoreDataProperties.swift */,
+				C2AE2A692869951100CB0DA6 /* Recipie+CoreDataClass.swift */,
+				C2AE2A6A2869951100CB0DA6 /* Recipie+CoreDataProperties.swift */,
+				C2AE2A5C28698BAD00CB0DA6 /* Weekleat.xcdatamodeld */,
 				C259308A286641E600AD529D /* DataProto.swift */,
-				C259308C2866427A00AD529D /* Recipies.xcdatamodeld */,
 				C259308F286642D200AD529D /* Datacontroller.swift */,
 			);
 			path = CoreData;
@@ -229,17 +241,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				C259308B286641E600AD529D /* DataProto.swift in Sources */,
-				C259308E2866427A00AD529D /* Recipies.xcdatamodeld in Sources */,
 				C294565F282B988A00931872 /* ListItem.swift in Sources */,
+				C2AE2A6E2869951100CB0DA6 /* Recipie+CoreDataProperties.swift in Sources */,
 				C270FC67283EB65300A47274 /* RezeptDetailView.swift in Sources */,
 				C259309228664C3600AD529D /* AddRecipieView.swift in Sources */,
 				C28F381D282CFCBA0074079B /* Rezepte.swift in Sources */,
 				C2DA7FC9283E339B009B8FE0 /* TagIcons.swift in Sources */,
 				C294566B282BB7E300931872 /* WeekPlanner.swift in Sources */,
+				C2AE2A6D2869951100CB0DA6 /* Recipie+CoreDataClass.swift in Sources */,
 				C2593090286642D200AD529D /* Datacontroller.swift in Sources */,
+				C2AE2A5E28698BAD00CB0DA6 /* Weekleat.xcdatamodeld in Sources */,
 				C2B49DEA2848DC54002F695B /* SingleTagView.swift in Sources */,
+				C2AE2A6B2869951100CB0DA6 /* Ingredient+CoreDataClass.swift in Sources */,
 				C28F381F282D1B6F0074079B /* ColorTheme.swift in Sources */,
 				C2945651282B977700931872 /* weekleatApp.swift in Sources */,
+				C2AE2A6C2869951100CB0DA6 /* Ingredient+CoreDataProperties.swift in Sources */,
 				C2EA28D2286316FA00E6F54A /* Ingredients.swift in Sources */,
 				C259309528664F9300AD529D /* RezeptSammlung.swift in Sources */,
 				C2945668282BB2F400931872 /* RecipieTagView.swift in Sources */,
@@ -468,13 +484,13 @@
 /* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
-		C259308C2866427A00AD529D /* Recipies.xcdatamodeld */ = {
+		C2AE2A5C28698BAD00CB0DA6 /* Weekleat.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				C259308D2866427A00AD529D /* Recipies.xcdatamodel */,
+				C2AE2A5D28698BAD00CB0DA6 /* Weekleat.xcdatamodel */,
 			);
-			currentVersion = C259308D2866427A00AD529D /* Recipies.xcdatamodel */;
-			path = Recipies.xcdatamodeld;
+			currentVersion = C2AE2A5D28698BAD00CB0DA6 /* Weekleat.xcdatamodel */;
+			path = Weekleat.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
