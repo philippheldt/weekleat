@@ -21,6 +21,7 @@ struct AddRecipieView: View {
     @State private var amount: Int = 0
     @State private var colorTheme: Int = 0
     @State private var unit: String = ""
+    @State private var tag: String = ""
     
     
     var body: some View {
@@ -52,7 +53,7 @@ struct AddRecipieView: View {
                             
                             HStack {
                                 ForEach(0..<10) { _ in
-                                    SingleTagView(iconName: "leaf", color: foodTypeToColorTheme(foodType: chooseImages(title: title)), backgroundColor: "BlueLight" , textContent: String(portion), amount: 1)
+                                    SingleTagView(iconName: "leaf", color: foodTypeToColorTheme(foodType: chooseImages(title: title)), backgroundColor: "BlueLight" , textContent: "veggi", amount: 1, active: true)
                                 }
                             }
                                

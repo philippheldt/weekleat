@@ -14,8 +14,12 @@ func chooseImages(title: String) -> String {
         switch titleItem.lowercased() {
         case "pasta", "nudeln", "nudel", "spaghetti", "spätzle", "tagliatelle":
             imageName = "pasta"
-        case "gemüse", "karotte", "karotten", "auflauf":
+        case "wraps", "wrap", "döner", "enchilada", "tasche", "taschen", "pita":
+            imageName = "enchilada"
+        case "gemüse", "karotte", "karotten", "auflauf", "zucchini":
             imageName = "zucchini"
+        case "pfannkuchen", "pancake":
+            imageName = "pancake"
         default:
             if imageName == ""{
                 imageName = "pizza"
@@ -36,12 +40,17 @@ func foodTypetoColorInt(foodType: String) -> Int{
     switch foodType.lowercased() {
     case "pasta":
         returnColor = 0
-    case "zucchini":
-        returnColor = 7
+    case "pancake":
+        returnColor = 1
     case "pizza":
         returnColor = 3
+    case "enchilada":
+        returnColor = 5
+    case "zucchini":
+        returnColor = 7
     default:
-        returnColor = 4
+        returnColor = 6
+
     }
     
     return returnColor
@@ -61,4 +70,11 @@ func foodTypeToColorTheme(foodType: String) -> ColorTheme {
   
     
     return colorThemeRead
+}
+
+
+func returnFirstLetter(word: String) -> String {
+    let currentword: String = word.uppercased()
+    let wordArray = Array(currentword)
+    return String(wordArray[0])
 }

@@ -13,13 +13,15 @@ struct SingleTagView: View {
     var backgroundColor: String
     var textContent: String
     var amount: Int
+    var active: Bool
     
-    init(iconName: String, color: ColorTheme, backgroundColor: String, textContent: String, amount: Int){
+    init(iconName: String, color: ColorTheme, backgroundColor: String, textContent: String, amount: Int, active: Bool){
         self.iconName = iconName
         self.color = color
         self.backgroundColor = backgroundColor
         self.textContent = textContent
         self.amount = amount
+        self.active = active
     }
     var body: some View {
         
@@ -27,15 +29,15 @@ struct SingleTagView: View {
             HStack{
                 ZStack{
                     Image(systemName: "\(iconName).fill")
-                        .foregroundColor(Color(color.lightColor))
+                        .foregroundColor(Color(active == true ? color.lightColor : "BlueLight"))
                         .font(.system(size: 13))
                     Image(systemName: iconName)
-                        .foregroundColor(Color(color.darkColor))
+                        .foregroundColor(Color(active == true ? color.darkColor : "PureWhite"))
                         .font(.system(size: 13))
                 }
                 Text(textContent)
                     .font(.system(size: 13))
-                    .foregroundColor(Color(color.darkColor))
+                    .foregroundColor(Color(active == true ? color.darkColor : "PureWhite"))
             }
             .padding(EdgeInsets(top: 2, leading: 5, bottom:2, trailing: 5))
             .background(Color(backgroundColor))
@@ -45,10 +47,10 @@ struct SingleTagView: View {
             HStack{
                 ZStack{
                     Image(systemName: "\(iconName).fill")
-                        .foregroundColor(Color(color.lightColor))
+                        .foregroundColor(Color(active == true ? color.lightColor : "BlueLight"))
                         .font(.system(size: 13))
                     Image(systemName: iconName)
-                        .foregroundColor(Color(color.darkColor))
+                        .foregroundColor(Color(active == true ? color.darkColor : "PureWhite"))
                         .font(.system(size: 13))
                 }
 
@@ -69,7 +71,7 @@ struct SingleTagView: View {
 
 struct SingleTagView_Previews: PreviewProvider {
     static var previews: some View {
-        SingleTagView(iconName: "person.2", color: .RedDark, backgroundColor: "BlueLight", textContent: "D", amount: 1)
+        SingleTagView(iconName: "person.2", color: .RedDark, backgroundColor: "BlueLight", textContent: "D", amount: 1, active: false)
             .previewLayout(.sizeThatFits)
     }
 }

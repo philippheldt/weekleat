@@ -25,7 +25,7 @@ struct RezeptDetailView: View {
                         .padding([.leading, .top, .trailing])
                     WrappingHStack{
                         WrappingHStack(rezeptDetails.tags, id: \.self){tag in
-                            SingleTagView(iconName: tag.IconOutline, color: rezeptDetails.colorTheme, backgroundColor: "PureWhite", textContent: tag.rawValue, amount: 1)
+                            SingleTagView(iconName: tag.IconOutline, color: rezeptDetails.colorTheme, backgroundColor: "PureWhite", textContent: tag.rawValue, amount: 1, active: false)
                         }
 
                     }

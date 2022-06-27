@@ -17,12 +17,14 @@ enum ColorTheme: String, CaseIterable{
     case BlueLight = "BlueLight"
     case BlueMedium = "BlueMedium"
     case BlueDark = "BlueDark"
+    case PureWhite = "PureWhite"
     
     var darkColor: String{
         switch self {
             case .YellowLight, .YellowMedium, .YellowDark: return "YellowDark"
             case .RedLight, .RedMedium, .RedDark: return "RedDark"
             case .BlueLight, .BlueMedium, .BlueDark: return "BlueDark"
+        case .PureWhite: return "PureWhite"
         }
     }
     
@@ -31,6 +33,7 @@ enum ColorTheme: String, CaseIterable{
             case .YellowLight, .YellowMedium, .YellowDark: return "YellowMedium"
             case .RedLight, .RedMedium, .RedDark: return "RedMedium"
             case .BlueLight, .BlueMedium, .BlueDark: return "BlueMedium"
+        case .PureWhite: return "PureWhite"
         }
     }
     
@@ -39,6 +42,7 @@ enum ColorTheme: String, CaseIterable{
             case .YellowLight, .YellowMedium, .YellowDark: return "YellowLight"
             case .RedLight, .RedMedium, .RedDark: return "RedLight"
             case .BlueLight, .BlueMedium, .BlueDark: return "BlueMedium"
+        case .PureWhite: return "BlueLight"
         }
     }
 }

@@ -45,10 +45,10 @@ struct ListItemElement: View {
                         .foregroundColor(.accentColor)
                     HStack{
                         if portion > 0 {
-                            SingleTagView(iconName: "person.2", color: color, backgroundColor: backgroundColor == "PureWhite" ? "BlueLight" : "PureWhite", textContent: String(portion), amount: 1)
+                            SingleTagView(iconName: "person.2", color: color, backgroundColor: backgroundColor == "PureWhite" ? "BlueLight" : "PureWhite", textContent: String(portion), amount: 1, active: true)
                         }
                         ForEach(tags, id: \.self){tag in
-                            SingleTagView(iconName: tag.IconOutline, color: color, backgroundColor: backgroundColor == "PureWhite" ? "BlueLight" : "PureWhite", textContent: tag.rawValue, amount: tags.count)
+                            SingleTagView(iconName: tag.IconOutline, color: color, backgroundColor: backgroundColor == "PureWhite" ? "BlueLight" : "PureWhite", textContent: tag.rawValue, amount: tags.count, active: true)
                         }
                       
                         
