@@ -19,16 +19,27 @@ struct AddRecipieView: View {
     @State private var ingredients: [String] = []
     @State private var ingredientsEntry: String = ""
     @State private var amount: Int = 0
+    @State private var colorTheme: Int = 0
     @State private var unit: String = ""
     
-    
-    let foodTypes = ["enchilada", "pancake", "pasta", "pizza", "zucchini"]
     
     var body: some View {
         NavigationView{
             Form{
                 Section{
-                    TextField("Rezeptname", text: $title)
+                    HStack{
+                        ZStack{
+                            RoundedRectangle(cornerRadius: 10)
+                                .fill(Color(foodTypetoColorString(foodType: chooseImages(title: title))))
+                                .frame(width: 75, height: 75)
+                            Image(chooseImages(title: title))
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 65, height: 65)
+                        }.padding([.top, .bottom, .trailing])
+                        TextField("Rezeptname", text: $title)
+                    }
+
                     Stepper(value: $portion, in: range, step: step) {
                         HStack{
                             Text("Portionen:")
@@ -36,27 +47,20 @@ struct AddRecipieView: View {
                             Text("\(portion)")
                         }
                     }
-                    HStack{
-                        Text("Essensart")
-                        Spacer()
-                        Picker("Essensart", selection: $foodType){
-                            ForEach(foodTypes, id: \.self) {
-                                
-                                let first = String($0.prefix(1)).capitalized
-                                let other = String($0.dropFirst())
-                                let all = first + other
-                                
-                                HStack {
-                                    //   Image("pasta")
-                                    //     .scaledToFit()
-                                    Text(all)
-                                    
+                  
+                        ScrollView(.horizontal) {
+                            
+                            HStack {
+                                ForEach(0..<10) { _ in
+                                    SingleTagView(iconName: "leaf", color: foodTypeToColorTheme(foodType: chooseImages(title: title)), backgroundColor: "BlueLight" , textContent: String(portion), amount: 1)
                                 }
-                                
                             }
+                               
+                            
+                         
                         }
-                        .pickerStyle(MenuPickerStyle())
-                    }
+                     
+               
                     
                 }
                 Section{
@@ -65,7 +69,7 @@ struct AddRecipieView: View {
                         
                     }
                     HStack{
-                        TextField("250g Mehl", text: $ingredientsEntry)
+                        TextField("z.B. 250g Mehl", text: $ingredientsEntry)
                         Button {
                             if ingredientsEntry != ""{
                                 //Creating array from Words in TextFioeld
@@ -81,7 +85,6 @@ struct AddRecipieView: View {
                                             amount = number
                                             checkNum = true
                                         }
-                                        
                                     }
                                     
                                     if checkNum == true {
@@ -106,14 +109,28 @@ struct AddRecipieView: View {
                             Image(systemName: "plus.circle.fill")
                         }
                     }
+                } header: {
+                    Text("Zutaten")
                 }
-                Section{
-                    Button("Hinzufügen") {
+                
+            }
+            .navigationTitle("\(title == "" ? "Rezept erstellen" : title)")
+            .toolbar{
+                ToolbarItem(placement: .cancellationAction) {
+                    Button(action: {
+                        dismiss()
+                    }, label: {
+                        Text("Abbrechen")
+                    })
+                }
+                ToolbarItem(placement: .confirmationAction) {
+                    Button(action: {
                         let newRecipie = Recipie(context: moc)
                         newRecipie.id = UUID()
                         newRecipie.title = title
                         newRecipie.portion = Int16(portion)
-                        newRecipie.foodType = foodType
+                        newRecipie.foodType = chooseImages(title: title)
+                        newRecipie.colorTheme = Int16(foodTypetoColorInt(foodType: chooseImages(title: title)))
                         
                         
                         
@@ -134,11 +151,11 @@ struct AddRecipieView: View {
                         }
                         try? moc.save()
                         dismiss()
-                        
-                    }
+                    }, label: {
+                        Text("Speichern")
+                    })
                 }
             }
-            .navigationTitle("Rezept erstellen")
         }
     }
 }

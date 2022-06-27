@@ -10,7 +10,7 @@ import WrappingHStack
 import Foundation
 
 struct RezeptDetailView: View {
-    var sampleTags: [String] = ["5 Portionen", "schnell", "veggi", "pasta", "lecker", "liebling", "5", "Anderer Tag Name"]
+
     var rezeptDetails: Rezept
     var body: some View {
         NavigationView{
@@ -25,7 +25,7 @@ struct RezeptDetailView: View {
                         .padding([.leading, .top, .trailing])
                     WrappingHStack{
                         WrappingHStack(rezeptDetails.tags, id: \.self){tag in
-                            SingleTagView(iconName: tag.IconOutline, color: rezeptDetails.colorTheme, backgroundColor: "PureWhite", textContent: tag.rawValue, amount: 1, detailText: "")
+                            SingleTagView(iconName: tag.IconOutline, color: rezeptDetails.colorTheme, backgroundColor: "PureWhite", textContent: tag.rawValue, amount: 1)
                         }
 
                     }
@@ -36,7 +36,7 @@ struct RezeptDetailView: View {
                         ScrollView{
                             VStack{
                                 ForEach(rezeptDetails.ingredients, id: \.id ){ ingredient in
-                                    ListItemElement(titleText: "\(ingredient.title)", titleImage: "pasta", color: rezeptDetails.colorTheme, tags: [ingredient.tag], backgroundColor: "BlueLight", portion: 0, detailText: "\(ingredient.amount)")
+                                    ListItemElement(titleText: "\(ingredient.title)", titleImage: "pasta", color: rezeptDetails.colorTheme, tags: [ingredient.tag], backgroundColor: "BlueLight", portion: 0)
                                 }
                                 Spacer()
                             }

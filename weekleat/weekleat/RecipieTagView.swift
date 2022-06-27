@@ -14,13 +14,13 @@ struct RecipieTagView: View {
     var body: some View {
         WrappingHStack{
             
-            SingleTagView(iconName: "person.2", color: .BlueDark, backgroundColor: "BlueLight", textContent: String(rezept.portion), amount: 1, detailText: "")
+            SingleTagView(iconName: "person.2", color: .BlueDark, backgroundColor: "BlueLight", textContent: String(rezept.portion), amount: 1)
             
         
             
             ForEach(tags, id: \.self){tag in
                 
-                SingleTagView(iconName: tag.IconOutline, color: .BlueDark, backgroundColor: "BlueLight", textContent: tag.rawValue, amount: tags.count, detailText: "")
+                SingleTagView(iconName: tag.IconOutline, color: .BlueDark, backgroundColor: "BlueLight", textContent: tag.rawValue, amount: tags.count)
         
             }
             

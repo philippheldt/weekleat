@@ -18,7 +18,7 @@ struct WeekPlanner: View {
                     .edgesIgnoringSafeArea(.all)
                 ScrollView {
                     ForEach($rezepte){ $rezept in
-                        ListItemElement(titleText: rezept.title, titleImage: rezept.foodType, color: rezept.colorTheme, tags: rezept.tags, backgroundColor: "BlueLight", portion: rezept.portion, detailText: "")
+                        ListItemElement(titleText: rezept.title, titleImage: rezept.foodType, color: rezept.colorTheme, tags: rezept.tags, backgroundColor: "BlueLight", portion: rezept.portion)
                             .padding([.leading, .trailing])
                             .onTapGesture {
                                 showSheet.toggle()
