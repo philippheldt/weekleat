@@ -32,6 +32,7 @@
 		C2B49DEA2848DC54002F695B /* SingleTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B49DE92848DC54002F695B /* SingleTagView.swift */; };
 		C2B49DEC2849F2F0002F695B /* ListItemElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B49DEB2849F2F0002F695B /* ListItemElement.swift */; };
 		C2DA7FC9283E339B009B8FE0 /* TagIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DA7FC8283E339B009B8FE0 /* TagIcons.swift */; };
+		C2DB927A286B09F800E6E0B6 /* WochenplanGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DB9279286B09F800E6E0B6 /* WochenplanGenerator.swift */; };
 		C2EA28D2286316FA00E6F54A /* Ingredients.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EA28D1286316FA00E6F54A /* Ingredients.swift */; };
 		C2FBD51D2869DF2C008E9B72 /* RecipieImageLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FBD51C2869DF2C008E9B72 /* RecipieImageLogic.swift */; };
 /* End PBXBuildFile section */
@@ -63,6 +64,7 @@
 		C2B49DE92848DC54002F695B /* SingleTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleTagView.swift; sourceTree = "<group>"; };
 		C2B49DEB2849F2F0002F695B /* ListItemElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemElement.swift; sourceTree = "<group>"; };
 		C2DA7FC8283E339B009B8FE0 /* TagIcons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagIcons.swift; sourceTree = "<group>"; };
+		C2DB9279286B09F800E6E0B6 /* WochenplanGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WochenplanGenerator.swift; sourceTree = "<group>"; };
 		C2EA28D1286316FA00E6F54A /* Ingredients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredients.swift; sourceTree = "<group>"; };
 		C2FBD51C2869DF2C008E9B72 /* RecipieImageLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipieImageLogic.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -173,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				C2FBD51C2869DF2C008E9B72 /* RecipieImageLogic.swift */,
+				C2DB9279286B09F800E6E0B6 /* WochenplanGenerator.swift */,
 			);
 			path = Logic;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 			files = (
 				C259308B286641E600AD529D /* DataProto.swift in Sources */,
 				C294565F282B988A00931872 /* ListItem.swift in Sources */,
+				C2DB927A286B09F800E6E0B6 /* WochenplanGenerator.swift in Sources */,
 				C2AE2A6E2869951100CB0DA6 /* Recipie+CoreDataProperties.swift in Sources */,
 				C270FC67283EB65300A47274 /* RezeptDetailView.swift in Sources */,
 				C259309228664C3600AD529D /* AddRecipieView.swift in Sources */,

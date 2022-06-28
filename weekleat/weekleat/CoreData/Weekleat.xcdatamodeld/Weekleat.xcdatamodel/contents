@@ -11,11 +11,12 @@
         <attribute name="foodType" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="portion" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="tags" optional="YES" attributeType="String"/>
         <attribute name="title" optional="YES" attributeType="String"/>
         <relationship name="ingredients" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Ingredient" inverseName="recipie" inverseEntity="Ingredient"/>
     </entity>
     <elements>
-        <element name="Recipie" positionX="-63" positionY="-18" width="128" height="119"/>
         <element name="Ingredient" positionX="-54" positionY="27" width="128" height="89"/>
+        <element name="Recipie" positionX="-63" positionY="-18" width="128" height="134"/>
     </elements>
 </model>

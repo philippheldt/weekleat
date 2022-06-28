@@ -57,11 +57,7 @@ struct ListItemElement: View {
                 
                 Spacer()
                 
-                Button(action: {
-                }) {
-                    Image(systemName: "ellipsis")
-                        .foregroundColor(.accentColor)
-                } .padding(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5))
+                
                 
             }
             .padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10))

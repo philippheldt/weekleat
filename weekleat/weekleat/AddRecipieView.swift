@@ -154,11 +154,18 @@ struct AddRecipieView: View {
                             newRecipie.addToIngredients(newIngredient)
                         }
                         
+                        var tagString: String = ""
                         for tag in tags {
                             if tag.isActive {
-                                print(tag.name)
+                                if tagString == ""{
+                                    tagString = tag.name
+                                } else {
+                                    tagString = "\(tagString),\(tag.name)"
+                                 
+                                }
                             }
                         }
+                        newRecipie.tags = tagString
                         
                         if foodType == "enchilada" || foodType == "pizza" {
                             newRecipie.colorTheme = 4

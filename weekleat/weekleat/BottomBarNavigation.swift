@@ -21,7 +21,7 @@ struct BottomBarNavigation: View {
             ZStack{
                 switch selectedIndex {
                 case 0: RezeptSammlung()
-                case 1: WeekPlanner(rezepte: $rezepte)
+                case 1: WeekPlanner()
                 case 2: Text("Einkaufsliste")
                 case 3: Text("Einstellungen")
                 default: Text("Rezeptsammlung")

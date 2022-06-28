@@ -21,6 +21,7 @@ extension Recipie {
     @NSManaged public var id: UUID?
     @NSManaged public var portion: Int16
     @NSManaged public var title: String?
+    @NSManaged public var tags: String?
     @NSManaged public var ingredients: NSSet?
     
     public var wrappedColorTheme: Int16 {
@@ -38,6 +39,9 @@ extension Recipie {
     
     public var wrappedTitle: String {
         title ?? "Unbenanntes Rezept"
+    }
+    public var wrappedTags: String {
+        tags ?? "keine Tags"
     }
     
     public var ingredientsArray: [Ingredient] {
