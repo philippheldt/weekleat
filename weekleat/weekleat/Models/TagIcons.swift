@@ -20,10 +20,10 @@ enum TagIcon: String, CaseIterable{
     
     var IconFill: String{
         switch self {
-            case .Veggi: return "leaf.fill"
-            case .Vegan: return "leaf.fill"
-            case .Schnell: return "bolt.fill"
-            case .Lang: return "clock.fill"
+        case .Veggi: return "leaf.fill"
+        case .Vegan: return "leaf.fill"
+        case .Schnell: return "bolt.fill"
+        case .Lang: return "clock.fill"
         case .Weight: return "scalemass.fill"
         case .Fluid: return "drop.degreesign.fill"
         case .Peice: return "circlebadge.2.fill"
@@ -32,14 +32,27 @@ enum TagIcon: String, CaseIterable{
     }
     var IconOutline: String{
         switch self {
-            case .Veggi: return "leaf"
-            case .Vegan: return "leaf"
-            case .Schnell: return "bolt"
-            case .Lang: return "clock"
+        case .Veggi: return "leaf"
+        case .Vegan: return "leaf"
+        case .Schnell: return "bolt"
+        case .Lang: return "clock"
         case .Weight: return "scalemass"
         case .Fluid: return "drop.degreesign"
         case .Peice: return "circlebadge.2"
         case .Spoon: return "testtube.2"
         }
+    }
+}
+
+struct Tag: Identifiable {
+    var id: UUID
+    var name: String
+    var isActive: Bool
+    var index: Int
+    init(id: UUID = UUID(), name: String, isActive: Bool, index: Int){
+        self.id = id
+        self.name = name
+        self.isActive = isActive
+        self.index = index
     }
 }

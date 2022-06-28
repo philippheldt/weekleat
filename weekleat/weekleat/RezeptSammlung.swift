@@ -14,26 +14,29 @@ struct RezeptSammlung: View {
     
     @State private var showingAddScreen = false
     @State public var currentLetter = ""
+    @State private var searchText = ""
+    
     
     var body: some View {
         NavigationView{
-            ScrollView{
-                VStack(alignment: .leading){
-                    ForEach(recipies) { recipie in
+                List(recipies) {recipie in
 
 //                        if currentLetter != returnFirstLetter(word: recipie.wrappedTitle) {
 //                            Text("\(returnFirstLetter(word: recipie.wrappedTitle))")
 //                                .font(.caption)
 //                         currentLetter = returnFirstLetter(word: recipie.wrappedTitle)
 //                        }
-                        
-                        ListItemElement(titleText: recipie.wrappedTitle , titleImage: recipie.wrappedFoodType, color: intToColorTheme(colorInt: Int(recipie.colorTheme)), tags: [.Veggi, .Schnell], backgroundColor: "BlueLight", portion: Int(recipie.portion))
-                            
+                    if searchText == "" {
+                        ListItemElement(titleText: recipie.wrappedTitle , titleImage: recipie.wrappedFoodType, color: intToColorTheme(colorInt: Int(recipie.colorTheme)), tags: [.Veggi, .Schnell], backgroundColor: "PureWhite", portion: Int(recipie.portion))
+                    } else {
+                        if recipie.wrappedTitle.lowercased().contains(searchText.lowercased()) {
+                            ListItemElement(titleText: recipie.wrappedTitle , titleImage: recipie.wrappedFoodType, color: intToColorTheme(colorInt: Int(recipie.colorTheme)), tags: [.Veggi, .Schnell], backgroundColor: "PureWhite", portion: Int(recipie.portion))
+                        }
                     }
+                   
+
                 }
-                .padding(.horizontal)
-                
-            }
+                .searchable(text: $searchText)
                 .navigationTitle("Rezepte")
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {

@@ -22,6 +22,17 @@ struct AddRecipieView: View {
     @State private var colorTheme: Int = 0
     @State private var unit: String = ""
     @State private var tag: String = ""
+    @State private var tags: [Tag] = [
+        Tag(name: "vegetarisch", isActive: false, index: 0),
+        Tag(name: "vegan", isActive: false, index: 1),
+        Tag(name: "Kartoffeln", isActive: false, index: 2),
+        Tag(name: "Nudeln", isActive: false, index: 3),
+        Tag(name: "Reis", isActive: false, index: 4),
+        Tag(name: "Salat", isActive: false, index: 5),
+        Tag(name: "schnell", isActive: false, index: 6),
+        Tag(name: "gebacken", isActive: false, index: 7),
+        Tag(name: "aufwändig", isActive: false, index: 8)
+    ]
     
     
     var body: some View {
@@ -52,13 +63,13 @@ struct AddRecipieView: View {
                         ScrollView(.horizontal) {
                             
                             HStack {
-                                ForEach(0..<10) { _ in
-                                    SingleTagView(iconName: "leaf", color: foodTypeToColorTheme(foodType: chooseImages(title: title)), backgroundColor: "BlueLight" , textContent: "veggi", amount: 1, active: true)
+                                ForEach(tags, id:\.id) { tag in
+                                    SingleTagViewButton(iconName: "leaf", color: foodTypeToColorTheme(foodType: chooseImages(title: title)), backgroundColor: "BlueLight" , textContent: tag.name, amount: 1, active: tag.isActive)
+                                    .onTapGesture {
+                                        tags[tag.index].isActive.toggle()
+                                    }
                                 }
                             }
-                               
-                            
-                         
                         }
                      
                
@@ -73,7 +84,7 @@ struct AddRecipieView: View {
                         TextField("z.B. 250g Mehl", text: $ingredientsEntry)
                         Button {
                             if ingredientsEntry != ""{
-                                //Creating array from Words in TextFioeld
+                                //Creating array from Words in TextField
                                 let ingrArr = ingredientsEntry.components(separatedBy: " ")
                                 
                              
@@ -141,6 +152,12 @@ struct AddRecipieView: View {
                             newIngredient.amount = Int16(amount)
                             newIngredient.unit = unit
                             newRecipie.addToIngredients(newIngredient)
+                        }
+                        
+                        for tag in tags {
+                            if tag.isActive {
+                                print(tag.name)
+                            }
                         }
                         
                         if foodType == "enchilada" || foodType == "pizza" {

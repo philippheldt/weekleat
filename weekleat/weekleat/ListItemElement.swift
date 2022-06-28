@@ -65,7 +65,7 @@ struct ListItemElement: View {
                 
             }
             .padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10))
-            .background(Color(backgroundColor))
+          //  .background(Color(backgroundColor))
         }
         .cornerRadius(10)
        

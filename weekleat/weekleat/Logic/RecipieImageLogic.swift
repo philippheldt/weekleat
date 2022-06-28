@@ -29,6 +29,27 @@ func chooseImages(title: String) -> String {
     return imageName
 }
 
+func chooseTags(title: String) -> Int {
+    let titlesArray: [String] = title.components(separatedBy: " ")
+    var tagArray: Int = 10
+    for titleItem in titlesArray {
+        switch titleItem.lowercased() {
+        case "pasta", "nudeln", "nudel", "spaghetti", "spätzle", "tagliatelle":
+            tagArray = 3
+        case "reis", "reispfanne":
+            tagArray = 4
+        case "kartoffel", "kartoffeln", "kartoffelgratin", "bratkartoffeln", "brägele", "kartoffelpuffer", "pommes", "kartoffelbrei", "kartoffelpüree":
+            tagArray = 2
+        case "salat":
+            tagArray = 5
+        default:
+                tagArray = 10
+
+        }
+    }
+    return tagArray
+}
+
 let colors: [ColorTheme] = [.YellowLight, .YellowMedium, .YellowDark, .RedLight, .RedMedium, .RedDark, .BlueLight, .BlueMedium, .BlueDark ]
 
 func intToColorTheme(colorInt: Int) -> ColorTheme {
@@ -78,3 +99,5 @@ func returnFirstLetter(word: String) -> String {
     let wordArray = Array(currentword)
     return String(wordArray[0])
 }
+
+
