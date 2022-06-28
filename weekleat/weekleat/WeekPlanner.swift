@@ -27,11 +27,28 @@ struct WeekPlanner: View {
                             Section(header: Text("Montag")){
                                 ListItemElement(titleText: generatedRecipies[0].wrappedTitle , titleImage: generatedRecipies[0].wrappedFoodType, color: intToColorTheme(colorInt: Int(generatedRecipies[0].colorTheme)), tags: [.Veggi, .Schnell], backgroundColor: "PureWhite", portion: Int(generatedRecipies[0].portion))
                             }
+                          
+                            .swipeActions{
+                                Button{
+                                    print("New Item")
+                                } label: {
+                                    Label("", systemImage: "arrow.triangle.2.circlepath")
+                                }
+                                .tint(Color("BlueMedium"))
+                            }
                         }
                         
                         if generatedRecipies != []{
                             Section(header: Text("Dienstag")){
                                 ListItemElement(titleText: generatedRecipies[1].wrappedTitle , titleImage: generatedRecipies[1].wrappedFoodType, color: intToColorTheme(colorInt: Int(generatedRecipies[1].colorTheme)), tags: [.Veggi, .Schnell], backgroundColor: "PureWhite", portion: Int(generatedRecipies[1].portion))
+                            }
+                            .swipeActions{
+                                Button{
+                                    print("New Item")
+                                } label: {
+                                    Label("", systemImage: "arrow.triangle.2.circlepath")
+                                }
+                                .tint(Color("BlueMedium"))
                             }
                         }
                         
@@ -39,11 +56,27 @@ struct WeekPlanner: View {
                             Section(header: Text("Mittwoch")){
                                 ListItemElement(titleText: generatedRecipies[2].wrappedTitle , titleImage: generatedRecipies[2].wrappedFoodType, color: intToColorTheme(colorInt: Int(generatedRecipies[2].colorTheme)), tags: [.Veggi, .Schnell], backgroundColor: "PureWhite", portion: Int(generatedRecipies[2].portion))
                             }
+                            .swipeActions{
+                                Button{
+                                    print("New Item")
+                                } label: {
+                                    Label("", systemImage: "arrow.triangle.2.circlepath")
+                                }
+                                .tint(Color("BlueMedium"))
+                            }
                         }
                         
                         if generatedRecipies != []{
                             Section(header: Text("Donnerstag")){
                                 ListItemElement(titleText: generatedRecipies[3].wrappedTitle , titleImage: generatedRecipies[3].wrappedFoodType, color: intToColorTheme(colorInt: Int(generatedRecipies[3].colorTheme)), tags: [.Veggi, .Schnell], backgroundColor: "PureWhite", portion: Int(generatedRecipies[3].portion))
+                            }
+                            .swipeActions{
+                                Button{
+                                    print("New Item")
+                                } label: {
+                                    Label("", systemImage: "arrow.triangle.2.circlepath")
+                                }
+                                .tint(Color("BlueMedium"))
                             }
                         }
                         
@@ -51,16 +84,40 @@ struct WeekPlanner: View {
                             Section(header: Text("Freitag")){
                                 ListItemElement(titleText: generatedRecipies[4].wrappedTitle , titleImage: generatedRecipies[4].wrappedFoodType, color: intToColorTheme(colorInt: Int(generatedRecipies[4].colorTheme)), tags: [.Veggi, .Schnell], backgroundColor: "PureWhite", portion: Int(generatedRecipies[4].portion))
                             }
+                            .swipeActions{
+                                Button{
+                                    print("New Item")
+                                } label: {
+                                    Label("", systemImage: "arrow.triangle.2.circlepath")
+                                }
+                                .tint(Color("BlueMedium"))
+                            }
                         }
                         
                         if generatedRecipies != []{
                             Section(header: Text("Samstag")){
                                 ListItemElement(titleText: generatedRecipies[5].wrappedTitle , titleImage: generatedRecipies[5].wrappedFoodType, color: intToColorTheme(colorInt: Int(generatedRecipies[5].colorTheme)), tags: [.Veggi, .Schnell], backgroundColor: "PureWhite", portion: Int(generatedRecipies[5].portion))
                             }
+                            .swipeActions{
+                                Button{
+                                    print("New Item")
+                                } label: {
+                                    Label("", systemImage: "arrow.triangle.2.circlepath")
+                                }
+                                .tint(Color("BlueMedium"))
+                            }
                         }
                         if generatedRecipies != []{
                             Section(header: Text("Sonntag")){
                                 ListItemElement(titleText: generatedRecipies[6].wrappedTitle , titleImage: generatedRecipies[6].wrappedFoodType, color: intToColorTheme(colorInt: Int(generatedRecipies[6].colorTheme)), tags: [.Veggi, .Schnell], backgroundColor: "PureWhite", portion: Int(generatedRecipies[6].portion))
+                            }
+                            .swipeActions{
+                                Button{
+                                    print("New Item")
+                                } label: {
+                                    Label("", systemImage: "arrow.triangle.2.circlepath")
+                                }
+                                .tint(Color("BlueMedium"))
                             }
                         }
                     }

@@ -28,6 +28,28 @@ struct RezeptSammlung: View {
 //                        }
                     if searchText == "" {
                         ListItemElement(titleText: recipie.wrappedTitle , titleImage: recipie.wrappedFoodType, color: intToColorTheme(colorInt: Int(recipie.colorTheme)), tags: [.Veggi, .Schnell], backgroundColor: "PureWhite", portion: Int(recipie.portion))
+                            .onTapGesture{
+                                showingAddScreen.toggle()
+                                
+                            }
+                            .swipeActions{
+                                Button{
+                                    moc.delete(recipie)
+                                    try? moc.save()
+                                } label: {
+                                    Label("", systemImage: "trash")
+                                }
+                                .tint(Color("RedLight"))
+                            }
+                            .swipeActions(edge: .leading){
+                                Button{
+                                    print("Star")
+                                } label: {
+                                    Label("", systemImage: "star")
+                                }
+                                .tint(Color("YellowLight"))
+                            }
+                       
                     } else {
                         if recipie.wrappedTitle.lowercased().contains(searchText.lowercased()) {
                             ListItemElement(titleText: recipie.wrappedTitle , titleImage: recipie.wrappedFoodType, color: intToColorTheme(colorInt: Int(recipie.colorTheme)), tags: [.Veggi, .Schnell], backgroundColor: "PureWhite", portion: Int(recipie.portion))
@@ -52,6 +74,8 @@ struct RezeptSammlung: View {
                 }
         }
     }
+    
+
 }
 
 struct RezeptSammlung_Previews: PreviewProvider {
