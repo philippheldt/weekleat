@@ -64,7 +64,7 @@ struct AddRecipieView: View {
                             
                             HStack {
                                 ForEach(tags, id:\.id) { tag in
-                                    SingleTagViewButton(iconName: "leaf", color: foodTypeToColorTheme(foodType: chooseImages(title: title)), backgroundColor: "BlueLight" , textContent: tag.name, amount: 1, active: tag.isActive)
+                                    SingleTagViewButton(iconName: tagConverter(tagString: tag.name)[0].IconOutline, color: foodTypeToColorTheme(foodType: chooseImages(title: title)), backgroundColor: "BlueLight" , textContent: tag.name, amount: 1, active: tag.isActive)
                                     .onTapGesture {
                                         tags[tag.index].isActive.toggle()
                                     }

@@ -23,7 +23,7 @@ struct BottomBarNavigation: View {
                 case 0: RezeptSammlung()
                 case 1: WeekPlanner()
                 case 2: Text("Einkaufsliste")
-                case 3: Text("Einstellungen")
+                case 3: SettingsView()
                 default: Text("Rezeptsammlung")
                 }
             }

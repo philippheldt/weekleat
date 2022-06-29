@@ -27,7 +27,7 @@ struct RezeptSammlung: View {
 //                         currentLetter = returnFirstLetter(word: recipie.wrappedTitle)
 //                        }
                     if searchText == "" {
-                        ListItemElement(titleText: recipie.wrappedTitle , titleImage: recipie.wrappedFoodType, color: intToColorTheme(colorInt: Int(recipie.colorTheme)), tags: [.Veggi, .Schnell], backgroundColor: "PureWhite", portion: Int(recipie.portion))
+                        ListItemElement(titleText: recipie.wrappedTitle , titleImage: recipie.wrappedFoodType, color: intToColorTheme(colorInt: Int(recipie.colorTheme)), tags: tagConverter(tagString: recipie.wrappedTags), backgroundColor: "PureWhite", portion: Int(recipie.portion))
                             .onTapGesture{
                                 showingAddScreen.toggle()
                                 

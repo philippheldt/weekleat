@@ -15,6 +15,7 @@ enum TagIcon: String, CaseIterable{
     case Weight = "w"
     case Fluid = "f"
     case Peice = "p"
+    case Potatoe = "Kartoffel"
     case Spoon = "s"
     
     
@@ -25,8 +26,9 @@ enum TagIcon: String, CaseIterable{
         case .Schnell: return "bolt.fill"
         case .Lang: return "clock.fill"
         case .Weight: return "scalemass.fill"
-        case .Fluid: return "drop.degreesign.fill"
+        case .Fluid: return "clock"
         case .Peice: return "circlebadge.2.fill"
+        case .Potatoe: return "circlebadge.2.fill"
         case .Spoon: return "testtube.2"
         }
     }
@@ -37,8 +39,9 @@ enum TagIcon: String, CaseIterable{
         case .Schnell: return "bolt"
         case .Lang: return "clock"
         case .Weight: return "scalemass"
-        case .Fluid: return "drop.degreesign"
+        case .Fluid: return "clock"
         case .Peice: return "circlebadge.2"
+        case .Potatoe: return "circlebadge.2"
         case .Spoon: return "testtube.2"
         }
     }
