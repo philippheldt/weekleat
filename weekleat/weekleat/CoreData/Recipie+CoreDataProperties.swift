@@ -22,7 +22,9 @@ extension Recipie {
     @NSManaged public var portion: Int16
     @NSManaged public var title: String?
     @NSManaged public var tags: String?
+    @NSManaged public var picked: Int16
     @NSManaged public var ingredients: NSSet?
+
     
     public var wrappedColorTheme: Int16 {
         colorTheme

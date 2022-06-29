@@ -9,7 +9,7 @@ import SwiftUI
 
 struct WeekPlanner: View {
     @Environment(\.managedObjectContext) var moc
-    @FetchRequest(sortDescriptors: [SortDescriptor(\.title)]) var recipies: FetchedResults<Recipie>
+    @FetchRequest(sortDescriptors: [SortDescriptor(\.picked)]) var recipies: FetchedResults<Recipie>
     
     
     @State var showSheet: Bool = false
@@ -31,6 +31,7 @@ struct WeekPlanner: View {
     @AppStorage("samstag")  private var samstag: Bool = true
     @AppStorage("sonntag")  private var sonntag: Bool = true
     @State private var days: [String] = []
+    @State var numberofSelectedDays: Int = 0
     
     @AppStorage("vegetarisch") private var vegetarisch: Bool = false
     @AppStorage("vegan") private var vegan: Bool = false
@@ -40,109 +41,29 @@ struct WeekPlanner: View {
         NavigationView{
             
             VStack{
-                List{
-                  
-                    if generatedRecipies.count >= 1{
-                            Section(header: Text(days[0])){
-                                ListItemElement(titleText: generatedRecipies[0].wrappedTitle , titleImage: generatedRecipies[0].wrappedFoodType, color: intToColorTheme(colorInt: Int(generatedRecipies[0].colorTheme)), tags: tagConverter(tagString: generatedRecipies[0].wrappedTags), backgroundColor: "PureWhite", portion: Int(generatedRecipies[0].portion))
+                List(recipies, id:\.self){ recipie in
+ 
+                    if Int(recipie.picked)  > 0 && Int(recipie.picked) <= numberofSelectedDays{
+                        Section(header: Text(days[Int(recipie.picked)-1])){
+                                ListItemElement(titleText: recipie.wrappedTitle , titleImage: recipie.wrappedFoodType, color: intToColorTheme(colorInt: Int(recipie.colorTheme)), tags: tagConverter(tagString: recipie.wrappedTags), backgroundColor: "PureWhite", portion: Int(recipie.portion))
                             }
-                          
                             .swipeActions{
                                 Button{
-                                    generateRecipies(positionQuery: true, position: 0)
+                                    generateRecipies(positionQuery: true, position: Int(recipie.picked)-1)
                                 } label: {
                                     Label("", systemImage: "arrow.triangle.2.circlepath")
                                 }
                                 .tint(Color("BlueMedium"))
                             }
                         }
-                        
-                        if generatedRecipies.count >= 2{
-                            Section(header: Text(days[1])){
-                                ListItemElement(titleText: generatedRecipies[1].wrappedTitle , titleImage: generatedRecipies[1].wrappedFoodType, color: intToColorTheme(colorInt: Int(generatedRecipies[1].colorTheme)), tags: tagConverter(tagString: generatedRecipies[1].wrappedTags), backgroundColor: "PureWhite", portion: Int(generatedRecipies[1].portion))
-                            }
-                            .swipeActions{
-                                Button{
-                                    generateRecipies(positionQuery: true, position: 1)
-                                } label: {
-                                    Label("", systemImage: "arrow.triangle.2.circlepath")
-                                }
-                                .tint(Color("BlueMedium"))
-                            }
-                        }
-                        
-                        if generatedRecipies.count >= 3{
-                            Section(header: Text(days[2])){
-                                ListItemElement(titleText: generatedRecipies[2].wrappedTitle , titleImage: generatedRecipies[2].wrappedFoodType, color: intToColorTheme(colorInt: Int(generatedRecipies[2].colorTheme)), tags: tagConverter(tagString: generatedRecipies[2].wrappedTags), backgroundColor: "PureWhite", portion: Int(generatedRecipies[2].portion))
-                            }
-                            .swipeActions{
-                                Button{
-                                    generateRecipies(positionQuery: true, position: 2)
-                                } label: {
-                                    Label("", systemImage: "arrow.triangle.2.circlepath")
-                                }
-                                .tint(Color("BlueMedium"))
-                            }
-                        }
-                        
-                        if generatedRecipies.count >= 4{
-                            Section(header: Text(days[3])){
-                                ListItemElement(titleText: generatedRecipies[3].wrappedTitle , titleImage: generatedRecipies[3].wrappedFoodType, color: intToColorTheme(colorInt: Int(generatedRecipies[3].colorTheme)), tags: tagConverter(tagString: generatedRecipies[3].wrappedTags), backgroundColor: "PureWhite", portion: Int(generatedRecipies[3].portion))
-                            }
-                            .swipeActions{
-                                Button{
-                                    generateRecipies(positionQuery: true, position: 3)
-                                } label: {
-                                    Label("", systemImage: "arrow.triangle.2.circlepath")
-                                }
-                                .tint(Color("BlueMedium"))
-                            }
-                        }
-                        
-                        if generatedRecipies.count >= 5{
-                            Section(header: Text(days[4])){
-                                ListItemElement(titleText: generatedRecipies[4].wrappedTitle , titleImage: generatedRecipies[4].wrappedFoodType, color: intToColorTheme(colorInt: Int(generatedRecipies[4].colorTheme)), tags: tagConverter(tagString: generatedRecipies[4].wrappedTags), backgroundColor: "PureWhite", portion: Int(generatedRecipies[4].portion))
-                            }
-                            .swipeActions{
-                                Button{
-                                    generateRecipies(positionQuery: true, position: 4)
-                                } label: {
-                                    Label("", systemImage: "arrow.triangle.2.circlepath")
-                                }
-                                .tint(Color("BlueMedium"))
-                            }
-                        }
-                        
-                        if generatedRecipies.count >= 6{
-                            Section(header: Text(days[5])){
-                                ListItemElement(titleText: generatedRecipies[5].wrappedTitle , titleImage: generatedRecipies[5].wrappedFoodType, color: intToColorTheme(colorInt: Int(generatedRecipies[5].colorTheme)), tags: tagConverter(tagString: generatedRecipies[5].wrappedTags), backgroundColor: "PureWhite", portion: Int(generatedRecipies[5].portion))
-                            }
-                            .swipeActions{
-                                Button{
-                                    generateRecipies(positionQuery: true, position: 5)
-                                } label: {
-                                    Label("", systemImage: "arrow.triangle.2.circlepath")
-                                }
-                                .tint(Color("BlueMedium"))
-                            }
-                        }
-                        if generatedRecipies.count >= 7{
-                            Section(header: Text(days[6])){
-                                ListItemElement(titleText: generatedRecipies[6].wrappedTitle , titleImage: generatedRecipies[6].wrappedFoodType, color: intToColorTheme(colorInt: Int(generatedRecipies[6].colorTheme)), tags: tagConverter(tagString: generatedRecipies[6].wrappedTags), backgroundColor: "PureWhite", portion: Int(generatedRecipies[6].portion))
-                            }
-                            .swipeActions{
-                                Button{
-                                    generateRecipies(positionQuery: true, position: 6)
-                                } label: {
-                                    Label("", systemImage: "arrow.triangle.2.circlepath")
-                                }
-                                .tint(Color("BlueMedium"))
-                            }
-                        
-                    }
-                   
                 }
                 .listStyle(.plain)
+            }
+            .onAppear {
+                days = daysArray(montag: montag, dienstag: dienstag, mittwoch: mittwoch, donnerstag: donnerstag, freitag: freitag, samstag: samstag, sonntag: sonntag)
+                numberofSelectedDays = days.count
+              
+                
             }
             .navigationTitle("Wochenplan")
             .toolbar {
@@ -165,9 +86,14 @@ struct WeekPlanner: View {
         }
     }
     func generateRecipies(positionQuery: Bool, position: Int) {
+        
+        for recipie in recipies {
+            recipie.picked = 0
+        }
+        
         var tempGeneratedRecipies: [Recipie] = []
         
-        days = daysArray(montag: montag, dienstag: dienstag, mittwoch: mittwoch, donnerstag: donnerstag, freitag: freitag, samstag: samstag, sonntag: sonntag)
+
         
         var pastas: [Recipie] = []
         var pastasveg: [Recipie] = []
@@ -396,7 +322,17 @@ struct WeekPlanner: View {
         } else {
             generatedRecipies = tempGeneratedRecipies
             generatedRecipies = generatedRecipies.shuffled()
+            
+            for (index, generatedRecipie) in generatedRecipies.enumerated() {
+                generatedRecipie.picked = Int16(index+1)
+                try? moc.save()
+            }
+            for generatedRecipie in generatedRecipies {
+                print(generatedRecipie.picked)
+            }
         }
+        
+        print("-------\(generatedRecipies.count)-------")
         
         
         

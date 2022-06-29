@@ -68,6 +68,19 @@ struct RezeptSammlung: View {
                             Label("", systemImage: "plus")
                         }
                     }
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Button {
+                            for i in recipies{
+                                if i.picked > 0{
+                                    print("\(i.wrappedTitle): \(i.picked)")
+                                }
+                                }
+                                
+                           
+                        } label: {
+                            Label("", systemImage: "arrow.triangle.2.circlepath")
+                        }
+                    }
                 }
                 .sheet(isPresented: $showingAddScreen) {
                     AddRecipieView()
