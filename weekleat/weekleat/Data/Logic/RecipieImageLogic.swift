@@ -8,11 +8,18 @@
 import Foundation
 
 func chooseImages(title: String) -> String {
-    let titlesArray: [String] = title.components(separatedBy: " ")
+    var titlesArray: [String] = title.components(separatedBy: " ")
+    
+    if titlesArray[0] == ""{
+        titlesArray.remove(at: 0)
+    }
+    
+    print("vorher\(titlesArray)")
     var imageName = ""
     for titleItem in titlesArray {
         let titleLowercase = titleItem.lowercased()
         if imageName.count < 2{
+            print("nachher\(titlesArray)")
         if titleLowercase.contains("pasta") || titleLowercase.contains("nudel") || titleLowercase.contains("spaghetti") || titleLowercase.contains("spaghetti") || titleLowercase.contains("spätzle") || titleLowercase.contains("tagliatelle") || titleLowercase.contains("lasagne") {
             imageName = "pasta"
         } else if titleLowercase.contains("wraps") || titleLowercase.contains("wrap") || titleLowercase.contains("döner") || titleLowercase.contains("enchilada") || titleLowercase.contains("tasche") || titleLowercase.contains("pita") {
@@ -53,7 +60,7 @@ func chooseImages(title: String) -> String {
         }
         }
     if imageName == "" {
-        switch titlesArray[0].prefix(1){
+        switch titlesArray[0].prefix(1).uppercased(){
         case "A": imageName = "a"
         case "B": imageName = "b"
         case "C": imageName = "c"

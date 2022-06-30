@@ -22,10 +22,11 @@ struct ShoppinglistView: View {
                 Section(header: Text("Offen")){
                     ForEach(shoppingItems, id:\.self) {shoppingItem in
                         if !shoppingItem.bought{
-                            ListItemElement(titleText: shoppingItem.title ?? "", titleImage: "pasta", color: .YellowLight, tags: [.Fluid], backgroundColor: "PureWhite", portion: 0)
+                            ShoppingListItem(titleText: shoppingItem.title ?? "", titleImage: chooseImages(title: (shoppingItem.title ?? "drei")), color: .YellowLight, amount: Int(shoppingItem.amount), unit: shoppingItem.unit ?? "", bought: shoppingItem.bought)
                                 .onTapGesture {
                                     shoppingItem.bought = true
                                     try? moc.save()
+                                    print(shoppingItem.title ?? "")
                                 }
                                 .swipeActions(edge: .leading){
                                     Button{
@@ -44,10 +45,12 @@ struct ShoppinglistView: View {
                 Section(header: Text("Gekauft")){
                     ForEach(shoppingItems, id:\.self) {shoppingItem in
                         if shoppingItem.bought{
-                            ListItemElement(titleText: shoppingItem.title ?? "", titleImage: "pasta", color: .YellowLight, tags: [.Fluid], backgroundColor: "PureWhite", portion: 0)
+                            ShoppingListItem(titleText: shoppingItem.title ?? "", titleImage: chooseImages(title: shoppingItem.title ?? ""), color: .YellowLight, amount: Int(shoppingItem.amount), unit: shoppingItem.unit ?? "", bought: shoppingItem.bought)
+        
                                 .onTapGesture {
                                     shoppingItem.bought = false
                                     try? moc.save()
+                                    print(shoppingItem.title ?? "")
                                 }
                                 .swipeActions(edge: .leading){
                                     Button{
@@ -55,14 +58,16 @@ struct ShoppinglistView: View {
                                         try? moc.save()
 
                                     } label: {
-                                        Label("", systemImage: "checkmark")
+                                        Label("", systemImage: "arrow.uturn.left")
                                     }
-                                    .tint(Color("YellowLight"))
+                                    .tint(.gray)
+                                    .saturation(0)
                                 }
                         }
                     }
                 }
             }
+            .listStyle(.sidebar)
             .navigationTitle("Einkaufsliste")
         }
         
