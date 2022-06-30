@@ -14,31 +14,62 @@ struct ShoppinglistView: View {
     
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(sortDescriptors: [SortDescriptor(\.title)]) var recipies: FetchedResults<Recipie>
-    @FetchRequest(sortDescriptors: [SortDescriptor(\.title)]) var ingredients: FetchedResults<BuyIngr>
+    @FetchRequest(sortDescriptors: [SortDescriptor(\.title)]) var shoppingItems: FetchedResults<BuyIngr>
     
     var body: some View {
-        VStack{
-            ForEach(ingredients, id:\.self){ ingredient in
-                Text(ingredient.title ?? "")
-            }
-            
-            Button{
-                for ingredient in ingredients {
-                    moc.delete(ingredient)
+        NavigationView{
+            List{
+                Section(header: Text("Offen")){
+                    ForEach(shoppingItems, id:\.self) {shoppingItem in
+                        if !shoppingItem.bought{
+                            ListItemElement(titleText: shoppingItem.title ?? "", titleImage: "pasta", color: .YellowLight, tags: [.Fluid], backgroundColor: "PureWhite", portion: 0)
+                                .onTapGesture {
+                                    shoppingItem.bought = true
+                                    try? moc.save()
+                                }
+                                .swipeActions(edge: .leading){
+                                    Button{
+                                        shoppingItem.bought = true
+                                        try? moc.save()
+
+                                    } label: {
+                                        Label("", systemImage: "checkmark")
+                                    }
+                                    .tint(Color("YellowLight"))
+                                }
+                        }
+                    
+                    }
                 }
-                let newShoppingItem = BuyIngr(context: moc)
-                newShoppingItem.amount = 200
-                newShoppingItem.unit = "g"
-                newShoppingItem.title = "Mehl"
-                newShoppingItem.bought = false
-                try? moc.save()
-            } label:{
-                Text("add new Items")
+                Section(header: Text("Gekauft")){
+                    ForEach(shoppingItems, id:\.self) {shoppingItem in
+                        if shoppingItem.bought{
+                            ListItemElement(titleText: shoppingItem.title ?? "", titleImage: "pasta", color: .YellowLight, tags: [.Fluid], backgroundColor: "PureWhite", portion: 0)
+                                .onTapGesture {
+                                    shoppingItem.bought = false
+                                    try? moc.save()
+                                }
+                                .swipeActions(edge: .leading){
+                                    Button{
+                                        shoppingItem.bought = false
+                                        try? moc.save()
+
+                                    } label: {
+                                        Label("", systemImage: "checkmark")
+                                    }
+                                    .tint(Color("YellowLight"))
+                                }
+                        }
+                    }
+                }
             }
+            .navigationTitle("Einkaufsliste")
         }
-       
+        
     }
 }
+
+
 
 struct ShoppinglistView_Previews: PreviewProvider {
     static var previews: some View {

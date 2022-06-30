@@ -10,6 +10,7 @@ import SwiftUI
 struct WeekPlanner: View {
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(sortDescriptors: [SortDescriptor(\.picked)]) var recipies: FetchedResults<Recipie>
+    @FetchRequest(sortDescriptors: [SortDescriptor(\.title)]) var shoppingItems: FetchedResults<BuyIngr>
     
     
     @State var showSheet: Bool = false
@@ -348,7 +349,7 @@ struct WeekPlanner: View {
 
         
    
-        print("--------")
+     
         if positionQuery {
             var filteredGeneratedRecipies: [Recipie] = []
             for tempGeneratedRecipe in tempGeneratedRecipies {
@@ -362,27 +363,40 @@ struct WeekPlanner: View {
             generatedRecipies[position-1].picked = Int16(position)
 //            generatedRecipies[0].picked = Int16(position)
             try? moc.save()
-        
-            for recipe in recipies {
-                if recipe.picked > 0{
-             
-                }
-                }
-                
-
         } else {
             generatedRecipies = tempGeneratedRecipies
             generatedRecipies = generatedRecipies.shuffled()
+            
+            for shoppingItem in shoppingItems {
+                moc.delete(shoppingItem)
+                try? moc.save()
+            }
+
             
             for (index, generatedRecipie) in generatedRecipies.enumerated() {
               
                 if index < days.count {
                     generatedRecipie.picked = Int16(index+1)
-                    print("\(generatedRecipie.wrappedTitle) \(generatedRecipie.wrappedTags)")
+                    
+                    
+                    
+                    for ingredient in generatedRecipie.ingredientsArray{
+
+                        let newShoppingItem = BuyIngr(context: moc)
+                        newShoppingItem.amount = ingredient.amount
+                        newShoppingItem.bought = false
+                        newShoppingItem.unit = ingredient.unit
+                        newShoppingItem.title = ingredient.wrappedTitle
+                        try? moc.save()
+                    }
                     try? moc.save()
                 }
         
            
+            }
+            
+            for shoppingItem in shoppingItems {
+                print(shoppingItem.title ?? "")
             }
         }
         

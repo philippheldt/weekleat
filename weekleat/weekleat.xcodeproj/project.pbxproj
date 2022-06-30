@@ -138,6 +138,7 @@
 		C294564F282B977700931872 /* weekleat */ = {
 			isa = PBXGroup;
 			children = (
+				C2945666282BAD0300931872 /* Info.plist */,
 				C2D3D40D286E2BB500A92956 /* RezeptSammlung */,
 				C2D3D410286E2BFE00A92956 /* WeekPlanner */,
 				C2D3D411286E2C2E00A92956 /* Shoppinglist */,
@@ -147,6 +148,7 @@
 				C2D3D40F286E2BF000A92956 /* Components */,
 				C2D3D413286E2CBD00A92956 /* Data */,
 				C2D3D412286E2C9400A92956 /* Assets */,
+				C2945656282B977900931872 /* Preview Content */,
 			);
 			path = weekleat;
 			sourceTree = "<group>";
@@ -224,7 +226,6 @@
 		C2D3D412286E2C9400A92956 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				C2945656282B977900931872 /* Preview Content */,
 				C2945660282B9AB500931872 /* img */,
 				C2945654282B977900931872 /* Assets.xcassets */,
 				C2945663282BAAD500931872 /* fonts */,
@@ -235,7 +236,6 @@
 		C2D3D413286E2CBD00A92956 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				C2945666282BAD0300931872 /* Info.plist */,
 				C28F381B282CFC9D0074079B /* Models */,
 				C2593089286641C900AD529D /* CoreData */,
 			);
