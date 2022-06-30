@@ -60,7 +60,7 @@
 		C2945657282B977900931872 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C294565E282B988A00931872 /* ListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
 		C2945664282BAB3200931872 /* Migra.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Migra.otf; sourceTree = "<group>"; };
-		C2945666282BAD0300931872 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		C2945666282BAD0300931872 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C2945667282BB2F400931872 /* RecipieTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipieTagView.swift; sourceTree = "<group>"; };
 		C294566A282BB7E300931872 /* WeekPlanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekPlanner.swift; sourceTree = "<group>"; };
 		C2AB072228646D1D00276B92 /* BottomBarNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBarNavigation.swift; sourceTree = "<group>"; };
@@ -110,6 +110,7 @@
 		C28F381B282CFC9D0074079B /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C2FBD51E2869DF35008E9B72 /* Logic */,
 				C28F381C282CFCBA0074079B /* Rezepte.swift */,
 				C28F381E282D1B6F0074079B /* ColorTheme.swift */,
 				C2DA7FC8283E339B009B8FE0 /* TagIcons.swift */,
@@ -137,28 +138,15 @@
 		C294564F282B977700931872 /* weekleat */ = {
 			isa = PBXGroup;
 			children = (
-				C259309428664F9300AD529D /* RezeptSammlung.swift */,
-				C259309128664C3600AD529D /* AddRecipieView.swift */,
-				C2688601286C264E0065D521 /* SettingsView.swift */,
-				C2FBD51E2869DF35008E9B72 /* Logic */,
-				C2945666282BAD0300931872 /* Info.plist */,
+				C2D3D40D286E2BB500A92956 /* RezeptSammlung */,
+				C2D3D410286E2BFE00A92956 /* WeekPlanner */,
+				C2D3D411286E2C2E00A92956 /* Shoppinglist */,
+				C2D3D40E286E2BD300A92956 /* Settings */,
 				C2945650282B977700931872 /* weekleatApp.swift */,
-				C294565E282B988A00931872 /* ListItem.swift */,
-				C2B49DEB2849F2F0002F695B /* ListItemElement.swift */,
-				C2B49DE92848DC54002F695B /* SingleTagView.swift */,
-				C2AE458D286ACF0A00EC383E /* SingleTagViewButton.swift */,
-				C294566A282BB7E300931872 /* WeekPlanner.swift */,
 				C2AB072228646D1D00276B92 /* BottomBarNavigation.swift */,
-				C270FC66283EB65300A47274 /* RezeptDetailView.swift */,
-				C2D3D405286DF4C500A92956 /* EditRecipieView.swift */,
-				C2D3D409286E247D00A92956 /* ShoppinglistView.swift */,
-				C2593089286641C900AD529D /* CoreData */,
-				C28F381B282CFC9D0074079B /* Models */,
-				C2945667282BB2F400931872 /* RecipieTagView.swift */,
-				C2945660282B9AB500931872 /* img */,
-				C2945654282B977900931872 /* Assets.xcassets */,
-				C2945663282BAAD500931872 /* fonts */,
-				C2945656282B977900931872 /* Preview Content */,
+				C2D3D40F286E2BF000A92956 /* Components */,
+				C2D3D413286E2CBD00A92956 /* Data */,
+				C2D3D412286E2C9400A92956 /* Assets */,
 			);
 			path = weekleat;
 			sourceTree = "<group>";
@@ -184,6 +172,74 @@
 				C2945664282BAB3200931872 /* Migra.otf */,
 			);
 			path = fonts;
+			sourceTree = "<group>";
+		};
+		C2D3D40D286E2BB500A92956 /* RezeptSammlung */ = {
+			isa = PBXGroup;
+			children = (
+				C259309428664F9300AD529D /* RezeptSammlung.swift */,
+				C2D3D405286DF4C500A92956 /* EditRecipieView.swift */,
+				C270FC66283EB65300A47274 /* RezeptDetailView.swift */,
+				C259309128664C3600AD529D /* AddRecipieView.swift */,
+			);
+			path = RezeptSammlung;
+			sourceTree = "<group>";
+		};
+		C2D3D40E286E2BD300A92956 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				C2688601286C264E0065D521 /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		C2D3D40F286E2BF000A92956 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				C2945667282BB2F400931872 /* RecipieTagView.swift */,
+				C2B49DEB2849F2F0002F695B /* ListItemElement.swift */,
+				C294565E282B988A00931872 /* ListItem.swift */,
+				C2B49DE92848DC54002F695B /* SingleTagView.swift */,
+				C2AE458D286ACF0A00EC383E /* SingleTagViewButton.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		C2D3D410286E2BFE00A92956 /* WeekPlanner */ = {
+			isa = PBXGroup;
+			children = (
+				C294566A282BB7E300931872 /* WeekPlanner.swift */,
+			);
+			path = WeekPlanner;
+			sourceTree = "<group>";
+		};
+		C2D3D411286E2C2E00A92956 /* Shoppinglist */ = {
+			isa = PBXGroup;
+			children = (
+				C2D3D409286E247D00A92956 /* ShoppinglistView.swift */,
+			);
+			path = Shoppinglist;
+			sourceTree = "<group>";
+		};
+		C2D3D412286E2C9400A92956 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				C2945656282B977900931872 /* Preview Content */,
+				C2945660282B9AB500931872 /* img */,
+				C2945654282B977900931872 /* Assets.xcassets */,
+				C2945663282BAAD500931872 /* fonts */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		C2D3D413286E2CBD00A92956 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				C2945666282BAD0300931872 /* Info.plist */,
+				C28F381B282CFC9D0074079B /* Models */,
+				C2593089286641C900AD529D /* CoreData */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		C2FBD51E2869DF35008E9B72 /* Logic */ = {
