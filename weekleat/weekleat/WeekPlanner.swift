@@ -16,6 +16,7 @@ struct WeekPlanner: View {
     @State var selected: Rezept = Rezepte.dummyRezepte[0]
     
     @State var generatedRecipies: [Recipie] = []
+    @State var selectedRecipie: [Recipie] = []
     
     
     @AppStorage("nudeln") private var nudeln: String = "häufig"
@@ -49,7 +50,11 @@ struct WeekPlanner: View {
                             }
                             .swipeActions{
                                 Button{
-                                    generateRecipies(positionQuery: true, position: Int(recipie.picked)-1)
+                                   
+                                    generateRecipies(positionQuery: true, position: Int(recipie.picked), currentRecipie: recipie)
+                                   
+                                    try? moc.save()
+                                 
                                 } label: {
                                     Label("", systemImage: "arrow.triangle.2.circlepath")
                                 }
@@ -61,6 +66,7 @@ struct WeekPlanner: View {
             }
             .onAppear {
                 days = daysArray(montag: montag, dienstag: dienstag, mittwoch: mittwoch, donnerstag: donnerstag, freitag: freitag, samstag: samstag, sonntag: sonntag)
+              
                 numberofSelectedDays = days.count
               
                 
@@ -69,7 +75,7 @@ struct WeekPlanner: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
-                  generateRecipies(positionQuery: false, position: 0)
+                  generateRecipies(positionQuery: false, position: 0, currentRecipie: recipies[0])
                     } label: {
                         Label("Neu generieren", systemImage: "arrow.triangle.2.circlepath")
                     }
@@ -85,13 +91,26 @@ struct WeekPlanner: View {
             
         }
     }
-    func generateRecipies(positionQuery: Bool, position: Int) {
+    func generateRecipies(positionQuery: Bool, position: Int, currentRecipie: Recipie) {
         
-        for recipie in recipies {
-            recipie.picked = 0
+       
+        
+        if positionQuery == false{
+            for recipie in recipies {
+                recipie.picked = 0
+                try? moc.save()
+            }
+           
+        } else {
+            selectedRecipie = []
+            selectedRecipie.append(currentRecipie)
+            selectedRecipie[0].picked = 0
+            try? moc.save()
         }
-        
+   
         var tempGeneratedRecipies: [Recipie] = []
+       
+        
         
 
         
@@ -229,6 +248,8 @@ struct WeekPlanner: View {
         var vegs: [Recipie] = []
         var meats: [Recipie] = []
         
+ 
+        
         //adding pasta
         for _ in 1...numberOfRecepies(amount: nudeln, days: days.count){
             if let index = pastasveg.indices.randomElement() {
@@ -252,6 +273,19 @@ struct WeekPlanner: View {
             if let index = ricesmeat.indices.randomElement() {
                 meats.append(ricesmeat[index])
                 ricesmeat.remove(at: index)
+            }
+        }
+        
+        //adding potatoes
+        for _ in 1...numberOfRecepies(amount: kartoffeln, days: days.count){
+            if let index = potatoesveg.indices.randomElement() {
+                vegs.append(potatoesveg[index])
+                potatoesveg.remove(at: index)
+            }
+            
+            if let index = potatoesmeat.indices.randomElement() {
+                meats.append(potatoesveg[index])
+                potatoesmeat.remove(at: index)
             }
         }
         
@@ -282,24 +316,27 @@ struct WeekPlanner: View {
         }
       
         
+     
+        
         if !vegetarisch {
-        for _ in 1...(days.count - numberOfRecepies(amount: fleisch, days: days.count)){
+            for _ in 0...(numberOfRecepies(amount: fleisch, days: days.count)){
             if let index = vegs.indices.randomElement() {
                 tempGeneratedRecipies.append(vegs[index])
-                
+            
                 vegs.remove(at: index)
+                
             }
         }
         
-            for _ in 1...(numberOfRecepies(amount: fleisch, days: days.count)){
+            for _ in 0...(numberOfRecepies(amount: fleisch, days: days.count)){
                 if let index = meats.indices.randomElement() {
                     tempGeneratedRecipies.append(meats[index])
-                    
+                
                     meats.remove(at: index)
                 }
             }
         } else {
-            for _ in 1...days.count{
+            for _ in 0...days.count{
                 if let index = vegs.indices.randomElement() {
                     tempGeneratedRecipies.append(vegs[index])
                     
@@ -308,8 +345,10 @@ struct WeekPlanner: View {
             }
         }
         
-       
+
+        
    
+        print("--------")
         if positionQuery {
             var filteredGeneratedRecipies: [Recipie] = []
             for tempGeneratedRecipe in tempGeneratedRecipies {
@@ -317,22 +356,37 @@ struct WeekPlanner: View {
                     filteredGeneratedRecipies.append(tempGeneratedRecipe)
                 } 
             }
-            generatedRecipies[position] = filteredGeneratedRecipies[0]
+            tempGeneratedRecipies = filteredGeneratedRecipies
+            generatedRecipies[position-1].picked = Int16(0)
+            generatedRecipies[position-1] = tempGeneratedRecipies[0]
+            generatedRecipies[position-1].picked = Int16(position)
+//            generatedRecipies[0].picked = Int16(position)
+            try? moc.save()
+        
+            for recipe in recipies {
+                if recipe.picked > 0{
+             
+                }
+                }
+                
 
         } else {
             generatedRecipies = tempGeneratedRecipies
             generatedRecipies = generatedRecipies.shuffled()
             
             for (index, generatedRecipie) in generatedRecipies.enumerated() {
-                generatedRecipie.picked = Int16(index+1)
-                try? moc.save()
-            }
-            for generatedRecipie in generatedRecipies {
-                print(generatedRecipie.picked)
+              
+                if index < days.count {
+                    generatedRecipie.picked = Int16(index+1)
+                    print("\(generatedRecipie.wrappedTitle) \(generatedRecipie.wrappedTags)")
+                    try? moc.save()
+                }
+        
+           
             }
         }
         
-        print("-------\(generatedRecipies.count)-------")
+    
         
         
         
