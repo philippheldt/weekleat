@@ -284,7 +284,7 @@ struct WeekPlanner: View {
             }
             
             if let index = potatoesmeat.indices.randomElement() {
-                meats.append(potatoesveg[index])
+                meats.append(potatoesmeat[index])
                 potatoesmeat.remove(at: index)
             }
         }

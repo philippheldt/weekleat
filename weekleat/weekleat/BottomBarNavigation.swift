@@ -22,7 +22,7 @@ struct BottomBarNavigation: View {
                 switch selectedIndex {
                 case 0: RezeptSammlung()
                 case 1: WeekPlanner()
-                case 2: Text("Einkaufsliste")
+                case 2: ShoppinglistView()
                 case 3: SettingsView()
                 default: Text("Rezeptsammlung")
                 }

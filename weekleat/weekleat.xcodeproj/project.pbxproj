@@ -34,6 +34,9 @@
 		C2AE458E286ACF0A00EC383E /* SingleTagViewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AE458D286ACF0A00EC383E /* SingleTagViewButton.swift */; };
 		C2B49DEA2848DC54002F695B /* SingleTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B49DE92848DC54002F695B /* SingleTagView.swift */; };
 		C2B49DEC2849F2F0002F695B /* ListItemElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B49DEB2849F2F0002F695B /* ListItemElement.swift */; };
+		C2D3D406286DF4C500A92956 /* EditRecipieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D3D405286DF4C500A92956 /* EditRecipieView.swift */; };
+		C2D3D408286E023D00A92956 /* IngredientsLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D3D407286E023D00A92956 /* IngredientsLogic.swift */; };
+		C2D3D40A286E247D00A92956 /* ShoppinglistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D3D409286E247D00A92956 /* ShoppinglistView.swift */; };
 		C2DA7FC9283E339B009B8FE0 /* TagIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DA7FC8283E339B009B8FE0 /* TagIcons.swift */; };
 		C2DB927A286B09F800E6E0B6 /* WochenplanGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DB9279286B09F800E6E0B6 /* WochenplanGenerator.swift */; };
 		C2EA28D2286316FA00E6F54A /* Ingredients.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EA28D1286316FA00E6F54A /* Ingredients.swift */; };
@@ -69,6 +72,9 @@
 		C2AE458D286ACF0A00EC383E /* SingleTagViewButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleTagViewButton.swift; sourceTree = "<group>"; };
 		C2B49DE92848DC54002F695B /* SingleTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleTagView.swift; sourceTree = "<group>"; };
 		C2B49DEB2849F2F0002F695B /* ListItemElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemElement.swift; sourceTree = "<group>"; };
+		C2D3D405286DF4C500A92956 /* EditRecipieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRecipieView.swift; sourceTree = "<group>"; };
+		C2D3D407286E023D00A92956 /* IngredientsLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsLogic.swift; sourceTree = "<group>"; };
+		C2D3D409286E247D00A92956 /* ShoppinglistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppinglistView.swift; sourceTree = "<group>"; };
 		C2DA7FC8283E339B009B8FE0 /* TagIcons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagIcons.swift; sourceTree = "<group>"; };
 		C2DB9279286B09F800E6E0B6 /* WochenplanGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WochenplanGenerator.swift; sourceTree = "<group>"; };
 		C2EA28D1286316FA00E6F54A /* Ingredients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredients.swift; sourceTree = "<group>"; };
@@ -144,6 +150,8 @@
 				C294566A282BB7E300931872 /* WeekPlanner.swift */,
 				C2AB072228646D1D00276B92 /* BottomBarNavigation.swift */,
 				C270FC66283EB65300A47274 /* RezeptDetailView.swift */,
+				C2D3D405286DF4C500A92956 /* EditRecipieView.swift */,
+				C2D3D409286E247D00A92956 /* ShoppinglistView.swift */,
 				C2593089286641C900AD529D /* CoreData */,
 				C28F381B282CFC9D0074079B /* Models */,
 				C2945667282BB2F400931872 /* RecipieTagView.swift */,
@@ -185,6 +193,7 @@
 				C2DB9279286B09F800E6E0B6 /* WochenplanGenerator.swift */,
 				C2688603286C478A0065D521 /* RecipieGeneratorLogic.swift */,
 				C2688605286C573C0065D521 /* TagConverter.swift */,
+				C2D3D407286E023D00A92956 /* IngredientsLogic.swift */,
 			);
 			path = Logic;
 			sourceTree = "<group>";
@@ -272,6 +281,8 @@
 				C2AE2A6E2869951100CB0DA6 /* Recipie+CoreDataProperties.swift in Sources */,
 				C270FC67283EB65300A47274 /* RezeptDetailView.swift in Sources */,
 				C259309228664C3600AD529D /* AddRecipieView.swift in Sources */,
+				C2D3D406286DF4C500A92956 /* EditRecipieView.swift in Sources */,
+				C2D3D408286E023D00A92956 /* IngredientsLogic.swift in Sources */,
 				C28F381D282CFCBA0074079B /* Rezepte.swift in Sources */,
 				C2DA7FC9283E339B009B8FE0 /* TagIcons.swift in Sources */,
 				C294566B282BB7E300931872 /* WeekPlanner.swift in Sources */,
@@ -284,6 +295,7 @@
 				C2AE2A6B2869951100CB0DA6 /* Ingredient+CoreDataClass.swift in Sources */,
 				C2688602286C264E0065D521 /* SettingsView.swift in Sources */,
 				C28F381F282D1B6F0074079B /* ColorTheme.swift in Sources */,
+				C2D3D40A286E247D00A92956 /* ShoppinglistView.swift in Sources */,
 				C2945651282B977700931872 /* weekleatApp.swift in Sources */,
 				C2AE2A6C2869951100CB0DA6 /* Ingredient+CoreDataProperties.swift in Sources */,
 				C2EA28D2286316FA00E6F54A /* Ingredients.swift in Sources */,

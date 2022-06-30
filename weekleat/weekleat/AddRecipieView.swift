@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct AddRecipieView: View {
+    
     @Environment(\.managedObjectContext) var moc
     @Environment(\.dismiss) var dismiss
     
@@ -92,12 +93,18 @@ struct AddRecipieView: View {
                                     //Filtering out the Numbers
                                     let ingrArrNum = item.components(separatedBy: CharacterSet.decimalDigits.inverted)
                                     var checkNum: Bool = false //If an array contains a Number, this will be updated
+                                    var tempAmount = 0
                                     for numItem in ingrArrNum{
-                                        if let number = Int(numItem) {
-                                            amount = number
+                                        if let number = Int(numItem){
+                                            tempAmount = number
                                             checkNum = true
                                         }
                                     }
+                                    if tempAmount > 0 {
+                                        amount = tempAmount
+                                    }
+                               
+                        
                                     
                                     if checkNum == true {
                                         var unitDef: String = ""
@@ -106,9 +113,11 @@ struct AddRecipieView: View {
                                             
                                             if !character.isNumber{ //If its not a number it may be the unit, so its added to Unit
                                                 unitDef = "\(unitDef)\(character)"
+                                               
                                             }
                                             
                                         }
+                                      
                                         unit = unitDef
                                     }
                                     
@@ -148,11 +157,14 @@ struct AddRecipieView: View {
                         
                         for ingredient in ingredients {
                             let newIngredient = Ingredient(context: moc)
-                            newIngredient.title = ingredient
-                            newIngredient.amount = Int16(amount)
-                            newIngredient.unit = unit
+                            newIngredient.title = returnIngredient(ingredientEntry: ingredient) 
+                            newIngredient.amount = Int16(returnAmount(ingredientEntry: ingredient))
+                            newIngredient.unit = returnUnit(ingredientEntry: ingredient)
                             newRecipie.addToIngredients(newIngredient)
+                       
                         }
+                        
+                       
                         
                         var tagString: String = ""
                         for tag in tags {
