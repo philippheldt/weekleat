@@ -10,13 +10,14 @@ import Foundation
 func chooseImages(title: String) -> String {
     var titlesArray: [String] = title.components(separatedBy: " ")
     
-    if titlesArray[0] == ""{
-        titlesArray.remove(at: 0)
-    }
     
     print("vorher\(titlesArray)")
     var imageName = ""
-    for titleItem in titlesArray {
+    for (index, titleItem) in titlesArray.enumerated() {
+        if titleItem == ""{
+            titlesArray.remove(at: index)
+        }
+
         let titleLowercase = titleItem.lowercased()
         if imageName.count < 2{
             print("nachher\(titlesArray)")
@@ -59,7 +60,7 @@ func chooseImages(title: String) -> String {
         }
         }
         }
-    if imageName == "" {
+    if imageName == "" && titlesArray.count > 0 {
         switch titlesArray[0].prefix(1).uppercased(){
         case "A": imageName = "a"
         case "B": imageName = "b"

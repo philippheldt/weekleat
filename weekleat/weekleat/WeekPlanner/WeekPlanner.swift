@@ -377,11 +377,9 @@ struct WeekPlanner: View {
               
                 if index < days.count {
                     generatedRecipie.picked = Int16(index+1)
-                    
-                    
-                    
-                    for ingredient in generatedRecipie.ingredientsArray{
 
+                    for ingredient in generatedRecipie.ingredientsArray{
+                        print("\(ingredient.wrappedTitle)")
                         let newShoppingItem = BuyIngr(context: moc)
                         newShoppingItem.amount = ingredient.amount
                         newShoppingItem.bought = false
@@ -395,9 +393,43 @@ struct WeekPlanner: View {
            
             }
             
-            for shoppingItem in shoppingItems {
-                print(shoppingItem.title ?? "")
+            
+            for (index1, shoppingItem1) in shoppingItems.enumerated() {
+                print("----")
+                for (index2, shoppingItem2) in shoppingItems.enumerated(){
+                    if index1 != index2 {
+                      
+                        if shoppingItem1.title ?? "" == shoppingItem2.title ?? "" && shoppingItem1.unit ?? "" ==
+                            shoppingItem2.unit ?? "" && !shoppingItem1.bought && !shoppingItem2.bought {
+                            print("Index1: \(index1) ")
+                            
+                                print("Index2: \(index2) ")
+                            
+                            print("shoppingItem1: \(shoppingItem1.title ?? "") \(shoppingItem1.amount)\(shoppingItem1.unit ?? "")")
+                            print("shoppingItem2: \(shoppingItem2.title ?? "") \(shoppingItem2.amount)\(shoppingItem2.unit ?? "")")
+                     
+                            shoppingItem1.amount = shoppingItem1.amount + shoppingItem2.amount
+                            shoppingItem2.bought = true
+                            
+                            print("shoppingItem1_2: \(shoppingItem1.title ?? "") \(shoppingItem1.amount)\(shoppingItem1.unit ?? "")")
+                            print("shoppingItem2_2: \(shoppingItem2.title ?? "") \(shoppingItem2.amount)\(shoppingItem2.unit ?? "")")
+                            
+                            try? moc.save()
+                            
+                            print("shoppingItem1_3: \(shoppingItem1.title ?? "") \(shoppingItem1.amount)\(shoppingItem1.unit ?? "")")
+                            print("shoppingItem2_3: \(shoppingItem2.title ?? "") \(shoppingItem2.amount)\(shoppingItem2.unit ?? "")")
+                        }
+                    }
+                }
             }
+            
+            for shoppingItem in shoppingItems{
+                if shoppingItem.bought {
+                    moc.delete(shoppingItem)
+                    try? moc.save()
+                }
+            }
+
         }
         
     
