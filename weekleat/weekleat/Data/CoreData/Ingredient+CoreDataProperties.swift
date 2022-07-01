@@ -16,12 +16,12 @@ extension Ingredient {
         return NSFetchRequest<Ingredient>(entityName: "Ingredient")
     }
 
-    @NSManaged public var amount: Int16
+    @NSManaged public var amount: Float
     @NSManaged public var title: String?
     @NSManaged public var unit: String?
     @NSManaged public var recipie: Recipie?
     
-    public var wrappedAmount: Int16 {
+    public var wrappedAmount: Float {
         amount
     }
     

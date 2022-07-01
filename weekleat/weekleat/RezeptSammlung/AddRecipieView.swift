@@ -158,7 +158,7 @@ struct AddRecipieView: View {
                         for ingredient in ingredients {
                             let newIngredient = Ingredient(context: moc)
                             newIngredient.title = returnIngredient(ingredientEntry: ingredient) 
-                            newIngredient.amount = Int16(returnAmount(ingredientEntry: ingredient))
+                            newIngredient.amount = Float(returnAmount(ingredientEntry: ingredient))
                             newIngredient.unit = returnUnit(ingredientEntry: ingredient)
                             newRecipie.addToIngredients(newIngredient)
                        

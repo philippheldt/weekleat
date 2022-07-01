@@ -7,6 +7,12 @@
 
 import Foundation
 
+extension Float {
+    var clean: String {
+       return self.truncatingRemainder(dividingBy: 1) == 0 ? String(format: "%.0f", self) : String(self)
+    }
+}
+
 func returnUnit(ingredientEntry: String) -> String {
     let ingrArr = ingredientEntry.components(separatedBy: " ")
     var unitDef: String = ""
@@ -15,7 +21,7 @@ func returnUnit(ingredientEntry: String) -> String {
         let ingrArrNum = item.components(separatedBy: CharacterSet.decimalDigits.inverted)
         var checkNum: Bool = false //If an array contains a Number, this will be updated
         for numItem in ingrArrNum{
-            if let number = Int(numItem){
+            if let number = Float(numItem){
                 checkNum = true
             }
         }
@@ -25,7 +31,7 @@ func returnUnit(ingredientEntry: String) -> String {
             let characters = Array(item) //Split up array position in single characters
             for character in characters {
                 
-                if !character.isNumber{ //If its not a number it may be the unit, so its added to Unit
+                if !character.isNumber && character != "."{ //If its not a number it may be the unit, so its added to Unit
                     unitDef = "\(unitDef)\(character)"
                    
                 }
@@ -40,19 +46,26 @@ func returnUnit(ingredientEntry: String) -> String {
 }
 
 
-func returnAmount(ingredientEntry: String) -> Int {
+func returnAmount(ingredientEntry: String) -> Float {
     let ingrArr = ingredientEntry.components(separatedBy: " ")
-    var amount = 1
+    var amountString: String = ""
+    var amount: Float = 1.0
     for item in ingrArr{
         //Filtering out the Numbers
         let ingrArrNum = item.components(separatedBy: CharacterSet.decimalDigits.inverted)
-        for numItem in ingrArrNum{
-            if let number = Int(numItem){
-                amount = number
+        for (index, numItem) in ingrArrNum.enumerated(){
+            if numItem != ""{
+                if index == 0{
+                    amountString = "\(numItem)"
+                } else if index == 1 {
+                    amountString = "\(amountString).\(numItem)"
+                }
             }
+            
         }
         
     }
+    amount = Float(amountString) ?? 1.0
     return amount
 }
 

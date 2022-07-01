@@ -13,14 +13,16 @@ struct EditRecipieView: View {
     
     var rezept: Recipie
     
+  
     @State private var title = ""
     @State private var portion = 5
+    @State private var previousportion = 0
     let step = 1
     let range = 1...50
     @State private var foodType = ""
     @State private var ingredients: [String] = []
     @State private var ingredientsEntry: String = ""
-    @State private var amount: Int = 0
+    @State private var amount: Float = 0
     @State private var colorTheme: Int = 0
     @State private var unit: String = ""
     @State private var tag: String = ""
@@ -113,7 +115,7 @@ struct EditRecipieView: View {
                                 let ingrArrNum = item.components(separatedBy: CharacterSet.decimalDigits.inverted)
                                 var checkNum: Bool = false //If an array contains a Number, this will be updated
                                 for numItem in ingrArrNum{
-                                    if let number = Int(numItem) {
+                                    if let number = Float(numItem) {
                                         amount = number
                                         checkNum = true
                                     }
@@ -169,7 +171,7 @@ struct EditRecipieView: View {
                     for ingredient in ingredients {
                         let newIngredient = Ingredient(context: moc)
                         newIngredient.title = returnIngredient(ingredientEntry: ingredient)
-                        newIngredient.amount = Int16(returnAmount(ingredientEntry: ingredient))
+                        newIngredient.amount = (returnAmount(ingredientEntry: ingredient)/Float(previousportion)*Float(portion))
                         newIngredient.unit = returnUnit(ingredientEntry: ingredient)
                         rezept.addToIngredients(newIngredient)
                    
@@ -195,6 +197,7 @@ struct EditRecipieView: View {
         .onAppear{
             title = rezept.wrappedTitle
             portion = Int(rezept.portion)
+            previousportion = Int(rezept.portion)
             foodType = rezept.wrappedFoodType
             colorTheme = Int(rezept.colorTheme)
             tag = rezept.wrappedTags
@@ -206,8 +209,10 @@ struct EditRecipieView: View {
             }
             
             for ingredient in rezept.ingredientsArray {
-                ingredients.append("\(ingredient.amount)\(ingredient.wrappedUnit)\(ingredient.wrappedTitle)")
+                ingredients.append("\(ingredient.amount.clean)\(ingredient.wrappedUnit)\(ingredient.wrappedTitle)")
             }
+            
+            
        }
     }
         

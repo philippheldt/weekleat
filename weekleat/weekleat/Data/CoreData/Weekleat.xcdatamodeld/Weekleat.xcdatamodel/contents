@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21E230" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="BuyIngr" representedClassName="BuyIngr" syncable="YES" codeGenerationType="class">
-        <attribute name="amount" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="amount" optional="YES" attributeType="Float" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="bought" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="title" optional="YES" attributeType="String"/>
         <attribute name="unit" optional="YES" attributeType="String"/>
     </entity>
     <entity name="Ingredient" representedClassName="Ingredient" syncable="YES">
-        <attribute name="amount" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="amount" optional="YES" attributeType="Float" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="title" optional="YES" attributeType="String"/>
         <attribute name="unit" optional="YES" attributeType="String"/>
         <relationship name="recipie" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Recipie" inverseName="ingredients" inverseEntity="Recipie"/>
@@ -24,8 +24,8 @@
         <relationship name="ingredients" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Ingredient" inverseName="recipie" inverseEntity="Ingredient"/>
     </entity>
     <elements>
+        <element name="BuyIngr" positionX="-54" positionY="54" width="128" height="104"/>
         <element name="Ingredient" positionX="-54" positionY="27" width="128" height="89"/>
         <element name="Recipie" positionX="-63" positionY="-18" width="128" height="149"/>
-        <element name="BuyIngr" positionX="-54" positionY="54" width="128" height="104"/>
     </elements>
 </model>
