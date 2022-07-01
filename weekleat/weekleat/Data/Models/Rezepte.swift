@@ -39,6 +39,17 @@ struct Rezepte {
         Rezept(title: "Pilzsoße", tags: "Nudeln,vegetarisch", ingredients: ["200g Mehl","2 Pilze","200g Käse","200ml Sahne"]),
         Rezept(title: "Spinatsoße", tags: "Nudeln,vegetarisch", ingredients: ["200g Mehl","200g Spinat","200g Käse","200ml Sahne"]),
         Rezept(title: "Serbisches Reisgericht", tags: "Reis", ingredients: ["200g Mehl","200g Spinat","200g Käse","200g Hackfleisch"]),
-        Rezept(title: "Biryani", tags: "Reis", ingredients: ["200g Mehl","200g Spinat","200g Käse","200g Hackfleisch"]),
+        Rezept(title: "Biryani", tags: "Reis", ingredients: ["200g Reis","200g Spinat", "200g Hackfleisch"]),
+        Rezept(title: "Paneer Butter Masala", tags: "Reis,vegetarisch", ingredients: ["200g Reis","200g Spinat","200g Käse","200g Käse"]),
+        Rezept(title: "Moussaka", tags: "Reis", ingredients: ["200g Reis","200g Spinat","200g Käse","200g Hackfleisch"]),
+        Rezept(title: "Thunfischauflauf", tags: "Reis", ingredients: ["200g Reis","200g Fisch","200g Käse","200g Hackfleisch"]),
+        Rezept(title: "Pfannkuchen", tags: "gebacken,vegetarisch", ingredients: ["200g Mehl","2 Eier","200ml Milch"]),
+        Rezept(title: "Pizza Salami", tags: "gebacken", ingredients: ["200g Mehl","2 Eier","200ml Milch","200g Salami"]),
+        Rezept(title: "Pizza Margarita", tags: "gebacken,vegetarisch", ingredients: ["200g Mehl","2 Eier","200ml Milch","200g Käse"]),
+        Rezept(title: "Enchiladas", tags: "gebacken,vegetarisch", ingredients: ["200g Mehl","2 Eier","200ml Milch","200g Käse"]),
+        Rezept(title: "Burger", tags: "gebacken", ingredients: ["5 Burgerbrötchen","2 Eier","200ml Milch","200g Käse", "500g Hackfleisch"]),
+        Rezept(title: "Döner", tags: "gebacken", ingredients: ["200g Dönerfleisch","2 Eier","200ml Milch","200g Käse", "1 Salat"]),
+        Rezept(title: "Schweinefilet", tags: "gebacken,Nudeln", ingredients: ["200g Schweinefleisch","100g Speck","200ml Milch","200g Käse", "1 Salat"]),
+        
     ]
 }
