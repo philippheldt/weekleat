@@ -24,15 +24,18 @@ struct ShoppinglistView: View {
                         if !shoppingItem.bought{
                             ShoppingListItem(titleText: shoppingItem.title ?? "", titleImage: chooseImages(title: (shoppingItem.title ?? "drei")), color: foodTypeToColorTheme(foodType: chooseImages(title: (shoppingItem.title ?? "drei"))), amount: shoppingItem.amount, unit: shoppingItem.unit ?? "", bought: shoppingItem.bought)
                                 .onTapGesture {
-                                    shoppingItem.bought = true
-                                    try? moc.save()
-                                    print(shoppingItem.title ?? "")
+                                    withAnimation{
+                                        shoppingItem.bought = true
+                                        try? moc.save()
+                                    }
+                                    
                                 }
                                 .swipeActions(edge: .leading){
                                     Button{
+                                        withAnimation{
                                         shoppingItem.bought = true
                                         try? moc.save()
-
+                                        }
                                     } label: {
                                         Label("", systemImage: "checkmark")
                                     }
@@ -48,16 +51,19 @@ struct ShoppinglistView: View {
                             ShoppingListItem(titleText: shoppingItem.title ?? "", titleImage: chooseImages(title: shoppingItem.title ?? ""), color: .YellowLight, amount: shoppingItem.amount, unit: shoppingItem.unit ?? "", bought: shoppingItem.bought)
         
                                 .onTapGesture {
-                                    shoppingItem.bought = false
-                                    try? moc.save()
-                                    print(shoppingItem.title ?? "")
+                                    withAnimation{
+                                        shoppingItem.bought = false
+                                        try? moc.save()
+                                    }
+                              
+                               
                                 }
                                 .swipeActions(edge: .leading){
                                     Button{
-                                        shoppingItem.bought = false
-                                        try? moc.save()
-
-                                    } label: {
+                                        withAnimation{
+                                            shoppingItem.bought = false
+                                            try? moc.save()
+                                        }                                    } label: {
                                         Label("", systemImage: "arrow.uturn.left")
                                     }
                                     .tint(.gray)

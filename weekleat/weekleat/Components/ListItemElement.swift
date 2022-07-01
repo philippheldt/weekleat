@@ -57,7 +57,8 @@ struct ListItemElement: View {
                 
                 Spacer()
                 
-                
+                Image(systemName: "chevron.forward")
+                    .foregroundColor(.gray)
                 
             }
             .padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10))

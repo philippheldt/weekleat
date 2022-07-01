@@ -12,9 +12,8 @@ struct WeekPlanner: View {
     @FetchRequest(sortDescriptors: [SortDescriptor(\.picked)]) var recipies: FetchedResults<Recipie>
     @FetchRequest(sortDescriptors: [SortDescriptor(\.title)]) var shoppingItems: FetchedResults<BuyIngr>
     
-    
-    @State var showSheet: Bool = false
-    @State var selected: Rezept = Rezepte.dummyRezepte[0]
+    @State private var passRecipie: Recipie? = nil
+    @State private var showingEditScreen = false
     
     @State var generatedRecipies: [Recipie] = []
     @State var selectedRecipie: [Recipie] = []
@@ -51,10 +50,12 @@ struct WeekPlanner: View {
                             }
                             .swipeActions{
                                 Button{
-                                   
-                                    generateRecipies(positionQuery: true, position: Int(recipie.picked), currentRecipie: recipie)
-                                   
-                                    try? moc.save()
+                                    withAnimation{
+                                        generateRecipies(positionQuery: true, position: Int(recipie.picked), currentRecipie: recipie)
+                                       
+                                        try? moc.save()
+                                    }
+
                                  
                                 } label: {
                                     Label("", systemImage: "arrow.triangle.2.circlepath")
@@ -82,9 +83,9 @@ struct WeekPlanner: View {
                     }
                 }
             }
-            .sheet(isPresented: $showSheet, content: {
-                RezeptDetailView(rezeptDetails: selected)
-            })
+            .sheet(isPresented: $showingEditScreen){
+                EditRecipieView(rezept: passRecipie ?? recipies[0])
+            }
             
             
             
@@ -358,10 +359,11 @@ struct WeekPlanner: View {
                 } 
             }
             tempGeneratedRecipies = filteredGeneratedRecipies
+            print(generatedRecipies[position-1].wrappedTitle)
             generatedRecipies[position-1].picked = Int16(0)
             generatedRecipies[position-1] = tempGeneratedRecipies[0]
-            generatedRecipies[position-1].picked = Int16(position)
-//            generatedRecipies[0].picked = Int16(position)
+           generatedRecipies[position-1].picked = Int16(position)
+
             try? moc.save()
         } else {
             generatedRecipies = tempGeneratedRecipies
@@ -428,9 +430,6 @@ struct WeekPlanner: View {
                     moc.delete(shoppingItem)
                     try? moc.save()
                 }
-//                else {
-//                    shoppingItem.title
-//                }
            }
 
         }

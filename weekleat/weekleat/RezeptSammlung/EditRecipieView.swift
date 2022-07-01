@@ -40,160 +40,171 @@ struct EditRecipieView: View {
     
     
     var body: some View {
-        
-        Form{
-            Section{
-                HStack{
-                    ZStack{
-                        RoundedRectangle(cornerRadius: 10)
-                            .fill(Color(foodTypetoColorString(foodType: chooseImages(title: title))))
-                            .frame(width: 75, height: 75)
-                        Image(chooseImages(title: title))
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 65, height: 65)
-                    }.padding([.top, .bottom, .trailing])
-                    TextField("Rezeptname", text: $title)
-                }
-                
-                Stepper(value: $portion, in: range, step: step) {
+        NavigationView{
+            Form{
+                Section{
                     HStack{
-                        Text("Portionen:")
-                        Spacer()
-                        Text("\(portion)")
+                        ZStack{
+                            RoundedRectangle(cornerRadius: 10)
+                                .fill(Color(foodTypetoColorString(foodType: chooseImages(title: title))))
+                                .frame(width: 75, height: 75)
+                            Image(chooseImages(title: title))
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 65, height: 65)
+                        }.padding([.top, .bottom, .trailing])
+                        TextField("Rezeptname", text: $title)
                     }
-                }
-                
-                ScrollView(.horizontal) {
                     
-                    HStack {
-                        ForEach(tags, id:\.id) { tag in
-                            SingleTagViewButton(iconName: tagConverter(tagString: tag.name)[0].IconOutline, color: foodTypeToColorTheme(foodType: chooseImages(title: title)), backgroundColor: "BlueLight" , textContent: tag.name, amount: 1, active: tag.isActive)
-                                .onTapGesture {
-                                    tags[tag.index].isActive.toggle()
-                                }
+                    Stepper(value: $portion, in: range, step: step) {
+                        HStack{
+                            Text("Portionen:")
+                            Spacer()
+                            Text("\(portion)")
                         }
                     }
-                }
-                
-                
-                
-            }
-            Section{
-                List(ingredients, id:\.self) { ingredient in
-                    Text(ingredient)
-                        .swipeActions{
-                            Button{
-                                for rIngredient in rezept.ingredientsArray {
-                                    if rIngredient.wrappedTitle.contains(returnIngredient(ingredientEntry: ingredient)){
-                                        moc.delete(rIngredient)
-                                        try? moc.save()
-                                    }
-                                }
-                                ingredients = []
-                                for ingredient in rezept.ingredientsArray {
-                                    ingredients.append("\(ingredient.amount)\(ingredient.wrappedUnit)\(ingredient.wrappedTitle)")
-                                }
-                               
-                            } label: {
-                                Label("", systemImage: "trash")
-                            }
-                            .tint(Color("RedLight"))
-                        }
                     
-                }
-                HStack{
-                    TextField("z.B. 250g Mehl", text: $ingredientsEntry)
-                    Button {
-                        if ingredientsEntry != ""{
-                            //Creating array from Words in TextField
-                            let ingrArr = ingredientsEntry.components(separatedBy: " ")
-                            
-                            
-                            for item in ingrArr{
-                                //Filtering out the Numbers
-                                let ingrArrNum = item.components(separatedBy: CharacterSet.decimalDigits.inverted)
-                                var checkNum: Bool = false //If an array contains a Number, this will be updated
-                                for numItem in ingrArrNum{
-                                    if let number = Float(numItem) {
-                                        amount = number
-                                        checkNum = true
-                                    }
-                                }
-                                
-                                if checkNum == true {
-                                    var unitDef: String = ""
-                                    let characters = Array(item) //Split up array position in single characters
-                                    for character in characters {
-                                        
-                                        if !character.isNumber{ //If its not a number it may be the unit, so its added to Unit
-                                            unitDef = "\(unitDef)\(character)"
-                                        }
-                                        
-                                    }
-                                    unit = unitDef
-                                }
-                                
-                            }
-                            
-                            ingredients += ["\(ingredientsEntry)"]
-                            ingredientsEntry = ""
-                        }
-                    } label: {
-                        Image(systemName: "plus.circle.fill")
-                    }
-                }
-            }
-            Section{
-                Button{
-                    rezept.title = title
-                    rezept.portion = Int16(portion)
-                    rezept.foodType = chooseImages(title: title)
-                    rezept.colorTheme = Int16(foodTypetoColorInt(foodType: chooseImages(title: title)))
-                    
-                    
-                    var tagString: String = ""
-                    for tag in tags {
-                        if tag.isActive {
-                            if tagString == ""{
-                                tagString = tag.name
-                            } else {
-                                tagString = "\(tagString),\(tag.name)"
-                             
-                            }
-                        }
-                    }
-                    rezept.tags = tagString
-                    
-                    for rIngredient in rezept.ingredientsArray{
-                        moc.delete(rIngredient)
-                    }
-                    for ingredient in ingredients {
-                        let newIngredient = Ingredient(context: moc)
-                        newIngredient.title = returnIngredient(ingredientEntry: ingredient)
-                        newIngredient.amount = (returnAmount(ingredientEntry: ingredient)/Float(previousportion)*Float(portion))
-                        newIngredient.unit = returnUnit(ingredientEntry: ingredient)
-                        rezept.addToIngredients(newIngredient)
-                   
-                    }
-                    
-                    
-                    
-                    try? moc.save()
-                    dismiss()
-                } label:{
-                    HStack{
-                        Spacer()
-                        Text("Speichern")
-                        Spacer()
-                    }
-                    
+                    ScrollView(.horizontal) {
                         
+                        HStack {
+                            ForEach(tags, id:\.id) { tag in
+                                SingleTagViewButton(iconName: tagConverter(tagString: tag.name)[0].IconOutline, color: foodTypeToColorTheme(foodType: chooseImages(title: title)), backgroundColor: "BlueLight" , textContent: tag.name, amount: 1, active: tag.isActive)
+                                    .onTapGesture {
+                                        tags[tag.index].isActive.toggle()
+                                    }
+                            }
+                        }
+                    }
+                    
+                    
+                    
+                }
+                Section{
+                    List(ingredients, id:\.self) { ingredient in
+                        Text(ingredient)
+                            .swipeActions{
+                                Button{
+                                    withAnimation{
+                                        for rIngredient in rezept.ingredientsArray {
+                                            if rIngredient.wrappedTitle.contains(returnIngredient(ingredientEntry: ingredient)){
+                                                moc.delete(rIngredient)
+                                                try? moc.save()
+                                            }
+                                        }
+                                        ingredients = []
+                                        for ingredient in rezept.ingredientsArray {
+                                            ingredients.append("\(ingredient.amount)\(ingredient.wrappedUnit)\(ingredient.wrappedTitle)")
+                                        }
+                                    }
+                                   
+                                   
+                                } label: {
+                                    Label("", systemImage: "trash")
+                                }
+                                .tint(Color("RedLight"))
+                            }
+                        
+                    }
+                    HStack{
+                        TextField("z.B. 250g Mehl", text: $ingredientsEntry)
+                        Button {
+                            if ingredientsEntry != ""{
+                                //Creating array from Words in TextField
+                                let ingrArr = ingredientsEntry.components(separatedBy: " ")
+                                
+                                
+                                for item in ingrArr{
+                                    //Filtering out the Numbers
+                                    let ingrArrNum = item.components(separatedBy: CharacterSet.decimalDigits.inverted)
+                                    var checkNum: Bool = false //If an array contains a Number, this will be updated
+                                    for numItem in ingrArrNum{
+                                        if let number = Float(numItem) {
+                                            amount = number
+                                            checkNum = true
+                                        }
+                                    }
+                                    
+                                    if checkNum == true {
+                                        var unitDef: String = ""
+                                        let characters = Array(item) //Split up array position in single characters
+                                        for character in characters {
+                                            
+                                            if !character.isNumber{ //If its not a number it may be the unit, so its added to Unit
+                                                unitDef = "\(unitDef)\(character)"
+                                            }
+                                            
+                                        }
+                                        unit = unitDef
+                                    }
+                                    
+                                }
+                                
+                                ingredients += ["\(ingredientsEntry)"]
+                                ingredientsEntry = ""
+                            }
+                        } label: {
+                            Image(systemName: "plus.circle.fill")
+                        }
+                    }
+                }
+
+            }
+            .navigationTitle(title)
+            .toolbar{
+                ToolbarItem(placement: .cancellationAction) {
+                    Button(action: {
+                        dismiss()
+                    }, label: {
+                        Text("Abbrechen")
+                    })
+                }
+                ToolbarItem(placement: .confirmationAction) {
+                    Button(action: {
+                        
+                            rezept.title = title
+                            rezept.portion = Int16(portion)
+                            rezept.foodType = chooseImages(title: title)
+                            rezept.colorTheme = Int16(foodTypetoColorInt(foodType: chooseImages(title: title)))
+                            
+                            
+                            var tagString: String = ""
+                            for tag in tags {
+                                if tag.isActive {
+                                    if tagString == ""{
+                                        tagString = tag.name
+                                    } else {
+                                        tagString = "\(tagString),\(tag.name)"
+                                     
+                                    }
+                                }
+                            }
+                            rezept.tags = tagString
+                            
+                            for rIngredient in rezept.ingredientsArray{
+                                moc.delete(rIngredient)
+                            }
+                            for ingredient in ingredients {
+                                let newIngredient = Ingredient(context: moc)
+                                newIngredient.title = returnIngredient(ingredientEntry: ingredient)
+                                newIngredient.amount = (returnAmount(ingredientEntry: ingredient)/Float(previousportion)*Float(portion))
+                                newIngredient.unit = returnUnit(ingredientEntry: ingredient)
+                                rezept.addToIngredients(newIngredient)
+                           
+                            }
+                            
+                            
+                            
+                            try? moc.save()
+                            dismiss()
+                    }, label: {
+                        Text("Speichern")
+                    })
                 }
             }
-            .foregroundColor(Color("PureWhite"))
-            .listRowBackground(Color(foodTypeToColorTheme(foodType: chooseImages(title: title)).lightColor))
+
+
         }
+       
         .onAppear{
             title = rezept.wrappedTitle
             portion = Int(rezept.portion)
