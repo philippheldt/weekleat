@@ -9,9 +9,6 @@ import Foundation
 
 func chooseImages(title: String) -> String {
     var titlesArray: [String] = title.components(separatedBy: " ")
-    
-    
-    print("vorher\(titlesArray)")
     var imageName = ""
     for (index, titleItem) in titlesArray.enumerated() {
         if titleItem == ""{
@@ -20,7 +17,6 @@ func chooseImages(title: String) -> String {
 
         let titleLowercase = titleItem.lowercased()
         if imageName.count < 2{
-            print("nachher\(titlesArray)")
         if titleLowercase.contains("pasta") || titleLowercase.contains("nudel") || titleLowercase.contains("spaghetti") || titleLowercase.contains("spaghetti") || titleLowercase.contains("spätzle") || titleLowercase.contains("tagliatelle") || titleLowercase.contains("lasagne") {
             imageName = "pasta"
         } else if titleLowercase.contains("wraps") || titleLowercase.contains("wrap") || titleLowercase.contains("döner") || titleLowercase.contains("enchilada") || titleLowercase.contains("tasche") || titleLowercase.contains("pita") {

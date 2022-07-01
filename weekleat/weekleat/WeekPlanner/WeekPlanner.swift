@@ -428,7 +428,10 @@ struct WeekPlanner: View {
                     moc.delete(shoppingItem)
                     try? moc.save()
                 }
-            }
+//                else {
+//                    shoppingItem.title
+//                }
+           }
 
         }
         

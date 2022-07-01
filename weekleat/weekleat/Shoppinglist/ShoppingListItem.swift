@@ -32,7 +32,7 @@ struct ShoppingListItem: View {
                 HStack {
                     ZStack{
                         RoundedRectangle(cornerRadius: 10)
-                            .fill(Color("BlueLight"))
+                            .fill(Color(color.rawValue))
                             .frame(width: 75, height: 75)
                         Image(titleImage)
                             .resizable()
@@ -47,7 +47,8 @@ struct ShoppingListItem: View {
                             .font(Font.custom("Migra", size: 21))
                             .foregroundColor(.accentColor)
                         HStack{
-                                SingleTagView(iconName: "", color: color, backgroundColor: "BlueLight", textContent: "\(amount) \(unit)", amount: 1, active: true)
+//                            SingleTagViewButton(iconName: "", color: color, backgroundColor: color.rawValue, textContent: "\(amount) \(unit)", amount: 1, active: true)
+                            SingleTagViewButton(iconName: "circlebadge.2", color: color, backgroundColor: color.rawValue, textContent: "\(amount) \(unit)", amount: 1, active: true)
                         }
                     }.padding(EdgeInsets(top: 0, leading: 25, bottom: 0, trailing: 0))
                     
@@ -60,7 +61,7 @@ struct ShoppingListItem: View {
               //  .background(Color(backgroundColor))
             }
             .cornerRadius(10)
-            .saturation(0)
+    .saturation(0)
 
         } else {
             HStack{
@@ -81,7 +82,7 @@ struct ShoppingListItem: View {
                             .font(Font.custom("Migra", size: 21))
                             .foregroundColor(.accentColor)
                         HStack{
-                                SingleTagView(iconName: "", color: color, backgroundColor: "BlueLight", textContent: "\(amount) \(unit)", amount: 1, active: true)
+                            SingleTagViewButton(iconName: "circlebadge.2", color: color, backgroundColor: color.rawValue, textContent: "\(amount) \(unit)", amount: 1, active: true)
                         }
                     }.padding(EdgeInsets(top: 0, leading: 25, bottom: 0, trailing: 0))
                     

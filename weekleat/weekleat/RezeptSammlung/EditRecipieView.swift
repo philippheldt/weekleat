@@ -80,6 +80,24 @@ struct EditRecipieView: View {
             Section{
                 List(ingredients, id:\.self) { ingredient in
                     Text(ingredient)
+                        .swipeActions{
+                            Button{
+                                for rIngredient in rezept.ingredientsArray {
+                                    if rIngredient.wrappedTitle.contains(returnIngredient(ingredientEntry: ingredient)){
+                                        moc.delete(rIngredient)
+                                        try? moc.save()
+                                    }
+                                }
+                                ingredients = []
+                                for ingredient in rezept.ingredientsArray {
+                                    ingredients.append("\(ingredient.amount)\(ingredient.wrappedUnit)\(ingredient.wrappedTitle)")
+                                }
+                               
+                            } label: {
+                                Label("", systemImage: "trash")
+                            }
+                            .tint(Color("RedLight"))
+                        }
                     
                 }
                 HStack{
@@ -145,6 +163,18 @@ struct EditRecipieView: View {
                     }
                     rezept.tags = tagString
                     
+                    for rIngredient in rezept.ingredientsArray{
+                        moc.delete(rIngredient)
+                    }
+                    for ingredient in ingredients {
+                        let newIngredient = Ingredient(context: moc)
+                        newIngredient.title = returnIngredient(ingredientEntry: ingredient)
+                        newIngredient.amount = Int16(returnAmount(ingredientEntry: ingredient))
+                        newIngredient.unit = returnUnit(ingredientEntry: ingredient)
+                        rezept.addToIngredients(newIngredient)
+                   
+                    }
+                    
                     
                     
                     try? moc.save()
@@ -176,7 +206,7 @@ struct EditRecipieView: View {
             }
             
             for ingredient in rezept.ingredientsArray {
-                ingredients.append("\(ingredient.amount)\(ingredient.wrappedUnit) \(ingredient.wrappedTitle)")
+                ingredients.append("\(ingredient.amount)\(ingredient.wrappedUnit)\(ingredient.wrappedTitle)")
             }
        }
     }

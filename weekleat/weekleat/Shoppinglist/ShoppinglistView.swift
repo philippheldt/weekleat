@@ -22,7 +22,7 @@ struct ShoppinglistView: View {
                 Section(header: Text("Offen")){
                     ForEach(shoppingItems, id:\.self) {shoppingItem in
                         if !shoppingItem.bought{
-                            ShoppingListItem(titleText: shoppingItem.title ?? "", titleImage: chooseImages(title: (shoppingItem.title ?? "drei")), color: .YellowLight, amount: Int(shoppingItem.amount), unit: shoppingItem.unit ?? "", bought: shoppingItem.bought)
+                            ShoppingListItem(titleText: shoppingItem.title ?? "", titleImage: chooseImages(title: (shoppingItem.title ?? "drei")), color: foodTypeToColorTheme(foodType: chooseImages(title: (shoppingItem.title ?? "drei"))), amount: Int(shoppingItem.amount), unit: shoppingItem.unit ?? "", bought: shoppingItem.bought)
                                 .onTapGesture {
                                     shoppingItem.bought = true
                                     try? moc.save()
