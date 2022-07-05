@@ -48,7 +48,7 @@ struct ShoppingListItem: View {
                             .foregroundColor(.accentColor)
                         HStack{
 //                            SingleTagViewButton(iconName: "", color: color, backgroundColor: color.rawValue, textContent: "\(amount) \(unit)", amount: 1, active: true)
-                            SingleTagViewButton(iconName: "circlebadge.2", color: color, backgroundColor: color.rawValue, textContent: "\((round(amount * 100)/100.0).clean) \(unit)", amount: 1, active: true)
+                            SingleTagView(iconName: "circlebadge.2", color: color, backgroundColor: "BlueLight", textContent: "\((round(amount * 100)/100.0).clean) \(unit)", amount: 1, active: false)
                         }
                     }.padding(EdgeInsets(top: 0, leading: 25, bottom: 0, trailing: 0))
                     
@@ -82,7 +82,7 @@ struct ShoppingListItem: View {
                             .font(Font.custom("Migra", size: 21))
                             .foregroundColor(.accentColor)
                         HStack{
-                            SingleTagViewButton(iconName: "circlebadge.2", color: color, backgroundColor: color.rawValue, textContent: "\((round(amount * 100)/100.0).clean) \(unit)", amount: 1, active: true)
+                            SingleTagView(iconName: "circlebadge.2", color: color, backgroundColor: "BlueLight", textContent: "\((round(amount * 100)/100.0).clean) \(unit)", amount: 1, active: false)
                         }
                     }.padding(EdgeInsets(top: 0, leading: 25, bottom: 0, trailing: 0))
                     

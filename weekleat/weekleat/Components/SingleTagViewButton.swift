@@ -28,11 +28,11 @@ struct SingleTagViewButton: View {
 
             HStack{
                 ZStack{
-                    Image(systemName: "\(iconName).fill")
-                        .foregroundColor(Color(active == true ? "PureWhite" : "PureWhite"))
+                    Image("\(iconName).fill")
+                        .foregroundColor(Color(active == true ? "PureWhite" : "PureWhiteDarker"))
                         .font(.system(size: 13))
                         .opacity(0.25)
-                    Image(systemName: iconName)
+                    Image(iconName)
                         .foregroundColor(Color(active == true ? "PureWhite" : "PureWhiteDarker"))
                         .font(.system(size: 13))
                 }
@@ -41,7 +41,7 @@ struct SingleTagViewButton: View {
                     .foregroundColor(Color(active == true ? "PureWhite" : "PureWhiteDarker"))
             }
             .padding(EdgeInsets(top: 2, leading: 5, bottom:2, trailing: 5))
-            .background(Color(active == true ? color.lightColor : "BlueLight"))
+            .background(Color(active == true ? color.lightColor : "Gray"))
             .cornerRadius(50)
             .padding(EdgeInsets(top: 5, leading: 0, bottom: 5, trailing: 0))
   

@@ -58,6 +58,11 @@ struct RezeptSammlung: View {
                         } else {
                             if recipie.wrappedTitle.lowercased().contains(searchText.lowercased()) {
                                 ListItemElement(titleText: recipie.wrappedTitle , titleImage: recipie.wrappedFoodType, color: intToColorTheme(colorInt: Int(recipie.colorTheme)), tags: [.Veggi, .Schnell], backgroundColor: "PureWhite", portion: Int(recipie.portion))
+                        
+                                    .onTapGesture{
+                                      passRecipie = recipie
+                                        showingEditScreen.toggle()
+                                    }
                                     .swipeActions{
                                         Button{
                                             moc.delete(recipie)

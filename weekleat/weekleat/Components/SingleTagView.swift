@@ -28,16 +28,17 @@ struct SingleTagView: View {
         if amount < 2 {
             HStack{
                 ZStack{
-                    Image(systemName: "\(iconName).fill")
-                        .foregroundColor(Color(active == true ? color.lightColor : "BlueLight"))
+                    Image( "\(iconName).fill")
+                        .foregroundColor(Color("BlueDark"))
                         .font(.system(size: 13))
-                    Image(systemName: iconName)
-                        .foregroundColor(Color(active == true ? color.darkColor : "PureWhite"))
+                        .opacity(0.25)
+                    Image( iconName)
+                        .foregroundColor(Color("BlueDark"))
                         .font(.system(size: 13))
                 }
                 Text(textContent)
                     .font(.system(size: 13))
-                    .foregroundColor(Color(active == true ? color.darkColor : "PureWhite"))
+                    .foregroundColor(Color("BlueDark"))
             }
             .padding(EdgeInsets(top: 2, leading: 5, bottom:2, trailing: 5))
             .background(Color(backgroundColor))
@@ -46,18 +47,19 @@ struct SingleTagView: View {
         } else {
             HStack{
                 ZStack{
-                    Image(systemName: "\(iconName).fill")
-                        .foregroundColor(Color(active == true ? color.lightColor : "BlueLight"))
+                    Image( "\(iconName).fill")
+                        .foregroundColor(Color("BlueDark"))
                         .font(.system(size: 13))
-                    Image(systemName: iconName)
-                        .foregroundColor(Color(active == true ? color.darkColor : "PureWhite"))
+                        .opacity(0.25)
+                    Image( iconName)
+                        .foregroundColor(Color("BlueDark"))
                         .font(.system(size: 13))
                 }
 
             }
             .padding(EdgeInsets(top: 2, leading: 10, bottom: 2, trailing: 10))
             .frame(width: 20, height: 20)
-            .background(Color(backgroundColor))
+            .background(Color("BlueLight"))
             .cornerRadius(50)
             .padding(EdgeInsets(top: 5, leading: 0, bottom: 5, trailing: 0))
         }

@@ -45,9 +45,9 @@ struct SettingsView: View {
                                     .font(.caption)
                             }
                             .frame(width: 28, height: 28)
-                            .background(montag ? Color("BlueDark") : Color("BlueLight"))
+                            .background(montag ? Color("BlueDark") : Color("Gray"))
                             .cornerRadius(100)
-                            .foregroundColor(montag ? Color("PureWhite") : Color("BlueDark"))
+                            .foregroundColor(montag ? Color("BlueLight") : Color("BlueDark"))
                             .buttonStyle(BorderlessButtonStyle())
                             
                             
@@ -58,9 +58,9 @@ struct SettingsView: View {
                                     .font(.caption)
                             }
                             .frame(width: 28, height: 28)
-                            .background(dienstag ? Color("BlueDark") : Color("BlueLight"))
+                            .background(dienstag ? Color("BlueDark") : Color("Gray"))
                             .cornerRadius(100)
-                            .foregroundColor(dienstag ? Color("PureWhite") : Color("BlueDark"))
+                            .foregroundColor(dienstag ? Color("BlueLight") : Color("BlueDark"))
                             .buttonStyle(BorderlessButtonStyle())
                             
                             Button{
@@ -70,9 +70,9 @@ struct SettingsView: View {
                                     .font(.caption)
                             }
                             .frame(width: 28, height: 28)
-                            .background(mittwoch ? Color("BlueDark") : Color("BlueLight"))
+                            .background(mittwoch ? Color("BlueDark") : Color("Gray"))
                             .cornerRadius(100)
-                            .foregroundColor(mittwoch ? Color("PureWhite") : Color("BlueDark"))
+                            .foregroundColor(mittwoch ? Color("BlueLight") : Color("BlueDark"))
                             .buttonStyle(BorderlessButtonStyle())
                             
                             Button{
@@ -82,9 +82,9 @@ struct SettingsView: View {
                                     .font(.caption)
                             }
                             .frame(width: 28, height: 28)
-                            .background(donnerstag ? Color("BlueDark") : Color("BlueLight"))
+                            .background(donnerstag ? Color("BlueDark") : Color("Gray"))
                             .cornerRadius(100)
-                            .foregroundColor(donnerstag ? Color("PureWhite") : Color("BlueDark"))
+                            .foregroundColor(donnerstag ? Color("BlueLight") : Color("BlueDark"))
                             .buttonStyle(BorderlessButtonStyle())
                             
                             Button{
@@ -94,9 +94,9 @@ struct SettingsView: View {
                                     .font(.caption)
                             }
                             .frame(width: 28, height: 28)
-                            .background(freitag ? Color("BlueDark") : Color("BlueLight"))
+                            .background(freitag ? Color("BlueDark") : Color("Gray"))
                             .cornerRadius(100)
-                            .foregroundColor(freitag ? Color("PureWhite") : Color("BlueDark"))
+                            .foregroundColor(freitag ? Color("BlueLight") : Color("BlueDark"))
                             .buttonStyle(BorderlessButtonStyle())
                             
                             Button{
@@ -106,9 +106,9 @@ struct SettingsView: View {
                                     .font(.caption)
                             }
                             .frame(width: 28, height: 28)
-                            .background(samstag ? Color("BlueDark") : Color("BlueLight"))
+                            .background(samstag ? Color("BlueDark") : Color("Gray"))
                             .cornerRadius(100)
-                            .foregroundColor(samstag ? Color("PureWhite") : Color("BlueDark"))
+                            .foregroundColor(samstag ? Color("BlueLight") : Color("BlueDark"))
                             .buttonStyle(BorderlessButtonStyle())
                             
                             Button{
@@ -118,9 +118,9 @@ struct SettingsView: View {
                                     .font(.caption)
                             }
                             .frame(width: 28, height: 28)
-                            .background(sonntag ? Color("BlueDark") : Color("BlueLight"))
+                            .background(sonntag ? Color("BlueDark") : Color("Gray"))
                             .cornerRadius(100)
-                            .foregroundColor(sonntag ? Color("PureWhite") : Color("BlueDark"))
+                            .foregroundColor(sonntag ? Color("BlueLight") : Color("BlueDark"))
                             .buttonStyle(BorderlessButtonStyle())
                             
                         }

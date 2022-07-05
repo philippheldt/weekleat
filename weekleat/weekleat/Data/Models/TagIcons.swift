@@ -14,9 +14,12 @@ enum TagIcon: String, CaseIterable{
     case Lang = "lang"
     case Weight = "w"
     case Fluid = "f"
-    case Peice = "p"
+    case Peice = "Fleisch"
     case Potatoe = "Kartoffel"
     case Spoon = "s"
+    case Baked = "gebacken"
+    case Pasta = "Nudeln"
+    case Rice = "Reis"
     
     
     var IconFill: String{
@@ -27,9 +30,12 @@ enum TagIcon: String, CaseIterable{
         case .Lang: return "clock.fill"
         case .Weight: return "scalemass.fill"
         case .Fluid: return "clock"
-        case .Peice: return "circlebadge.2.fill"
-        case .Potatoe: return "circlebadge.2.fill"
+        case .Peice: return "meat.weekleat"
+        case .Potatoe: return "potatoe.weekleat.fill"
         case .Spoon: return "testtube.2"
+        case .Baked: return "oven.fill"
+        case .Pasta: return "pasta.ico.fill"
+        case .Rice: return "rice.ico.fill"
         }
     }
     var IconOutline: String{
@@ -40,9 +46,12 @@ enum TagIcon: String, CaseIterable{
         case .Lang: return "clock"
         case .Weight: return "scalemass"
         case .Fluid: return "clock"
-        case .Peice: return "circlebadge.2"
-        case .Potatoe: return "circlebadge.2"
+        case .Peice: return "meat.weekleat"
+        case .Potatoe: return "potatoe.weekleat"
         case .Spoon: return "testtube.2"
+        case .Baked: return "oven"
+        case .Pasta: return "pasta.ico"
+        case .Rice: return "rice.ico"
         }
     }
 }

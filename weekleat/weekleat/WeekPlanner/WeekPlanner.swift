@@ -64,7 +64,7 @@ struct WeekPlanner: View {
                             }
                         }
                 }
-                .listStyle(.plain)
+                .listStyle(.insetGrouped)
             }
             .onAppear {
                 days = daysArray(montag: montag, dienstag: dienstag, mittwoch: mittwoch, donnerstag: donnerstag, freitag: freitag, samstag: samstag, sonntag: sonntag)
