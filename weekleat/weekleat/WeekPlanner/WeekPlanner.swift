@@ -48,6 +48,10 @@ struct WeekPlanner: View {
                         Section(header: Text(days[Int(recipie.picked)-1])){
                                 ListItemElement(titleText: recipie.wrappedTitle , titleImage: recipie.wrappedFoodType, color: intToColorTheme(colorInt: Int(recipie.colorTheme)), tags: tagConverter(tagString: recipie.wrappedTags), backgroundColor: "PureWhite", portion: Int(recipie.portion))
                             }
+                        .onTapGesture{
+                          passRecipie = recipie
+                            showingEditScreen.toggle()
+                        }
                             .swipeActions{
                                 Button{
                                     withAnimation{
