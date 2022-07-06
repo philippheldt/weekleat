@@ -43,45 +43,69 @@ struct WeekPlanner: View {
             
             VStack{
                 List(recipies, id:\.self){ recipie in
- 
+                    
                     if Int(recipie.picked)  > 0 && Int(recipie.picked) <= numberofSelectedDays{
                         Section(header: Text(days[Int(recipie.picked)-1])){
-                                ListItemElement(titleText: recipie.wrappedTitle , titleImage: recipie.wrappedFoodType, color: intToColorTheme(colorInt: Int(recipie.colorTheme)), tags: tagConverter(tagString: recipie.wrappedTags), backgroundColor: "PureWhite", portion: Int(recipie.portion))
+                            ListItemElement(titleText: recipie.wrappedTitle , titleImage: recipie.wrappedFoodType, color: intToColorTheme(colorInt: Int(recipie.colorTheme)), tags: tagConverter(tagString: recipie.wrappedTags), backgroundColor: "PureWhite", portion: Int(recipie.portion))
+                        }
+                        .contextMenu{
+                            Button{
+                                passRecipie = recipie
+                                showingEditScreen.toggle()
+                            } label: {
+                                Image(systemName: "square.and.pencil")
+                                Text("Bearbeiten")
                             }
+                            Button{
+                                print("Star")
+                            } label: {
+                                Image(systemName: "star")
+                                Text("Favorit")
+                            }
+                            Button{
+                                withAnimation{
+                                    generateRecipies(positionQuery: true, position: Int(recipie.picked), currentRecipie: recipie)
+                                    try? moc.save()
+                                }
+                            } label: {
+                                Image(systemName: "arrow.triangle.2.circlepath")
+                                Text("Neues Rezept")
+                            }
+                        }
                         .onTapGesture{
-                          passRecipie = recipie
+                            passRecipie = recipie
                             showingEditScreen.toggle()
                         }
-                            .swipeActions{
-                                Button{
-                                    withAnimation{
-                                        generateRecipies(positionQuery: true, position: Int(recipie.picked), currentRecipie: recipie)
-                                       
-                                        try? moc.save()
-                                    }
-
-                                 
-                                } label: {
-                                    Label("", systemImage: "arrow.triangle.2.circlepath")
+                        .swipeActions{
+                            Button{
+                                withAnimation{
+                                    generateRecipies(positionQuery: true, position: Int(recipie.picked), currentRecipie: recipie)
+                                    
+                                    try? moc.save()
                                 }
-                                .tint(Color("BlueMedium"))
+                                
+                                
+                            } label: {
+                                Label("", systemImage: "arrow.triangle.2.circlepath")
                             }
+                            .tint(Color("BlueMedium"))
                         }
+                    }
                 }
                 .listStyle(.insetGrouped)
             }
             .onAppear {
                 days = daysArray(montag: montag, dienstag: dienstag, mittwoch: mittwoch, donnerstag: donnerstag, freitag: freitag, samstag: samstag, sonntag: sonntag)
-              
+                
                 numberofSelectedDays = days.count
-              
+                
                 
             }
             .navigationTitle("Wochenplan")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
-                  generateRecipies(positionQuery: false, position: 0, currentRecipie: recipies[0])
+                        generateRecipies(positionQuery: false, position: 0, currentRecipie: recipies[0])
                     } label: {
                         Label("Neu generieren", systemImage: "arrow.triangle.2.circlepath")
                     }
@@ -99,26 +123,26 @@ struct WeekPlanner: View {
     }
     func generateRecipies(positionQuery: Bool, position: Int, currentRecipie: Recipie) {
         
-       
+        
         
         if positionQuery == false{
             for recipie in recipies {
                 recipie.picked = 0
                 try? moc.save()
             }
-           
+            
         } else {
             selectedRecipie = []
             selectedRecipie.append(currentRecipie)
             selectedRecipie[0].picked = 0
             try? moc.save()
         }
-   
+        
         var tempGeneratedRecipies: [Recipie] = []
-       
         
         
-
+        
+        
         
         var pastas: [Recipie] = []
         var pastasveg: [Recipie] = []
@@ -254,7 +278,7 @@ struct WeekPlanner: View {
         var vegs: [Recipie] = []
         var meats: [Recipie] = []
         
- 
+        
         
         //adding pasta
         for _ in 1...numberOfRecepies(amount: nudeln, days: days.count){
@@ -320,24 +344,24 @@ struct WeekPlanner: View {
                 othersmeat.remove(at: index)
             }
         }
-      
         
-     
+        
+        
         
         if !vegetarisch {
             for _ in 0...(numberOfRecepies(amount: fleisch, days: days.count)){
-            if let index = vegs.indices.randomElement() {
-                tempGeneratedRecipies.append(vegs[index])
-            
-                vegs.remove(at: index)
-                
+                if let index = vegs.indices.randomElement() {
+                    tempGeneratedRecipies.append(vegs[index])
+                    
+                    vegs.remove(at: index)
+                    
+                }
             }
-        }
-        
+            
             for _ in 0...(numberOfRecepies(amount: fleisch, days: days.count)){
                 if let index = meats.indices.randomElement() {
                     tempGeneratedRecipies.append(meats[index])
-                
+                    
                     meats.remove(at: index)
                 }
             }
@@ -351,23 +375,23 @@ struct WeekPlanner: View {
             }
         }
         
-
         
-   
-     
+        
+        
+        
         if positionQuery {
             var filteredGeneratedRecipies: [Recipie] = []
             for tempGeneratedRecipe in tempGeneratedRecipies {
                 if !generatedRecipies.contains(tempGeneratedRecipe){
                     filteredGeneratedRecipies.append(tempGeneratedRecipe)
-                } 
+                }
             }
             tempGeneratedRecipies = filteredGeneratedRecipies
             print(generatedRecipies[position-1].wrappedTitle)
             generatedRecipies[position-1].picked = Int16(0)
             generatedRecipies[position-1] = tempGeneratedRecipies[0]
-           generatedRecipies[position-1].picked = Int16(position)
-
+            generatedRecipies[position-1].picked = Int16(position)
+            
             try? moc.save()
         } else {
             generatedRecipies = tempGeneratedRecipies
@@ -377,13 +401,13 @@ struct WeekPlanner: View {
                 moc.delete(shoppingItem)
                 try? moc.save()
             }
-
+            
             
             for (index, generatedRecipie) in generatedRecipies.enumerated() {
-              
+                
                 if index < days.count {
                     generatedRecipie.picked = Int16(index+1)
-
+                    
                     for ingredient in generatedRecipie.ingredientsArray{
                         print("\(ingredient.wrappedTitle)")
                         let newShoppingItem = BuyIngr(context: moc)
@@ -395,8 +419,8 @@ struct WeekPlanner: View {
                     }
                     try? moc.save()
                 }
-        
-           
+                
+                
             }
             
             
@@ -404,16 +428,16 @@ struct WeekPlanner: View {
                 print("----")
                 for (index2, shoppingItem2) in shoppingItems.enumerated(){
                     if index1 != index2 {
-                      
+                        
                         if shoppingItem1.title ?? "" == shoppingItem2.title ?? "" && shoppingItem1.unit ?? "" ==
                             shoppingItem2.unit ?? "" && !shoppingItem1.bought && !shoppingItem2.bought {
                             print("Index1: \(index1) ")
                             
-                                print("Index2: \(index2) ")
+                            print("Index2: \(index2) ")
                             
                             print("shoppingItem1: \(shoppingItem1.title ?? "") \(shoppingItem1.amount)\(shoppingItem1.unit ?? "")")
                             print("shoppingItem2: \(shoppingItem2.title ?? "") \(shoppingItem2.amount)\(shoppingItem2.unit ?? "")")
-                     
+                            
                             shoppingItem1.amount = shoppingItem1.amount + shoppingItem2.amount
                             shoppingItem2.bought = true
                             
@@ -434,15 +458,15 @@ struct WeekPlanner: View {
                     moc.delete(shoppingItem)
                     try? moc.save()
                 }
-           }
-
+            }
+            
         }
         
-    
         
         
         
-      
+        
+        
     }
 }
 

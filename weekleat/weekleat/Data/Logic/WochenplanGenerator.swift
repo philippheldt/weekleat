@@ -7,5 +7,10 @@
 
 import Foundation
 
-
+func alreadyExsists(itemame:String) -> Bool{
+    switch itemame{
+    case " Salz"," Pfeffer"," Paprikapulver"," Currypulver"," Knoblauchzehe"," Knoblauch"," Zwiebel"," Zwiebeln"," Chillipulver"," Kreuzkümmel"," Kurkuma"," Muskat": return true
+    default: return false
+    }
+}
 

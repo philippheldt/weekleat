@@ -21,7 +21,7 @@ struct ShoppinglistView: View {
             List{
                 Section(header: Text("Offen")){
                     ForEach(shoppingItems, id:\.self) {shoppingItem in
-                        if !shoppingItem.bought{
+                        if !shoppingItem.bought && alreadyExsists(itemame: shoppingItem.title ?? "") == false{
                             ShoppingListItem(titleText: shoppingItem.title ?? "", titleImage: chooseImages(title: (shoppingItem.title ?? "drei")), color: foodTypeToColorTheme(foodType: chooseImages(title: (shoppingItem.title ?? "drei"))), amount: shoppingItem.amount, unit: shoppingItem.unit ?? "", bought: shoppingItem.bought)
                                 .onTapGesture {
                                     withAnimation{
@@ -45,6 +45,33 @@ struct ShoppinglistView: View {
                     
                     }
                 }
+                Section(header: Text("Schon vorhanden?")){
+                    ForEach(shoppingItems, id:\.self) {shoppingItem in
+                        if !shoppingItem.bought && alreadyExsists(itemame: shoppingItem.title ?? "") == true{
+                            ShoppingListItem(titleText: shoppingItem.title ?? "", titleImage: chooseImages(title: (shoppingItem.title ?? "drei")), color: foodTypeToColorTheme(foodType: chooseImages(title: (shoppingItem.title ?? "drei"))), amount: shoppingItem.amount, unit: shoppingItem.unit ?? "", bought: shoppingItem.bought)
+                                .onTapGesture {
+                                    withAnimation{
+                                        shoppingItem.bought = true
+                                        try? moc.save()
+                                    }
+                                    
+                                }
+                                .swipeActions(edge: .leading){
+                                    Button{
+                                        withAnimation{
+                                        shoppingItem.bought = true
+                                        try? moc.save()
+                                        }
+                                    } label: {
+                                        Label("", systemImage: "checkmark")
+                                    }
+                                    .tint(Color("YellowLight"))
+                                }
+                        }
+                    
+                    }
+                }
+                
                 Section(header: Text("Gekauft")){
                     ForEach(shoppingItems, id:\.self) {shoppingItem in
                         if shoppingItem.bought{

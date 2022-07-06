@@ -16,7 +16,7 @@
 		C2688604286C478B0065D521 /* RecipieGeneratorLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2688603286C478A0065D521 /* RecipieGeneratorLogic.swift */; };
 		C2688606286C573C0065D521 /* TagConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2688605286C573C0065D521 /* TagConverter.swift */; };
 		C277C706286E3C87008D3F7C /* ShoppingListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C277C705286E3C87008D3F7C /* ShoppingListItem.swift */; };
-		C279DC00286F991D00466B5D /* PreloadRecipies.swift in Sources */ = {isa = PBXBuildFile; fileRef = C279DBFF286F991D00466B5D /* PreloadRecipies.swift */; };
+		C27B2E652875854D00FD966A /* RezeptSammlung_ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27B2E642875854D00FD966A /* RezeptSammlung_ViewModel.swift */; };
 		C28F381D282CFCBA0074079B /* Rezepte.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28F381C282CFCBA0074079B /* Rezepte.swift */; };
 		C28F381F282D1B6F0074079B /* ColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28F381E282D1B6F0074079B /* ColorTheme.swift */; };
 		C2945651282B977700931872 /* weekleatApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2945650282B977700931872 /* weekleatApp.swift */; };
@@ -51,7 +51,7 @@
 		C2688603286C478A0065D521 /* RecipieGeneratorLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipieGeneratorLogic.swift; sourceTree = "<group>"; };
 		C2688605286C573C0065D521 /* TagConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagConverter.swift; sourceTree = "<group>"; };
 		C277C705286E3C87008D3F7C /* ShoppingListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListItem.swift; sourceTree = "<group>"; };
-		C279DBFF286F991D00466B5D /* PreloadRecipies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreloadRecipies.swift; sourceTree = "<group>"; };
+		C27B2E642875854D00FD966A /* RezeptSammlung_ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RezeptSammlung_ViewModel.swift; sourceTree = "<group>"; };
 		C28F381C282CFCBA0074079B /* Rezepte.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rezepte.swift; sourceTree = "<group>"; };
 		C28F381E282D1B6F0074079B /* ColorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTheme.swift; sourceTree = "<group>"; };
 		C294564D282B977700931872 /* weekleat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weekleat.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,7 +119,6 @@
 		C2945644282B977700931872 = {
 			isa = PBXGroup;
 			children = (
-				C279DBFF286F991D00466B5D /* PreloadRecipies.swift */,
 				C294564F282B977700931872 /* weekleat */,
 				C294564E282B977700931872 /* Products */,
 			);
@@ -178,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				C259309428664F9300AD529D /* RezeptSammlung.swift */,
+				C27B2E642875854D00FD966A /* RezeptSammlung_ViewModel.swift */,
 				C2D3D405286DF4C500A92956 /* EditRecipieView.swift */,
 				C259309128664C3600AD529D /* AddRecipieView.swift */,
 			);
@@ -337,7 +337,6 @@
 				C28F381D282CFCBA0074079B /* Rezepte.swift in Sources */,
 				C2DA7FC9283E339B009B8FE0 /* TagIcons.swift in Sources */,
 				C294566B282BB7E300931872 /* WeekPlanner.swift in Sources */,
-				C279DC00286F991D00466B5D /* PreloadRecipies.swift in Sources */,
 				C2AE2A6D2869951100CB0DA6 /* Recipie+CoreDataClass.swift in Sources */,
 				C2593090286642D200AD529D /* Datacontroller.swift in Sources */,
 				C2AE2A5E28698BAD00CB0DA6 /* Weekleat.xcdatamodeld in Sources */,
@@ -352,6 +351,7 @@
 				C2945651282B977700931872 /* weekleatApp.swift in Sources */,
 				C2AE2A6C2869951100CB0DA6 /* Ingredient+CoreDataProperties.swift in Sources */,
 				C2EA28D2286316FA00E6F54A /* Ingredients.swift in Sources */,
+				C27B2E652875854D00FD966A /* RezeptSammlung_ViewModel.swift in Sources */,
 				C259309528664F9300AD529D /* RezeptSammlung.swift in Sources */,
 				C2AE458E286ACF0A00EC383E /* SingleTagViewButton.swift in Sources */,
 				C2688606286C573C0065D521 /* TagConverter.swift in Sources */,
