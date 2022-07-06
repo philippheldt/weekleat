@@ -37,7 +37,6 @@
 		C2D3D408286E023D00A92956 /* IngredientsLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D3D407286E023D00A92956 /* IngredientsLogic.swift */; };
 		C2D3D40A286E247D00A92956 /* ShoppinglistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D3D409286E247D00A92956 /* ShoppinglistView.swift */; };
 		C2DA7FC9283E339B009B8FE0 /* TagIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DA7FC8283E339B009B8FE0 /* TagIcons.swift */; };
-		C2DB927A286B09F800E6E0B6 /* WochenplanGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DB9279286B09F800E6E0B6 /* WochenplanGenerator.swift */; };
 		C2EA28D2286316FA00E6F54A /* Ingredients.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EA28D1286316FA00E6F54A /* Ingredients.swift */; };
 		C2FBD51D2869DF2C008E9B72 /* RecipieImageLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FBD51C2869DF2C008E9B72 /* RecipieImageLogic.swift */; };
 /* End PBXBuildFile section */
@@ -74,7 +73,6 @@
 		C2D3D407286E023D00A92956 /* IngredientsLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsLogic.swift; sourceTree = "<group>"; };
 		C2D3D409286E247D00A92956 /* ShoppinglistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppinglistView.swift; sourceTree = "<group>"; };
 		C2DA7FC8283E339B009B8FE0 /* TagIcons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagIcons.swift; sourceTree = "<group>"; };
-		C2DB9279286B09F800E6E0B6 /* WochenplanGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WochenplanGenerator.swift; sourceTree = "<group>"; };
 		C2EA28D1286316FA00E6F54A /* Ingredients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredients.swift; sourceTree = "<group>"; };
 		C2FBD51C2869DF2C008E9B72 /* RecipieImageLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipieImageLogic.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -243,7 +241,6 @@
 			isa = PBXGroup;
 			children = (
 				C2FBD51C2869DF2C008E9B72 /* RecipieImageLogic.swift */,
-				C2DB9279286B09F800E6E0B6 /* WochenplanGenerator.swift */,
 				C2688603286C478A0065D521 /* RecipieGeneratorLogic.swift */,
 				C2688605286C573C0065D521 /* TagConverter.swift */,
 				C2D3D407286E023D00A92956 /* IngredientsLogic.swift */,
@@ -329,7 +326,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C259308B286641E600AD529D /* DataProto.swift in Sources */,
-				C2DB927A286B09F800E6E0B6 /* WochenplanGenerator.swift in Sources */,
 				C2AE2A6E2869951100CB0DA6 /* Recipie+CoreDataProperties.swift in Sources */,
 				C259309228664C3600AD529D /* AddRecipieView.swift in Sources */,
 				C2D3D406286DF4C500A92956 /* EditRecipieView.swift in Sources */,

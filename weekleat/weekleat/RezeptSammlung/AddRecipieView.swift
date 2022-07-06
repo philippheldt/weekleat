@@ -50,7 +50,11 @@ struct AddRecipieView: View {
                                 .aspectRatio(contentMode: .fit)
                                 .frame(width: 65, height: 65)
                         }.padding([.top, .bottom, .trailing])
-                        TextField("Rezeptname", text: $title)
+                        TextField("Rezeptname", text: $title, onEditingChanged: { _ in
+                            if tagDetermination(textInput: title) != 100 {
+                                tags[tagDetermination(textInput: title)].isActive = true
+                            }
+                        })
                     }
 
                     Stepper(value: $portion, in: range, step: step) {

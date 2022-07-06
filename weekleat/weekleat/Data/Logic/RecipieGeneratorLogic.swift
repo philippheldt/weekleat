@@ -91,5 +91,19 @@ func daysArray(montag: Bool, dienstag: Bool, mittwoch: Bool, donnerstag: Bool, f
     
 }
 
+func tagDetermination(textInput: String) -> Int {
+    if textInput.lowercased().contains("kartoffel") || textInput.lowercased().contains("kartoffeln") || textInput.lowercased().contains("pommes") {
+        return 2
+    } else if textInput.lowercased().contains("nudel") || textInput.lowercased().contains("nudeln") || textInput.lowercased().contains("pasta") || textInput.lowercased().contains("spaghetti") || textInput.lowercased().contains("penne") || textInput.lowercased().contains("lasagne")  || textInput.lowercased().contains("spätzle"){
+        return 3
+    } else if textInput.lowercased().contains("reis") || textInput.lowercased().contains("rice"){
+        return 4
+    } else if textInput.lowercased().contains("kuchen") || textInput.lowercased().contains("auflauf") || textInput.lowercased().contains("ofen"){
+        return 7
+    } else {
+        return 100
+    }
+}
+
 
 
