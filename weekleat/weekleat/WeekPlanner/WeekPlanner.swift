@@ -72,8 +72,14 @@ struct WeekPlanner: View {
             }
             .onAppear {
                 days = daysArray(montag: montag, dienstag: dienstag, mittwoch: mittwoch, donnerstag: donnerstag, freitag: freitag, samstag: samstag, sonntag: sonntag)
+numberofSelectedDays = days.count
+                for recipie in recipies {
+                    if recipie.picked > 0 {
+                        generatedRecipies.append(recipie)
+                        print("!!!!\(recipie.wrappedTitle)")
+                    }
+                }
               
-                numberofSelectedDays = days.count
               
                 
             }
