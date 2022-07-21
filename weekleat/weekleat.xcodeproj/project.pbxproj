@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C23C9E52288968300087040E /* ImportRecipieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23C9E51288968300087040E /* ImportRecipieView.swift */; };
 		C259308B286641E600AD529D /* DataProto.swift in Sources */ = {isa = PBXBuildFile; fileRef = C259308A286641E600AD529D /* DataProto.swift */; };
 		C2593090286642D200AD529D /* Datacontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C259308F286642D200AD529D /* Datacontroller.swift */; };
 		C259309228664C3600AD529D /* AddRecipieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C259309128664C3600AD529D /* AddRecipieView.swift */; };
@@ -42,6 +43,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C23C9E51288968300087040E /* ImportRecipieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportRecipieView.swift; sourceTree = "<group>"; };
 		C259308A286641E600AD529D /* DataProto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProto.swift; sourceTree = "<group>"; };
 		C259308F286642D200AD529D /* Datacontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Datacontroller.swift; sourceTree = "<group>"; };
 		C259309128664C3600AD529D /* AddRecipieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecipieView.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 				C259309428664F9300AD529D /* RezeptSammlung.swift */,
 				C2D3D405286DF4C500A92956 /* EditRecipieView.swift */,
 				C259309128664C3600AD529D /* AddRecipieView.swift */,
+				C23C9E51288968300087040E /* ImportRecipieView.swift */,
 			);
 			path = RezeptSammlung;
 			sourceTree = "<group>";
@@ -349,6 +352,7 @@
 				C2AE2A6C2869951100CB0DA6 /* Ingredient+CoreDataProperties.swift in Sources */,
 				C2EA28D2286316FA00E6F54A /* Ingredients.swift in Sources */,
 				C259309528664F9300AD529D /* RezeptSammlung.swift in Sources */,
+				C23C9E52288968300087040E /* ImportRecipieView.swift in Sources */,
 				C2AE458E286ACF0A00EC383E /* SingleTagViewButton.swift in Sources */,
 				C2688606286C573C0065D521 /* TagConverter.swift in Sources */,
 				C2AB072328646D1D00276B92 /* BottomBarNavigation.swift in Sources */,
