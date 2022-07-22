@@ -12,10 +12,9 @@ struct RezeptSammlung: View {
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(sortDescriptors: [SortDescriptor(\.title)]) var recipies: FetchedResults<Recipie>
     
-    @State private var passRecipie: Recipie? = nil
+    @State var passRecipie: Recipie
     @State private var showingAddScreen = false
     @State private var showingEditScreen = false
-    @State public var currentLetter = ""
     @State private var searchText = ""
     
     @State private var dummyRezepte = Rezepte.dummyRezepte
@@ -30,6 +29,7 @@ struct RezeptSammlung: View {
                             ListItemElement(titleText: recipie.wrappedTitle , titleImage: recipie.wrappedFoodType, color: intToColorTheme(colorInt: Int(recipie.colorTheme)), tags: tagConverter(tagString: recipie.wrappedTags), backgroundColor: "PureWhite", portion: Int(recipie.portion))
                                 .onTapGesture{
                                   passRecipie = recipie
+                                    print(passRecipie.wrappedTitle)
                                     showingEditScreen.toggle()
                                 }
                                 .swipeActions{
@@ -60,8 +60,12 @@ struct RezeptSammlung: View {
                                 ListItemElement(titleText: recipie.wrappedTitle , titleImage: recipie.wrappedFoodType, color: intToColorTheme(colorInt: Int(recipie.colorTheme)), tags: [.Veggi, .Schnell], backgroundColor: "PureWhite", portion: Int(recipie.portion))
                         
                                     .onTapGesture{
-                                      passRecipie = recipie
+                                        passRecipie = recipie
+                                        print(passRecipie.wrappedTitle)
                                         showingEditScreen.toggle()
+                                    
+                                           
+                                        
                                     }
                                     .swipeActions{
                                         Button{
@@ -105,7 +109,7 @@ struct RezeptSammlung: View {
                 }
 
                .sheet(isPresented: $showingEditScreen){
-                   EditRecipieView(rezept: passRecipie ?? recipies[0])
+                   EditRecipieView(rezept: passRecipie)
                }
             } else {
                 VStack{

@@ -87,49 +87,11 @@ struct AddRecipieView: View {
                     }
                     HStack{
                         TextField("z.B. 250g Mehl", text: $ingredientsEntry)
-                        Button {
-                            if ingredientsEntry != ""{
-                                //Creating array from Words in TextField
-                                let ingrArr = ingredientsEntry.components(separatedBy: " ")
-                                
-                             
-                                for item in ingrArr{
-                                    //Filtering out the Numbers
-                                    let ingrArrNum = item.components(separatedBy: CharacterSet.decimalDigits.inverted)
-                                    var checkNum: Bool = false //If an array contains a Number, this will be updated
-                                    var tempAmount = 0
-                                    for numItem in ingrArrNum{
-                                        if let number = Int(numItem){
-                                            tempAmount = number
-                                            checkNum = true
-                                        }
-                                    }
-                                    if tempAmount > 0 {
-                                        amount = tempAmount
-                                    }
-                               
-                        
-                                    
-                                    if checkNum == true {
-                                        var unitDef: String = ""
-                                        let characters = Array(item) //Split up array position in single characters
-                                        for character in characters {
-                                            
-                                            if !character.isNumber{ //If its not a number it may be the unit, so its added to Unit
-                                                unitDef = "\(unitDef)\(character)"
-                                               
-                                            }
-                                            
-                                        }
-                                      
-                                        unit = unitDef
-                                    }
-                                    
-                                }
-                                
-                                ingredients += ["\(ingredientsEntry)"]
-                                ingredientsEntry = ""
+                            .onSubmit {
+                                addRecipie()
                             }
+                        Button {
+                            addRecipie()
                         } label: {
                             Image(systemName: "plus.circle.fill")
                         }
@@ -197,6 +159,51 @@ struct AddRecipieView: View {
                     })
                 }
             }
+        }
+    }
+    
+    func addRecipie() {
+        if ingredientsEntry != ""{
+            //Creating array from Words in TextField
+            let ingrArr = ingredientsEntry.components(separatedBy: " ")
+            
+         
+            for item in ingrArr{
+                //Filtering out the Numbers
+                let ingrArrNum = item.components(separatedBy: CharacterSet.decimalDigits.inverted)
+                var checkNum: Bool = false //If an array contains a Number, this will be updated
+                var tempAmount = 0
+                for numItem in ingrArrNum{
+                    if let number = Int(numItem){
+                        tempAmount = number
+                        checkNum = true
+                    }
+                }
+                if tempAmount > 0 {
+                    amount = tempAmount
+                }
+           
+    
+                
+                if checkNum == true {
+                    var unitDef: String = ""
+                    let characters = Array(item) //Split up array position in single characters
+                    for character in characters {
+                        
+                        if !character.isNumber{ //If its not a number it may be the unit, so its added to Unit
+                            unitDef = "\(unitDef)\(character)"
+                           
+                        }
+                        
+                    }
+                  
+                    unit = unitDef
+                }
+                
+            }
+            
+            ingredients += ["\(ingredientsEntry)"]
+            ingredientsEntry = ""
         }
     }
 }

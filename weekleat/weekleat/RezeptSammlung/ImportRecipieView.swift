@@ -13,6 +13,7 @@ struct Response: Codable {
 
 struct Result: Codable {
     var titel: String
+    var zutaten: [String]
 }
 
 struct ImportRecipieView: View {
@@ -56,6 +57,7 @@ struct ImportRecipieView: View {
                 results = decodedResponse.results
                 print(results)
             }
+            print("Nothing to do")
         } catch {
             print("Invalid data")
         }
