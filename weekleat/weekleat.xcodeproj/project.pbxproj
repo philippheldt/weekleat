@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		C23C9E52288968300087040E /* ImportRecipieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23C9E51288968300087040E /* ImportRecipieView.swift */; };
-		C23C9E542889BC250087040E /* JSON_Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23C9E532889BC250087040E /* JSON_Manager.swift */; };
 		C259308B286641E600AD529D /* DataProto.swift in Sources */ = {isa = PBXBuildFile; fileRef = C259308A286641E600AD529D /* DataProto.swift */; };
 		C2593090286642D200AD529D /* Datacontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C259308F286642D200AD529D /* Datacontroller.swift */; };
 		C259309228664C3600AD529D /* AddRecipieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C259309128664C3600AD529D /* AddRecipieView.swift */; };
@@ -45,7 +44,6 @@
 
 /* Begin PBXFileReference section */
 		C23C9E51288968300087040E /* ImportRecipieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportRecipieView.swift; sourceTree = "<group>"; };
-		C23C9E532889BC250087040E /* JSON_Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSON_Manager.swift; sourceTree = "<group>"; };
 		C259308A286641E600AD529D /* DataProto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProto.swift; sourceTree = "<group>"; };
 		C259308F286642D200AD529D /* Datacontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Datacontroller.swift; sourceTree = "<group>"; };
 		C259309128664C3600AD529D /* AddRecipieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecipieView.swift; sourceTree = "<group>"; };
@@ -183,7 +181,6 @@
 				C2D3D405286DF4C500A92956 /* EditRecipieView.swift */,
 				C259309128664C3600AD529D /* AddRecipieView.swift */,
 				C23C9E51288968300087040E /* ImportRecipieView.swift */,
-				C23C9E532889BC250087040E /* JSON_Manager.swift */,
 			);
 			path = RezeptSammlung;
 			sourceTree = "<group>";
@@ -348,7 +345,6 @@
 				C2B49DEA2848DC54002F695B /* SingleTagView.swift in Sources */,
 				C2FBD51D2869DF2C008E9B72 /* RecipieImageLogic.swift in Sources */,
 				C2AE2A6B2869951100CB0DA6 /* Ingredient+CoreDataClass.swift in Sources */,
-				C23C9E542889BC250087040E /* JSON_Manager.swift in Sources */,
 				C2688602286C264E0065D521 /* SettingsView.swift in Sources */,
 				C28F381F282D1B6F0074079B /* ColorTheme.swift in Sources */,
 				C2D3D40A286E247D00A92956 /* ShoppinglistView.swift in Sources */,

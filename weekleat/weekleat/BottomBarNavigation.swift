@@ -17,23 +17,68 @@ struct BottomBarNavigation: View {
     let icons = ["book.closed","note.text","cart","gearshape"]
     let iconsFilled = ["book.closed.fill","square.fill","cart.fill","gearshape.fill"]
     var body: some View {
-        TabView{
-            RezeptSammlung(passRecipie: recipies[0])
-            .tabItem{
-                Image(systemName: "book.closed.fill")
+        VStack{
+            ZStack{
+                switch selectedIndex {
+                case 0: RezeptSammlung()
+                case 1: WeekPlanner()
+                case 2: ShoppinglistView()
+                case 3: SettingsView()
+                default: Text("Rezeptsammlung")
+                }
             }
-            WeekPlanner()
-            .tabItem{
-                Image(systemName: "note.text")
+            
+            Spacer()
+            
+            
+            HStack{
+                Spacer()
+                ForEach(0..<4, id: \.self){ i in
+                    ZStack{
+                        Button(action: {
+                            self.selectedIndex = i
+                        }, label: {
+                            Image(systemName: iconsFilled[i])
+                                .font(.system(size: 30,
+                                              weight: .regular,
+                                              design: .default))
+                                .foregroundColor(Color("BlueMedium"))
+                                .opacity(selectedIndex == i ? 1 : 0)
+                        })
+                        
+                        if i == 1 {
+                            Button(action: {
+                                self.selectedIndex = i
+                            }, label: {
+                                Image(systemName: icons[i])
+                                    .font(.system(size: 30,
+                                                  weight: .regular,
+                                                  design: .default))
+                                    .symbolRenderingMode(.palette)
+                                    .foregroundStyle(Color("PureWhite"), Color("BlueDark") )
+                            })
+                        } else {
+                            Button(action: {
+                                self.selectedIndex = i
+                            }, label: {
+                                Image(systemName: icons[i])
+                                    .font(.system(size: 30,
+                                                  weight: .regular,
+                                                  design: .default))
+                            })
+                        }
+                        
+                        
+                    }
+                    
+                    Spacer()
+                }
+                
+                
             }
-            ShoppinglistView()
-            .tabItem{
-                Image(systemName: "cart")
-            }
-            SettingsView()
-            .tabItem{
-                Image(systemName: "gearshape")
-            }
+            .padding()
+            
+            
         }
         
     }
