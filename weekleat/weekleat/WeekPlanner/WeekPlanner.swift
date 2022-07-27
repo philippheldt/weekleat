@@ -120,11 +120,8 @@ numberofSelectedDays = days.count
             try? moc.save()
         }
    
+        //Array within the function in which all the picked recipies are stored and later on saved to genaratedRecipies
         var tempGeneratedRecipies: [Recipie] = []
-       
-        
-        
-
         
         var pastas: [Recipie] = []
         var pastasveg: [Recipie] = []
@@ -360,8 +357,9 @@ numberofSelectedDays = days.count
 
         
    
-     
+     // If the Position matters, when generating (This is the case when generating single recipies) Do this:
         if positionQuery {
+            //filteredGeneratedRecipies is the Array, where all the Recipies are stored, that dont already exist in generated Recipies
             var filteredGeneratedRecipies: [Recipie] = []
             for tempGeneratedRecipe in tempGeneratedRecipies {
                 if !generatedRecipies.contains(tempGeneratedRecipe){
@@ -369,86 +367,73 @@ numberofSelectedDays = days.count
                 } 
             }
             tempGeneratedRecipies = filteredGeneratedRecipies
-            print(generatedRecipies[position-1].wrappedTitle)
+           //Set picked value of current recipie to 0 (This indicates to the system, that it is no longer used by the weekplanner)
             generatedRecipies[position-1].picked = Int16(0)
+            //Replace the position of generatedRecipies with the new recipie and then in the next line set the picked value to the position in the week.
             generatedRecipies[position-1] = tempGeneratedRecipies[0]
-           generatedRecipies[position-1].picked = Int16(position)
+            generatedRecipies[position-1].picked = Int16(position)
+            //Take the whole new Array and generate a new shoppinglist
+            generateShoppinglist()
 
             try? moc.save()
         } else {
+            //Save all the temporary recipies to the generatedRecipies Array
             generatedRecipies = tempGeneratedRecipies
             generatedRecipies = generatedRecipies.shuffled()
-            
-            for shoppingItem in shoppingItems {
+            //genrate shoppinglist from picked recipies
+            generateShoppinglist()
+
+        }
+    }
+    
+    func generateShoppinglist() {
+        //before adding new shopping Items, delete all the old Items
+        for shoppingItem in shoppingItems {
+            moc.delete(shoppingItem)
+            try? moc.save()
+        }
+
+        
+        for (index, generatedRecipie) in generatedRecipies.enumerated() {
+            //Takes all the recipies which are picked (In The Data Model they have an Index indecating which day they are)
+            if index < days.count {
+                generatedRecipie.picked = Int16(index+1)
+
+                for ingredient in generatedRecipie.ingredientsArray{
+                    let newShoppingItem = BuyIngr(context: moc)
+                    newShoppingItem.amount = ingredient.amount
+                    newShoppingItem.bought = false
+                    newShoppingItem.unit = ingredient.unit
+                    newShoppingItem.title = ingredient.wrappedTitle
+                    try? moc.save()
+                }
+                try? moc.save()
+            }
+    
+       
+        }
+        
+        
+        //Sorting Shoppingitems, if there is already one existing if they are already in the system they are marked „bought“ and the values added to the already existing
+        for (index1, shoppingItem1) in shoppingItems.enumerated() {
+            for (index2, shoppingItem2) in shoppingItems.enumerated(){
+                if index1 != index2 {
+                    if shoppingItem1.title ?? "" == shoppingItem2.title ?? "" && shoppingItem1.unit ?? "" ==
+                        shoppingItem2.unit ?? "" && !shoppingItem1.bought && !shoppingItem2.bought {
+                        shoppingItem1.amount = shoppingItem1.amount + shoppingItem2.amount
+                        shoppingItem2.bought = true
+                        try? moc.save()
+                    }
+                }
+            }
+        }
+        //Now all the existing Items are deleted from the shoppinglist
+        for shoppingItem in shoppingItems{
+            if shoppingItem.bought {
                 moc.delete(shoppingItem)
                 try? moc.save()
             }
-
-            
-            for (index, generatedRecipie) in generatedRecipies.enumerated() {
-              
-                if index < days.count {
-                    generatedRecipie.picked = Int16(index+1)
-
-                    for ingredient in generatedRecipie.ingredientsArray{
-                        print("\(ingredient.wrappedTitle)")
-                        let newShoppingItem = BuyIngr(context: moc)
-                        newShoppingItem.amount = ingredient.amount
-                        newShoppingItem.bought = false
-                        newShoppingItem.unit = ingredient.unit
-                        newShoppingItem.title = ingredient.wrappedTitle
-                        try? moc.save()
-                    }
-                    try? moc.save()
-                }
-        
-           
-            }
-            
-            
-            for (index1, shoppingItem1) in shoppingItems.enumerated() {
-                print("----")
-                for (index2, shoppingItem2) in shoppingItems.enumerated(){
-                    if index1 != index2 {
-                      
-                        if shoppingItem1.title ?? "" == shoppingItem2.title ?? "" && shoppingItem1.unit ?? "" ==
-                            shoppingItem2.unit ?? "" && !shoppingItem1.bought && !shoppingItem2.bought {
-                            print("Index1: \(index1) ")
-                            
-                                print("Index2: \(index2) ")
-                            
-                            print("shoppingItem1: \(shoppingItem1.title ?? "") \(shoppingItem1.amount)\(shoppingItem1.unit ?? "")")
-                            print("shoppingItem2: \(shoppingItem2.title ?? "") \(shoppingItem2.amount)\(shoppingItem2.unit ?? "")")
-                     
-                            shoppingItem1.amount = shoppingItem1.amount + shoppingItem2.amount
-                            shoppingItem2.bought = true
-                            
-                            print("shoppingItem1_2: \(shoppingItem1.title ?? "") \(shoppingItem1.amount)\(shoppingItem1.unit ?? "")")
-                            print("shoppingItem2_2: \(shoppingItem2.title ?? "") \(shoppingItem2.amount)\(shoppingItem2.unit ?? "")")
-                            
-                            try? moc.save()
-                            
-                            print("shoppingItem1_3: \(shoppingItem1.title ?? "") \(shoppingItem1.amount)\(shoppingItem1.unit ?? "")")
-                            print("shoppingItem2_3: \(shoppingItem2.title ?? "") \(shoppingItem2.amount)\(shoppingItem2.unit ?? "")")
-                        }
-                    }
-                }
-            }
-            
-            for shoppingItem in shoppingItems{
-                if shoppingItem.bought {
-                    moc.delete(shoppingItem)
-                    try? moc.save()
-                }
-           }
-
-        }
-        
-    
-        
-        
-        
-      
+       }
     }
 }
 
