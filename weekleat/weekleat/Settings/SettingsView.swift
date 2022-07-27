@@ -28,6 +28,7 @@ struct SettingsView: View {
     @AppStorage("vegan") private var vegan: Bool = false
     @AppStorage("fleisch")  private var fleisch: String = "selten"
     
+    @AppStorage("standardPortionen")  private var standardPortionen: Int = 5
     
     
     var body: some View {
@@ -219,6 +220,19 @@ struct SettingsView: View {
                     
                 } header: {
                     Text("Ernährungsweise")
+                }
+                
+                Section{
+                    Stepper(value: $standardPortionen, in: 1...100, step: 1) {
+                        HStack{
+                            Text("Portionen:")
+                            Spacer()
+                            Text("\(standardPortionen)")
+                        }
+                    }
+                    
+                } header: {
+                    Text("Standardeinstellungen")
                 }
                 
                 

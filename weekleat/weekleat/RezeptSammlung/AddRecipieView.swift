@@ -13,7 +13,7 @@ struct AddRecipieView: View {
     @Environment(\.dismiss) var dismiss
     
     @State private var title = ""
-    @State private var portion = 5
+    @State private var portion = 0
     let step = 1
     let range = 1...50
     @State private var foodType = ""
@@ -34,6 +34,8 @@ struct AddRecipieView: View {
         Tag(name: "gebacken", isActive: false, index: 7),
         Tag(name: "aufwändig", isActive: false, index: 8)
     ]
+    
+    @AppStorage("standardPortionen")  private var standardPortionen: Int = 5
     
     
     var body: some View {
@@ -63,6 +65,9 @@ struct AddRecipieView: View {
                             Spacer()
                             Text("\(portion)")
                         }
+                    }
+                    .onAppear{
+                      portion = standardPortionen
                     }
                   
                         ScrollView(.horizontal) {
