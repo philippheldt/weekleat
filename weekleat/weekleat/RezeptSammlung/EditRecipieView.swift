@@ -105,49 +105,58 @@ struct EditRecipieView: View {
                             }
                         
                     }
-                    HStack{
-                        TextField("z.B. 250g Mehl", text: $ingredientsEntry)
-                        Button {
-                            if ingredientsEntry != ""{
-                                //Creating array from Words in TextField
-                                let ingrArr = ingredientsEntry.components(separatedBy: " ")
-                                
-                                
-                                for item in ingrArr{
-                                    //Filtering out the Numbers
-                                    let ingrArrNum = item.components(separatedBy: CharacterSet.decimalDigits.inverted)
-                                    var checkNum: Bool = false //If an array contains a Number, this will be updated
-                                    for numItem in ingrArrNum{
-                                        if let number = Float(numItem) {
-                                            amount = number
-                                            checkNum = true
-                                        }
-                                    }
-                                    
-                                    if checkNum == true {
-                                        var unitDef: String = ""
-                                        let characters = Array(item) //Split up array position in single characters
-                                        for character in characters {
-                                            
-                                            if !character.isNumber{ //If its not a number it may be the unit, so its added to Unit
-                                                unitDef = "\(unitDef)\(character)"
-                                            }
-                                            
-                                        }
-                                        unit = unitDef
-                                    }
-                                    
-                                }
-                                
-                                ingredients += ["\(ingredientsEntry)"]
-                                ingredientsEntry = ""
-                            }
-                        } label: {
-                            Image(systemName: "plus.circle.fill")
-                        }
-                    }
+                   
                 }
 
+            }
+            .safeAreaInset(edge: .bottom){
+                HStack{
+                    TextField("z.B. 250g Mehl", text: $ingredientsEntry)
+                    Button {
+                        if ingredientsEntry != ""{
+                            //Creating array from Words in TextField
+                            let ingrArr = ingredientsEntry.components(separatedBy: " ")
+                            
+                            
+                            for item in ingrArr{
+                                //Filtering out the Numbers
+                                let ingrArrNum = item.components(separatedBy: CharacterSet.decimalDigits.inverted)
+                                var checkNum: Bool = false //If an array contains a Number, this will be updated
+                                for numItem in ingrArrNum{
+                                    if let number = Float(numItem) {
+                                        amount = number
+                                        checkNum = true
+                                    }
+                                }
+                                
+                                if checkNum == true {
+                                    var unitDef: String = ""
+                                    let characters = Array(item) //Split up array position in single characters
+                                    for character in characters {
+                                        
+                                        if !character.isNumber{ //If its not a number it may be the unit, so its added to Unit
+                                            unitDef = "\(unitDef)\(character)"
+                                        }
+                                        
+                                    }
+                                    unit = unitDef
+                                }
+                                
+                            }
+                            
+                            ingredients += ["\(ingredientsEntry)"]
+                            ingredientsEntry = ""
+                        }
+                    } label: {
+                        Image(systemName: "plus.circle.fill")
+                    }
+                }
+                .padding()
+                .background(Color("PureWhite"))
+                .cornerRadius(13)
+                .padding()
+                .shadow(radius: 100)
+               
             }
             .navigationTitle(title)
             .toolbar{

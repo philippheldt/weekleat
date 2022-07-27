@@ -92,23 +92,31 @@ struct AddRecipieView: View {
                     List(ingredients, id:\.self) { ingredient in
                         Text(ingredient)
                     }
-                    HStack{
-                        TextField("z.B. 250g Mehl", text: $ingredientsEntry)
-                            .onSubmit {
-                                addRecipie()
-                            }
-                        Button {
-                            addRecipie()
-                        } label: {
-                            Image(systemName: "plus.circle.fill")
-                        }
-                    }
-                    
+   
                 } header: {
                     Text("Zutaten")
                 }
-                .padding(.bottom, keyboardHandler.keyboardHeight)
                 
+  
+            }
+            .safeAreaInset(edge: .bottom){
+                HStack{
+                    TextField("z.B. 250g Mehl", text: $ingredientsEntry)
+                        .onSubmit {
+                            addRecipie()
+                        }
+                    Button {
+                        addRecipie()
+                    } label: {
+                        Image(systemName: "plus.circle.fill")
+                    }
+                }
+                .padding()
+                .background(Color("PureWhite"))
+                .cornerRadius(13)
+                .padding()
+                .shadow(radius: 100)
+               
             }
             .navigationTitle("\(title == "" ? "Rezept erstellen" : title)")
             .toolbar{
