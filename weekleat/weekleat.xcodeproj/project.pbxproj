@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C2362C2028913DA800A977B5 /* KeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2362C1F28913DA800A977B5 /* KeyboardHandler.swift */; };
 		C23C9E52288968300087040E /* ImportRecipieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23C9E51288968300087040E /* ImportRecipieView.swift */; };
 		C23C9E542889BC250087040E /* JSON_Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23C9E532889BC250087040E /* JSON_Manager.swift */; };
 		C259308B286641E600AD529D /* DataProto.swift in Sources */ = {isa = PBXBuildFile; fileRef = C259308A286641E600AD529D /* DataProto.swift */; };
@@ -44,6 +45,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C2362C1F28913DA800A977B5 /* KeyboardHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHandler.swift; sourceTree = "<group>"; };
 		C23C9E51288968300087040E /* ImportRecipieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportRecipieView.swift; sourceTree = "<group>"; };
 		C23C9E532889BC250087040E /* JSON_Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSON_Manager.swift; sourceTree = "<group>"; };
 		C259308A286641E600AD529D /* DataProto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProto.swift; sourceTree = "<group>"; };
@@ -250,6 +252,7 @@
 				C2688603286C478A0065D521 /* RecipieGeneratorLogic.swift */,
 				C2688605286C573C0065D521 /* TagConverter.swift */,
 				C2D3D407286E023D00A92956 /* IngredientsLogic.swift */,
+				C2362C1F28913DA800A977B5 /* KeyboardHandler.swift */,
 			);
 			path = Logic;
 			sourceTree = "<group>";
@@ -341,6 +344,7 @@
 				C294566B282BB7E300931872 /* WeekPlanner.swift in Sources */,
 				C279DC00286F991D00466B5D /* PreloadRecipies.swift in Sources */,
 				C2AE2A6D2869951100CB0DA6 /* Recipie+CoreDataClass.swift in Sources */,
+				C2362C2028913DA800A977B5 /* KeyboardHandler.swift in Sources */,
 				C2593090286642D200AD529D /* Datacontroller.swift in Sources */,
 				C2AE2A5E28698BAD00CB0DA6 /* Weekleat.xcdatamodeld in Sources */,
 				C2688604286C478B0065D521 /* RecipieGeneratorLogic.swift in Sources */,

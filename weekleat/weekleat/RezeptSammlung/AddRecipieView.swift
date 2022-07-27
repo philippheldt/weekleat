@@ -12,6 +12,8 @@ struct AddRecipieView: View {
     @Environment(\.managedObjectContext) var moc
     @Environment(\.dismiss) var dismiss
     
+    @StateObject private var keyboardHandler = KeyboardHandler()
+    
     @State private var title = ""
     @State private var portion = 0
     let step = 1
@@ -35,6 +37,7 @@ struct AddRecipieView: View {
         Tag(name: "aufwändig", isActive: false, index: 8)
     ]
     
+
     @AppStorage("standardPortionen")  private var standardPortionen: Int = 5
     
     
@@ -88,7 +91,6 @@ struct AddRecipieView: View {
                 Section{
                     List(ingredients, id:\.self) { ingredient in
                         Text(ingredient)
-                        
                     }
                     HStack{
                         TextField("z.B. 250g Mehl", text: $ingredientsEntry)
@@ -101,9 +103,11 @@ struct AddRecipieView: View {
                             Image(systemName: "plus.circle.fill")
                         }
                     }
+                    
                 } header: {
                     Text("Zutaten")
                 }
+                .padding(.bottom, keyboardHandler.keyboardHeight)
                 
             }
             .navigationTitle("\(title == "" ? "Rezept erstellen" : title)")
