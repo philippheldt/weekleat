@@ -25,18 +25,24 @@ struct RezeptSammlung: View {
         NavigationView{
             if recipies.count > 0{
                 ScrollView{
-                    
-                    ForEach(recipies, id:\.id) {recipie in
-                        if searchText == "" {
-                            ListElement(recipie: recipie)
-                                .onTapGesture{
-                                    passRecipie = recipie
-                                    print(passRecipie.wrappedTitle)
-                                    showingEditScreen.toggle()
-                                }
-                            
-                        } else {
-                            if recipie.wrappedTitle.lowercased().contains(searchText.lowercased()) {
+                    VStack(alignment: .leading){
+                        VStack(alignment: .leading){
+                            Text("Heute")
+                                .font(.title)
+                                .fontWeight(.bold)
+                            Text("28. JUL 2022")
+                                .font(.caption)
+                                .foregroundColor(.gray)
+                        }
+                        .padding()
+                        ListElementLarge()
+                            .padding(.bottom)
+                        Text("FREITAG")
+                            .font(.caption)
+                            .foregroundColor(.gray)
+                            .padding([.top, .leading])
+                        ForEach(recipies, id:\.id) {recipie in
+                            if searchText == "" {
                                 ListElement(recipie: recipie)
                                     .onTapGesture{
                                         passRecipie = recipie
@@ -44,13 +50,24 @@ struct RezeptSammlung: View {
                                         showingEditScreen.toggle()
                                     }
                                 
+                            } else {
+                                if recipie.wrappedTitle.lowercased().contains(searchText.lowercased()) {
+                                    ListElement(recipie: recipie)
+                                        .onTapGesture{
+                                            passRecipie = recipie
+                                            print(passRecipie.wrappedTitle)
+                                            showingEditScreen.toggle()
+                                        }
+                                    
+                                }
+                                
+                                
+                                
+                                
                             }
-                            
-                            
-                            
-                            
                         }
                     }
+                    
                 }
                 .searchable(text: $searchText)
            

@@ -16,7 +16,7 @@ struct ListElement: View {
                     Image("backgroundRed")
                         .resizable()
                         .frame(width: 100, height: 100)
-                    Image(recipie.wrappedFoodType)
+                    Image("lasagne")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 70, height: 70)
