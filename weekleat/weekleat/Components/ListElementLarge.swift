@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ListElementLarge: View {
+    @State var recipie: Recipie
     var body: some View {
         VStack{
             ZStack{
@@ -20,7 +21,7 @@ struct ListElementLarge: View {
             }
             HStack{
                 VStack(alignment: .leading, spacing: 3){
-                    Text("Lasagne")
+                    Text(recipie.wrappedTitle)
                         .font(.title3)
                         .fontWeight(.bold)
                     HStack{
@@ -49,9 +50,9 @@ struct ListElementLarge: View {
     }
 }
 
-struct ListElementLarge_Previews: PreviewProvider {
-    static var previews: some View {
-        ListElementLarge()
-            .previewLayout(.sizeThatFits)
-    }
-}
+//struct ListElementLarge_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ListElementLarge()
+//            .previewLayout(.sizeThatFits)
+//    }
+//}

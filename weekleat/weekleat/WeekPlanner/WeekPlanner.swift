@@ -40,46 +40,66 @@ struct WeekPlanner: View {
     
     var body: some View {
         NavigationView{
-            
-            VStack{
-                List(recipies, id:\.self){ recipie in
- 
+            ScrollView{
+                
+        
+            VStack(alignment: .leading){
+                ForEach(recipies, id:\.self){ recipie in
                     if Int(recipie.picked)  > 0 && Int(recipie.picked) <= numberofSelectedDays{
-                        Section(header: Text(days[Int(recipie.picked)-1])){
-                                ListItemElement(titleText: recipie.wrappedTitle , titleImage: recipie.wrappedFoodType, color: intToColorTheme(colorInt: Int(recipie.colorTheme)), tags: tagConverter(tagString: recipie.wrappedTags), backgroundColor: "PureWhite", portion: Int(recipie.portion))
+                        if getTodayWeekDay().lowercased() == days[Int(recipie.picked)-1].lowercased() {
+                            
+                            VStack(alignment: .leading){
+                                Text("Heute")
+                                    .font(.title)
+                                    .fontWeight(.bold)
+                                Text(getDates())
+                                    .textCase(.uppercase)
+                                    .font(.caption)
+                                    .foregroundColor(.gray)
                             }
-                        .onTapGesture{
-                          passRecipie = recipie
-                            showingEditScreen.toggle()
-                        }
-                            .swipeActions{
-                                Button{
-                                    withAnimation{
-                                        generateRecipies(positionQuery: true, position: Int(recipie.picked), currentRecipie: recipie)
-                                       
-                                        try? moc.save()
-                                    }
-
-                                 
-                                } label: {
-                                    Label("", systemImage: "arrow.triangle.2.circlepath")
+                            .padding()
+                            ListElementLarge(recipie: recipie)
+                                .onTapGesture{
+                                    passRecipie = recipie
+                                    showingEditScreen.toggle()
                                 }
-                                .tint(Color("BlueMedium"))
-                            }
+                                .padding(.bottom)
+                        } else {
+                            Text(days[Int(recipie.picked)-1])
+                                .font(.caption)
+                                .textCase(.uppercase)
+                                .foregroundColor(.gray)
+                                .padding([.leading, .top])
+                            ListElement(recipie: recipie)
+                            
+                                .onTapGesture{
+                                    passRecipie = recipie
+                                    showingEditScreen.toggle()
+                                }
+                                .swipeActions{
+                                    Button{
+                                        withAnimation{
+                                            generateRecipies(positionQuery: true, position: Int(recipie.picked), currentRecipie: recipie)
+                                            
+                                            try? moc.save()
+                                        }
+                                        
+                                        
+                                    } label: {
+                                        Label("", systemImage: "arrow.triangle.2.circlepath")
+                                    }
+                                    .tint(Color("BlueMedium"))
+                                }
+                        }
                         }
                 }
-                .listStyle(.insetGrouped)
+            }
+            
             }
             .onAppear {
                 days = daysArray(montag: montag, dienstag: dienstag, mittwoch: mittwoch, donnerstag: donnerstag, freitag: freitag, samstag: samstag, sonntag: sonntag)
 numberofSelectedDays = days.count
-                for recipie in recipies {
-                    if recipie.picked > 0 {
-                        generatedRecipies.append(recipie)
-                        print("!!!!\(recipie.wrappedTitle)")
-                    }
-                }
-              
+      
               
                 
             }
@@ -103,6 +123,22 @@ numberofSelectedDays = days.count
             
         }
     }
+    
+    func getTodayWeekDay()-> String{
+           let dateFormatter = DateFormatter()
+           dateFormatter.dateFormat = "EEEE"
+           let weekDay = dateFormatter.string(from: Date())
+           return weekDay
+     }
+    
+    func getDates()-> String{
+           let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .long
+        dateFormatter.timeStyle = .none
+           let dateToday = dateFormatter.string(from: Date())
+           return dateToday
+     }
+    
     func generateRecipies(positionQuery: Bool, position: Int, currentRecipie: Recipie) {
         
        

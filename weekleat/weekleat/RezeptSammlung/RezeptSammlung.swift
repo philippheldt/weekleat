@@ -26,21 +26,6 @@ struct RezeptSammlung: View {
             if recipies.count > 0{
                 ScrollView{
                     VStack(alignment: .leading){
-                        VStack(alignment: .leading){
-                            Text("Heute")
-                                .font(.title)
-                                .fontWeight(.bold)
-                            Text("28. JUL 2022")
-                                .font(.caption)
-                                .foregroundColor(.gray)
-                        }
-                        .padding()
-                        ListElementLarge()
-                            .padding(.bottom)
-                        Text("FREITAG")
-                            .font(.caption)
-                            .foregroundColor(.gray)
-                            .padding([.top, .leading])
                         ForEach(recipies, id:\.id) {recipie in
                             if searchText == "" {
                                 ListElement(recipie: recipie)
