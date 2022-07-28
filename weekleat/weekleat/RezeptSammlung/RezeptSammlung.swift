@@ -24,75 +24,36 @@ struct RezeptSammlung: View {
     var body: some View {
         NavigationView{
             if recipies.count > 0{
-                List(recipies) {recipie in
+                ScrollView{
+                    
+                    ForEach(recipies, id:\.id) {recipie in
                         if searchText == "" {
-                            ListItemElement(titleText: recipie.wrappedTitle , titleImage: recipie.wrappedFoodType, color: intToColorTheme(colorInt: Int(recipie.colorTheme)), tags: tagConverter(tagString: recipie.wrappedTags), backgroundColor: "PureWhite", portion: Int(recipie.portion))
+                            ListElement(recipie: recipie)
                                 .onTapGesture{
-                                  passRecipie = recipie
+                                    passRecipie = recipie
                                     print(passRecipie.wrappedTitle)
                                     showingEditScreen.toggle()
                                 }
-                                .swipeActions{
-                                    Button{
-                                        withAnimation{
-                                            moc.delete(recipie)
-                                            try? moc.save()
-                                        }
-                                      
-                                    } label: {
-                                        Label("", systemImage: "trash")
-                                    }
-                                    .tint(Color("RedLight"))
-                                }
-                                .swipeActions(edge: .leading){
-                                    Button{
-                                        print("Star")
-                                    } label: {
-                                        Label("", systemImage: "star")
-                                    }
-                                    .tint(Color("YellowLight"))
-                                }
-                                
-                                
-                           
+                            
                         } else {
                             if recipie.wrappedTitle.lowercased().contains(searchText.lowercased()) {
-                                ListItemElement(titleText: recipie.wrappedTitle , titleImage: recipie.wrappedFoodType, color: intToColorTheme(colorInt: Int(recipie.colorTheme)), tags: [.Veggi, .Schnell], backgroundColor: "PureWhite", portion: Int(recipie.portion))
-                        
+                                ListElement(recipie: recipie)
                                     .onTapGesture{
                                         passRecipie = recipie
                                         print(passRecipie.wrappedTitle)
                                         showingEditScreen.toggle()
-                                    
-                                           
-                                        
                                     }
-                                    .swipeActions{
-                                        Button{
-                                            moc.delete(recipie)
-                                            try? moc.save()
-                                        } label: {
-                                            Label("", systemImage: "trash")
-                                        }
-                                        .tint(Color("RedLight"))
-                                    }
-                                    .swipeActions(edge: .leading){
-                                        Button{
-                                            print("Star")
-                                        } label: {
-                                            Label("", systemImage: "star")
-                                        }
-                                        .tint(Color("YellowLight"))
-                                    }
-                                    
+                                
                             }
+                            
+                            
+                            
+                            
                         }
-
-                   
-
+                    }
                 }
                 .searchable(text: $searchText)
-                .navigationTitle("Rezepte")
+           
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button {

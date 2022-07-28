@@ -7,38 +7,37 @@
 
 import SwiftUI
 
-struct ListElement: View {
-    @State var recipie: Recipie
+struct ListElementLarge: View {
     var body: some View {
         VStack{
+            ZStack{
+                Image("backgroundRedLarge")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                Image("lasagneLarge")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+            }
             HStack{
-                ZStack{
-                    Image("backgroundRed")
-                        .resizable()
-                        .frame(width: 100, height: 100)
-                    Image(recipie.wrappedFoodType)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 70, height: 70)
-                }
                 VStack(alignment: .leading, spacing: 3){
-                    Text(recipie.wrappedTitle)
+                    Text("Lasagne")
                         .font(.title3)
                         .fontWeight(.bold)
                     HStack{
                         TagView()
-                        ForEach(recipie.wrappedTags.components(separatedBy: ","), id: \.self){ tag in
+                   
                            TagSingle()
-                        }
+                   
                     }
                    
-                }.padding(.leading)
+                }.padding([.leading, .bottom])
                 Spacer()
                 Image(systemName: "chevron.forward")
                     .font(Font.system(size: 15, weight: .light))
                     .foregroundColor(.gray)
                     .padding()
             }
+            .frame(height: 100)
             
         }
         .cornerRadius(5)
@@ -50,9 +49,9 @@ struct ListElement: View {
     }
 }
 
-//struct ListElement_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ListElement()
-//            .previewLayout(.sizeThatFits)
-//    }
-//}
+struct ListElementLarge_Previews: PreviewProvider {
+    static var previews: some View {
+        ListElementLarge()
+            .previewLayout(.sizeThatFits)
+    }
+}
