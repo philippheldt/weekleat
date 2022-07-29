@@ -51,21 +51,12 @@ struct RezeptSammlung: View {
                                 
                             }
                         }
-                    }
+                    } .padding(.top)
                     
                 }
-                .searchable(text: $searchText)
-           
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Button {
-                            showingAddScreen.toggle()
-                        } label: {
-                            Label("", systemImage: "plus")
-                        }
-                    }
-
-                }
+               
+               // .navigationBarHidden(true)
+               
                 .sheet(isPresented: $showingAddScreen) {
                    AddRecipieView()
                   //  ImportRecipieView()
@@ -129,7 +120,20 @@ struct RezeptSammlung: View {
                
             }
                 
+                
         }
+            .navigationTitle("Rezeptsammlung")
+            .toolbar {
+                 ToolbarItem(placement: .navigationBarTrailing) {
+                     Button {
+                         showingAddScreen.toggle()
+                     } label: {
+                         Label("", systemImage: "plus")
+                     }
+                 }
+
+             }
+            .searchable(text: $searchText)
     }
     
 

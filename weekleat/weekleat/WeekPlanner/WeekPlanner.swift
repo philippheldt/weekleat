@@ -41,8 +41,6 @@ struct WeekPlanner: View {
     var body: some View {
         NavigationView{
             ScrollView{
-                
-        
             VStack(alignment: .leading){
                 ForEach(recipies, id:\.self){ recipie in
                     if Int(recipie.picked)  > 0 && Int(recipie.picked) <= numberofSelectedDays{
@@ -103,25 +101,27 @@ numberofSelectedDays = days.count
               
                 
             }
-            .navigationTitle("Wochenplan")
+        
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {
-                  generateRecipies(positionQuery: false, position: 0, currentRecipie: recipies[0])
-                    } label: {
-                        Label("Neu generieren", systemImage: "arrow.triangle.2.circlepath")
+                ToolbarItem(placement: .navigationBarLeading) {
+                    NavigationLink(destination: RezeptSammlung(passRecipie: recipies[0])){
+                        Image("book.icon.black")
                     }
                 }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    NavigationLink(destination: ShoppinglistView()){
+                        Image("cart.icon.black")
+                    }
+                }
+
             }
+            
             .sheet(isPresented: $showingEditScreen){
                 EditRecipieView(rezept: passRecipie ?? recipies[0])
             }
             
-            
-            
-            
-            
         }
+       
     }
     
     func getTodayWeekDay()-> String{

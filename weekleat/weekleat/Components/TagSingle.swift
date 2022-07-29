@@ -10,7 +10,7 @@ import SwiftUI
 struct TagSingle: View {
     var body: some View {
         HStack{
-            Image("rice.icon")
+            Image("rice.icon.black")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 12, height: 12)

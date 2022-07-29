@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C2216B2628941FA800F9EB80 /* CustomNavBarPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2216B2528941FA800F9EB80 /* CustomNavBarPreference.swift */; };
 		C2362C2028913DA800A977B5 /* KeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2362C1F28913DA800A977B5 /* KeyboardHandler.swift */; };
+		C23B07D12894112200E70C2A /* CustomNavBarContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23B07D02894112200E70C2A /* CustomNavBarContainer.swift */; };
+		C23B07D3289412C100E70C2A /* CustomNav.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23B07D2289412C100E70C2A /* CustomNav.swift */; };
+		C23B07D5289414A000E70C2A /* CustomNavLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23B07D4289414A000E70C2A /* CustomNavLink.swift */; };
 		C23C9E52288968300087040E /* ImportRecipieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23C9E51288968300087040E /* ImportRecipieView.swift */; };
 		C23C9E542889BC250087040E /* JSON_Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23C9E532889BC250087040E /* JSON_Manager.swift */; };
 		C259308B286641E600AD529D /* DataProto.swift in Sources */ = {isa = PBXBuildFile; fileRef = C259308A286641E600AD529D /* DataProto.swift */; };
@@ -20,6 +24,7 @@
 		C2688606286C573C0065D521 /* TagConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2688605286C573C0065D521 /* TagConverter.swift */; };
 		C274119E2892EA3200BDA92F /* TagSingle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C274119D2892EA3200BDA92F /* TagSingle.swift */; };
 		C27411A02892EAB500BDA92F /* ListElementLarge.swift in Sources */ = {isa = PBXBuildFile; fileRef = C274119F2892EAB500BDA92F /* ListElementLarge.swift */; };
+		C27411A22894096800BDA92F /* CustomNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27411A12894096800BDA92F /* CustomNavBar.swift */; };
 		C277C706286E3C87008D3F7C /* ShoppingListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C277C705286E3C87008D3F7C /* ShoppingListItem.swift */; };
 		C27800FE2892E01700A59DCA /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27800FD2892E01700A59DCA /* TagView.swift */; };
 		C279DC00286F991D00466B5D /* PreloadRecipies.swift in Sources */ = {isa = PBXBuildFile; fileRef = C279DBFF286F991D00466B5D /* PreloadRecipies.swift */; };
@@ -49,7 +54,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C2216B2528941FA800F9EB80 /* CustomNavBarPreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavBarPreference.swift; sourceTree = "<group>"; };
 		C2362C1F28913DA800A977B5 /* KeyboardHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHandler.swift; sourceTree = "<group>"; };
+		C23B07D02894112200E70C2A /* CustomNavBarContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavBarContainer.swift; sourceTree = "<group>"; };
+		C23B07D2289412C100E70C2A /* CustomNav.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNav.swift; sourceTree = "<group>"; };
+		C23B07D4289414A000E70C2A /* CustomNavLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavLink.swift; sourceTree = "<group>"; };
 		C23C9E51288968300087040E /* ImportRecipieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportRecipieView.swift; sourceTree = "<group>"; };
 		C23C9E532889BC250087040E /* JSON_Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSON_Manager.swift; sourceTree = "<group>"; };
 		C259308A286641E600AD529D /* DataProto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProto.swift; sourceTree = "<group>"; };
@@ -61,6 +70,7 @@
 		C2688605286C573C0065D521 /* TagConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagConverter.swift; sourceTree = "<group>"; };
 		C274119D2892EA3200BDA92F /* TagSingle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagSingle.swift; sourceTree = "<group>"; };
 		C274119F2892EAB500BDA92F /* ListElementLarge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListElementLarge.swift; sourceTree = "<group>"; };
+		C27411A12894096800BDA92F /* CustomNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavBar.swift; sourceTree = "<group>"; };
 		C277C705286E3C87008D3F7C /* ShoppingListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListItem.swift; sourceTree = "<group>"; };
 		C27800FD2892E01700A59DCA /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
 		C279DBFF286F991D00466B5D /* PreloadRecipies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreloadRecipies.swift; sourceTree = "<group>"; };
@@ -131,6 +141,7 @@
 		C2945644282B977700931872 = {
 			isa = PBXGroup;
 			children = (
+				C2216B2528941FA800F9EB80 /* CustomNavBarPreference.swift */,
 				C279DBFF286F991D00466B5D /* PreloadRecipies.swift */,
 				C294564F282B977700931872 /* weekleat */,
 				C294564E282B977700931872 /* Products */,
@@ -148,6 +159,10 @@
 		C294564F282B977700931872 /* weekleat */ = {
 			isa = PBXGroup;
 			children = (
+				C27411A12894096800BDA92F /* CustomNavBar.swift */,
+				C23B07D02894112200E70C2A /* CustomNavBarContainer.swift */,
+				C23B07D2289412C100E70C2A /* CustomNav.swift */,
+				C23B07D4289414A000E70C2A /* CustomNavLink.swift */,
 				C2945666282BAD0300931872 /* Info.plist */,
 				C2D3D40D286E2BB500A92956 /* RezeptSammlung */,
 				C2D3D410286E2BFE00A92956 /* WeekPlanner */,
@@ -349,6 +364,7 @@
 				C27411A02892EAB500BDA92F /* ListElementLarge.swift in Sources */,
 				C259308B286641E600AD529D /* DataProto.swift in Sources */,
 				C2AE2A6E2869951100CB0DA6 /* Recipie+CoreDataProperties.swift in Sources */,
+				C23B07D12894112200E70C2A /* CustomNavBarContainer.swift in Sources */,
 				C27800FE2892E01700A59DCA /* TagView.swift in Sources */,
 				C259309228664C3600AD529D /* AddRecipieView.swift in Sources */,
 				C2D3D406286DF4C500A92956 /* EditRecipieView.swift in Sources */,
@@ -358,6 +374,7 @@
 				C294566B282BB7E300931872 /* WeekPlanner.swift in Sources */,
 				C279DC00286F991D00466B5D /* PreloadRecipies.swift in Sources */,
 				C2AE2A6D2869951100CB0DA6 /* Recipie+CoreDataClass.swift in Sources */,
+				C23B07D5289414A000E70C2A /* CustomNavLink.swift in Sources */,
 				C2362C2028913DA800A977B5 /* KeyboardHandler.swift in Sources */,
 				C2593090286642D200AD529D /* Datacontroller.swift in Sources */,
 				C2AE2A5E28698BAD00CB0DA6 /* Weekleat.xcdatamodeld in Sources */,
@@ -371,11 +388,14 @@
 				C23C9E542889BC250087040E /* JSON_Manager.swift in Sources */,
 				C2688602286C264E0065D521 /* SettingsView.swift in Sources */,
 				C28F381F282D1B6F0074079B /* ColorTheme.swift in Sources */,
+				C2216B2628941FA800F9EB80 /* CustomNavBarPreference.swift in Sources */,
 				C2D3D40A286E247D00A92956 /* ShoppinglistView.swift in Sources */,
 				C2945651282B977700931872 /* weekleatApp.swift in Sources */,
+				C23B07D3289412C100E70C2A /* CustomNav.swift in Sources */,
 				C2AE2A6C2869951100CB0DA6 /* Ingredient+CoreDataProperties.swift in Sources */,
 				C2EA28D2286316FA00E6F54A /* Ingredients.swift in Sources */,
 				C259309528664F9300AD529D /* RezeptSammlung.swift in Sources */,
+				C27411A22894096800BDA92F /* CustomNavBar.swift in Sources */,
 				C23C9E52288968300087040E /* ImportRecipieView.swift in Sources */,
 				C2AE458E286ACF0A00EC383E /* SingleTagViewButton.swift in Sources */,
 				C2688606286C573C0065D521 /* TagConverter.swift in Sources */,
