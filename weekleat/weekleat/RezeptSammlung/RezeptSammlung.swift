@@ -19,13 +19,27 @@ struct RezeptSammlung: View {
     
     @State private var dummyRezepte = Rezepte.dummyRezepte
 
-    
+
     
     var body: some View {
-        NavigationView{
-            if recipies.count > 0{
+        CustomNavBarContainer{
+            if recipies.count != 0{
                 ScrollView{
                     VStack(alignment: .leading){
+                        HStack{
+                            Image("search.icon.gray")
+                            TextField("Suchen", text: $searchText)
+                        }
+                        .padding(5)
+                        .cornerRadius(5)
+                        .overlay(
+                                RoundedRectangle(cornerRadius: 5)
+                                    .stroke(.gray, lineWidth: 0.5)
+                            )
+                        .padding()
+                        
+                       
+                        
                         ForEach(recipies, id:\.id) {recipie in
                             if searchText == "" {
                                 ListElement(recipie: recipie)
@@ -55,7 +69,8 @@ struct RezeptSammlung: View {
                     
                 }
                
-               // .navigationBarHidden(true)
+            
+              
                
                 .sheet(isPresented: $showingAddScreen) {
                    AddRecipieView()
@@ -117,12 +132,12 @@ struct RezeptSammlung: View {
                         .cornerRadius(8)
                         
                 }
-               
+              
             }
                 
-                
+               
         }
-            .navigationTitle("Rezeptsammlung")
+        .navigationBarHidden(true)
             .toolbar {
                  ToolbarItem(placement: .navigationBarTrailing) {
                      Button {
@@ -133,7 +148,7 @@ struct RezeptSammlung: View {
                  }
 
              }
-            .searchable(text: $searchText)
+           
     }
     
 

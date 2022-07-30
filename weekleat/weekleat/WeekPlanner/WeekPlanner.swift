@@ -42,6 +42,9 @@ struct WeekPlanner: View {
         NavigationView{
             ScrollView{
             VStack(alignment: .leading){
+                if recipies.count > 0 {
+                    
+           
                 ForEach(recipies, id:\.self){ recipie in
                     if Int(recipie.picked)  > 0 && Int(recipie.picked) <= numberofSelectedDays{
                         if getTodayWeekDay().lowercased() == days[Int(recipie.picked)-1].lowercased() {
@@ -90,35 +93,42 @@ struct WeekPlanner: View {
                                 }
                         }
                         }
-                }
+                }     }
             }
             
             }
             .onAppear {
                 days = daysArray(montag: montag, dienstag: dienstag, mittwoch: mittwoch, donnerstag: donnerstag, freitag: freitag, samstag: samstag, sonntag: sonntag)
-numberofSelectedDays = days.count
-      
-              
-                
+                numberofSelectedDays = days.count
             }
-        
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     NavigationLink(destination: RezeptSammlung(passRecipie: recipies[0])){
                         Image("book.icon.black")
+                            .resizable()
+                            .padding(5)
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 40, height: 40)
+                            
                     }
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     NavigationLink(destination: ShoppinglistView()){
                         Image("cart.icon.black")
+                            .resizable()
+                            .padding(5)
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 40, height: 40)
+                            
                     }
                 }
 
             }
-            
             .sheet(isPresented: $showingEditScreen){
                 EditRecipieView(rezept: passRecipie ?? recipies[0])
             }
+                               .navigationTitle("Wochenplan")
+            .navigationBarTitleDisplayMode(.inline)
             
         }
        
