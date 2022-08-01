@@ -17,64 +17,76 @@ struct ShoppinglistView: View {
     @FetchRequest(sortDescriptors: [SortDescriptor(\.title)]) var shoppingItems: FetchedResults<BuyIngr>
     
     var body: some View {
-        NavigationView{
-            List{
-                Section(header: Text("Offen")){
-                    ForEach(shoppingItems, id:\.self) {shoppingItem in
-                        if !shoppingItem.bought{
-                            ShoppingListItem(titleText: shoppingItem.title ?? "", titleImage: chooseImages(title: (shoppingItem.title ?? "drei")), color: foodTypeToColorTheme(foodType: chooseImages(title: (shoppingItem.title ?? "drei"))), amount: shoppingItem.amount, unit: shoppingItem.unit ?? "", bought: shoppingItem.bought)
-                                .onTapGesture {
-                                    withAnimation{
-                                        shoppingItem.bought = true
-                                        try? moc.save()
-                                    }
-                                    
-                                }
-                                .swipeActions(edge: .leading){
-                                    Button{
+        CustomNavBarContainer{
+            ScrollView {
+                VStack(alignment: .leading){
+                    Text("Offen")
+                        .font(.caption)
+                        .textCase(.uppercase)
+                        .foregroundColor(.gray)
+                        .padding([.leading, .top])
+                        ForEach(shoppingItems, id:\.self) {shoppingItem in
+                            if !shoppingItem.bought{
+                               ShoppingListElement(shoppingItem: shoppingItem)
+                                    .onTapGesture {
                                         withAnimation{
-                                        shoppingItem.bought = true
-                                        try? moc.save()
+                                            shoppingItem.bought = true
+                                            try? moc.save()
                                         }
-                                    } label: {
-                                        Label("", systemImage: "checkmark")
+                                        
                                     }
-                                    .tint(Color("YellowLight"))
-                                }
-                        }
-                    
+                                    .swipeActions(edge: .leading){
+                                        Button{
+                                            withAnimation{
+                                            shoppingItem.bought = true
+                                            try? moc.save()
+                                            }
+                                        } label: {
+                                            Label("", systemImage: "checkmark")
+                                        }
+                                        .tint(Color("YellowLight"))
+                                    }
+                            }
+                        
+                        
                     }
-                }
-                Section(header: Text("Gekauft")){
-                    ForEach(shoppingItems, id:\.self) {shoppingItem in
-                        if shoppingItem.bought{
-                            ShoppingListItem(titleText: shoppingItem.title ?? "", titleImage: chooseImages(title: shoppingItem.title ?? ""), color: .YellowLight, amount: shoppingItem.amount, unit: shoppingItem.unit ?? "", bought: shoppingItem.bought)
-        
-                                .onTapGesture {
-                                    withAnimation{
-                                        shoppingItem.bought = false
-                                        try? moc.save()
-                                    }
-                              
-                               
-                                }
-                                .swipeActions(edge: .leading){
-                                    Button{
+                    Text("gekauft")
+                        .font(.caption)
+                        .textCase(.uppercase)
+                        .foregroundColor(.gray)
+                        .padding([.leading, .top])
+                        ForEach(shoppingItems, id:\.self) {shoppingItem in
+                            if shoppingItem.bought{
+                                ShoppingListElement(shoppingItem: shoppingItem)
+                                    .saturation(0)
+                                    .onTapGesture {
                                         withAnimation{
                                             shoppingItem.bought = false
                                             try? moc.save()
-                                        }                                    } label: {
-                                        Label("", systemImage: "arrow.uturn.left")
+                                        }
+                                  
+                                   
                                     }
-                                    .tint(.gray)
-                                    .saturation(0)
-                                }
+                                    .swipeActions(edge: .leading){
+                                        Button{
+                                            withAnimation{
+                                                shoppingItem.bought = false
+                                                try? moc.save()
+                                            }                                    } label: {
+                                            Label("", systemImage: "arrow.uturn.left")
+                                        }
+                                        .tint(.gray)
+                                        
+                                    }
+                            
                         }
                     }
                 }
+            
+               
             }
             .listStyle(.sidebar)
-            .navigationTitle("Einkaufsliste")
+            .navigationBarHidden(true)
         }
         
     }

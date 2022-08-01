@@ -35,6 +35,7 @@
 		C2945658282B977900931872 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2945657282B977900931872 /* Preview Assets.xcassets */; };
 		C2945665282BAB3200931872 /* Migra.otf in Resources */ = {isa = PBXBuildFile; fileRef = C2945664282BAB3200931872 /* Migra.otf */; };
 		C294566B282BB7E300931872 /* WeekPlanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C294566A282BB7E300931872 /* WeekPlanner.swift */; };
+		C29FF88228987929007A2CC4 /* ShoppingListElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29FF88128987929007A2CC4 /* ShoppingListElement.swift */; };
 		C2AB072328646D1D00276B92 /* BottomBarNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AB072228646D1D00276B92 /* BottomBarNavigation.swift */; };
 		C2AE2A5E28698BAD00CB0DA6 /* Weekleat.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C2AE2A5C28698BAD00CB0DA6 /* Weekleat.xcdatamodeld */; };
 		C2AE2A6B2869951100CB0DA6 /* Ingredient+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AE2A672869951100CB0DA6 /* Ingredient+CoreDataClass.swift */; };
@@ -85,6 +86,7 @@
 		C2945664282BAB3200931872 /* Migra.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Migra.otf; sourceTree = "<group>"; };
 		C2945666282BAD0300931872 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C294566A282BB7E300931872 /* WeekPlanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekPlanner.swift; sourceTree = "<group>"; };
+		C29FF88128987929007A2CC4 /* ShoppingListElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListElement.swift; sourceTree = "<group>"; };
 		C2AB072228646D1D00276B92 /* BottomBarNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBarNavigation.swift; sourceTree = "<group>"; };
 		C2AE2A5D28698BAD00CB0DA6 /* Weekleat.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Weekleat.xcdatamodel; sourceTree = "<group>"; };
 		C2AE2A672869951100CB0DA6 /* Ingredient+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ingredient+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 			children = (
 				C2D3D409286E247D00A92956 /* ShoppinglistView.swift */,
 				C277C705286E3C87008D3F7C /* ShoppingListItem.swift */,
+				C29FF88128987929007A2CC4 /* ShoppingListElement.swift */,
 			);
 			path = Shoppinglist;
 			sourceTree = "<group>";
@@ -386,6 +389,7 @@
 				C2688604286C478B0065D521 /* RecipieGeneratorLogic.swift in Sources */,
 				C277C706286E3C87008D3F7C /* ShoppingListItem.swift in Sources */,
 				C2B49DEA2848DC54002F695B /* SingleTagView.swift in Sources */,
+				C29FF88228987929007A2CC4 /* ShoppingListElement.swift in Sources */,
 				C2FBD51D2869DF2C008E9B72 /* RecipieImageLogic.swift in Sources */,
 				C274119E2892EA3200BDA92F /* TagSingle.swift in Sources */,
 				C2AE2A6B2869951100CB0DA6 /* Ingredient+CoreDataClass.swift in Sources */,
