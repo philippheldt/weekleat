@@ -26,9 +26,9 @@ struct ListElement: View {
                         .font(.title3)
                         .fontWeight(.bold)
                     HStack{
-                        TagView()
+                        TagView(tagName: String(recipie.portion), tagIcon: "portion.icon.black")
                         ForEach(recipie.wrappedTags.components(separatedBy: ","), id: \.self){ tag in
-                           TagSingle()
+                            TagSingle(tagIcon: "")
                         }
                     }
                    

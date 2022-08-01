@@ -25,10 +25,11 @@ struct ListElementLarge: View {
                         .font(.title3)
                         .fontWeight(.bold)
                     HStack{
-                        TagView()
+                        TagView(tagName: String(recipie.portion), tagIcon: "portion.icon.black")
                    
-                           TagSingle()
-                   
+                        ForEach(recipie.wrappedTags.components(separatedBy: ","), id: \.self){ tag in
+                            TagView(tagName: tag, tagIcon: "rice.icon.black")
+                        }
                     }
                    
                 }.padding([.leading, .bottom])

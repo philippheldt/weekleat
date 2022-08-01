@@ -8,13 +8,16 @@
 import SwiftUI
 
 struct TagView: View {
+    @State var tagName: String
+    @State var tagIcon: String
+    
     var body: some View {
         HStack{
-            Image("rice.icon.black")
+            Image(tagIcon)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(width: 12, height: 12)
-            Text("Tagname")
+                .frame(width: 16, height: 16)
+            Text(tagName)
                 .font(.system(size: 12))
         }
 
@@ -29,9 +32,9 @@ struct TagView: View {
     }
 }
 
-struct TagView_Previews: PreviewProvider {
-    static var previews: some View {
-        TagView()
-            .previewLayout(.sizeThatFits)
-    }
-}
+//struct TagView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TagView()
+//            .previewLayout(.sizeThatFits)
+//    }
+//}
