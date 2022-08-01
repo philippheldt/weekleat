@@ -41,8 +41,162 @@ struct WeekPlanner: View {
     var body: some View {
         NavigationView{
             ScrollView{
-                DayPickerView()
-                    .padding()
+                HStack{
+                    HStack{
+                        Button{
+                            montag.toggle()
+                            generateShoppinglist()
+                        } label: {
+                            Text("M")
+                                .font(.caption)
+                        }
+                        .frame(width: 40, height: 40)
+                        .background(montag ? Color.black : Color.white)
+                        .cornerRadius(5)
+                        .foregroundColor(montag ? Color.white : Color.black)
+                        .buttonStyle(BorderlessButtonStyle())
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 5)
+                                .stroke(.gray, lineWidth: 0.5)
+                        )
+                        Spacer()
+                        
+                    }
+                    
+                    HStack{
+                        Button{
+                            dienstag.toggle()
+                            generateShoppinglist()
+                        } label: {
+                            Text("D")
+                                .font(.caption)
+                        }
+                        .frame(width: 40, height: 40)
+                        .background(dienstag ? Color.black : Color.white)
+                        .cornerRadius(5)
+                        .foregroundColor(dienstag ? Color.white : Color.black)
+                        .buttonStyle(BorderlessButtonStyle())
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 5)
+                                .stroke(.gray, lineWidth: 0.5)
+                        )
+                        Spacer()
+                        
+                    }
+                    
+                    
+                    HStack{
+                        Button{
+                            mittwoch.toggle()
+                            generateShoppinglist()
+                        } label: {
+                            Text("M")
+                                .font(.caption)
+                        }
+                        .frame(width: 40, height: 40)
+                        .background(mittwoch ? Color.black : Color.white)
+                        .cornerRadius(5)
+                        .foregroundColor(mittwoch ? Color.white : Color.black)
+                        .buttonStyle(BorderlessButtonStyle())
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 5)
+                                .stroke(.gray, lineWidth: 0.5)
+                        )
+                        Spacer()
+                        
+                    }
+                    
+                    HStack{
+                        Button{
+                            donnerstag.toggle()
+                            generateShoppinglist()
+                        } label: {
+                            Text("D")
+                                .font(.caption)
+                        }
+                        .frame(width: 40, height: 40)
+                        .background(donnerstag ? Color.black : Color.white)
+                        .cornerRadius(5)
+                        .foregroundColor(donnerstag ? Color.white : Color.black)
+                        .buttonStyle(BorderlessButtonStyle())
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 5)
+                                .stroke(.gray, lineWidth: 0.5)
+                        )
+                        Spacer()
+                        
+                    }
+                    
+                    
+                    
+                    HStack{
+                        Button{
+                            freitag.toggle()
+                            generateShoppinglist()
+                        } label: {
+                            Text("F")
+                                .font(.caption)
+                        }
+                        .frame(width: 40, height: 40)
+                        .background(freitag ? Color.black : Color.white)
+                        .cornerRadius(5)
+                        .foregroundColor(freitag ? Color.white : Color.black)
+                        .buttonStyle(BorderlessButtonStyle())
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 5)
+                                .stroke(.gray, lineWidth: 0.5)
+                        )
+                        Spacer()
+                        
+                    }
+                    
+                    
+                    HStack{
+                        Button{
+                            samstag.toggle()
+                            generateShoppinglist()
+                        } label: {
+                            Text("S")
+                                .font(.caption)
+                        }
+                        .frame(width: 40, height: 40)
+                        .background(samstag ? Color.black : Color.white)
+                        .cornerRadius(5)
+                        .foregroundColor(samstag ? Color.white : Color.black)
+                        .buttonStyle(BorderlessButtonStyle())
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 5)
+                                .stroke(.gray, lineWidth: 0.5)
+                        )
+                        Spacer()
+                        
+                    }
+                    
+                    
+                    HStack{
+                        Button{
+                            sonntag.toggle()
+                            generateShoppinglist()
+                        } label: {
+                            Text("S")
+                                .font(.caption)
+                        }
+                        .frame(width: 40, height: 40)
+                        .background(sonntag ? Color.black : Color.white)
+                        .cornerRadius(5)
+                        .foregroundColor(sonntag ? Color.white : Color.black)
+                        .buttonStyle(BorderlessButtonStyle())
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 5)
+                                .stroke(.gray, lineWidth: 0.5)
+                        )
+                        
+                    }
+                    
+                    
+                    
+                }
+                .padding()
                 
                 VStack(alignment: .leading){
                     if recipies.count > 0 {
@@ -72,6 +226,8 @@ struct WeekPlanner: View {
                 }
                 
                 Button{
+                    let impactMed = UIImpactFeedbackGenerator(style: .heavy)
+                    impactMed.impactOccurred()
                     generateRecipies()
                     
                     
@@ -91,6 +247,11 @@ struct WeekPlanner: View {
             .onAppear {
                 days = daysArray(montag: montag, dienstag: dienstag, mittwoch: mittwoch, donnerstag: donnerstag, freitag: freitag, samstag: samstag, sonntag: sonntag)
                 numberofSelectedDays = days.count
+                for recipie in recipies {
+                    if recipie.picked > 0 {
+                        generatedRecipies.append(recipie)
+                    }
+                }
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -252,8 +413,8 @@ struct WeekPlanner: View {
             pastasveg = pastasveg.shuffled()
             pastasmeat = pastasmeat.shuffled()
             for index in 1...numberOfRecepies(amount: nudeln, days: 7){
-                    vegs.append(pastasveg[index-1])
-                    meats.append(pastasmeat[index-1])
+                vegs.append(pastasveg[index-1])
+                meats.append(pastasmeat[index-1])
             }
         }
         
@@ -301,7 +462,7 @@ struct WeekPlanner: View {
             meats = meats.shuffled()
             
             for index in 1...(7 - numberOfRecepies(amount: fleisch, days: 7)){
-                    tempGeneratedRecipies.append(vegs[index-1])
+                tempGeneratedRecipies.append(vegs[index-1])
             }
             
             for index in 1...(numberOfRecepies(amount: fleisch, days: 7)){
@@ -335,7 +496,7 @@ struct WeekPlanner: View {
             for recipie in recipies {
                 allRecipies.append(recipie)
             }
-
+            
             tempGeneratedRecipies = allRecipies.shuffled()
             for index in 1...7{
                 generatedRecipies.append(tempGeneratedRecipies[index-1])
@@ -362,12 +523,10 @@ struct WeekPlanner: View {
             try? moc.save()
         }
         
-        
+        print(generatedRecipies.count)
         for (index, generatedRecipie) in generatedRecipies.enumerated() {
             //Takes all the recipies which are picked (In The Data Model they have an Index indecating which day they are)
-            if index < 7 {
-                generatedRecipie.picked = Int16(index+1)
-                
+            if index == 0 && montag {
                 for ingredient in generatedRecipie.ingredientsArray{
                     let newShoppingItem = BuyIngr(context: moc)
                     newShoppingItem.amount = ingredient.amount
@@ -376,7 +535,77 @@ struct WeekPlanner: View {
                     newShoppingItem.title = ingredient.wrappedTitle
                     try? moc.save()
                 }
-                try? moc.save()
+            }
+            if index == 0 && montag {
+                for ingredient in generatedRecipie.ingredientsArray{
+                    let newShoppingItem = BuyIngr(context: moc)
+                    newShoppingItem.amount = ingredient.amount
+                    newShoppingItem.bought = false
+                    newShoppingItem.unit = ingredient.unit
+                    newShoppingItem.title = ingredient.wrappedTitle
+                    try? moc.save()
+                }
+            }
+            if index == 1 && dienstag {
+                for ingredient in generatedRecipie.ingredientsArray{
+                    let newShoppingItem = BuyIngr(context: moc)
+                    newShoppingItem.amount = ingredient.amount
+                    newShoppingItem.bought = false
+                    newShoppingItem.unit = ingredient.unit
+                    newShoppingItem.title = ingredient.wrappedTitle
+                    try? moc.save()
+                }
+            }
+            if index == 2 && mittwoch {
+                for ingredient in generatedRecipie.ingredientsArray{
+                    let newShoppingItem = BuyIngr(context: moc)
+                    newShoppingItem.amount = ingredient.amount
+                    newShoppingItem.bought = false
+                    newShoppingItem.unit = ingredient.unit
+                    newShoppingItem.title = ingredient.wrappedTitle
+                    try? moc.save()
+                }
+            }
+            if index == 3 && donnerstag {
+                for ingredient in generatedRecipie.ingredientsArray{
+                    let newShoppingItem = BuyIngr(context: moc)
+                    newShoppingItem.amount = ingredient.amount
+                    newShoppingItem.bought = false
+                    newShoppingItem.unit = ingredient.unit
+                    newShoppingItem.title = ingredient.wrappedTitle
+                    try? moc.save()
+                }
+            }
+            if index == 4 && freitag {
+                for ingredient in generatedRecipie.ingredientsArray{
+                    let newShoppingItem = BuyIngr(context: moc)
+                    newShoppingItem.amount = ingredient.amount
+                    newShoppingItem.bought = false
+                    newShoppingItem.unit = ingredient.unit
+                    newShoppingItem.title = ingredient.wrappedTitle
+                    try? moc.save()
+                }
+            }
+            if index == 5 && samstag {
+                for ingredient in generatedRecipie.ingredientsArray{
+                    let newShoppingItem = BuyIngr(context: moc)
+                    newShoppingItem.amount = ingredient.amount
+                    newShoppingItem.bought = false
+                    newShoppingItem.unit = ingredient.unit
+                    newShoppingItem.title = ingredient.wrappedTitle
+                    try? moc.save()
+                }
+            }
+            if index == 6 && sonntag {
+                for ingredient in generatedRecipie.ingredientsArray{
+                    let newShoppingItem = BuyIngr(context: moc)
+                    newShoppingItem.amount = ingredient.amount
+                    newShoppingItem.bought = false
+                    newShoppingItem.unit = ingredient.unit
+                    newShoppingItem.title = ingredient.wrappedTitle
+                    try? moc.save()
+                }
+                
             }
             
             
