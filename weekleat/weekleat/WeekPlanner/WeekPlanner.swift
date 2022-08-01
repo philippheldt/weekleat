@@ -40,89 +40,105 @@ struct WeekPlanner: View {
     
     var body: some View {
         NavigationView{
-            
-            VStack{
-                List(recipies, id:\.self){ recipie in
- 
-                    if Int(recipie.picked)  > 0 && Int(recipie.picked) <= numberofSelectedDays{
-                        Section(header: Text(days[Int(recipie.picked)-1])){
-                                ListItemElement(titleText: recipie.wrappedTitle , titleImage: recipie.wrappedFoodType, color: intToColorTheme(colorInt: Int(recipie.colorTheme)), tags: tagConverter(tagString: recipie.wrappedTags), backgroundColor: "PureWhite", portion: Int(recipie.portion))
+            ScrollView{
+                DayPickerView()
+                    .padding()
+                
+                VStack(alignment: .leading){
+                    if recipies.count > 0 {
+                        ForEach(recipies, id:\.self){ recipie in
+                            if recipie.picked == 1 && montag{
+                                WeekPlannerItems(recipie: recipie, dayPicked: "montag", passRecipie: $passRecipie, showingEditScreen: $showingEditScreen)
                             }
-                        .onTapGesture{
-                          passRecipie = recipie
-                            showingEditScreen.toggle()
-                        }
-                            .swipeActions{
-                                Button{
-                                    withAnimation{
-                                        generateRecipies(positionQuery: true, position: Int(recipie.picked), currentRecipie: recipie)
-                                       
-                                        try? moc.save()
-                                    }
-
-                                 
-                                } label: {
-                                    Label("", systemImage: "arrow.triangle.2.circlepath")
-                                }
-                                .tint(Color("BlueMedium"))
+                            if recipie.picked == 2 && dienstag{
+                                WeekPlannerItems(recipie: recipie, dayPicked: "dienstag", passRecipie: $passRecipie, showingEditScreen: $showingEditScreen)
                             }
-                        }
+                            if recipie.picked == 3 && mittwoch{
+                                WeekPlannerItems(recipie: recipie, dayPicked: "mittwoch", passRecipie: $passRecipie, showingEditScreen: $showingEditScreen)
+                            }
+                            if recipie.picked == 4 && donnerstag{
+                                WeekPlannerItems(recipie: recipie, dayPicked: "donnerstag", passRecipie: $passRecipie, showingEditScreen: $showingEditScreen)
+                            }
+                            if recipie.picked == 5 && freitag{
+                                WeekPlannerItems(recipie: recipie, dayPicked: "freitag", passRecipie: $passRecipie, showingEditScreen: $showingEditScreen)
+                            }
+                            if recipie.picked == 6 && samstag{
+                                WeekPlannerItems(recipie: recipie, dayPicked: "samstag", passRecipie: $passRecipie, showingEditScreen: $showingEditScreen)
+                            }
+                            if recipie.picked == 7 && sonntag{
+                                WeekPlannerItems(recipie: recipie, dayPicked: "sonntag", passRecipie: $passRecipie, showingEditScreen: $showingEditScreen)
+                            }
+                        }     }
                 }
-                .listStyle(.insetGrouped)
-            }
-            .onAppear {
-                days = daysArray(montag: montag, dienstag: dienstag, mittwoch: mittwoch, donnerstag: donnerstag, freitag: freitag, samstag: samstag, sonntag: sonntag)
-numberofSelectedDays = days.count
-                for recipie in recipies {
-                    if recipie.picked > 0 {
-                        generatedRecipies.append(recipie)
-                        print("!!!!\(recipie.wrappedTitle)")
-                    }
+                
+                Button{
+                    generateRecipies()
+                    
+                    
+                } label: {
+                    Image(systemName: "arrow.clockwise")
+                    Text("Rezepte generieren")
                 }
-              
-              
+                .padding()
+                .overlay(
+                    RoundedRectangle(cornerRadius: 5)
+                        .stroke(.gray, lineWidth: 0.5)
+                )
+                .padding()
                 
             }
-            .navigationTitle("Wochenplan")
+            
+            .onAppear {
+                days = daysArray(montag: montag, dienstag: dienstag, mittwoch: mittwoch, donnerstag: donnerstag, freitag: freitag, samstag: samstag, sonntag: sonntag)
+                numberofSelectedDays = days.count
+            }
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {
-                  generateRecipies(positionQuery: false, position: 0, currentRecipie: recipies[0])
-                    } label: {
-                        Label("Neu generieren", systemImage: "arrow.triangle.2.circlepath")
+                ToolbarItem(placement: .navigationBarLeading) {
+                    NavigationLink(destination: RezeptSammlung(passRecipie: recipies[0])){
+                        Image("book.icon.black")
+                            .resizable()
+                            .padding(5)
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 40, height: 40)
+                        
                     }
                 }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    NavigationLink(destination: ShoppinglistView()){
+                        Image("cart.icon.black")
+                            .resizable()
+                            .padding(5)
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 40, height: 40)
+                        
+                    }
+                }
+                
             }
             .sheet(isPresented: $showingEditScreen){
                 EditRecipieView(rezept: passRecipie ?? recipies[0])
             }
-            
-            
-            
-            
+            .navigationTitle("Wochenplan")
+            .navigationBarTitleDisplayMode(.inline)
             
         }
+        
     }
-    func generateRecipies(positionQuery: Bool, position: Int, currentRecipie: Recipie) {
+    
+    
+    
+    func generateRecipies(){
         
-       
+        generatedRecipies = []
         
-        if positionQuery == false{
-            for recipie in recipies {
-                recipie.picked = 0
-                try? moc.save()
-            }
-           
-        } else {
-            selectedRecipie = []
-            selectedRecipie.append(currentRecipie)
-            selectedRecipie[0].picked = 0
+        for recipie in recipies{
+            recipie.picked = 0
             try? moc.save()
         }
-   
         //Array within the function in which all the picked recipies are stored and later on saved to genaratedRecipies
         var tempGeneratedRecipies: [Recipie] = []
         
+        //All Arrays of food types
         var pastas: [Recipie] = []
         var pastasveg: [Recipie] = []
         var pastasmeat: [Recipie] = []
@@ -139,14 +155,12 @@ numberofSelectedDays = days.count
         var bakingsveg: [Recipie] = []
         var bakingsmeat: [Recipie] = []
         
-        
         var others: [Recipie] = []
         var othersveg: [Recipie] = []
         var othersmeat: [Recipie] = []
         
-        
+        //creating Array out of Tags -> adding the recipies to the correct array
         for recipie in recipies {
-            
             let tagString = recipie.wrappedTags
             let tagArray = tagString.components(separatedBy: ",")
             
@@ -172,84 +186,59 @@ numberofSelectedDays = days.count
             }
         }
         
-        var used: String = ""
+        // Sorting Veggi and Meat
         
-        for pasta in pastas {
-            let tagString = pasta.wrappedTags
-            let tagArray = tagString.components(separatedBy: ",")
-            for tag in tagArray{
-                switch tag.lowercased(){
-                case "vegetarisch":
+        if !pastas.isEmpty{
+            for pasta in pastas {
+                let tagString = pasta.wrappedTags
+                if tagString.localizedCaseInsensitiveContains("vegetarisch") {
                     pastasveg.append(pasta)
-                    used = pasta.wrappedTitle
-                default:
-                    if pasta.wrappedTitle != used {
-                        pastasmeat.append(pasta)
-                    }
+                } else {
+                    pastasmeat.append(pasta)
                 }
             }
         }
         
-        for rice in rices {
-            let tagString = rice.wrappedTags
-            let tagArray = tagString.components(separatedBy: ",")
-            for tag in tagArray{
-                switch tag.lowercased(){
-                case "vegetarisch":
+        if !rices.isEmpty{
+            for rice in rices {
+                let tagString = rice.wrappedTags
+                if tagString.localizedCaseInsensitiveContains("vegetarisch") {
                     ricesveg.append(rice)
-                    used = rice.wrappedTitle
-                default:
-                    if rice.wrappedTitle != used {
-                        ricesmeat.append(rice)
-                    }
+                } else {
+                    ricesmeat.append(rice)
                 }
             }
         }
         
-        for potatoe in potatoes {
-            let tagString = potatoe.wrappedTags
-            let tagArray = tagString.components(separatedBy: ",")
-            for tag in tagArray{
-                switch tag.lowercased(){
-                case "vegetarisch":
-                    potatoesveg.append(potatoe)
-                    used = potatoe.wrappedTitle
-                default:
-                    if potatoe.wrappedTitle != used {
-                        potatoesmeat.append(potatoe)
-                    }
+        if !potatoes.isEmpty{
+            for potato in potatoes {
+                let tagString = potato.wrappedTags
+                if tagString.localizedCaseInsensitiveContains("vegetarisch") {
+                    potatoesveg.append(potato)
+                } else {
+                    potatoesmeat.append(potato)
                 }
             }
         }
         
-        for baking in bakings {
-            let tagString = baking.wrappedTags
-            let tagArray = tagString.components(separatedBy: ",")
-            for tag in tagArray{
-                switch tag.lowercased(){
-                case "vegetarisch":
+        if !bakings.isEmpty{
+            for baking in bakings {
+                let tagString = baking.wrappedTags
+                if tagString.localizedCaseInsensitiveContains("vegetarisch") {
                     bakingsveg.append(baking)
-                    used = baking.wrappedTitle
-                default:
-                    if baking.wrappedTitle != used {
-                        bakingsmeat.append(baking)
-                    }
+                } else {
+                    bakingsmeat.append(baking)
                 }
             }
         }
         
-        for other in others {
-            let tagString = other.wrappedTags
-            let tagArray = tagString.components(separatedBy: ",")
-            for tag in tagArray{
-                switch tag.lowercased(){
-                case "vegetarisch":
+        if !others.isEmpty{
+            for other in others {
+                let tagString = other.wrappedTags
+                if tagString.localizedCaseInsensitiveContains("vegetarisch") {
                     othersveg.append(other)
-                    used = other.wrappedTitle
-                default:
-                    if other.wrappedTitle != used {
-                        othersmeat.append(other)
-                    }
+                } else {
+                    othersmeat.append(other)
                 }
             }
         }
@@ -257,133 +246,113 @@ numberofSelectedDays = days.count
         var vegs: [Recipie] = []
         var meats: [Recipie] = []
         
- 
+        //Adding Different food types to veggi or meat array depending on weighting
         
-        //adding pasta
-        for _ in 1...numberOfRecepies(amount: nudeln, days: days.count){
-            if let index = pastasveg.indices.randomElement() {
-                vegs.append(pastasveg[index])
-                pastasveg.remove(at: index)
-            }
-            
-            if let index = pastasmeat.indices.randomElement() {
-                meats.append(pastasmeat[index])
-                pastasmeat.remove(at: index)
+        if pastasveg.count >= numberOfRecepies(amount: nudeln, days: 7) && pastasmeat.count >= numberOfRecepies(amount: nudeln, days: 7) {
+            pastasveg = pastasveg.shuffled()
+            pastasmeat = pastasmeat.shuffled()
+            for index in 1...numberOfRecepies(amount: nudeln, days: 7){
+                    vegs.append(pastasveg[index-1])
+                    meats.append(pastasmeat[index-1])
             }
         }
         
-        //adding rice
-        for _ in 1...numberOfRecepies(amount: reis, days: days.count){
-            if let index = ricesveg.indices.randomElement() {
-                vegs.append(ricesveg[index])
-                ricesveg.remove(at: index)
-            }
-            
-            if let index = ricesmeat.indices.randomElement() {
-                meats.append(ricesmeat[index])
-                ricesmeat.remove(at: index)
+        if ricesveg.count >= numberOfRecepies(amount: reis, days: 7) && ricesmeat.count >= numberOfRecepies(amount: reis, days: 7) {
+            ricesveg = ricesveg.shuffled()
+            ricesmeat = ricesmeat.shuffled()
+            for index in 1...numberOfRecepies(amount: reis, days: 7){
+                vegs.append(ricesveg[index-1])
+                meats.append(ricesmeat[index-1])
             }
         }
         
-        //adding potatoes
-        for _ in 1...numberOfRecepies(amount: kartoffeln, days: days.count){
-            if let index = potatoesveg.indices.randomElement() {
-                vegs.append(potatoesveg[index])
-                potatoesveg.remove(at: index)
-            }
-            
-            if let index = potatoesmeat.indices.randomElement() {
-                meats.append(potatoesmeat[index])
-                potatoesmeat.remove(at: index)
+        if potatoesveg.count >= numberOfRecepies(amount: kartoffeln, days: 7) && potatoesmeat.count >= numberOfRecepies(amount: kartoffeln, days: 7) {
+            potatoesveg = potatoesveg.shuffled()
+            potatoesmeat = potatoesmeat.shuffled()
+            for index in 1...numberOfRecepies(amount: kartoffeln, days: 7){
+                vegs.append(potatoesveg[index-1])
+                meats.append(potatoesmeat[index-1])
             }
         }
         
-        //adding baking
-        for _ in 1...numberOfRecepies(amount: gebackenes, days: days.count){
-            if let index = bakingsveg.indices.randomElement() {
-                vegs.append(bakingsveg[index])
-                bakingsveg.remove(at: index)
-            }
-            
-            if let index = bakingsmeat.indices.randomElement() {
-                meats.append(bakingsmeat[index])
-                bakingsmeat.remove(at: index)
+        if bakingsveg.count >= numberOfRecepies(amount: gebackenes, days: 7) && bakingsmeat.count >= numberOfRecepies(amount: gebackenes, days: 7) {
+            bakingsveg = bakingsveg.shuffled()
+            bakingsmeat = bakingsmeat.shuffled()
+            for index in 1...numberOfRecepies(amount: gebackenes, days: 7){
+                vegs.append(bakingsveg[index-1])
+                meats.append(bakingsmeat[index-1])
             }
         }
         
-        //adding other
-        for _ in 1...1{
-            if let index = othersveg.indices.randomElement() {
-                vegs.append(othersveg[index])
-                othersveg.remove(at: index)
-            }
-            
-            if let index = othersmeat.indices.randomElement() {
-                meats.append(othersmeat[index])
-                othersmeat.remove(at: index)
+        if othersveg.count >= 2 && othersmeat.count >= 2 {
+            othersveg = othersveg.shuffled()
+            othersmeat = othersmeat.shuffled()
+            for index in 1...2{
+                vegs.append(othersveg[index-1])
+                meats.append(othersmeat[index-1])
             }
         }
-      
         
-     
+        
+        //Adding recipies depending on Veggi/meat wheighting to tempArray
         
         if !vegetarisch {
-            for _ in 0...(numberOfRecepies(amount: fleisch, days: days.count)){
-            if let index = vegs.indices.randomElement() {
-                tempGeneratedRecipies.append(vegs[index])
+            vegs = vegs.shuffled()
+            meats = meats.shuffled()
             
-                vegs.remove(at: index)
-                
+            for index in 1...(7 - numberOfRecepies(amount: fleisch, days: 7)){
+                    tempGeneratedRecipies.append(vegs[index-1])
             }
-        }
-        
-            for _ in 0...(numberOfRecepies(amount: fleisch, days: days.count)){
-                if let index = meats.indices.randomElement() {
-                    tempGeneratedRecipies.append(meats[index])
-                
-                    meats.remove(at: index)
-                }
+            
+            for index in 1...(numberOfRecepies(amount: fleisch, days: 7)){
+                tempGeneratedRecipies.append(meats[index-1])
             }
         } else {
-            for _ in 0...days.count{
-                if let index = vegs.indices.randomElement() {
-                    tempGeneratedRecipies.append(vegs[index])
-                    
-                    vegs.remove(at: index)
+            for index in 1...7{
+                tempGeneratedRecipies.append(vegs[index-1])
+            }
+        }
+        
+        tempGeneratedRecipies = tempGeneratedRecipies.shuffled()
+        print("Temp: \(tempGeneratedRecipies.count)")
+        
+        // incase there are too less recipies it will just randomly generate without weighting
+        if tempGeneratedRecipies.count >= 7{
+            for index in 1...7{
+                generatedRecipies.append(tempGeneratedRecipies[index-1])
+                generatedRecipies[index-1].picked = Int16(index)
+                try? moc.save()
+            }
+            print("Gen: \(generatedRecipies.count)")
+            for recipie in generatedRecipies{
+                print(recipie.wrappedTitle)
+                print(recipie.picked)
+            }
+            print("_________________")
+            
+        } else {
+            var allRecipies: [Recipie] = []
+            for recipie in recipies {
+                allRecipies.append(recipie)
+            }
+
+            tempGeneratedRecipies = allRecipies.shuffled()
+            for index in 1...7{
+                generatedRecipies.append(tempGeneratedRecipies[index-1])
+                generatedRecipies[index-1].picked = Int16(index)
+                try? moc.save()
+            }
+        }
+        
+        for(index1, recipie1) in generatedRecipies.enumerated() {
+            for(index2, recipie2) in generatedRecipies.enumerated() {
+                if recipie1 == recipie2 && index1 != index2{
+                    generateRecipies()
                 }
             }
         }
         
-
-        
-   
-     // If the Position matters, when generating (This is the case when generating single recipies) Do this:
-        if positionQuery {
-            //filteredGeneratedRecipies is the Array, where all the Recipies are stored, that dont already exist in generated Recipies
-            var filteredGeneratedRecipies: [Recipie] = []
-            for tempGeneratedRecipe in tempGeneratedRecipies {
-                if !generatedRecipies.contains(tempGeneratedRecipe){
-                    filteredGeneratedRecipies.append(tempGeneratedRecipe)
-                } 
-            }
-            tempGeneratedRecipies = filteredGeneratedRecipies
-           //Set picked value of current recipie to 0 (This indicates to the system, that it is no longer used by the weekplanner)
-            generatedRecipies[position-1].picked = Int16(0)
-            //Replace the position of generatedRecipies with the new recipie and then in the next line set the picked value to the position in the week.
-            generatedRecipies[position-1] = tempGeneratedRecipies[0]
-            generatedRecipies[position-1].picked = Int16(position)
-            //Take the whole new Array and generate a new shoppinglist
-            generateShoppinglist()
-
-            try? moc.save()
-        } else {
-            //Save all the temporary recipies to the generatedRecipies Array
-            generatedRecipies = tempGeneratedRecipies
-            generatedRecipies = generatedRecipies.shuffled()
-            //genrate shoppinglist from picked recipies
-            generateShoppinglist()
-
-        }
+        generateShoppinglist()
     }
     
     func generateShoppinglist() {
@@ -392,13 +361,13 @@ numberofSelectedDays = days.count
             moc.delete(shoppingItem)
             try? moc.save()
         }
-
+        
         
         for (index, generatedRecipie) in generatedRecipies.enumerated() {
             //Takes all the recipies which are picked (In The Data Model they have an Index indecating which day they are)
-            if index < days.count {
+            if index < 7 {
                 generatedRecipie.picked = Int16(index+1)
-
+                
                 for ingredient in generatedRecipie.ingredientsArray{
                     let newShoppingItem = BuyIngr(context: moc)
                     newShoppingItem.amount = ingredient.amount
@@ -409,8 +378,8 @@ numberofSelectedDays = days.count
                 }
                 try? moc.save()
             }
-    
-       
+            
+            
         }
         
         
@@ -433,7 +402,7 @@ numberofSelectedDays = days.count
                 moc.delete(shoppingItem)
                 try? moc.save()
             }
-       }
+        }
     }
 }
 

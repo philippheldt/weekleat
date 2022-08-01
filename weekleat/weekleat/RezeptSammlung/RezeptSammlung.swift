@@ -19,90 +19,62 @@ struct RezeptSammlung: View {
     
     @State private var dummyRezepte = Rezepte.dummyRezepte
 
-    
+
     
     var body: some View {
-        NavigationView{
-            if recipies.count > 0{
-                List(recipies) {recipie in
-                        if searchText == "" {
-                            ListItemElement(titleText: recipie.wrappedTitle , titleImage: recipie.wrappedFoodType, color: intToColorTheme(colorInt: Int(recipie.colorTheme)), tags: tagConverter(tagString: recipie.wrappedTags), backgroundColor: "PureWhite", portion: Int(recipie.portion))
-                                .onTapGesture{
-                                  passRecipie = recipie
-                                    print(passRecipie.wrappedTitle)
-                                    showingEditScreen.toggle()
-                                }
-                                .swipeActions{
-                                    Button{
-                                        withAnimation{
-                                            moc.delete(recipie)
-                                            try? moc.save()
-                                        }
-                                      
-                                    } label: {
-                                        Label("", systemImage: "trash")
-                                    }
-                                    .tint(Color("RedLight"))
-                                }
-                                .swipeActions(edge: .leading){
-                                    Button{
-                                        print("Star")
-                                    } label: {
-                                        Label("", systemImage: "star")
-                                    }
-                                    .tint(Color("YellowLight"))
-                                }
-                                
-                                
-                           
-                        } else {
-                            if recipie.wrappedTitle.lowercased().contains(searchText.lowercased()) {
-                                ListItemElement(titleText: recipie.wrappedTitle , titleImage: recipie.wrappedFoodType, color: intToColorTheme(colorInt: Int(recipie.colorTheme)), tags: [.Veggi, .Schnell], backgroundColor: "PureWhite", portion: Int(recipie.portion))
+        CustomNavBarContainer{
+            if recipies.count != 0{
+                ScrollView{
+                    VStack(alignment: .leading){
+                        HStack{
+                            Image("search.icon.gray")
+                                .resizable()
+                                .aspectRatio(1, contentMode: .fill)
+                                .frame(width: 40, height: 40)
+                            TextField("Suchen", text: $searchText)
+                        }
+                        .padding(5)
+                        .cornerRadius(5)
+                        .overlay(
+                                RoundedRectangle(cornerRadius: 5)
+                                    .stroke(.gray, lineWidth: 0.5)
+                            )
+                        .padding()
                         
+                       
+                        
+                        ForEach(recipies, id:\.id) {recipie in
+                            if searchText == "" {
+                                ListElement(recipie: recipie)
                                     .onTapGesture{
                                         passRecipie = recipie
                                         print(passRecipie.wrappedTitle)
                                         showingEditScreen.toggle()
-                                    
-                                           
-                                        
                                     }
-                                    .swipeActions{
-                                        Button{
-                                            moc.delete(recipie)
-                                            try? moc.save()
-                                        } label: {
-                                            Label("", systemImage: "trash")
+                                
+                            } else {
+                                if recipie.wrappedTitle.lowercased().contains(searchText.lowercased()) {
+                                    ListElement(recipie: recipie)
+                                        .onTapGesture{
+                                            passRecipie = recipie
+                                            print(passRecipie.wrappedTitle)
+                                            showingEditScreen.toggle()
                                         }
-                                        .tint(Color("RedLight"))
-                                    }
-                                    .swipeActions(edge: .leading){
-                                        Button{
-                                            print("Star")
-                                        } label: {
-                                            Label("", systemImage: "star")
-                                        }
-                                        .tint(Color("YellowLight"))
-                                    }
                                     
+                                }
+                                
+                                
+                                
+                                
                             }
                         }
-
-                   
-
+                    } .padding([.top, .bottom])
+                    
                 }
-                .searchable(text: $searchText)
-                .navigationTitle("Rezepte")
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Button {
-                            showingAddScreen.toggle()
-                        } label: {
-                            Label("", systemImage: "plus")
-                        }
-                    }
-
-                }
+               
+            
+              
+               
                 .sheet(isPresented: $showingAddScreen) {
                    AddRecipieView()
                   //  ImportRecipieView()
@@ -163,10 +135,23 @@ struct RezeptSammlung: View {
                         .cornerRadius(8)
                         
                 }
-               
+              
             }
                 
+               
         }
+        .navigationBarHidden(true)
+            .toolbar {
+                 ToolbarItem(placement: .navigationBarTrailing) {
+                     Button {
+                         showingAddScreen.toggle()
+                     } label: {
+                         Label("", systemImage: "plus")
+                     }
+                 }
+
+             }
+           
     }
     
 
