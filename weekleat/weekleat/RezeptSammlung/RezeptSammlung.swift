@@ -28,6 +28,9 @@ struct RezeptSammlung: View {
                     VStack(alignment: .leading){
                         HStack{
                             Image("search.icon.gray")
+                                .resizable()
+                                .aspectRatio(1, contentMode: .fill)
+                                .frame(width: 40, height: 40)
                             TextField("Suchen", text: $searchText)
                         }
                         .padding(5)
@@ -65,7 +68,7 @@ struct RezeptSammlung: View {
                                 
                             }
                         }
-                    } .padding(.top)
+                    } .padding([.top, .bottom])
                     
                 }
                

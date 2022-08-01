@@ -10,26 +10,33 @@ import Foundation
 func numberOfRecepies(amount: String, days: Int) -> Int {
     var number: Int = 0
     if days <= 2{
-
+        
         switch amount {
-            case "häufig": number = 1
-            case "mittel": number = 1
-            case "selten": number = 1
-            default: number = 1
+        case "häufig": number = 3
+        case "mittel": number = 2
+        case "selten": number = 1
+            //   case "häufig": number = 1
+            //   case "mittel": number = 1
+            //   case "selten": number = 1
+        default: number = 1
         }
     } else if days > 5{
         switch amount {
-            case "häufig": number = 3
-            case "mittel": number = 2
-            case "selten": number = 1
-            default: number = 1
+        case "häufig": number = 3
+        case "mittel": number = 2
+        case "selten": number = 1
+        default: number = 1
         }
     } else if days == 3 || days == 4{
         switch amount {
-            case "häufig": number = 2
-            case "mittel": number = 1
-            case "selten": number = 1
-            default: number = 1
+        case "häufig": number = 3
+        case "mittel": number = 2
+        case "selten": number = 1
+            
+            //  case "häufig": number = 2
+            //  case "mittel": number = 1
+            //  case "selten": number = 1
+        default: number = 1
         }
     }
     return number

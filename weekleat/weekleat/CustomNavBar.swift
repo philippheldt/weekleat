@@ -20,6 +20,9 @@ struct CustomNavBar: View {
                         presentationMode.wrappedValue.dismiss()
                     }label:{
                         Image("arrow.left.black")
+                            .resizable()
+                            .aspectRatio(1, contentMode: .fill)
+                            .frame(width: 40, height: 5)
                         Text(title)
                             .font(.subheadline)
                     }

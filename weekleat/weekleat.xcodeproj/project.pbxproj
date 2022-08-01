@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C21D605F2897D7DD00A7A73E /* generatorLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21D605E2897D7DD00A7A73E /* generatorLogic.swift */; };
 		C2216B2628941FA800F9EB80 /* CustomNavBarPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2216B2528941FA800F9EB80 /* CustomNavBarPreference.swift */; };
 		C2362C2028913DA800A977B5 /* KeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2362C1F28913DA800A977B5 /* KeyboardHandler.swift */; };
 		C23B07D12894112200E70C2A /* CustomNavBarContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23B07D02894112200E70C2A /* CustomNavBarContainer.swift */; };
@@ -45,15 +46,18 @@
 		C2B49DEA2848DC54002F695B /* SingleTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B49DE92848DC54002F695B /* SingleTagView.swift */; };
 		C2B49DEC2849F2F0002F695B /* ListItemElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B49DEB2849F2F0002F695B /* ListItemElement.swift */; };
 		C2BFCB692892D5BA00294F8E /* ListElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BFCB682892D5BA00294F8E /* ListElement.swift */; };
+		C2D0CFCF28980CC90050179C /* WeekPlannerItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D0CFCE28980CC90050179C /* WeekPlannerItems.swift */; };
 		C2D3D406286DF4C500A92956 /* EditRecipieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D3D405286DF4C500A92956 /* EditRecipieView.swift */; };
 		C2D3D408286E023D00A92956 /* IngredientsLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D3D407286E023D00A92956 /* IngredientsLogic.swift */; };
 		C2D3D40A286E247D00A92956 /* ShoppinglistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D3D409286E247D00A92956 /* ShoppinglistView.swift */; };
 		C2DA7FC9283E339B009B8FE0 /* TagIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DA7FC8283E339B009B8FE0 /* TagIcons.swift */; };
 		C2EA28D2286316FA00E6F54A /* Ingredients.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EA28D1286316FA00E6F54A /* Ingredients.swift */; };
+		C2EB7B8D2897BA7E00C2025C /* DayPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EB7B8C2897BA7E00C2025C /* DayPickerView.swift */; };
 		C2FBD51D2869DF2C008E9B72 /* RecipieImageLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FBD51C2869DF2C008E9B72 /* RecipieImageLogic.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C21D605E2897D7DD00A7A73E /* generatorLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = generatorLogic.swift; sourceTree = "<group>"; };
 		C2216B2528941FA800F9EB80 /* CustomNavBarPreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavBarPreference.swift; sourceTree = "<group>"; };
 		C2362C1F28913DA800A977B5 /* KeyboardHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHandler.swift; sourceTree = "<group>"; };
 		C23B07D02894112200E70C2A /* CustomNavBarContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavBarContainer.swift; sourceTree = "<group>"; };
@@ -93,11 +97,13 @@
 		C2B49DE92848DC54002F695B /* SingleTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleTagView.swift; sourceTree = "<group>"; };
 		C2B49DEB2849F2F0002F695B /* ListItemElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemElement.swift; sourceTree = "<group>"; };
 		C2BFCB682892D5BA00294F8E /* ListElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListElement.swift; sourceTree = "<group>"; };
+		C2D0CFCE28980CC90050179C /* WeekPlannerItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekPlannerItems.swift; sourceTree = "<group>"; };
 		C2D3D405286DF4C500A92956 /* EditRecipieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRecipieView.swift; sourceTree = "<group>"; };
 		C2D3D407286E023D00A92956 /* IngredientsLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsLogic.swift; sourceTree = "<group>"; };
 		C2D3D409286E247D00A92956 /* ShoppinglistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppinglistView.swift; sourceTree = "<group>"; };
 		C2DA7FC8283E339B009B8FE0 /* TagIcons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagIcons.swift; sourceTree = "<group>"; };
 		C2EA28D1286316FA00E6F54A /* Ingredients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredients.swift; sourceTree = "<group>"; };
+		C2EB7B8C2897BA7E00C2025C /* DayPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayPickerView.swift; sourceTree = "<group>"; };
 		C2FBD51C2869DF2C008E9B72 /* RecipieImageLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipieImageLogic.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -141,6 +147,8 @@
 		C2945644282B977700931872 = {
 			isa = PBXGroup;
 			children = (
+				C2D0CFCE28980CC90050179C /* WeekPlannerItems.swift */,
+				C21D605E2897D7DD00A7A73E /* generatorLogic.swift */,
 				C2216B2528941FA800F9EB80 /* CustomNavBarPreference.swift */,
 				C279DBFF286F991D00466B5D /* PreloadRecipies.swift */,
 				C294564F282B977700931872 /* weekleat */,
@@ -217,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				C2688601286C264E0065D521 /* SettingsView.swift */,
+				C2EB7B8C2897BA7E00C2025C /* DayPickerView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -387,6 +396,7 @@
 				C2BFCB692892D5BA00294F8E /* ListElement.swift in Sources */,
 				C23C9E542889BC250087040E /* JSON_Manager.swift in Sources */,
 				C2688602286C264E0065D521 /* SettingsView.swift in Sources */,
+				C2EB7B8D2897BA7E00C2025C /* DayPickerView.swift in Sources */,
 				C28F381F282D1B6F0074079B /* ColorTheme.swift in Sources */,
 				C2216B2628941FA800F9EB80 /* CustomNavBarPreference.swift in Sources */,
 				C2D3D40A286E247D00A92956 /* ShoppinglistView.swift in Sources */,
@@ -394,6 +404,7 @@
 				C23B07D3289412C100E70C2A /* CustomNav.swift in Sources */,
 				C2AE2A6C2869951100CB0DA6 /* Ingredient+CoreDataProperties.swift in Sources */,
 				C2EA28D2286316FA00E6F54A /* Ingredients.swift in Sources */,
+				C21D605F2897D7DD00A7A73E /* generatorLogic.swift in Sources */,
 				C259309528664F9300AD529D /* RezeptSammlung.swift in Sources */,
 				C27411A22894096800BDA92F /* CustomNavBar.swift in Sources */,
 				C23C9E52288968300087040E /* ImportRecipieView.swift in Sources */,
@@ -401,6 +412,7 @@
 				C2688606286C573C0065D521 /* TagConverter.swift in Sources */,
 				C2AB072328646D1D00276B92 /* BottomBarNavigation.swift in Sources */,
 				C2B49DEC2849F2F0002F695B /* ListItemElement.swift in Sources */,
+				C2D0CFCF28980CC90050179C /* WeekPlannerItems.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
