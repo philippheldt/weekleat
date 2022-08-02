@@ -27,7 +27,7 @@ struct ShoppingListElement: View {
                             .font(.title3)
                             .fontWeight(.bold)
                         HStack{
-                            TagView(tagName: "\(shoppingItem.amount) \(shoppingItem.unit ?? "")", tagIcon: "portion.icon.black")
+                            TagView(tagName: "\(Int(shoppingItem.amount)) \(shoppingItem.unit ?? "")", tagIcon: "portion.icon.black")
                         }
                        
                     }.padding(.leading)

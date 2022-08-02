@@ -25,21 +25,38 @@ struct RezeptSammlung: View {
         CustomNavBarContainer{
             if recipies.count != 0{
                 ScrollView{
+                    
                     VStack(alignment: .leading){
-                        HStack{
-                            Image("search.icon.gray")
-                                .resizable()
-                                .aspectRatio(1, contentMode: .fill)
-                                .frame(width: 40, height: 40)
-                            TextField("Suchen", text: $searchText)
+                        HStack(spacing: 5){
+                            HStack{
+                                Image("search.icon.gray")
+                                    .resizable()
+                                    .aspectRatio(1, contentMode: .fill)
+                                    .frame(width: 30, height: 30)
+                                TextField("Suchen", text: $searchText)
+                            }
+                            .padding(5)
+                            .cornerRadius(5)
+                            .overlay(
+                                    RoundedRectangle(cornerRadius: 5)
+                                        .stroke(.gray, lineWidth: 0.5)
+                                )
+                            
+                            
+                            Button{
+                                showingAddScreen.toggle()
+                            } label: {
+                                Image(systemName: "plus")
+                                
+                            }
+                            .padding(12)
+                            .background(Color.black)
+                            .cornerRadius(5)
+                            .foregroundColor(Color.white)
+                            
                         }
-                        .padding(5)
-                        .cornerRadius(5)
-                        .overlay(
-                                RoundedRectangle(cornerRadius: 5)
-                                    .stroke(.gray, lineWidth: 0.5)
-                            )
                         .padding()
+                        
                         
                        
                         

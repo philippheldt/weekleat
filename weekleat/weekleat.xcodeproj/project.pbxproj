@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		C21D605F2897D7DD00A7A73E /* generatorLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21D605E2897D7DD00A7A73E /* generatorLogic.swift */; };
-		C2216B2628941FA800F9EB80 /* CustomNavBarPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2216B2528941FA800F9EB80 /* CustomNavBarPreference.swift */; };
 		C2362C2028913DA800A977B5 /* KeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2362C1F28913DA800A977B5 /* KeyboardHandler.swift */; };
 		C23B07D12894112200E70C2A /* CustomNavBarContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23B07D02894112200E70C2A /* CustomNavBarContainer.swift */; };
 		C23B07D3289412C100E70C2A /* CustomNav.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23B07D2289412C100E70C2A /* CustomNav.swift */; };
@@ -58,7 +57,6 @@
 
 /* Begin PBXFileReference section */
 		C21D605E2897D7DD00A7A73E /* generatorLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = generatorLogic.swift; sourceTree = "<group>"; };
-		C2216B2528941FA800F9EB80 /* CustomNavBarPreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavBarPreference.swift; sourceTree = "<group>"; };
 		C2362C1F28913DA800A977B5 /* KeyboardHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHandler.swift; sourceTree = "<group>"; };
 		C23B07D02894112200E70C2A /* CustomNavBarContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavBarContainer.swift; sourceTree = "<group>"; };
 		C23B07D2289412C100E70C2A /* CustomNav.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNav.swift; sourceTree = "<group>"; };
@@ -147,7 +145,6 @@
 		C2945644282B977700931872 = {
 			isa = PBXGroup;
 			children = (
-				C2216B2528941FA800F9EB80 /* CustomNavBarPreference.swift */,
 				C294564F282B977700931872 /* weekleat */,
 				C294564E282B977700931872 /* Products */,
 			);
@@ -164,10 +161,7 @@
 		C294564F282B977700931872 /* weekleat */ = {
 			isa = PBXGroup;
 			children = (
-				C27411A12894096800BDA92F /* CustomNavBar.swift */,
-				C23B07D02894112200E70C2A /* CustomNavBarContainer.swift */,
-				C23B07D2289412C100E70C2A /* CustomNav.swift */,
-				C23B07D4289414A000E70C2A /* CustomNavLink.swift */,
+				C29FF883289909B0007A2CC4 /* CustomNavBar */,
 				C2945666282BAD0300931872 /* Info.plist */,
 				C2D3D40D286E2BB500A92956 /* RezeptSammlung */,
 				C2D3D410286E2BFE00A92956 /* WeekPlanner */,
@@ -204,6 +198,17 @@
 				C2945664282BAB3200931872 /* Migra.otf */,
 			);
 			path = fonts;
+			sourceTree = "<group>";
+		};
+		C29FF883289909B0007A2CC4 /* CustomNavBar */ = {
+			isa = PBXGroup;
+			children = (
+				C27411A12894096800BDA92F /* CustomNavBar.swift */,
+				C23B07D02894112200E70C2A /* CustomNavBarContainer.swift */,
+				C23B07D2289412C100E70C2A /* CustomNav.swift */,
+				C23B07D4289414A000E70C2A /* CustomNavLink.swift */,
+			);
+			path = CustomNavBar;
 			sourceTree = "<group>";
 		};
 		C2D3D40D286E2BB500A92956 /* RezeptSammlung */ = {
@@ -398,7 +403,6 @@
 				C2688602286C264E0065D521 /* SettingsView.swift in Sources */,
 				C2EB7B8D2897BA7E00C2025C /* DayPickerView.swift in Sources */,
 				C28F381F282D1B6F0074079B /* ColorTheme.swift in Sources */,
-				C2216B2628941FA800F9EB80 /* CustomNavBarPreference.swift in Sources */,
 				C2D3D40A286E247D00A92956 /* ShoppinglistView.swift in Sources */,
 				C2945651282B977700931872 /* weekleatApp.swift in Sources */,
 				C23B07D3289412C100E70C2A /* CustomNav.swift in Sources */,

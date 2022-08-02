@@ -14,6 +14,7 @@ struct WeekPlanner: View {
     
     @State private var passRecipie: Recipie? = nil
     @State private var showingEditScreen = false
+    @State private var showingSettingsScreen = false
     
     @State var generatedRecipies: [Recipie] = []
     @State var selectedRecipie: [Recipie] = []
@@ -225,22 +226,40 @@ struct WeekPlanner: View {
                         }     }
                 }
                 
-                Button{
-                    let impactMed = UIImpactFeedbackGenerator(style: .heavy)
-                    impactMed.impactOccurred()
-                    generateRecipies()
+                HStack(spacing: 10){
+                    Button{
+                        showingSettingsScreen.toggle()
+                    } label: {
+                        Image("settings.icon.black")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 21, height: 21)
+                    }
+                    .padding()
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 5)
+                            .stroke(.gray, lineWidth: 0.5)
+                    )
                     
                     
-                } label: {
-                    Image(systemName: "arrow.clockwise")
-                    Text("Rezepte generieren")
+                    Button{
+                        let impactMed = UIImpactFeedbackGenerator(style: .heavy)
+                        impactMed.impactOccurred()
+                        generateRecipies()
+                        
+                        
+                    } label: {
+                        Image(systemName: "arrow.clockwise")
+                        Text("Rezepte generieren")
+                    }
+                    .padding()
+                    .background(Color.black)
+                    .cornerRadius(5)
+                    .foregroundColor(Color.white)
+   
+                 
                 }
-                .padding()
-                .overlay(
-                    RoundedRectangle(cornerRadius: 5)
-                        .stroke(.gray, lineWidth: 0.5)
-                )
-                .padding()
+                .padding(.top)
                 
             }
             
@@ -278,6 +297,9 @@ struct WeekPlanner: View {
             }
             .sheet(isPresented: $showingEditScreen){
                 EditRecipieView(rezept: passRecipie ?? recipies[0])
+            }
+            .sheet(isPresented: $showingSettingsScreen){
+                SettingsView()
             }
             .navigationTitle("Wochenplan")
             .navigationBarTitleDisplayMode(.inline)
@@ -460,13 +482,16 @@ struct WeekPlanner: View {
         if !vegetarisch {
             vegs = vegs.shuffled()
             meats = meats.shuffled()
-            
-            for index in 1...(7 - numberOfRecepies(amount: fleisch, days: 7)){
-                tempGeneratedRecipies.append(vegs[index-1])
+            if vegs.count >= (7 - numberOfRecepies(amount: fleisch, days: 7)) {
+                for index in 1...(7 - numberOfRecepies(amount: fleisch, days: 7)){
+                    tempGeneratedRecipies.append(vegs[index-1])
+                }
             }
-            
-            for index in 1...(numberOfRecepies(amount: fleisch, days: 7)){
-                tempGeneratedRecipies.append(meats[index-1])
+           
+            if meats.count >= (numberOfRecepies(amount: fleisch, days: 7)) {
+                for index in 1...(numberOfRecepies(amount: fleisch, days: 7)){
+                    tempGeneratedRecipies.append(meats[index-1])
+                }
             }
         } else {
             for index in 1...7{

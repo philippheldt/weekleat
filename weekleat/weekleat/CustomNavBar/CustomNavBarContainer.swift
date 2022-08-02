@@ -22,13 +22,7 @@ struct CustomNavBarContainer<Content: View>: View {
             content
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
-        .onPreferenceChange(CustomNavBarTitlePreferenceKey.self, perform: { value in
-            self.title = value
-        })
-        
-        .onPreferenceChange(CustomNavBarBackPreferenceKey.self, perform: { value in
-            self.back = value
-        })
+
         
     }
 }
@@ -39,7 +33,6 @@ struct CustomNavBarContainer_Previews: PreviewProvider {
             ZStack{
                 Color.gray.ignoresSafeArea()
             }
-            .customNavigationBack(false)
          
         }
     }

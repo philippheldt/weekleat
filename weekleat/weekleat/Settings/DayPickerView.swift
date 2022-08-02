@@ -20,7 +20,7 @@ struct DayPickerView: View {
         HStack{
             HStack{
                 Button{
-                    montag.toggle()
+                    montag.toggle()                   
                 } label: {
                     Text("M")
                         .font(.caption)

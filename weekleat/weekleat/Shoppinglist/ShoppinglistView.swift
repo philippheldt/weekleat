@@ -20,6 +20,10 @@ struct ShoppinglistView: View {
         CustomNavBarContainer{
             ScrollView {
                 VStack(alignment: .leading){
+                    Text("Einkaufsliste")
+                        .font(.title)
+                        .fontWeight(.bold)
+                        .padding([.leading, .top])
                     Text("Offen")
                         .font(.caption)
                         .textCase(.uppercase)
