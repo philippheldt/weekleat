@@ -52,6 +52,7 @@
 		C2D3D408286E023D00A92956 /* IngredientsLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D3D407286E023D00A92956 /* IngredientsLogic.swift */; };
 		C2D3D40A286E247D00A92956 /* ShoppinglistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D3D409286E247D00A92956 /* ShoppinglistView.swift */; };
 		C2DA7FC9283E339B009B8FE0 /* TagIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DA7FC8283E339B009B8FE0 /* TagIcons.swift */; };
+		C2DE04F728995E1100BBC98D /* RezeptSammlungElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DE04F628995E1100BBC98D /* RezeptSammlungElement.swift */; };
 		C2EA28D2286316FA00E6F54A /* Ingredients.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EA28D1286316FA00E6F54A /* Ingredients.swift */; };
 		C2EB7B8D2897BA7E00C2025C /* DayPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EB7B8C2897BA7E00C2025C /* DayPickerView.swift */; };
 		C2FBD51D2869DF2C008E9B72 /* RecipieImageLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FBD51C2869DF2C008E9B72 /* RecipieImageLogic.swift */; };
@@ -104,6 +105,7 @@
 		C2D3D407286E023D00A92956 /* IngredientsLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsLogic.swift; sourceTree = "<group>"; };
 		C2D3D409286E247D00A92956 /* ShoppinglistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppinglistView.swift; sourceTree = "<group>"; };
 		C2DA7FC8283E339B009B8FE0 /* TagIcons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagIcons.swift; sourceTree = "<group>"; };
+		C2DE04F628995E1100BBC98D /* RezeptSammlungElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RezeptSammlungElement.swift; sourceTree = "<group>"; };
 		C2EA28D1286316FA00E6F54A /* Ingredients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredients.swift; sourceTree = "<group>"; };
 		C2EB7B8C2897BA7E00C2025C /* DayPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayPickerView.swift; sourceTree = "<group>"; };
 		C2FBD51C2869DF2C008E9B72 /* RecipieImageLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipieImageLogic.swift; sourceTree = "<group>"; };
@@ -243,6 +245,7 @@
 			children = (
 				C2B49DEB2849F2F0002F695B /* ListItemElement.swift */,
 				C2BFCB682892D5BA00294F8E /* ListElement.swift */,
+				C2DE04F628995E1100BBC98D /* RezeptSammlungElement.swift */,
 				C274119F2892EAB500BDA92F /* ListElementLarge.swift */,
 				C27800FD2892E01700A59DCA /* TagView.swift */,
 				C274119D2892EA3200BDA92F /* TagSingle.swift */,
@@ -418,6 +421,7 @@
 				C29FF88528991781007A2CC4 /* NavigationConfigurator.swift in Sources */,
 				C21D605F2897D7DD00A7A73E /* generatorLogic.swift in Sources */,
 				C259309528664F9300AD529D /* RezeptSammlung.swift in Sources */,
+				C2DE04F728995E1100BBC98D /* RezeptSammlungElement.swift in Sources */,
 				C27411A22894096800BDA92F /* CustomNavBar.swift in Sources */,
 				C23C9E52288968300087040E /* ImportRecipieView.swift in Sources */,
 				C2AE458E286ACF0A00EC383E /* SingleTagViewButton.swift in Sources */,

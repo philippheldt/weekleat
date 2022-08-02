@@ -62,7 +62,7 @@ struct RezeptSammlung: View {
                         
                         ForEach(recipies, id:\.id) {recipie in
                             if searchText == "" {
-                                ListElement(recipie: recipie)
+                                RezeptSammlungElement(recipie: recipie)
                                     .onTapGesture{
                                         passRecipie = recipie
                                         print(passRecipie.wrappedTitle)
@@ -71,7 +71,7 @@ struct RezeptSammlung: View {
                                 
                             } else {
                                 if recipie.wrappedTitle.lowercased().contains(searchText.lowercased()) {
-                                    ListElement(recipie: recipie)
+                                    RezeptSammlungElement(recipie: recipie)
                                         .onTapGesture{
                                             passRecipie = recipie
                                             print(passRecipie.wrappedTitle)
