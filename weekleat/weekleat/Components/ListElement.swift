@@ -25,6 +25,8 @@ struct ListElement: View {
                     Text(recipie.wrappedTitle)
                         .font(.title3)
                         .fontWeight(.bold)
+                        .lineLimit(1)
+                         .truncationMode(.tail)
                     HStack{
                         TagView(tagName: String(recipie.portion), tagIcon: "portion.icon.black")
                         ForEach(recipie.wrappedTags.components(separatedBy: ","), id: \.self){ tag in
@@ -42,6 +44,7 @@ struct ListElement: View {
             
         }
         .cornerRadius(5)
+        .background(Color.white)
         .overlay(
                 RoundedRectangle(cornerRadius: 5)
                     .stroke(.gray, lineWidth: 0.5)

@@ -199,32 +199,7 @@ struct WeekPlanner: View {
                 }
                 .padding()
                 
-                VStack(alignment: .leading){
-                    if recipies.count > 0 {
-                        ForEach(recipies, id:\.self){ recipie in
-                            if recipie.picked == 1 && montag{
-                                WeekPlannerItems(recipie: recipie, dayPicked: "montag", passRecipie: $passRecipie, showingEditScreen: $showingEditScreen)
-                            }
-                            if recipie.picked == 2 && dienstag{
-                                WeekPlannerItems(recipie: recipie, dayPicked: "dienstag", passRecipie: $passRecipie, showingEditScreen: $showingEditScreen)
-                            }
-                            if recipie.picked == 3 && mittwoch{
-                                WeekPlannerItems(recipie: recipie, dayPicked: "mittwoch", passRecipie: $passRecipie, showingEditScreen: $showingEditScreen)
-                            }
-                            if recipie.picked == 4 && donnerstag{
-                                WeekPlannerItems(recipie: recipie, dayPicked: "donnerstag", passRecipie: $passRecipie, showingEditScreen: $showingEditScreen)
-                            }
-                            if recipie.picked == 5 && freitag{
-                                WeekPlannerItems(recipie: recipie, dayPicked: "freitag", passRecipie: $passRecipie, showingEditScreen: $showingEditScreen)
-                            }
-                            if recipie.picked == 6 && samstag{
-                                WeekPlannerItems(recipie: recipie, dayPicked: "samstag", passRecipie: $passRecipie, showingEditScreen: $showingEditScreen)
-                            }
-                            if recipie.picked == 7 && sonntag{
-                                WeekPlannerItems(recipie: recipie, dayPicked: "sonntag", passRecipie: $passRecipie, showingEditScreen: $showingEditScreen)
-                            }
-                        }     }
-                }
+                WeekPlannerItems(passRecipie: $passRecipie, showingEditScreen: $showingEditScreen, generatedRecipies: $generatedRecipies)
                 
                 HStack(spacing: 10){
                     Button{
@@ -256,10 +231,10 @@ struct WeekPlanner: View {
                     .background(Color.black)
                     .cornerRadius(5)
                     .foregroundColor(Color.white)
-   
-                 
+                    
+                    
                 }
-                .padding(.top)
+                .padding([.top, .bottom])
                 
             }
             
@@ -487,7 +462,7 @@ struct WeekPlanner: View {
                     tempGeneratedRecipies.append(vegs[index-1])
                 }
             }
-           
+            
             if meats.count >= (numberOfRecepies(amount: fleisch, days: 7)) {
                 for index in 1...(numberOfRecepies(amount: fleisch, days: 7)){
                     tempGeneratedRecipies.append(meats[index-1])
