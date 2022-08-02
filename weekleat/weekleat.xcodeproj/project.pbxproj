@@ -34,7 +34,6 @@
 		C2945658282B977900931872 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2945657282B977900931872 /* Preview Assets.xcassets */; };
 		C2945665282BAB3200931872 /* Migra.otf in Resources */ = {isa = PBXBuildFile; fileRef = C2945664282BAB3200931872 /* Migra.otf */; };
 		C294566B282BB7E300931872 /* WeekPlanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C294566A282BB7E300931872 /* WeekPlanner.swift */; };
-		C29FF88228987929007A2CC4 /* ShoppingListElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29FF88128987929007A2CC4 /* ShoppingListElement.swift */; };
 		C29FF88528991781007A2CC4 /* NavigationConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29FF88428991781007A2CC4 /* NavigationConfigurator.swift */; };
 		C29FF8872899210B007A2CC4 /* WeekPlannerItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29FF8862899210B007A2CC4 /* WeekPlannerItems.swift */; };
 		C2AB072328646D1D00276B92 /* BottomBarNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AB072228646D1D00276B92 /* BottomBarNavigation.swift */; };
@@ -52,6 +51,7 @@
 		C2D3D408286E023D00A92956 /* IngredientsLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D3D407286E023D00A92956 /* IngredientsLogic.swift */; };
 		C2D3D40A286E247D00A92956 /* ShoppinglistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D3D409286E247D00A92956 /* ShoppinglistView.swift */; };
 		C2DA7FC9283E339B009B8FE0 /* TagIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DA7FC8283E339B009B8FE0 /* TagIcons.swift */; };
+		C2DE04F528995BF100BBC98D /* ShoppingListElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DE04F428995BF100BBC98D /* ShoppingListElement.swift */; };
 		C2EA28D2286316FA00E6F54A /* Ingredients.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EA28D1286316FA00E6F54A /* Ingredients.swift */; };
 		C2EB7B8D2897BA7E00C2025C /* DayPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EB7B8C2897BA7E00C2025C /* DayPickerView.swift */; };
 		C2FBD51D2869DF2C008E9B72 /* RecipieImageLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FBD51C2869DF2C008E9B72 /* RecipieImageLogic.swift */; };
@@ -86,7 +86,6 @@
 		C2945664282BAB3200931872 /* Migra.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Migra.otf; sourceTree = "<group>"; };
 		C2945666282BAD0300931872 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C294566A282BB7E300931872 /* WeekPlanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekPlanner.swift; sourceTree = "<group>"; };
-		C29FF88128987929007A2CC4 /* ShoppingListElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListElement.swift; sourceTree = "<group>"; };
 		C29FF88428991781007A2CC4 /* NavigationConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationConfigurator.swift; sourceTree = "<group>"; };
 		C29FF8862899210B007A2CC4 /* WeekPlannerItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekPlannerItems.swift; sourceTree = "<group>"; };
 		C2AB072228646D1D00276B92 /* BottomBarNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBarNavigation.swift; sourceTree = "<group>"; };
@@ -104,6 +103,7 @@
 		C2D3D407286E023D00A92956 /* IngredientsLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsLogic.swift; sourceTree = "<group>"; };
 		C2D3D409286E247D00A92956 /* ShoppinglistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppinglistView.swift; sourceTree = "<group>"; };
 		C2DA7FC8283E339B009B8FE0 /* TagIcons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagIcons.swift; sourceTree = "<group>"; };
+		C2DE04F428995BF100BBC98D /* ShoppingListElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListElement.swift; sourceTree = "<group>"; };
 		C2EA28D1286316FA00E6F54A /* Ingredients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredients.swift; sourceTree = "<group>"; };
 		C2EB7B8C2897BA7E00C2025C /* DayPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayPickerView.swift; sourceTree = "<group>"; };
 		C2FBD51C2869DF2C008E9B72 /* RecipieImageLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipieImageLogic.swift; sourceTree = "<group>"; };
@@ -243,6 +243,7 @@
 			children = (
 				C2B49DEB2849F2F0002F695B /* ListItemElement.swift */,
 				C2BFCB682892D5BA00294F8E /* ListElement.swift */,
+				C2DE04F428995BF100BBC98D /* ShoppingListElement.swift */,
 				C274119F2892EAB500BDA92F /* ListElementLarge.swift */,
 				C27800FD2892E01700A59DCA /* TagView.swift */,
 				C274119D2892EA3200BDA92F /* TagSingle.swift */,
@@ -267,7 +268,6 @@
 			children = (
 				C2D3D409286E247D00A92956 /* ShoppinglistView.swift */,
 				C277C705286E3C87008D3F7C /* ShoppingListItem.swift */,
-				C29FF88128987929007A2CC4 /* ShoppingListElement.swift */,
 			);
 			path = Shoppinglist;
 			sourceTree = "<group>";
@@ -401,9 +401,9 @@
 				C2688604286C478B0065D521 /* RecipieGeneratorLogic.swift in Sources */,
 				C277C706286E3C87008D3F7C /* ShoppingListItem.swift in Sources */,
 				C2B49DEA2848DC54002F695B /* SingleTagView.swift in Sources */,
-				C29FF88228987929007A2CC4 /* ShoppingListElement.swift in Sources */,
 				C2FBD51D2869DF2C008E9B72 /* RecipieImageLogic.swift in Sources */,
 				C274119E2892EA3200BDA92F /* TagSingle.swift in Sources */,
+				C2DE04F528995BF100BBC98D /* ShoppingListElement.swift in Sources */,
 				C2AE2A6B2869951100CB0DA6 /* Ingredient+CoreDataClass.swift in Sources */,
 				C2BFCB692892D5BA00294F8E /* ListElement.swift in Sources */,
 				C23C9E542889BC250087040E /* JSON_Manager.swift in Sources */,
