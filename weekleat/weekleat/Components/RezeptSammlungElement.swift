@@ -35,13 +35,9 @@ struct RezeptSammlungElement: View {
             VStack{
                 HStack{
                     ZStack{
-                        Image("backgroundRed")
+                        Image(chooseImages(title: recipie.wrappedTitle))
                             .resizable()
                             .frame(width: 100, height: 100)
-                        Image("lasagne")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 70, height: 70)
                     }
                     VStack(alignment: .leading, spacing: 3){
                         Text(recipie.wrappedTitle)

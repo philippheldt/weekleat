@@ -14,13 +14,9 @@ struct ShoppingListElement: View {
             VStack{
                 HStack{
                     ZStack{
-                        Image("backgroundRed")
+                        Image(chooseImages(title: shoppingItem.title ?? ""))
                             .resizable()
                             .frame(width: 100, height: 100)
-                        Image("lasagne")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 70, height: 70)
                     }
                     VStack(alignment: .leading, spacing: 3){
                         Text(shoppingItem.title ?? "")

@@ -17,21 +17,63 @@ func chooseImages(title: String) -> String {
 
         let titleLowercase = titleItem.lowercased()
         if imageName.count < 2{
-        if titleLowercase.contains("pasta") || titleLowercase.contains("nudel") || titleLowercase.contains("spaghetti") || titleLowercase.contains("spaghetti") || titleLowercase.contains("spätzle") || titleLowercase.contains("tagliatelle") || titleLowercase.contains("lasagne") {
-            imageName = "pasta"
-        } else if titleLowercase.contains("wraps") || titleLowercase.contains("wrap") || titleLowercase.contains("döner") || titleLowercase.contains("enchilada") || titleLowercase.contains("tasche") || titleLowercase.contains("pita") {
+        if titleLowercase.contains("wraps") || titleLowercase.contains("wrap") || titleLowercase.contains("döner") || titleLowercase.contains("enchilada") || titleLowercase.contains("tasche") || titleLowercase.contains("pita") || titleLowercase.contains("quesadilla") {
             imageName = "enchilada"
-        }  else if titleLowercase.contains("gemüse") || titleLowercase.contains("karotte") || titleLowercase.contains("auflauf") || titleLowercase.contains("zucchini"){
+        }  else if  titleLowercase.contains("zucchini") || titleLowercase.contains("gurke"){
             imageName = "zucchini"
-        } else if titleLowercase.contains("pfannkuchen") || titleLowercase.contains("pancake") || titleLowercase.contains("eierkuchen"){
+        } else if titleLowercase.contains("lasagne") || titleLowercase.contains("auflauf"){
+            imageName = "lasagne"
+        } else if titleLowercase.contains("aprikose"){
+            imageName = "apricot"
+        } else if titleLowercase.contains("brokkoli") || titleLowercase.contains("blumenkohl"){
+            imageName = "brokkoli"
+        } else if titleLowercase.contains("chilli") || titleLowercase.contains("spitzpaprika") || titleLowercase.contains("scharf") || titleLowercase.contains("curry") || titleLowercase.contains("masala"){
+            imageName = "chilli"
+        } else if titleLowercase.contains("butter") || titleLowercase.contains("magerine"){
+            imageName = "butter"
+        } else if titleLowercase.contains("karotte") || titleLowercase.contains("pastinake") || titleLowercase.contains("möhre") || titleLowercase.contains("mohrrübe") || titleLowercase.contains("carrot")  || titleLowercase.contains("gemüse"){
+            imageName = "carrot"
+        } else if titleLowercase.contains("hähnchen") || titleLowercase.contains("hühner") || titleLowercase.contains("brust") || titleLowercase.contains("schenkel") || titleLowercase.contains("haxe") || titleLowercase.contains("huhn") || titleLowercase.contains("chicken") || titleLowercase.contains("wings") || titleLowercase.contains("pute"){
+            imageName = "chicken"
+        }  else if titleLowercase.contains("erbse") || titleLowercase.contains("peas") || titleLowercase.contains("bohne"){
+            imageName = "erbsen"
+        } else if titleLowercase.contains("flammkuchen") || titleLowercase.contains("flambe"){
+            imageName = "flambe"
+        } else if titleLowercase.contains("klöße") || titleLowercase.contains("knödel"){
+            imageName = "kloss"
+        } else if titleLowercase.contains("kokos"){
+            imageName = "kokos"
+        } else if titleLowercase.contains("lasagne"){
+            imageName = "lasagne"
+        } else if titleLowercase.contains("frühlingszwiebel") || titleLowercase.contains("lauch") || titleLowercase.contains("porree"){
+            imageName = "lauch"
+        } else if titleLowercase.contains("knoblauch") || titleLowercase.contains("zwiebel"){
+            imageName = "knoblauch"
+        } else if titleLowercase.contains("linsen"){
+            imageName = "linsen"
+        } else if titleLowercase.contains("mais"){
+            imageName = "mais"
+        } else if titleLowercase.contains("milch") || titleLowercase.contains("sahne") || titleLowercase.contains("creme") || titleLowercase.contains("schmand") || titleLowercase.contains("joghurt") || titleLowercase.contains("rahm"){
+            imageName = "milk"
+        } else if titleLowercase.contains("paprika"){
+            imageName = "paprika"
+        }else if titleLowercase.contains("radieschen"){
+            imageName = "radies"
+        }else if titleLowercase.contains("wurst") || titleLowercase.contains("würstchen") || titleLowercase.contains("sausage") || titleLowercase.contains("hotdog") || titleLowercase.contains("salami") || titleLowercase.contains("schinken") || titleLowercase.contains("lyoner") || titleLowercase.contains("wiener"){
+            imageName = "sausage"
+        } else if titleLowercase.contains("pfeffer") || titleLowercase.contains("salz") || titleLowercase.contains("pulver") || titleLowercase.contains("koriander") || titleLowercase.contains("schnittlauch") || titleLowercase.contains("petersilie") || titleLowercase.contains("kräuter") || titleLowercase.contains("kreuzkümmel") || titleLowercase.contains("kümmel") || titleLowercase.contains("kurkuma") || titleLowercase.contains("basilikum") || titleLowercase.contains("muskat") || titleLowercase.contains("senf") || titleLowercase.contains("zimt"){
+            imageName = "spice"
+        } else if titleLowercase.contains("pfannkuchen") || titleLowercase.contains("kaiserschmarrn") || titleLowercase.contains("pancake") || titleLowercase.contains("eierkuchen"){
             imageName = "pancake"
-        } else if titleLowercase.contains("schinken") || titleLowercase.contains("speck") || titleLowercase.contains("fleisch"){
+        } else if titleLowercase.contains("schinken") || titleLowercase.contains("speck") {
             imageName = "bacon"
+        }else if titleLowercase.contains("fleisch") || titleLowercase.contains("steak") || titleLowercase.contains("schnitzel") {
+            imageName = "steak"
         } else if titleLowercase.contains("burger"){
             imageName = "burger"
-        } else if titleLowercase.contains("käse") || titleLowercase.contains("mozarella") || titleLowercase.contains("emmentaler") || titleLowercase.contains("gouda"){
+        } else if titleLowercase.contains("käse") || titleLowercase.contains("mozzarella") || titleLowercase.contains("emmentaler") || titleLowercase.contains("gouda"){
             imageName = "cheese"
-        } else if titleLowercase.contains("pilz") || titleLowercase.contains("champignon"){
+        } else if titleLowercase.contains("pilz") || titleLowercase.contains("champignon") || titleLowercase.contains("champion"){
             imageName = "mushroom"
         } else if titleLowercase.contains("zitrone"){
             imageName = "lemon"
@@ -39,21 +81,17 @@ func chooseImages(title: String) -> String {
             imageName = "potatoe"
         } else if titleLowercase.contains("kürbis"){
             imageName = "pumpkin"
-        } else if titleLowercase.contains("salat") || titleLowercase.contains("spinat"){
-            imageName = "salad"
         } else if titleLowercase.contains("reis"){
             imageName = "rice"
-        } else if titleLowercase.contains("schupfnudel"){
-            imageName = "schupfnudel"
         } else if titleLowercase.contains("suppe"){
             imageName = "soup"
-        } else if titleLowercase.contains("tomate"){
-            imageName = "tomato"
-        } else if titleLowercase.contains("waffel"){
-            imageName = "waffel"
-        }else if titleLowercase.contains("pizza"){
+        } else if titleLowercase.contains("pizza"){
             imageName = "pizza"
-        }
+        }else if titleLowercase.contains("eier"){
+            imageName = "egg"
+        } else if titleLowercase.contains("pasta") || titleLowercase.contains("nudel") || titleLowercase.contains("spaghetti") || titleLowercase.contains("spaghetti") || titleLowercase.contains("spätzle") || titleLowercase.contains("tagliatelle") || titleLowercase.contains("lasagne") {
+                imageName = "pasta"
+            }
         }
         }
     if imageName == "" && titlesArray.count > 0 {

@@ -12,12 +12,10 @@ struct ListElementLarge: View {
     var body: some View {
         VStack{
             ZStack{
-                Image("backgroundRedLarge")
+                Image("\(chooseImages(title: recipie.wrappedTitle)).large")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                Image("lasagneLarge")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
+
             }
             HStack{
                 VStack(alignment: .leading, spacing: 3){
