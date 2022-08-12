@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ListElementLarge: View {
     @State var recipie: Recipie
+    @Environment(\.colorScheme) var colorScheme
     var body: some View {
         VStack{
             ZStack{
@@ -23,10 +24,10 @@ struct ListElementLarge: View {
                         .font(.title3)
                         .fontWeight(.bold)
                     HStack{
-                        TagView(tagName: String(recipie.portion), tagIcon: "portion.icon.black")
+                        TagView(tagName: String(recipie.portion), tagIcon: colorScheme == .dark ? "portion.icon.white" : "portion.icon.black")
                    
                         ForEach(recipie.wrappedTags.components(separatedBy: ","), id: \.self){ tag in
-                            TagView(tagName: tag, tagIcon: "rice.icon.black")
+                            TagView(tagName: tag, tagIcon: colorScheme == .dark ? "rice.icon.white" : "rice.icon.black")
                         }
                     }
                    
@@ -45,6 +46,7 @@ struct ListElementLarge: View {
                 RoundedRectangle(cornerRadius: 5)
                     .stroke(.gray, lineWidth: 0.5)
             )
+        .background(Color(UIColor.systemBackground))
         .padding(.horizontal)
     }
 }

@@ -26,9 +26,9 @@ struct DayPickerView: View {
                         .font(.caption)
                 }
                 .frame(width: 40, height: 40)
-                .background(montag ? Color.black : Color.white)
+                .background(montag ? Color.primary : Color(UIColor.systemBackground))
                 .cornerRadius(5)
-                .foregroundColor(montag ? Color.white : Color.black)
+                .foregroundColor(montag ? Color(UIColor.systemBackground) : Color.primary)
                 .buttonStyle(BorderlessButtonStyle())
                 .overlay(
                     RoundedRectangle(cornerRadius: 5)
@@ -46,9 +46,9 @@ struct DayPickerView: View {
                         .font(.caption)
                 }
                 .frame(width: 40, height: 40)
-                .background(dienstag ? Color.black : Color.white)
+                .background(dienstag ? Color.primary : Color(UIColor.systemBackground))
                 .cornerRadius(5)
-                .foregroundColor(dienstag ? Color.white : Color.black)
+                .foregroundColor(dienstag ? Color(UIColor.systemBackground) : Color.primary)
                 .buttonStyle(BorderlessButtonStyle())
                 .overlay(
                         RoundedRectangle(cornerRadius: 5)
@@ -67,9 +67,9 @@ struct DayPickerView: View {
                         .font(.caption)
                 }
                 .frame(width: 40, height: 40)
-                .background(mittwoch ? Color.black : Color.white)
+                .background(mittwoch ? Color.primary : Color(UIColor.systemBackground))
                 .cornerRadius(5)
-                .foregroundColor(mittwoch ? Color.white : Color.black)
+                .foregroundColor(mittwoch ? Color(UIColor.systemBackground) : Color.primary)
                 .buttonStyle(BorderlessButtonStyle())
                 .overlay(
                         RoundedRectangle(cornerRadius: 5)
@@ -87,9 +87,9 @@ struct DayPickerView: View {
                         .font(.caption)
                 }
                 .frame(width: 40, height: 40)
-                .background(donnerstag ? Color.black : Color.white)
+                .background(donnerstag ? Color.primary : Color(UIColor.systemBackground))
                 .cornerRadius(5)
-                .foregroundColor(donnerstag ? Color.white : Color.black)
+                .foregroundColor(donnerstag ? Color(UIColor.systemBackground) : Color.primary)
                 .buttonStyle(BorderlessButtonStyle())
                 .overlay(
                         RoundedRectangle(cornerRadius: 5)
@@ -109,9 +109,9 @@ struct DayPickerView: View {
                         .font(.caption)
                 }
                 .frame(width: 40, height: 40)
-                .background(freitag ? Color.black : Color.white)
+                .background(freitag ? Color.primary : Color(UIColor.systemBackground))
                 .cornerRadius(5)
-                .foregroundColor(freitag ? Color.white : Color.black)
+                .foregroundColor(freitag ? Color(UIColor.systemBackground) : Color.primary)
                 .buttonStyle(BorderlessButtonStyle())
                 .overlay(
                         RoundedRectangle(cornerRadius: 5)
@@ -130,9 +130,9 @@ struct DayPickerView: View {
                         .font(.caption)
                 }
                 .frame(width: 40, height: 40)
-                .background(samstag ? Color.black : Color.white)
+                .background(samstag ? Color.primary : Color(UIColor.systemBackground))
                 .cornerRadius(5)
-                .foregroundColor(samstag ? Color.white : Color.black)
+                .foregroundColor(samstag ? Color(UIColor.systemBackground) : Color.primary)
                 .buttonStyle(BorderlessButtonStyle())
                 .overlay(
                         RoundedRectangle(cornerRadius: 5)
@@ -151,9 +151,9 @@ struct DayPickerView: View {
                         .font(.caption)
                 }
                 .frame(width: 40, height: 40)
-                .background(sonntag ? Color.black : Color.white)
+                .background(sonntag ? Color.primary : Color(UIColor.systemBackground))
                 .cornerRadius(5)
-                .foregroundColor(sonntag ? Color.white : Color.black)
+                .foregroundColor(sonntag ? Color(UIColor.systemBackground) : Color.primary)
                 .buttonStyle(BorderlessButtonStyle())
                 .overlay(
                         RoundedRectangle(cornerRadius: 5)

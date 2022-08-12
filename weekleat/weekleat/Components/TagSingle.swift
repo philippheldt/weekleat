@@ -9,10 +9,11 @@ import SwiftUI
 
 struct TagSingle: View {
     @State var tagIcon: String
+    @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
         HStack{
-            Image("rice.icon.black")
+            Image(colorScheme == .dark ? "rice.icon.white" : "rice.icon.black")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 16, height: 16)

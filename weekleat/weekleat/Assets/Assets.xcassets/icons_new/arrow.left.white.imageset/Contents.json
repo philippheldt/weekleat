@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "rice_black.png",
+      "filename" : "arrow_left_white.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "rice_black 1.png",
+      "filename" : "arrow_left_white 1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "rice_black 2.png",
+      "filename" : "arrow_left_white 2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

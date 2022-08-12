@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ListElement: View {
     @State var recipie: Recipie
+    @Environment(\.colorScheme) var colorScheme
     var body: some View {
         VStack{
             HStack{
@@ -24,7 +25,7 @@ struct ListElement: View {
                         .lineLimit(1)
                          .truncationMode(.tail)
                     HStack{
-                        TagView(tagName: String(recipie.portion), tagIcon: "portion.icon.black")
+                        TagView(tagName: String(recipie.portion), tagIcon: colorScheme == .dark ? "portion.icon.white" : "portion.icon.black")
                         ForEach(recipie.wrappedTags.components(separatedBy: ","), id: \.self){ tag in
                             TagSingle(tagIcon: "")
                         }
@@ -40,7 +41,7 @@ struct ListElement: View {
             
         }
         .cornerRadius(5)
-        .background(Color.white)
+        .background(Color(UIColor.systemBackground))
         .overlay(
                 RoundedRectangle(cornerRadius: 5)
                     .stroke(.gray, lineWidth: 0.5)

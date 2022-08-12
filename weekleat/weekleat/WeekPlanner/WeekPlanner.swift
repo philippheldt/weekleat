@@ -9,6 +9,7 @@ import SwiftUI
 
 struct WeekPlanner: View {
     @Environment(\.managedObjectContext) var moc
+    @Environment(\.colorScheme) var colorScheme
     @FetchRequest(sortDescriptors: [SortDescriptor(\.picked)]) var recipies: FetchedResults<Recipie>
     @FetchRequest(sortDescriptors: [SortDescriptor(\.title)]) var shoppingItems: FetchedResults<BuyIngr>
     
@@ -52,9 +53,9 @@ struct WeekPlanner: View {
                                 .font(.caption)
                         }
                         .frame(width: 40, height: 40)
-                        .background(montag ? Color.black : Color.white)
+                        .background(montag ? Color.primary : Color(UIColor.systemBackground))
                         .cornerRadius(5)
-                        .foregroundColor(montag ? Color.white : Color.black)
+                        .foregroundColor(montag ? Color(UIColor.systemBackground) : Color.primary)
                         .buttonStyle(BorderlessButtonStyle())
                         .overlay(
                             RoundedRectangle(cornerRadius: 5)
@@ -73,9 +74,9 @@ struct WeekPlanner: View {
                                 .font(.caption)
                         }
                         .frame(width: 40, height: 40)
-                        .background(dienstag ? Color.black : Color.white)
+                        .background(dienstag ? Color.primary : Color(UIColor.systemBackground))
                         .cornerRadius(5)
-                        .foregroundColor(dienstag ? Color.white : Color.black)
+                        .foregroundColor(dienstag ? Color(UIColor.systemBackground) : Color.primary)
                         .buttonStyle(BorderlessButtonStyle())
                         .overlay(
                             RoundedRectangle(cornerRadius: 5)
@@ -95,9 +96,9 @@ struct WeekPlanner: View {
                                 .font(.caption)
                         }
                         .frame(width: 40, height: 40)
-                        .background(mittwoch ? Color.black : Color.white)
+                        .background(mittwoch ? Color.primary : Color(UIColor.systemBackground))
                         .cornerRadius(5)
-                        .foregroundColor(mittwoch ? Color.white : Color.black)
+                        .foregroundColor(mittwoch ? Color(UIColor.systemBackground) : Color.primary)
                         .buttonStyle(BorderlessButtonStyle())
                         .overlay(
                             RoundedRectangle(cornerRadius: 5)
@@ -116,9 +117,9 @@ struct WeekPlanner: View {
                                 .font(.caption)
                         }
                         .frame(width: 40, height: 40)
-                        .background(donnerstag ? Color.black : Color.white)
+                        .background(donnerstag ? Color.primary : Color(UIColor.systemBackground))
                         .cornerRadius(5)
-                        .foregroundColor(donnerstag ? Color.white : Color.black)
+                        .foregroundColor(donnerstag ? Color(UIColor.systemBackground) : Color.primary)
                         .buttonStyle(BorderlessButtonStyle())
                         .overlay(
                             RoundedRectangle(cornerRadius: 5)
@@ -139,9 +140,9 @@ struct WeekPlanner: View {
                                 .font(.caption)
                         }
                         .frame(width: 40, height: 40)
-                        .background(freitag ? Color.black : Color.white)
+                        .background(freitag ? Color.primary : Color(UIColor.systemBackground))
                         .cornerRadius(5)
-                        .foregroundColor(freitag ? Color.white : Color.black)
+                        .foregroundColor(freitag ? Color(UIColor.systemBackground) : Color.primary)
                         .buttonStyle(BorderlessButtonStyle())
                         .overlay(
                             RoundedRectangle(cornerRadius: 5)
@@ -161,9 +162,9 @@ struct WeekPlanner: View {
                                 .font(.caption)
                         }
                         .frame(width: 40, height: 40)
-                        .background(samstag ? Color.black : Color.white)
+                        .background(samstag ? Color.primary : Color(UIColor.systemBackground))
                         .cornerRadius(5)
-                        .foregroundColor(samstag ? Color.white : Color.black)
+                        .foregroundColor(samstag ? Color(UIColor.systemBackground) : Color.primary)
                         .buttonStyle(BorderlessButtonStyle())
                         .overlay(
                             RoundedRectangle(cornerRadius: 5)
@@ -183,9 +184,9 @@ struct WeekPlanner: View {
                                 .font(.caption)
                         }
                         .frame(width: 40, height: 40)
-                        .background(sonntag ? Color.black : Color.white)
+                        .background(sonntag ? Color.primary : Color(UIColor.systemBackground))
                         .cornerRadius(5)
-                        .foregroundColor(sonntag ? Color.white : Color.black)
+                        .foregroundColor(sonntag ? Color(UIColor.systemBackground) : Color.primary)
                         .buttonStyle(BorderlessButtonStyle())
                         .overlay(
                             RoundedRectangle(cornerRadius: 5)
@@ -205,7 +206,7 @@ struct WeekPlanner: View {
                     Button{
                         showingSettingsScreen.toggle()
                     } label: {
-                        Image("settings.icon.black")
+                        Image(colorScheme == .dark ? "settings.icon.white" : "settings.icon.black")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 21, height: 21)
@@ -228,9 +229,9 @@ struct WeekPlanner: View {
                         Text("Rezepte generieren")
                     }
                     .padding()
-                    .background(Color.black)
+                    .background(Color.primary)
                     .cornerRadius(5)
-                    .foregroundColor(Color.white)
+                    .foregroundColor(Color(UIColor.systemBackground))
                     
                     
                 }
@@ -250,7 +251,7 @@ struct WeekPlanner: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     NavigationLink(destination: RezeptSammlung(passRecipie: recipies[0])){
-                        Image("book.icon.black")
+                        Image(colorScheme == .dark ? "book.icon.white" : "book.icon.black")
                             .resizable()
                             .padding(5)
                             .aspectRatio(contentMode: .fit)
@@ -260,7 +261,7 @@ struct WeekPlanner: View {
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     NavigationLink(destination: ShoppinglistView()){
-                        Image("cart.icon.black")
+                        Image(colorScheme == .dark ? "cart.icon.white" : "cart.icon.black")
                             .resizable()
                             .padding(5)
                             .aspectRatio(contentMode: .fit)
