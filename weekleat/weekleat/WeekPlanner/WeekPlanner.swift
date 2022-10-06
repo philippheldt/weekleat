@@ -17,6 +17,8 @@ struct WeekPlanner: View {
     @State private var showingEditScreen = false
     @State private var showingSettingsScreen = false
     
+    @State private var dummyRezepte = Rezepte.dummyRezepte
+    
     @State var generatedRecipies: [Recipie] = []
     @State var selectedRecipie: [Recipie] = []
     
@@ -41,244 +43,303 @@ struct WeekPlanner: View {
     @AppStorage("fleisch")  private var fleisch: String = "selten"
     
     var body: some View {
-        NavigationView{
-            ScrollView{
-                HStack{
+        if recipies.count > 0{
+            NavigationView{
+                ScrollView{
                     HStack{
-                        Button{
-                            montag.toggle()
-                            generateShoppinglist()
-                        } label: {
-                            Text("M")
-                                .font(.caption)
+                        HStack{
+                            Button{
+                                montag.toggle()
+                                generateShoppinglist()
+                            } label: {
+                                Text("M")
+                                    .font(.caption)
+                            }
+                            .frame(width: 40, height: 40)
+                            .background(montag ? Color.primary : Color(UIColor.systemBackground))
+                            .cornerRadius(5)
+                            .foregroundColor(montag ? Color(UIColor.systemBackground) : Color.primary)
+                            .buttonStyle(BorderlessButtonStyle())
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 5)
+                                    .stroke(.gray, lineWidth: 0.5)
+                            )
+                            Spacer()
+                            
                         }
-                        .frame(width: 40, height: 40)
-                        .background(montag ? Color.primary : Color(UIColor.systemBackground))
-                        .cornerRadius(5)
-                        .foregroundColor(montag ? Color(UIColor.systemBackground) : Color.primary)
-                        .buttonStyle(BorderlessButtonStyle())
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 5)
-                                .stroke(.gray, lineWidth: 0.5)
-                        )
-                        Spacer()
                         
-                    }
-                    
-                    HStack{
-                        Button{
-                            dienstag.toggle()
-                            generateShoppinglist()
-                        } label: {
-                            Text("D")
-                                .font(.caption)
+                        HStack{
+                            Button{
+                                dienstag.toggle()
+                                generateShoppinglist()
+                            } label: {
+                                Text("D")
+                                    .font(.caption)
+                            }
+                            .frame(width: 40, height: 40)
+                            .background(dienstag ? Color.primary : Color(UIColor.systemBackground))
+                            .cornerRadius(5)
+                            .foregroundColor(dienstag ? Color(UIColor.systemBackground) : Color.primary)
+                            .buttonStyle(BorderlessButtonStyle())
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 5)
+                                    .stroke(.gray, lineWidth: 0.5)
+                            )
+                            Spacer()
+                            
                         }
-                        .frame(width: 40, height: 40)
-                        .background(dienstag ? Color.primary : Color(UIColor.systemBackground))
-                        .cornerRadius(5)
-                        .foregroundColor(dienstag ? Color(UIColor.systemBackground) : Color.primary)
-                        .buttonStyle(BorderlessButtonStyle())
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 5)
-                                .stroke(.gray, lineWidth: 0.5)
-                        )
-                        Spacer()
                         
-                    }
-                    
-                    
-                    HStack{
-                        Button{
-                            mittwoch.toggle()
-                            generateShoppinglist()
-                        } label: {
-                            Text("M")
-                                .font(.caption)
+                        
+                        HStack{
+                            Button{
+                                mittwoch.toggle()
+                                generateShoppinglist()
+                            } label: {
+                                Text("M")
+                                    .font(.caption)
+                            }
+                            .frame(width: 40, height: 40)
+                            .background(mittwoch ? Color.primary : Color(UIColor.systemBackground))
+                            .cornerRadius(5)
+                            .foregroundColor(mittwoch ? Color(UIColor.systemBackground) : Color.primary)
+                            .buttonStyle(BorderlessButtonStyle())
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 5)
+                                    .stroke(.gray, lineWidth: 0.5)
+                            )
+                            Spacer()
+                            
                         }
-                        .frame(width: 40, height: 40)
-                        .background(mittwoch ? Color.primary : Color(UIColor.systemBackground))
-                        .cornerRadius(5)
-                        .foregroundColor(mittwoch ? Color(UIColor.systemBackground) : Color.primary)
-                        .buttonStyle(BorderlessButtonStyle())
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 5)
-                                .stroke(.gray, lineWidth: 0.5)
-                        )
-                        Spacer()
                         
-                    }
-                    
-                    HStack{
-                        Button{
-                            donnerstag.toggle()
-                            generateShoppinglist()
-                        } label: {
-                            Text("D")
-                                .font(.caption)
+                        HStack{
+                            Button{
+                                donnerstag.toggle()
+                                generateShoppinglist()
+                            } label: {
+                                Text("D")
+                                    .font(.caption)
+                            }
+                            .frame(width: 40, height: 40)
+                            .background(donnerstag ? Color.primary : Color(UIColor.systemBackground))
+                            .cornerRadius(5)
+                            .foregroundColor(donnerstag ? Color(UIColor.systemBackground) : Color.primary)
+                            .buttonStyle(BorderlessButtonStyle())
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 5)
+                                    .stroke(.gray, lineWidth: 0.5)
+                            )
+                            Spacer()
+                            
                         }
-                        .frame(width: 40, height: 40)
-                        .background(donnerstag ? Color.primary : Color(UIColor.systemBackground))
-                        .cornerRadius(5)
-                        .foregroundColor(donnerstag ? Color(UIColor.systemBackground) : Color.primary)
-                        .buttonStyle(BorderlessButtonStyle())
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 5)
-                                .stroke(.gray, lineWidth: 0.5)
-                        )
-                        Spacer()
                         
-                    }
-                    
-                    
-                    
-                    HStack{
-                        Button{
-                            freitag.toggle()
-                            generateShoppinglist()
-                        } label: {
-                            Text("F")
-                                .font(.caption)
+                        
+                        
+                        HStack{
+                            Button{
+                                freitag.toggle()
+                                generateShoppinglist()
+                            } label: {
+                                Text("F")
+                                    .font(.caption)
+                            }
+                            .frame(width: 40, height: 40)
+                            .background(freitag ? Color.primary : Color(UIColor.systemBackground))
+                            .cornerRadius(5)
+                            .foregroundColor(freitag ? Color(UIColor.systemBackground) : Color.primary)
+                            .buttonStyle(BorderlessButtonStyle())
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 5)
+                                    .stroke(.gray, lineWidth: 0.5)
+                            )
+                            Spacer()
+                            
                         }
-                        .frame(width: 40, height: 40)
-                        .background(freitag ? Color.primary : Color(UIColor.systemBackground))
-                        .cornerRadius(5)
-                        .foregroundColor(freitag ? Color(UIColor.systemBackground) : Color.primary)
-                        .buttonStyle(BorderlessButtonStyle())
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 5)
-                                .stroke(.gray, lineWidth: 0.5)
-                        )
-                        Spacer()
                         
-                    }
-                    
-                    
-                    HStack{
-                        Button{
-                            samstag.toggle()
-                            generateShoppinglist()
-                        } label: {
-                            Text("S")
-                                .font(.caption)
+                        
+                        HStack{
+                            Button{
+                                samstag.toggle()
+                                generateShoppinglist()
+                            } label: {
+                                Text("S")
+                                    .font(.caption)
+                            }
+                            .frame(width: 40, height: 40)
+                            .background(samstag ? Color.primary : Color(UIColor.systemBackground))
+                            .cornerRadius(5)
+                            .foregroundColor(samstag ? Color(UIColor.systemBackground) : Color.primary)
+                            .buttonStyle(BorderlessButtonStyle())
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 5)
+                                    .stroke(.gray, lineWidth: 0.5)
+                            )
+                            Spacer()
+                            
                         }
-                        .frame(width: 40, height: 40)
-                        .background(samstag ? Color.primary : Color(UIColor.systemBackground))
-                        .cornerRadius(5)
-                        .foregroundColor(samstag ? Color(UIColor.systemBackground) : Color.primary)
-                        .buttonStyle(BorderlessButtonStyle())
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 5)
-                                .stroke(.gray, lineWidth: 0.5)
-                        )
-                        Spacer()
                         
-                    }
-                    
-                    
-                    HStack{
-                        Button{
-                            sonntag.toggle()
-                            generateShoppinglist()
-                        } label: {
-                            Text("S")
-                                .font(.caption)
+                        
+                        HStack{
+                            Button{
+                                sonntag.toggle()
+                                generateShoppinglist()
+                            } label: {
+                                Text("S")
+                                    .font(.caption)
+                            }
+                            .frame(width: 40, height: 40)
+                            .background(sonntag ? Color.primary : Color(UIColor.systemBackground))
+                            .cornerRadius(5)
+                            .foregroundColor(sonntag ? Color(UIColor.systemBackground) : Color.primary)
+                            .buttonStyle(BorderlessButtonStyle())
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 5)
+                                    .stroke(.gray, lineWidth: 0.5)
+                            )
+                            
                         }
-                        .frame(width: 40, height: 40)
-                        .background(sonntag ? Color.primary : Color(UIColor.systemBackground))
-                        .cornerRadius(5)
-                        .foregroundColor(sonntag ? Color(UIColor.systemBackground) : Color.primary)
-                        .buttonStyle(BorderlessButtonStyle())
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 5)
-                                .stroke(.gray, lineWidth: 0.5)
-                        )
                         
-                    }
-                    
-                    
-                    
-                }
-                .padding()
-                
-                WeekPlannerItems(passRecipie: $passRecipie, showingEditScreen: $showingEditScreen, generatedRecipies: $generatedRecipies)
-                
-                HStack(spacing: 10){
-                    Button{
-                        showingSettingsScreen.toggle()
-                    } label: {
-                        Image(colorScheme == .dark ? "settings.icon.white" : "settings.icon.black")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 21, height: 21)
+                        
+                        
                     }
                     .padding()
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 5)
-                            .stroke(.gray, lineWidth: 0.5)
-                    )
                     
+                    WeekPlannerItems(passRecipie: $passRecipie, showingEditScreen: $showingEditScreen, generatedRecipies: $generatedRecipies)
                     
-                    Button{
-                        let impactMed = UIImpactFeedbackGenerator(style: .heavy)
-                        impactMed.impactOccurred()
-                        generateRecipies()
+                    HStack(spacing: 10){
+                        Button{
+                            showingSettingsScreen.toggle()
+                        } label: {
+                            Image(colorScheme == .dark ? "settings.icon.white" : "settings.icon.black")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 21, height: 21)
+                        }
+                        .padding()
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 5)
+                                .stroke(.gray, lineWidth: 0.5)
+                        )
                         
                         
-                    } label: {
-                        Image(systemName: "arrow.clockwise")
-                        Text("Rezepte generieren")
+                        Button{
+                            let impactMed = UIImpactFeedbackGenerator(style: .heavy)
+                            impactMed.impactOccurred()
+                            generateRecipies()
+                            
+                            
+                        } label: {
+                            Image(systemName: "arrow.clockwise")
+                            Text("Rezepte generieren")
+                        }
+                        .padding()
+                        .background(Color.primary)
+                        .cornerRadius(5)
+                        .foregroundColor(Color(UIColor.systemBackground))
+                        
+                        
                     }
-                    .padding()
-                    .background(Color.primary)
-                    .cornerRadius(5)
-                    .foregroundColor(Color(UIColor.systemBackground))
-                    
+                    .padding([.top, .bottom])
                     
                 }
-                .padding([.top, .bottom])
+                
+                .onAppear {
+                    days = daysArray(montag: montag, dienstag: dienstag, mittwoch: mittwoch, donnerstag: donnerstag, freitag: freitag, samstag: samstag, sonntag: sonntag)
+                    numberofSelectedDays = days.count
+                    for recipie in recipies {
+                        if recipie.picked > 0 {
+                            generatedRecipies.append(recipie)
+                        }
+                    }
+                }
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        NavigationLink(destination: RezeptSammlung(passRecipie: recipies[0])){
+                            Image(colorScheme == .dark ? "book.icon.white" : "book.icon.black")
+                                .resizable()
+                                .padding(5)
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 40, height: 40)
+                            
+                        }
+                    }
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        NavigationLink(destination: ShoppinglistView()){
+                            Image(colorScheme == .dark ? "cart.icon.white" : "cart.icon.black")
+                                .resizable()
+                                .padding(5)
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 40, height: 40)
+                            
+                        }
+                    }
+                    
+                }
+                .sheet(isPresented: $showingEditScreen){
+                    EditRecipieView(rezept: passRecipie ?? recipies[0])
+                }
+                .sheet(isPresented: $showingSettingsScreen){
+                    SettingsView()
+                }
+                .navigationTitle("Wochenplan")
+                .navigationBarTitleDisplayMode(.inline)
                 
             }
+        } else {
+            VStack{
+                ZStack{
+     
+                    Image("pizza")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 100, height: 100)
+                }
+            Text("Sieht ziemlich leer aus hier...")
+                    .font(.system(size: 20))
+                    .padding()
+                Button{
+                    for dummyRezept in dummyRezepte {
+                
+                        let newRecipie = Recipie(context: moc)
+                        newRecipie.id = UUID()
+                        newRecipie.title = dummyRezept.title
+                        newRecipie.portion = Int16(5)
+                        newRecipie.foodType = chooseImages(title: dummyRezept.title)
+                        newRecipie.colorTheme = Int16(foodTypetoColorInt(foodType: chooseImages(title: dummyRezept.title)))
+                        
+                        
+                        
+                        for ingredient in dummyRezept.ingredients {
+                            let newIngredient = Ingredient(context: moc)
+                            newIngredient.title = returnIngredient(ingredientEntry: ingredient)
+                            newIngredient.amount = Float(returnAmount(ingredientEntry: ingredient))
+                            newIngredient.unit = returnUnit(ingredientEntry: ingredient)
+                            newRecipie.addToIngredients(newIngredient)
+                       
+                        }
+                        
+                       
+                        
+                   
+
+                        newRecipie.tags = dummyRezept.tags
+                        
+                        try? moc.save()
+                    }
+                 
+
+                }label:{
+                    Text("Rezepte generieren")
+                }
+                .foregroundColor(.white)
+                    .padding()
+                    .background(Color.accentColor)
+                    .cornerRadius(8)
+                    
+            }
+           
+        
             
-            .onAppear {
-                days = daysArray(montag: montag, dienstag: dienstag, mittwoch: mittwoch, donnerstag: donnerstag, freitag: freitag, samstag: samstag, sonntag: sonntag)
-                numberofSelectedDays = days.count
-                for recipie in recipies {
-                    if recipie.picked > 0 {
-                        generatedRecipies.append(recipie)
-                    }
-                }
-            }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    NavigationLink(destination: RezeptSammlung(passRecipie: recipies[0])){
-                        Image(colorScheme == .dark ? "book.icon.white" : "book.icon.black")
-                            .resizable()
-                            .padding(5)
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 40, height: 40)
-                        
-                    }
-                }
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    NavigationLink(destination: ShoppinglistView()){
-                        Image(colorScheme == .dark ? "cart.icon.white" : "cart.icon.black")
-                            .resizable()
-                            .padding(5)
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 40, height: 40)
-                        
-                    }
-                }
-                
-            }
-            .sheet(isPresented: $showingEditScreen){
-                EditRecipieView(rezept: passRecipie ?? recipies[0])
-            }
-            .sheet(isPresented: $showingSettingsScreen){
-                SettingsView()
-            }
-            .navigationTitle("Wochenplan")
-            .navigationBarTitleDisplayMode(.inline)
+
             
         }
         
