@@ -203,3 +203,48 @@ describe('Woche', () => {
     expect(upcomingWeek(new Date('2026-11-15T12:00'))).toBe('2026-11-16') // So
   })
 })
+
+import { aisleOf, groupByAisle } from '../src/lib/aisles.js'
+
+describe('Einkaufsliste nach Ladenbereichen', () => {
+  it.each([
+    ['Zwiebeln', 'obst'],
+    ['Kartoffeln, mehligkochend', 'obst'],
+    ['Zuckerschoten', 'obst'],
+    ['Petersilie', 'obst'],
+    ['Naan-Brot', 'brot'],
+    ['Ei', 'kuehl'],
+    ['Eier (Größe L)', 'kuehl'],
+    ['Crème fraîche', 'kuehl'],
+    ['Gnocchi (Kühlregal)', 'kuehl'],
+    ['Schweinefilet', 'fleisch'],
+    ['gemischtes Hackfleisch', 'fleisch'],
+    ['gehackte Tomaten', 'trocken'],
+    ['Kokosmilch', 'trocken'],
+    ['Kidneybohnen (Dose)', 'trocken'],
+    ['Olivenöl', 'gewuerze'],
+    ['Kürbiskernöl', 'gewuerze'],
+    ['Zitronensaft', 'gewuerze'],
+    ['Paprikapulver, edelsüß', 'gewuerze'],
+    ['gesalzene Erdnüsse', 'backen'],
+    ['Mehl', 'backen'],
+    ['Rucola', 'obst'],
+    ['Weißwein, trocken', 'getraenke'],
+    ['Erbsen (TK)', 'tk'],
+    ['Klopapier', 'drogerie'],
+  ])('%s → %s', (name, aisle) => {
+    expect(aisleOf(name)).toBe(aisle)
+  })
+
+  it('alle Zutaten aus rezepte.yaml haben einen Bereich', () => {
+    const { recipes } = parseCatalog(realCatalog)
+    const names = [...new Set(recipes.flatMap((r) => r.ingredients.map((i) => i.name)))]
+    const unknown = names.filter((n) => aisleOf(n) === 'sonstiges' && n !== 'Wasser')
+    expect(unknown).toEqual([])
+  })
+
+  it('gruppiert in Ladenreihenfolge', () => {
+    const groups = groupByAisle([{ name: 'Klopapier' }, { name: 'Milch' }, { name: 'Tomaten' }])
+    expect(groups.map((g) => g.id)).toEqual(['obst', 'kuehl', 'drogerie'])
+  })
+})
