@@ -153,6 +153,7 @@ export function parseCatalog(text) {
       note: String(raw.notiz ?? raw.zubereitung ?? '').trim(),
       image: chooseImage(title, raw.bild),
       days: toList(raw.nur_an ?? raw.tage).map((d) => d.toLowerCase().slice(0, 2)),
+      plannable: !['nein', 'no', 'false', '0'].includes(String(raw.planen ?? '').toLowerCase().trim()) && raw.planen !== false,
     })
   })
   return { recipes, problems }
