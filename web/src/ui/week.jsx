@@ -1,8 +1,7 @@
 import { useRef, useState } from 'preact/hooks'
 import { DAYS, DAY_LETTERS, dateOfDay, formatShort, weekLabel, weekdayIndex, mondayOf } from '../lib/week.js'
-import { scores } from '../lib/generator.js'
 import { generateWeek, rerollDay, toggleDayActive } from '../actions.js'
-import { Banner, Chevron, FoodImage, Icon, NavBar, RecipeTags, Svg, toast } from './common.jsx'
+import { Banner, Chevron, FoodImage, Icon, NavBar, Svg, toast } from './common.jsx'
 import { DaySheet } from './day.jsx'
 import { SettingsSheet } from './settings.jsx'
 import { imageUrl } from '../lib/images.js'
@@ -100,7 +99,6 @@ function SwipeCard({ onSwipe, onTap, large, children, label }) {
 function DayCard({ app, day, large, onOpen }) {
   const entry = app.plan[day]
   const recipe = app.byId.get(entry.recipeId)
-  const scoreMap = scores(app.votes)
 
   if (!app.settings.days[day] && !entry.locked) {
     return <div class="card empty">Heute wird nicht gekocht</div>
@@ -154,7 +152,6 @@ function DayCard({ app, day, large, onOpen }) {
           <div class="card-row">
             <div class="card-body">
               <div class="card-title">{recipe.title}</div>
-              <RecipeTags recipe={recipe} score={scoreMap[recipe.id]} portions={app.settings.portions} />
             </div>
             {side}
           </div>
@@ -164,7 +161,6 @@ function DayCard({ app, day, large, onOpen }) {
           <FoodImage name={recipe.image} />
           <div class="card-body">
             <div class="card-title">{recipe.title}</div>
-            <RecipeTags recipe={recipe} score={scoreMap[recipe.id]} portions={app.settings.portions} />
           </div>
           {side}
         </>

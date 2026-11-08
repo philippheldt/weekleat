@@ -1,7 +1,7 @@
 import { useState } from 'preact/hooks'
 import { CATEGORIES, CATEGORY_LABELS } from '../lib/catalog.js'
 import { scores } from '../lib/generator.js'
-import { BackLink, Chevron, FoodImage, Icon, NavBar, RecipeTags, Sheet } from './common.jsx'
+import { BackLink, Chevron, FoodImage, Icon, NavBar, Sheet } from './common.jsx'
 import { PlanOnDay, RecipeDetail, VoteButtons } from './day.jsx'
 
 const EDIT_URL = import.meta.env.VITE_RECIPES_EDIT_URL || ''
@@ -68,7 +68,6 @@ export function CatalogView({ app }) {
             <FoodImage name={r.image} />
             <div class="card-body">
               <div class="card-title">{r.title}</div>
-              <RecipeTags recipe={r} score={scoreMap[r.id]} />
             </div>
             <div class="card-side">
               <Chevron />
