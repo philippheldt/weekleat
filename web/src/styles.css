@@ -11,6 +11,9 @@
   --ok: #1f6f4a;
   --icon-filter: none;
   --radius: 5px;
+  /* Grün und Rot aus den Illustrationen (Brokkoli, Speck …) */
+  --vote-up: #0d3a38;
+  --vote-down: #92092f;
   --hair: 0.5px;
   color-scheme: light;
 }
@@ -341,7 +344,6 @@ img {
 }
 .swipe-hint {
   position: absolute;
-  right: 16px;
   top: 0;
   bottom: 0;
   display: flex;
@@ -350,6 +352,12 @@ img {
   color: var(--muted);
   font-size: 13px;
   pointer-events: none;
+}
+.swipe-hint.left {
+  left: 16px;
+}
+.swipe-hint.right {
+  right: 16px;
 }
 .day-wrap {
   position: relative;
@@ -666,13 +674,13 @@ textarea.input {
   flex: 1;
 }
 .vote-btn.on.up {
-  background: var(--ok);
-  border-color: var(--ok);
+  background: var(--vote-up);
+  border-color: var(--vote-up);
   color: #fff;
 }
 .vote-btn.on.down {
-  background: var(--danger);
-  border-color: var(--danger);
+  background: var(--vote-down);
+  border-color: var(--vote-down);
   color: #fff;
 }
 .ing-list {
@@ -928,6 +936,24 @@ a.source:active {
   display: block;
   width: 100%;
   padding: 8px 0 10px;
+}
+/* Ohne Titel (Rezeptansicht): Griff schwebt auf dem Bild, das bis oben reicht */
+.sheet.bare {
+  position: relative;
+}
+.sheet.bare .sheet-grip-btn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+}
+.sheet.bare .sheet-grip {
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+.sheet.bare .banner-btns {
+  top: 22px;
 }
 .sheet-grip-btn .sheet-grip {
   display: block;

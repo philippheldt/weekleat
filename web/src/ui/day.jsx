@@ -122,8 +122,8 @@ export function RecipePicker({ app, title, onPick, onClose }) {
   )
 }
 
-export function DaySheet({ app, day, onClose }) {
-  const [picking, setPicking] = useState(false)
+export function DaySheet({ app, day, onClose, startPicking = false }) {
+  const [picking, setPicking] = useState(startPicking)
   const entry = app.plan[day]
   const recipe = app.byId.get(entry.recipeId)
 
@@ -132,11 +132,13 @@ export function DaySheet({ app, day, onClose }) {
       <RecipePicker
         app={app}
         title={`Rezept für ${DAYS[day]}`}
-        onClose={recipe ? () => setPicking(false) : onClose}
+        onClose={recipe && !startPicking ? () => setPicking(false) : onClose}
         onPick={(id) => {
           setDayRecipe(day, id)
           toast(`Fest eingeplant für ${DAYS[day]}`)
-          setPicking(false)
+          // Per Wischgeste geöffnet: direkt zurück zum Wochenplan
+          if (startPicking) onClose()
+          else setPicking(false)
         }}
       />
     )
