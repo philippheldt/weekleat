@@ -14,14 +14,14 @@ export function VoteButtons({ app, recipe }) {
     <>
       <div class="votes">
         <button class={`btn vote-btn up ${mine === 1 ? 'on' : ''}`} aria-pressed={mine === 1} onClick={() => vote(recipe.id, 1)}>
-          <Svg name="up" /> Gut
+          <Svg name="more" /> Öfter
         </button>
         <button class={`btn vote-btn down ${mine === -1 ? 'on' : ''}`} aria-pressed={mine === -1} onClick={() => vote(recipe.id, -1)}>
-          <Svg name="down" /> Nicht so
+          <Svg name="less" /> Seltener
         </button>
       </div>
       <p class="muted small" style={{ margin: '8px 0 0' }}>
-        Bewertung insgesamt: {total > 0 ? `+${total}` : total} · beeinflusst, wie oft es eingeplant wird
+        Öfter oder seltener einplanen · bisher {total > 0 ? `+${total}` : total}
       </p>
     </>
   )
@@ -107,7 +107,6 @@ export function RecipePicker({ app, title, onPick, onClose }) {
             <FoodImage name={r.image} />
             <div class="card-body">
               <div class="card-title">{r.title}</div>
-              <RecipeTags recipe={r} portions={app.settings.portions} />
             </div>
             <div class="card-side">
               <Chevron />

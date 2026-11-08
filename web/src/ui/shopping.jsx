@@ -1,6 +1,7 @@
 import { useState } from 'preact/hooks'
 import { formatAmount } from '../lib/ingredients.js'
 import { chooseImage } from '../lib/images.js'
+import { groupByAisle } from '../lib/aisles.js'
 import { addShoppingItem, clearBought, toggleShopping } from '../actions.js'
 import { BackLink, FoodImage, NavBar, Svg, Tag } from './common.jsx'
 
@@ -39,8 +40,10 @@ function Item({ item }) {
 
 export function ShoppingView({ app }) {
   const [text, setText] = useState('')
-  const sortFn = (a, b) => (a.manual === b.manual ? a.name.localeCompare(b.name, 'de') : a.manual ? -1 : 1)
+  const sortFn = (a, b) => a.name.localeCompare(b.name, 'de')
   const open = app.shopping.filter((x) => !x.checked).sort(sortFn)
+  // Offene Artikel in der Reihenfolge, in der man durch den Laden läuft
+  const aisles = groupByAisle(open)
   const done = app.shopping.filter((x) => x.checked).sort(sortFn)
 
   const submit = (e) => {
@@ -65,11 +68,17 @@ export function ShoppingView({ app }) {
         </button>
       </form>
 
-      <div class="section-head caption">Offen</div>
       {open.length ? (
-        open.map((item) => <Item key={item.id} item={item} />)
+        aisles.map((aisle) => (
+          <section key={aisle.id}>
+            <div class="section-head caption">{aisle.label}</div>
+            {aisle.items.map((item) => (
+              <Item key={item.id} item={item} />
+            ))}
+          </section>
+        ))
       ) : (
-        <p class="muted" style={{ padding: '0 16px', margin: 0 }}>
+        <p class="muted" style={{ padding: '16px 16px 0', margin: 0 }}>
           {app.shopping.length ? 'Alles eingekauft 🎉' : 'Noch leer – generiere einen Wochenplan oder füge etwas hinzu.'}
         </p>
       )}
