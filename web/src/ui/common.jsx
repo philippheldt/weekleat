@@ -16,6 +16,8 @@ const PATHS = {
   down: 'M7 14V4H4v10zM7 14l4 7c1.5 0 2.5-1 2.2-2.6L12.6 15H19a2 2 0 0 0 2-2.3l-1.2-7A2 2 0 0 0 17.8 4H7',
   more: 'M12 19V5M5 12l7-7 7 7',
   less: 'M12 5v14M5 12l7 7 7-7',
+  pin: 'M9 3h6M10 3v6l-3 4h10l-3-4V3M12 13v8',
+  pencil: 'M4 20h4L19 9l-4-4L4 16zM14 6l4 4',
   refresh: 'M20 12a8 8 0 1 1-2.3-5.7M20 4v5h-5',
   plus: 'M12 5v14M5 12h14',
   check: 'M5 12.5l4.5 4.5L19 7',
@@ -108,8 +110,27 @@ export function BackLink({ label = 'Wochenplan' }) {
 
 export function Sheet({ title, onClose, children, action }) {
   const ref = useRef()
+  const overlayRef = useRef()
+  const closing = useRef(false)
+
+  // Schließen mit kurzer Animation nach unten (X, Tippen daneben, Escape, Wischen)
+  const dismiss = () => {
+    if (closing.current) return
+    closing.current = true
+    const sheet = ref.current
+    const overlay = overlayRef.current
+    if (!sheet || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return onClose()
+    sheet.style.transition = 'transform 0.22s ease-in'
+    sheet.style.transform = 'translateY(100%)'
+    if (overlay) {
+      overlay.style.transition = 'opacity 0.22s ease-in'
+      overlay.style.opacity = '0'
+    }
+    setTimeout(onClose, 220)
+  }
+
   useEffect(() => {
-    const onKey = (e) => e.key === 'Escape' && onClose()
+    const onKey = (e) => e.key === 'Escape' && dismiss()
     document.addEventListener('keydown', onKey)
     const prev = document.body.style.overflow
     document.body.style.overflow = 'hidden'
@@ -118,15 +139,89 @@ export function Sheet({ title, onClose, children, action }) {
       document.body.style.overflow = prev
     }
   }, [])
+
+  // Nach unten wischen schließt das Fenster – wie bei iOS. Ist der Inhalt nach
+  // unten gescrollt, wird zuerst ganz normal nach oben gescrollt.
+  useEffect(() => {
+    const sheet = ref.current
+    const overlay = overlayRef.current
+    if (!sheet) return
+    let startY = 0
+    let dy = 0
+    let lastY = 0
+    let lastT = 0
+    let velocity = 0
+    let dragging = false
+    let tracking = false
+
+    const onStart = (e) => {
+      if (e.touches.length !== 1 || closing.current) return
+      startY = e.touches[0].clientY
+      lastY = startY
+      lastT = Date.now()
+      dy = 0
+      velocity = 0
+      dragging = false
+      tracking = true
+    }
+    const onMove = (e) => {
+      if (!tracking) return
+      const d = e.touches[0].clientY - startY
+      if (!dragging) {
+        if (d > 6 && sheet.scrollTop <= 0) {
+          dragging = true
+          sheet.style.transition = 'none'
+        } else if (d < -6 || sheet.scrollTop > 0) {
+          tracking = false
+          return
+        } else return
+      }
+      e.preventDefault()
+      const y = e.touches[0].clientY
+      const now = Date.now()
+      // Geschwindigkeit am Ende der Bewegung (px/ms), wie bei iOS
+      if (lastT && now > lastT) velocity = 0.6 * ((y - lastY) / (now - lastT)) + 0.4 * velocity
+      lastY = y
+      lastT = now
+      dy = Math.max(0, y - startY)
+      sheet.style.transform = `translateY(${dy}px)`
+      if (overlay) overlay.style.opacity = String(Math.max(0.3, 1 - dy / (sheet.offsetHeight * 1.2)))
+    }
+    const onEnd = () => {
+      if (!tracking) return
+      tracking = false
+      if (!dragging) return
+      dragging = false
+      lastT = 0
+      if (dy > Math.min(140, sheet.offsetHeight * 0.25) || (velocity > 0.4 && dy > 20)) {
+        dismiss()
+      } else {
+        sheet.style.transition = 'transform 0.25s cubic-bezier(0.2, 0.8, 0.3, 1)'
+        sheet.style.transform = ''
+        if (overlay) overlay.style.opacity = ''
+      }
+    }
+    sheet.addEventListener('touchstart', onStart, { passive: true })
+    sheet.addEventListener('touchmove', onMove, { passive: false })
+    sheet.addEventListener('touchend', onEnd)
+    sheet.addEventListener('touchcancel', onEnd)
+    return () => {
+      sheet.removeEventListener('touchstart', onStart)
+      sheet.removeEventListener('touchmove', onMove)
+      sheet.removeEventListener('touchend', onEnd)
+      sheet.removeEventListener('touchcancel', onEnd)
+    }
+  }, [])
+
   return (
-    <div class="overlay" onClick={(e) => e.target === e.currentTarget && onClose()}>
+    <div class="overlay" ref={overlayRef} onClick={(e) => e.target === e.currentTarget && dismiss()}>
       <div class="sheet" ref={ref} role="dialog" aria-modal="true" aria-label={title}>
         <div class="sheet-grip" />
         <div class="sheet-head">
-          <h2>{title}</h2>
+          {title ? <h2>{title}</h2> : <span />}
           {action ?? (
-            <button class="link-btn" onClick={onClose}>
-              Fertig
+            <button class="close-btn" onClick={dismiss} aria-label="Schließen">
+              <Svg name="x" size={18} />
             </button>
           )}
         </div>

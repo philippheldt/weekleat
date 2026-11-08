@@ -90,7 +90,7 @@ export function CatalogView({ app }) {
       </div>
 
       {recipe && (
-        <Sheet title="Rezept" onClose={() => setOpen(null)}>
+        <Sheet onClose={() => setOpen(null)}>
           <RecipeDetail app={app} recipe={recipe}>
             <PlanOnDay app={app} recipe={recipe} />
             <VoteButtons app={app} recipe={recipe} />
