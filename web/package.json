@@ -1,0 +1,23 @@
+{
+  "name": "weekleat-web",
+  "version": "1.0.0",
+  "description": "weekleat als Web-App f\u00fcr iOS und Android",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.119.0",
+    "js-yaml": "^5.5.0",
+    "preact": "^11.2.0"
+  },
+  "devDependencies": {
+    "@preact/preset-vite": "^2.10.6",
+    "vite": "^8.3.6",
+    "vitest": "^5.1.0"
+  },
+  "private": true,
+  "type": "module"
+}

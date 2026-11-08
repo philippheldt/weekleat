@@ -1,0 +1,21 @@
+# Netlify baut die Web-App aus dem Ordner web/.
+# Supabase-Zugang in Netlify unter Site configuration → Environment variables eintragen:
+#   VITE_SUPABASE_URL, VITE_SUPABASE_ANON_KEY
+[build]
+  base = "web"
+  command = "npm ci && npm test && npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+  VITE_RECIPES_EDIT_URL = "https://github.com/philippheldt/weekleat/edit/main/web/public/rezepte.yaml"
+
+# Service Worker und Rezepte immer frisch laden
+[[headers]]
+  for = "/sw.js"
+  [headers.values]
+    Cache-Control = "no-cache"
+[[headers]]
+  for = "/rezepte.yaml"
+  [headers.values]
+    Cache-Control = "no-cache"
