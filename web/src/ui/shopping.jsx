@@ -21,7 +21,7 @@ function Item({ item }) {
         <div class="card-body">
           <div class="shop-name">{item.name}</div>
           <div class="tags">
-            {amount && <Tag icon="portion-black">{amount}</Tag>}
+            {amount && <Tag>{amount}</Tag>}
             {item.manual ? (
               <span class="muted small">eigener Eintrag</span>
             ) : (

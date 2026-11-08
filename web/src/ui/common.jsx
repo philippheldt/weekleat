@@ -65,7 +65,9 @@ export function RecipeTags({ recipe, score, portions }) {
 }
 
 export function FoodImage({ name, class: cls = 'card-img' }) {
-  return <img class={cls} src={imageUrl(name)} alt="" loading="lazy" style={{ background: imageBg(name) }} />
+  return (
+    <img class={cls} src={imageUrl(name)} alt="" loading="lazy" decoding="async" width="100" height="100" style={{ background: imageBg(name) }} />
+  )
 }
 
 export function Banner({ name, class: cls = 'banner' }) {

@@ -4,7 +4,9 @@ import { store } from './lib/store.js'
 import { loadCatalog } from './state.js'
 import './styles.css'
 
-store.init().then(() => render(<App />, document.getElementById('app')))
+// Sofort mit dem gespeicherten Stand anzeigen, Server-Abgleich läuft im Hintergrund
+render(<App />, document.getElementById('app'))
+store.init()
 loadCatalog()
 
 // Katalog neu laden, wenn die App wieder in den Vordergrund kommt
