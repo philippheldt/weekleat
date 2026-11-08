@@ -16,6 +16,8 @@ const PATHS = {
   down: 'M7 14V4H4v10zM7 14l4 7c1.5 0 2.5-1 2.2-2.6L12.6 15H19a2 2 0 0 0 2-2.3l-1.2-7A2 2 0 0 0 17.8 4H7',
   more: 'M12 19V5M5 12l7-7 7 7',
   less: 'M12 5v14M5 12l7 7 7-7',
+  pin: 'M9 3h6M10 3v6l-3 4h10l-3-4V3M12 13v8',
+  pencil: 'M4 20h4L19 9l-4-4L4 16zM14 6l4 4',
   refresh: 'M20 12a8 8 0 1 1-2.3-5.7M20 4v5h-5',
   plus: 'M12 5v14M5 12h14',
   check: 'M5 12.5l4.5 4.5L19 7',
@@ -123,10 +125,10 @@ export function Sheet({ title, onClose, children, action }) {
       <div class="sheet" ref={ref} role="dialog" aria-modal="true" aria-label={title}>
         <div class="sheet-grip" />
         <div class="sheet-head">
-          <h2>{title}</h2>
+          {title ? <h2>{title}</h2> : <span />}
           {action ?? (
-            <button class="link-btn" onClick={onClose}>
-              Fertig
+            <button class="close-btn" onClick={onClose} aria-label="Schließen">
+              <Svg name="x" size={18} />
             </button>
           )}
         </div>

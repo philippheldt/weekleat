@@ -923,3 +923,50 @@ a.source:active {
     opacity: 0.5;
   }
 }
+
+/* Schließen-Knopf oben rechts im Sheet */
+.close-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--chip);
+  color: var(--fg);
+}
+.close-btn:active {
+  opacity: 0.6;
+}
+
+/* Knöpfe auf dem Rezeptbild (festhalten, bearbeiten) */
+.banner-wrap {
+  position: relative;
+}
+.banner-btns {
+  position: absolute;
+  top: 12px;
+}
+.banner-btns.left {
+  left: 12px;
+}
+.banner-btns.right {
+  right: 12px;
+}
+.banner-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.banner-btn.on {
+  background: #fff;
+  color: #000;
+}
+.banner-btn:active {
+  transform: scale(0.94);
+}

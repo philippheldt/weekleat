@@ -2,8 +2,8 @@ import { useState } from 'preact/hooks'
 import { DAYS, DAY_LETTERS, DAY_KEYS } from '../lib/week.js'
 import { scores } from '../lib/generator.js'
 import { formatAmount } from '../lib/ingredients.js'
-import { rerollDay, setDayRecipe, toggleLock, vote } from '../actions.js'
-import { Banner, Chevron, FoodImage, Icon, RecipeTags, Sheet, Svg, toast } from './common.jsx'
+import { setDayRecipe, toggleLock, vote } from '../actions.js'
+import { Banner, Chevron, FoodImage, Icon, Sheet, Svg, toast } from './common.jsx'
 
 const DAY_NAMES = { mo: 'Mo', di: 'Di', mi: 'Mi', do: 'Do', fr: 'Fr', sa: 'Sa', so: 'So' }
 
@@ -51,14 +51,17 @@ export function Source({ recipe }) {
   )
 }
 
-export function RecipeDetail({ app, recipe, children }) {
+export function RecipeDetail({ app, recipe, children, bannerLeft, bannerRight }) {
   const factor = app.settings.portions / recipe.portions
   return (
     <>
-      <Banner name={recipe.image} class="sheet-banner" />
+      <div class="banner-wrap">
+        <Banner name={recipe.image} class="sheet-banner" />
+        {bannerLeft && <div class="banner-btns left">{bannerLeft}</div>}
+        {bannerRight && <div class="banner-btns right">{bannerRight}</div>}
+      </div>
       <div class="sheet-body">
         <h3 class="detail-title">{recipe.title}</h3>
-        <RecipeTags recipe={recipe} portions={app.settings.portions} />
         <Source recipe={recipe} />
         {recipe.days.length > 0 && (
           <p class="muted small" style={{ margin: '8px 0 0' }}>
@@ -96,7 +99,7 @@ export function RecipePicker({ app, title, onPick, onClose }) {
     .filter((r) => r.title.toLowerCase().includes(q.toLowerCase().trim()))
     .sort((a, b) => a.title.localeCompare(b.title, 'de'))
   return (
-    <Sheet title={title} onClose={onClose} action={<button class="link-btn" onClick={onClose}>Abbrechen</button>}>
+    <Sheet title={title} onClose={onClose}>
       <div class="search">
         <Icon name="search-gray" />
         <input class="input" placeholder="Rezept suchen" value={q} onInput={(e) => setQ(e.currentTarget.value)} autoFocus />
@@ -140,29 +143,29 @@ export function DaySheet({ app, day, onClose }) {
   }
 
   return (
-    <Sheet title={DAYS[day]} onClose={onClose}>
-      <RecipeDetail app={app} recipe={recipe}>
-        <div class="actions">
-          <button class={`btn ${entry.locked ? 'on' : ''}`} aria-pressed={entry.locked} onClick={() => toggleLock(day)}>
-            <Svg name={entry.locked ? 'lock' : 'unlock'} />
-            {entry.locked ? 'Festgehalten' : 'Festhalten'}
-          </button>
+    <Sheet onClose={onClose}>
+      <RecipeDetail
+        app={app}
+        recipe={recipe}
+        bannerLeft={
           <button
-            class="btn"
+            class={`banner-btn ${entry.locked ? 'on' : ''}`}
+            aria-pressed={entry.locked}
+            aria-label={entry.locked ? 'Nicht mehr festhalten' : 'Festhalten'}
             onClick={() => {
-              const w = rerollDay(day)
-              if (w.length) toast(w[0])
+              toggleLock(day)
+              toast(entry.locked ? `${DAYS[day]} wird wieder neu geplant` : `${DAYS[day]} festgehalten`)
             }}
           >
-            <Svg name="refresh" /> Neu würfeln
+            <Svg name="pin" />
           </button>
-          <button class="btn" style={{ gridColumn: '1 / -1' }} onClick={() => setPicking(true)}>
-            <Svg name="swap" /> Anderes Rezept wählen
+        }
+        bannerRight={
+          <button class="banner-btn" aria-label="Anderes Rezept wählen" onClick={() => setPicking(true)}>
+            <Svg name="pencil" />
           </button>
-        </div>
-        <p class="muted small" style={{ margin: '4px 0 0' }}>
-          Festgehaltene Tage bleiben beim Generieren unverändert.
-        </p>
+        }
+      >
         <VoteButtons app={app} recipe={recipe} />
       </RecipeDetail>
     </Sheet>

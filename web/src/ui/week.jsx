@@ -134,7 +134,7 @@ function DayCard({ app, day, large, onOpen }) {
     <div class="card-side">
       {entry.locked && (
         <span class="lock-on" title="festgehalten">
-          <Svg name="lock" size={18} />
+          <Svg name="pin" size={18} />
         </span>
       )}
       <Chevron />
