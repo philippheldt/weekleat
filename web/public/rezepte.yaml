@@ -339,3 +339,155 @@ rezepte:
       - 500 ml Kokosmilch
     notiz: |
       Statt „Hello Kokos Curry“ (8 g): Currypulver, etwas Kurkuma und Kreuzkümmel.
+
+  - titel: Cremige Mini-Knödel-Pfanne mit Spinat und Haselnüssen
+    quelle: HelloFresh
+    ernaehrung: vegetarisch
+    bild: kloss
+    tags: [Family]
+    zutaten:
+      - 750 g Mini-Klöße
+      - 300 g Kochsahne
+      - 2 Zwiebeln
+      - 150 g würziger Reibekäse
+      - 10 g Petersilie & Schnittlauch
+      - 2 Stangen Porree
+      - 4 Karotten
+      - 200 g Babyspinat
+      - 20 g Haselnüsse
+      - 8 g Gemüsebrühe
+    notiz: |
+      Statt „Hello Muskat“ (10 g): Muskat, Sellerie, Pastinake, Zwiebel, Lauch,
+      Kurkuma, Liebstöckel, Karotten, Petersilie.
+
+  - titel: Senegalesischer Erdnusseintopf mit Süßkartoffeln, Linsen und Spinat
+    quelle: Marley Spoon
+    portionen: 2
+    kategorie: sonstiges
+    ernaehrung: vegan
+    bild: linsen
+    zutaten:
+      - 1 rote Zwiebel
+      - 1 Stück Ingwer
+      - 1 Karotte
+      - 1 Süßkartoffel
+      - 200 g rote Linsen
+      - 1 Pck. Gemüsebrühe
+      - 1 Dose gehackte Tomaten
+      - 1 Pck. Madras-Currypulver
+      - 1 Limette
+      - 1 Pck. Erdnussbutter
+      - 100 g Babyspinat
+      - 50 g gesalzene Erdnüsse
+
+  - titel: Vegetarisches Kürbisgulasch mit Pastinakenpüree
+    quelle: HelloFresh
+    kategorie: kartoffeln
+    ernaehrung: vegetarisch
+    bild: pumpkin
+    tags: [Family]
+    zutaten:
+      - 720 g Pastinaken
+      - 2 Ofenkartoffeln
+      - 400 g Hokkaido-Kürbis (geschält und gewürfelt)
+      - 4 Karotten
+      - 4 Zwiebeln
+      - 4 Zehen Knoblauch
+      - 140 g Tomatenmark
+      - 25 ml Sojasoße
+      - 8 g Gemüsebrühe
+      - 200 g Schmand
+      - 10 g Petersilie & Majoran
+    notiz: |
+      Statt „Hello Paprika“ (12 g): Paprikapulver, Knoblauch, Pfeffer, Zwiebel- und Tomatenpulver.
+
+  - titel: Risotto-Reispfanne mit würzigem Grillkäse, Paprika und Buschbohnen
+    quelle: HelloFresh
+    kategorie: reis
+    ernaehrung: vegetarisch
+    bild: cheese
+    tags: [Family]
+    zutaten:
+      - 400 g Grillkäse
+      - 300 g Risottoreis
+      - 200 g Buschbohnen
+      - 2 Paprika
+      - 1 Zitrone
+      - 2 Zwiebeln
+      - 4 Zehen Knoblauch
+      - 10 g Petersilie
+      - 100 g Tomatenpesto
+      - 12 g Gemüsebrühpulver
+    notiz: |
+      Statt „Hello Souflaki“ (8 g): Knoblauch, Oregano, Tomaten, Chili (mild), Cayennepfeffer, Paprika.
+
+  - titel: Yaki-Onigiri – Reisbällchen auf Tofu-Korma-Curry
+    quelle: HelloFresh
+    kategorie: reis
+    ernaehrung: vegan
+    bild: rice
+    zutaten:
+      - 360 g Tofu (süßer Chili-Grill-Tofu)
+      - 300 g Basmatireis
+      - 2 Karotten
+      - 40 g geröstete Cashewkerne
+      - 2 Tomaten
+      - 2 grüne Paprika
+      - 2 Zwiebeln
+      - 20 g Petersilie
+      - 100 g Korma-Paste
+      - 360 ml Kokosmilch
+      - 4 EL Mehl
+
+  - titel: Alpine Käsespätzlepfanne mit Birne und Bacon
+    quelle: HelloFresh
+    kategorie: nudeln
+    ernaehrung: fleisch
+    tags: [Family]
+    zutaten:
+      - 800 g Eierspätzle
+      - 100 g würziger Reibekäse
+      - 2 Birnen
+      - 300 g Kochsahne
+      - 10 g Petersilie & Schnittlauch
+      - 2 Zwiebeln
+      - 40 g Hartkäse (gerieben)
+      - 100 g Babyspinat
+      - 160 g Bacon (Streifen)
+
+  - titel: Hähnchen-Pasta mit Brokkoliröschen in Tomaten-Sahne-Soße
+    quelle: HelloFresh
+    kategorie: nudeln
+    ernaehrung: fleisch
+    bild: brokkoli
+    tags: [High Protein]
+    zutaten:
+      - 500 g Penne
+      - 500 g Brokkoli
+      - 500 g Hähnchengeschnetzeltes
+      - 2 Tomaten
+      - 8 g Hühnerbrühe
+      - 300 g Kochsahne
+      - 70 g Tomatenmark
+      - 1 Zehe Knoblauch
+      - 40 g Hartkäse (gerieben)
+    notiz: |
+      Statt „Hello Buon Appetito“ (4 g): italienische Kräuter (Oregano, Basilikum, Thymian) und etwas Knoblauch.
+
+  - titel: Gebratene Hähnchenbrust auf cremiger Gnocchi-Limetten-Pfanne
+    quelle: Marley Spoon
+    portionen: 2
+    kategorie: nudeln
+    ernaehrung: fleisch
+    bild: chicken
+    tags: [schnell]
+    zutaten:
+      - 500 g Gnocchi
+      - 1 Pck. Hähnchenbrustfilet
+      - 1 Zwiebel
+      - 1 Zehe Knoblauch
+      - 1 Limette
+      - 1 Becher Crème fraîche
+      - 100 g Babyspinat
+      - 1 EL Butter
+      - 1 TL Mehl
