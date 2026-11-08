@@ -52,6 +52,17 @@ function containsAny(ws, list) {
   return ws.some((w) => list.some((k) => (k.length <= 2 ? w === k : w.includes(k))))
 }
 
+/** Quelle anzeigen: "HelloFresh", sonst die Domain des Links (z. B. "chefkoch.de"). */
+function sourceName(quelle, link) {
+  if (quelle) return String(quelle).trim()
+  if (!link) return ''
+  try {
+    return new URL(String(link)).hostname.replace(/^www\./, '')
+  } catch {
+    return ''
+  }
+}
+
 function toList(v) {
   if (v == null) return []
   if (Array.isArray(v)) return v.map((x) => String(x).trim()).filter(Boolean)
@@ -137,7 +148,8 @@ export function parseCatalog(text) {
       diet,
       tags: tags.filter((t) => !CATEGORY_ALIASES[t.toLowerCase()] && !DIET_ALIASES[t.toLowerCase()]),
       ingredients,
-      link: raw.link ? String(raw.link) : '',
+      link: raw.link ? String(raw.link).trim() : '',
+      source: sourceName(raw.quelle ?? raw.source, raw.link),
       note: String(raw.notiz ?? raw.zubereitung ?? '').trim(),
       image: chooseImage(title, raw.bild),
       days: toList(raw.nur_an ?? raw.tage).map((d) => d.toLowerCase().slice(0, 2)),

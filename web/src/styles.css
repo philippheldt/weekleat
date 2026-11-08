@@ -891,3 +891,22 @@ textarea.input {
     transition: none !important;
   }
 }
+
+.source {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 14px;
+  padding: 12px 14px;
+  border: var(--hair) solid var(--line);
+  border-radius: var(--radius);
+  background: var(--chip);
+  font-size: 15px;
+  text-decoration: none;
+}
+.source span {
+  flex: 1;
+}
+a.source:active {
+  opacity: 0.7;
+}

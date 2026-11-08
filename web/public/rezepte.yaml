@@ -13,7 +13,10 @@
 #                 (optional – wird sonst aus den Zutaten erraten)
 #    tags:        [schnell, ...]       (optional, nur zur Anzeige)
 #    nur_an:      [fr, sa, so]         (optional – nur an diesen Tagen einplanen)
-#    link:        https://...          (optional – Originalrezept)
+#    quelle:      HelloFresh           (optional – wo das Rezept steht, z. B.
+#                                       HelloFresh, Marley Spoon, Omas Kochbuch S. 42)
+#    link:        https://...          (optional – Originalrezept; ohne "quelle"
+#                                       wird die Website als Quelle angezeigt)
 #    notiz:       freier Text          (optional – z. B. Zubereitung)
 #    bild:        pizza                (optional – Illustration erzwingen)
 #    id:          kurzer-name          (optional – nur nötig, wenn ihr ein Rezept
@@ -28,199 +31,154 @@
 # ─────────────────────────────────────────────────────────────────────
 
 rezepte:
-  - titel: Kartoffelsuppe
-    kategorie: kartoffeln
-    ernaehrung: vegan
-    tags: [schnell]
-    zutaten:
-      - 750 g Kartoffeln
-      - 2 Karotten
-      - 1 Zwiebel
-      - 1 Stange Lauch
-      - 1 l Gemüsebrühe
-      - 1 EL Öl
-      - Salz
-      - Pfeffer
-
-  - titel: Kürbissuppe
-    ernaehrung: vegetarisch
-    tags: [schnell]
-    zutaten:
-      - 1 kg Hokkaido-Kürbis
-      - 2 Karotten
-      - 1 Zwiebel
-      - 1 Zehe Knoblauch
-      - 750 ml Gemüsebrühe
-      - 200 ml Sahne
-      - 1 TL Currypulver
-
-  - titel: Spaghetti Bolognese
-    kategorie: nudeln
-    ernaehrung: fleisch
-    zutaten:
-      - 500 g Spaghetti
-      - 400 g Hackfleisch
-      - 1 Dose Tomaten
-      - 2 EL Tomatenmark
-      - 1 Zwiebel
-      - 2 Karotten
-      - 1 Zehe Knoblauch
-      - 50 g Parmesan
-
-  - titel: Käsespätzle
+  - titel: Gnocchi mit Ofenkürbis und Kräuter-Frischecreme
+    quelle: HelloFresh
     kategorie: nudeln
     ernaehrung: vegetarisch
+    bild: pumpkin
+    tags: [Family]
     zutaten:
-      - 500 g Spätzle
-      - 200 g Bergkäse
-      - 3 Zwiebeln
-      - 2 EL Butter
-
-  - titel: Zucchini-Pasta
-    kategorie: nudeln
-    ernaehrung: vegetarisch
-    tags: [schnell]
-    zutaten:
-      - 500 g Penne
-      - 2 Zucchini
-      - 200 ml Sahne
-      - 100 g Parmesan
-      - 1 Zehe Knoblauch
-
-  - titel: Pasta mit Pilzrahmsoße
-    kategorie: nudeln
-    ernaehrung: vegetarisch
-    zutaten:
-      - 500 g Tagliatelle
-      - 400 g Champignons
-      - 200 ml Sahne
-      - 1 Zwiebel
-      - ½ Bund Petersilie
-
-  - titel: Gemüse-Reispfanne
-    kategorie: reis
-    ernaehrung: vegan
-    tags: [schnell]
-    zutaten:
-      - 250 g Reis
-      - 1 Paprika
-      - 2 Karotten
-      - 1 Zucchini
-      - 3 EL Sojasoße
-      - 1 Zwiebel
-
-  - titel: Paneer Butter Masala
-    kategorie: reis
-    ernaehrung: vegetarisch
-    zutaten:
-      - 250 g Reis
-      - 400 g Paneer
-      - 1 Dose Tomaten
-      - 200 ml Sahne
-      - 1 Zwiebel
-      - 2 Zehen Knoblauch
-      - 2 EL Garam Masala
-      - 2 EL Butter
-
-  - titel: Hähnchen-Curry mit Reis
-    kategorie: reis
-    ernaehrung: fleisch
-    zutaten:
-      - 250 g Reis
-      - 500 g Hähnchenbrust
-      - 400 ml Kokosmilch
-      - 1 Paprika
-      - 1 Zwiebel
-      - 2 EL Currypaste
-
-  - titel: Kartoffelpuffer mit Apfelmus
-    kategorie: kartoffeln
-    ernaehrung: vegetarisch
-    zutaten:
-      - 1 kg Kartoffeln
-      - 1 Zwiebel
-      - 2 Eier
-      - 3 EL Mehl
-      - 1 Glas Apfelmus
-
-  - titel: Ofenkartoffeln mit Kräuterquark
-    kategorie: kartoffeln
-    ernaehrung: vegetarisch
-    zutaten:
-      - 1,2 kg Kartoffeln
-      - 500 g Quark
-      - 1 Bund Schnittlauch
-      - 2 EL Öl
-
-  - titel: Pizza Margherita
-    kategorie: gebackenes
-    ernaehrung: vegetarisch
-    nur_an: [fr, sa, so]
-    zutaten:
-      - 500 g Mehl
-      - 1 Würfel Hefe
-      - 1 Dose Tomaten
-      - 250 g Mozzarella
-      - 1 Bund Basilikum
-
-  - titel: Flammkuchen
-    kategorie: gebackenes
-    ernaehrung: fleisch
-    nur_an: [fr, sa, so]
-    zutaten:
-      - 1 Pck. Flammkuchenteig
-      - 200 g Schmand
-      - 150 g Speck
-      - 2 Zwiebeln
-
-  - titel: Gemüselasagne
-    kategorie: gebackenes
-    ernaehrung: vegetarisch
-    zutaten:
-      - 250 g Lasagneplatten
-      - 2 Zucchini
-      - 1 Paprika
-      - 1 Dose Tomaten
-      - 200 g Mozzarella
-      - 500 ml Milch
-      - 2 EL Mehl
-      - 2 EL Butter
-
-  - titel: Linsen-Dal
-    ernaehrung: vegan
-    zutaten:
-      - 250 g rote Linsen
-      - 400 ml Kokosmilch
-      - 1 Dose Tomaten
-      - 1 Zwiebel
-      - 2 Zehen Knoblauch
-      - 1 TL Kurkuma
-
-  - titel: Wraps mit Bohnen und Mais
-    ernaehrung: vegetarisch
-    tags: [schnell]
-    zutaten:
-      - 8 Tortilla-Wraps
-      - 1 Dose Kidneybohnen
-      - 1 Dose Mais
-      - 1 Paprika
-      - 200 g Reibekäse
-      - 200 g Schmand
-
-  - titel: Lachs mit Brokkoli
-    ernaehrung: fisch
-    tags: [schnell]
-    zutaten:
-      - 4 Lachsfilets
-      - 1 Kopf Brokkoli
+      - 800 g frische Gnocchi
+      - 1 Hokkaido-Kürbis
+      - 200 g Frischecreme
+      - 10 g Petersilie & Salbei
+      - 40 g Hartkäse (ital. Art, gerieben)
+      - 40 g Kürbiskerne
       - 1 Zitrone
-      - 2 EL Butter
+      - 10 ml Kürbiskernöl
+      - 1 Zehe Knoblauch
+      - 20 g Honig
 
-  - titel: Pfannkuchen
-    ernaehrung: vegetarisch
-    tags: [schnell]
+  - titel: Grünes Gemüsecurry mit Brokkoli, Erdnüssen und Limettenreis
+    quelle: HelloFresh
+    kategorie: reis
+    ernaehrung: vegan
+    tags: [viel Gemüse]
     zutaten:
-      - 250 g Mehl
-      - 3 Eier
-      - 500 ml Milch
-      - 1 Glas Apfelmus
+      - 300 g Jasminreis
+      - 2 Paprika
+      - 300 g braune Champignons
+      - 1 Brokkoli
+      - 2 Schalotten
+      - 2 Limetten
+      - 10 g Koriander & Petersilie
+      - 500 ml Kokosmilch
+      - 50 g grüne Currypaste
+      - 40 g gesalzene Erdnüsse
+      - 8 g Gemüsebrühpulver
+
+  - titel: Ingwer-Sesam-Hähnchen mit knackigem Gemüse und Jasminreis
+    quelle: HelloFresh
+    kategorie: reis
+    ernaehrung: fleisch
+    zutaten:
+      - 300 g Jasminreis
+      - 500 g Hähnchengeschnetzeltes
+      - 1 Brokkoli
+      - 2 Karotten
+      - 2 Frühlingszwiebeln
+      - 2 Zehen Knoblauch
+      - 40 g Ingwer
+      - 100 ml Sojasoße
+      - 20 ml Sesamöl
+      - 20 g Sesam
+      - 8 g Maisstärke
+
+  - titel: Indische Kichererbsen-Kokos-Suppe mit Babyspinat
+    quelle: HelloFresh
+    ernaehrung: vegetarisch
+    bild: soup
+    zutaten:
+      - 760 g Kichererbsen (2 Dosen)
+      - 4 Karotten
+      - 2 Ofenkartoffeln
+      - 2 Zwiebeln
+      - 500 ml Kokosmilch
+      - 50 g gelbe Currypaste
+      - 60 g gehackter Knoblauch & Ingwer in Öl
+      - 4 g Madras-Curry-Pulver
+      - 16 g Gemüsebrühpulver
+      - 100 g Babyspinat
+      - 1 Limette
+      - 200 g saure Sahne
+    notiz: |
+      Statt „Hello Piri-Piri“ (4 g): Chiliflocken, Paprikapulver und etwas Knoblauch
+      für die gerösteten Kichererbsen.
+
+  - titel: Griechische Hähnchen-Zitronen-Suppe mit Orzo
+    quelle: HelloFresh
+    kategorie: nudeln
+    ernaehrung: fleisch
+    bild: lemon
+    tags: [High Protein]
+    zutaten:
+      - 500 g Hähncheninnenbrustfilet
+      - 180 g Orzo-Nudeln
+      - 2 Karotten
+      - 2 Zwiebeln
+      - 2 Zehen Knoblauch
+      - 12 g Hühnerbrühe
+      - 10 g Oregano & Petersilie
+      - 2 Zitronen
+      - 100 g Babyspinat
+      - 200 g Crème fraîche
+    notiz: |
+      Statt Gewürzmischung „Hello Paprika“ (8 g): edelsüßes Paprikapulver,
+      etwas Knoblauchpulver und eine Prise Chili.
+
+  - titel: Herzhafte Hackbällchen mit Orangen-Couscous und Paprikasugo
+    quelle: Marley Spoon
+    portionen: 2
+    ernaehrung: fleisch
+    zutaten:
+      - 250 g Schweinehackfleisch
+      - 150 g Vollkorn-Couscous
+      - 1 Orange (unbehandelt)
+      - 1 rote Paprika
+      - 1 Zwiebel
+      - 1 Zehe Knoblauch
+      - 1 Dose gehackte Tomaten
+      - 20 g Petersilie & Minze
+      - 1 Pck. Gemüsebrühe
+    notiz: |
+      Tajine-Gewürzmischung selbst mischen: Kurkuma, Koriander, Ingwer,
+      Kreuzkümmel, Pfeffer, Zimt, Paprika, Muskat, Nelke, Kardamom.
+
+  - titel: Spicy Tofu Buddha Bowl mit Erdnusssoße und Karottensalat
+    quelle: HelloFresh
+    kategorie: reis
+    ernaehrung: vegan
+    bild: brokkoli
+    zutaten:
+      - 360 g Tofu (süßer Chili-Grill-Tofu)
+      - 300 g Jasminreis
+      - 1 Brokkoli
+      - 2 Karotten
+      - 1 Limette
+      - 4 Zehen Knoblauch
+      - 100 g Erdnussbutter
+      - 360 ml Kokosmilch
+      - 10 g Koriander & Petersilie
+      - 50 ml Sojasoße
+      - 50 g Sweet-Chili-Soße
+
+  - titel: Stir Fry – Pfannengemüse mit Erdnuss-Chili-Soße
+    quelle: HelloFresh
+    kategorie: reis
+    ernaehrung: vegan
+    bild: paprika
+    tags: [viel Gemüse]
+    zutaten:
+      - 300 g Basmatireis
+      - 2 Paprika
+      - 4 Karotten
+      - 300 g braune Champignons
+      - 200 g Buschbohnen
+      - 2 rote Chilischoten
+      - 2 Frühlingszwiebeln
+      - 1 Limette
+      - 60 g gehackter Knoblauch & Ingwer in Öl
+      - 360 ml Kokosmilch
+      - 50 g Erdnussbutter
+      - 40 g gesalzene Erdnüsse
+      - 50 ml Sojasoße

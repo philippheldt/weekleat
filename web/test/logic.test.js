@@ -48,9 +48,22 @@ describe('Zutaten', () => {
   })
 })
 
-const catalogText = fs.readFileSync(new URL('../public/rezepte.yaml', import.meta.url), 'utf8')
+const catalogText = fs.readFileSync(new URL('./fixtures/beispiel.yaml', import.meta.url), 'utf8')
+const realCatalog = fs.readFileSync(new URL('../public/rezepte.yaml', import.meta.url), 'utf8')
 
 describe('Katalog', () => {
+  it('eure rezepte.yaml ist fehlerfrei', () => {
+    const { recipes, problems } = parseCatalog(realCatalog)
+    expect(problems).toEqual([])
+    expect(recipes.length).toBeGreaterThan(0)
+    for (const r of recipes) expect(r.ingredients.every((i) => i.name)).toBe(true)
+  })
+  it('Quelle: Text, sonst Domain des Links', () => {
+    const { recipes } = parseCatalog(
+      'rezepte:\n  - titel: A\n    quelle: HelloFresh\n    zutaten: [1 Ei]\n  - titel: B\n    link: https://www.chefkoch.de/rezepte/1\n    zutaten: [1 Ei]\n  - titel: C\n    zutaten: [1 Ei]\n',
+    )
+    expect(recipes.map((r) => r.source)).toEqual(['HelloFresh', 'chefkoch.de', ''])
+  })
   it('liest die Beispieldatei ohne Probleme', () => {
     const { recipes, problems } = parseCatalog(catalogText)
     expect(problems).toEqual([])

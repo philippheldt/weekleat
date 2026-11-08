@@ -54,7 +54,8 @@ export function RecipeTags({ recipe, score, portions }) {
       <Tag icon="portion-black">{portions ?? recipe.portions}</Tag>
       {recipe.category !== 'sonstiges' && <Tag icon="rice-black">{CATEGORY_LABELS[recipe.category]}</Tag>}
       <Tag>{DIET_LABELS[recipe.diet]}</Tag>
-      {recipe.tags.slice(0, 2).map((t) => (
+      {recipe.source && <Tag>{recipe.source}</Tag>}
+      {recipe.tags.slice(0, 1).map((t) => (
         <Tag key={t}>{t}</Tag>
       ))}
       {score > 0 && <Tag class="up">▲ {score}</Tag>}

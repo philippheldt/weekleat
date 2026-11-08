@@ -117,6 +117,8 @@ export function aggregate(list) {
       map.set(key, { key, name: ing.name, unit: ing.unit, amount: ing.amount, recipes: ing.recipe ? [ing.recipe] : [] })
     } else {
       if (ing.amount != null) cur.amount = (cur.amount ?? 0) + ing.amount
+      // Mehrzahl bevorzugen ("Zwiebeln" statt "Zwiebel"), sobald es mehrere sind
+      if (ing.name.length > cur.name.length) cur.name = ing.name
       if (ing.recipe && !cur.recipes.includes(ing.recipe)) cur.recipes.push(ing.recipe)
     }
   }

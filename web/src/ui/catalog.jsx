@@ -17,7 +17,12 @@ export function CatalogView({ app }) {
     .filter((r) => cat === 'alle' || r.category === cat)
     .filter((r) => {
       const s = q.toLowerCase().trim()
-      return !s || r.title.toLowerCase().includes(s) || r.ingredients.some((i) => i.name.toLowerCase().includes(s))
+      return (
+        !s ||
+        r.title.toLowerCase().includes(s) ||
+        r.source.toLowerCase().includes(s) ||
+        r.ingredients.some((i) => i.name.toLowerCase().includes(s))
+      )
     })
     .sort((a, b) =>
       sort === 'bewertung'
@@ -43,7 +48,7 @@ export function CatalogView({ app }) {
 
       <div class="search">
         <Icon name="search-gray" />
-        <input class="input" placeholder="Rezept oder Zutat suchen" value={q} onInput={(e) => setQ(e.currentTarget.value)} />
+        <input class="input" placeholder="Rezept, Zutat oder Quelle suchen" value={q} onInput={(e) => setQ(e.currentTarget.value)} />
       </div>
       <div class="chips">
         {['alle', ...CATEGORIES].map((c) => (
