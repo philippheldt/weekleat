@@ -38,12 +38,13 @@ jobs:
           VITE_SUPABASE_ANON_KEY: ${{ vars.VITE_SUPABASE_ANON_KEY }}
           VITE_RECIPES_EDIT_URL: https://github.com/${{ github.repository }}/edit/main/web/public/rezepte.yaml
       - uses: actions/upload-pages-artifact@v3
-        if: github.event_name != 'pull_request'
+        if: github.event_name != 'pull_request' && vars.DEPLOY_TO_PAGES == 'true'
         with:
           path: web/dist
 
+  # Nur wenn GitHub Pages statt Netlify genutzt wird (Repo-Variable DEPLOY_TO_PAGES=true)
   deploy:
-    if: github.event_name != 'pull_request'
+    if: github.event_name != 'pull_request' && vars.DEPLOY_TO_PAGES == 'true'
     needs: build
     runs-on: ubuntu-latest
     environment:

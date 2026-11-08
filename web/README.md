@@ -26,15 +26,21 @@ Wochenplaner für iOS **und** Android: Aus euren Lieblingsrezepten (`public/reze
 4. **Authentication → Sign In / Providers**: „Allow new users to sign up“ **ausschalten**, damit sich niemand Fremdes registrieren kann.
 5. **Project Settings → API**: „Project URL“ und den „anon public“-Key notieren. Der Key ist öffentlich gedacht – geschützt wird über den Login.
 
-### 2. Veröffentlichen mit GitHub Pages
+### 2. Veröffentlichen mit Netlify (kostenlos, auch für private Repos)
 
-1. Im Repo unter **Settings → Secrets and variables → Actions → Variables** zwei Variablen anlegen:
+1. Auf [netlify.com](https://netlify.com) mit GitHub anmelden → **Add new project → Import an existing project → GitHub** → `weekleat` auswählen.
+2. Die Build-Einstellungen kommen automatisch aus `netlify.toml` – nichts ändern.
+3. Unter **Environment variables** (beim Import „Add environment variables“ oder später unter *Site configuration → Environment variables*) zwei Variablen anlegen:
    - `VITE_SUPABASE_URL` = Project URL
-   - `VITE_SUPABASE_ANON_KEY` = anon public Key
-2. **Settings → Pages → Source: „GitHub Actions“** wählen.
-3. Auf `main` pushen (oder den Workflow „Web-App“ manuell starten). Die App ist dann unter `https://<user>.github.io/weekleat/` erreichbar.
+   - `VITE_SUPABASE_ANON_KEY` = anon- bzw. publishable Key
+4. **Deploy** klicken. Die Adresse (z. B. `https://weekleat-xyz.netlify.app`) lässt sich unter *Domain management* umbenennen.
 
-> GitHub Pages ist bei privaten Repos nur mit bezahltem GitHub-Plan verfügbar. Alternative: Repo bei [Netlify](https://netlify.com) oder [Vercel](https://vercel.com) verbinden (Base directory `web`, Build `npm run build`, Output `dist`, die beiden Variablen dort als Environment Variables eintragen).
+Jede Änderung auf `main` (z. B. an `rezepte.yaml`) wird automatisch neu veröffentlicht. Wurden die Variablen erst nach dem ersten Deploy eingetragen: *Deploys → Trigger deploy → Deploy site*.
+
+<details><summary>Alternative: GitHub Pages</summary>
+
+Repo-Variablen `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY` und `DEPLOY_TO_PAGES=true` anlegen (Settings → Secrets and variables → Actions → Variables), unter Settings → Pages „GitHub Actions“ als Quelle wählen. Bei privaten Repos nur mit bezahltem GitHub-Plan.
+</details>
 
 ### 3. Auf die Handys
 
