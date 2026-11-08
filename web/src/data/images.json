@@ -1,0 +1,224 @@
+{
+ "a": {
+  "bg": "#92092f"
+ },
+ "apricot": {
+  "bg": "#be8730",
+  "large": true
+ },
+ "b": {
+  "bg": "#be8730"
+ },
+ "bacon": {
+  "bg": "#92092f",
+  "large": true
+ },
+ "brokkoli": {
+  "bg": "#0d3a38",
+  "large": true
+ },
+ "burger": {
+  "bg": "#0d3a38",
+  "large": true
+ },
+ "butter": {
+  "bg": "#0d3a38",
+  "large": true
+ },
+ "c": {
+  "bg": "#232733"
+ },
+ "carrot": {
+  "bg": "#0d3a38",
+  "large": true
+ },
+ "cheese": {
+  "bg": "#be8730",
+  "large": true
+ },
+ "chicken": {
+  "bg": "#2e1d08",
+  "large": true
+ },
+ "chilli": {
+  "bg": "#92092f",
+  "large": true
+ },
+ "d": {
+  "bg": "#92092f"
+ },
+ "e": {
+  "bg": "#be8730"
+ },
+ "egg": {
+  "bg": "#222632",
+  "large": true
+ },
+ "enchilada": {
+  "bg": "#92092f",
+  "large": true
+ },
+ "erbsen": {
+  "bg": "#0d3a38",
+  "large": true
+ },
+ "f": {
+  "bg": "#232733"
+ },
+ "flambe": {
+  "bg": "#92092f",
+  "large": true
+ },
+ "g": {
+  "bg": "#92092f"
+ },
+ "h": {
+  "bg": "#be8730"
+ },
+ "i": {
+  "bg": "#232733"
+ },
+ "j": {
+  "bg": "#92092f"
+ },
+ "k": {
+  "bg": "#be8730"
+ },
+ "kloss": {
+  "bg": "#be8730",
+  "large": true
+ },
+ "knoblauch": {
+  "bg": "#222632",
+  "large": true
+ },
+ "kokos": {
+  "bg": "#2e1d08",
+  "large": true
+ },
+ "l": {
+  "bg": "#232733"
+ },
+ "lasagne": {
+  "bg": "#92092f",
+  "large": true
+ },
+ "lauch": {
+  "bg": "#0d3a38",
+  "large": true
+ },
+ "lemon": {
+  "bg": "#0d3a38",
+  "large": true
+ },
+ "linsen": {
+  "bg": "#222632",
+  "large": true
+ },
+ "m": {
+  "bg": "#92092f"
+ },
+ "mais": {
+  "bg": "#0d3a38",
+  "large": true
+ },
+ "milk": {
+  "bg": "#222632",
+  "large": true
+ },
+ "mushroom": {
+  "bg": "#2e1d08",
+  "large": true
+ },
+ "n": {
+  "bg": "#be8730"
+ },
+ "o": {
+  "bg": "#232733"
+ },
+ "p": {
+  "bg": "#92092f"
+ },
+ "pancake": {
+  "bg": "#be8730",
+  "large": true
+ },
+ "paprika": {
+  "bg": "#92092f",
+  "large": true
+ },
+ "pasta": {
+  "bg": "#be8730",
+  "large": true
+ },
+ "pizza": {
+  "bg": "#92092f",
+  "large": true
+ },
+ "potatoe": {
+  "bg": "#2e1d08",
+  "large": true
+ },
+ "pumpkin": {
+  "bg": "#be8730",
+  "large": true
+ },
+ "q": {
+  "bg": "#be8730"
+ },
+ "r": {
+  "bg": "#232733"
+ },
+ "radies": {
+  "bg": "#0d3a38",
+  "large": true
+ },
+ "rice": {
+  "bg": "#222632",
+  "large": true
+ },
+ "s": {
+  "bg": "#92092f"
+ },
+ "sausage": {
+  "bg": "#92092f",
+  "large": true
+ },
+ "soup": {
+  "bg": "#be8730",
+  "large": true
+ },
+ "spice": {
+  "bg": "#be8730",
+  "large": true
+ },
+ "steak": {
+  "bg": "#92092f",
+  "large": true
+ },
+ "t": {
+  "bg": "#be8730"
+ },
+ "u": {
+  "bg": "#232733"
+ },
+ "v": {
+  "bg": "#92092f"
+ },
+ "w": {
+  "bg": "#be8730"
+ },
+ "x": {
+  "bg": "#232733"
+ },
+ "y": {
+  "bg": "#92092f"
+ },
+ "z": {
+  "bg": "#be8730"
+ },
+ "zucchini": {
+  "bg": "#222632",
+  "large": true
+ }
+}
