@@ -491,3 +491,44 @@ rezepte:
       - 100 g Babyspinat
       - 1 EL Butter
       - 1 TL Mehl
+
+  - titel: Kiwi-Grillkäse-Burger mit Joghurt-Aioli, Kartoffelspalten und Salat
+    quelle: HelloFresh
+    kategorie: kartoffeln
+    ernaehrung: vegetarisch
+    bild: burger
+    zutaten:
+      - 2 Kiwis
+      - 2 Tomaten
+      - 150 g Salatherz (Romana)
+      - 750 g festkochende Kartoffeln
+      - 2 Zehen Knoblauch
+      - 200 g Sahnejoghurt
+      - 50 g Mayonnaise
+      - 400 g Grillkäse
+      - 2 kleine Salatgurken
+      - 320 g Brioche-Burger-Buns
+      - 4 EL Olivenöl
+      - 2 EL Weißweinessig
+    notiz: |
+      Statt „Hello Paprika“ (6 g, für die Kartoffelspalten): Paprikapulver, Knoblauch,
+      Pfeffer, Zwiebel- und Tomatenpulver.
+
+  - titel: Hähnchen Karahi nach pakistanischer Art mit Knoblauch-Naan und Minz-Joghurt
+    quelle: HelloFresh
+    ernaehrung: fleisch
+    bild: chicken
+    tags: [High Protein]
+    zutaten:
+      - 520 g Naan-Brot
+      - 780 g stückige Tomaten (2 Dosen)
+      - 20 g Ingwerpaste
+      - 2 Zehen Knoblauch
+      - 8 g Madras-Currypulver
+      - 300 g Naturjoghurt
+      - 500 g Hähncheninnenbrustfilet
+      - 2 rote Zwiebeln
+      - 10 g Minze & Petersilie
+      - 2 EL Butter
+    notiz: |
+      Statt „Hello Curry“ (12 g): Koriander, Kurkuma, Bockshornklee, Kreuzkümmel, Muskat, Paprika.
