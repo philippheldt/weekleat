@@ -2,7 +2,7 @@ import { describe, it, expect } from 'vitest'
 import fs from 'node:fs'
 import { parseIngredient, formatAmount, aggregate } from '../src/lib/ingredients.js'
 import { parseCatalog } from '../src/lib/catalog.js'
-import { generatePlan, DEFAULT_SETTINGS } from '../src/lib/generator.js'
+import { generatePlan, DEFAULT_SETTINGS, implicitVote, scores } from '../src/lib/generator.js'
 import { buildAutoItems, diffShopping } from '../src/lib/shopping.js'
 import { upcomingWeek } from '../src/lib/week.js'
 
@@ -147,6 +147,16 @@ describe('Generator', () => {
     const down = count([{ recipeId: 'linsen-dal', value: -1 }, { recipeId: 'linsen-dal', value: -1 }, { recipeId: 'linsen-dal', value: -1 }])
     expect(up).toBeGreaterThan(neutral)
     expect(down).toBeLessThan(neutral)
+  })
+
+  it('automatische Stimmen: würfeln −1, auswählen +1, je einmal pro Woche', () => {
+    const a = implicitVote('2026-11-09', 'x', 'reroll')
+    const b = implicitVote('2026-11-09', 'x', 'reroll')
+    const c = implicitVote('2026-11-09', 'y', 'pick')
+    expect(a.id).toBe(b.id) // gleiche id → überschreibt sich, zählt nur einmal
+    expect(a.id).not.toBe('2026-11-09:x') // kollidiert nicht mit dem Knopf
+    const byId = Object.fromEntries([a, b, c, { id: '2026-11-09:x', recipeId: 'x', value: 1 }].map((v) => [v.id, v]))
+    expect(scores(Object.values(byId))).toEqual({ x: 0, y: 1 })
   })
 
   it('vermeidet Rezepte der letzten Wochen', () => {

@@ -1,7 +1,7 @@
 // Alle Aktionen, die Daten verändern. Jede Aktion schreibt in den gemeinsamen Speicher.
 import { store } from './lib/store.js'
 import { snapshot } from './state.js'
-import { generatePlan } from './lib/generator.js'
+import { generatePlan, implicitVote } from './lib/generator.js'
 import { buildAutoItems, diffShopping } from './lib/shopping.js'
 import { parseIngredient } from './lib/ingredients.js'
 import { upcomingWeek } from './lib/week.js'
@@ -33,8 +33,9 @@ function shoppingOps(s, plan, settings) {
   ]
 }
 
-function commitPlan(s, plan, week = s.week) {
+function commitPlan(s, plan, week = s.week, extra = []) {
   store.batch([
+    ...extra,
     planOps(plan),
     { type: 'put', collection: 'meta', rows: [{ id: 'plan', week }] },
     ...historyOps(s, week, plan),
@@ -76,7 +77,10 @@ export function rerollDay(day) {
     onlyDay: day,
   })
   plan[day].locked = false
-  commitPlan(s, plan)
+  // Weggewürfeltes Rezept zählt als "seltener"
+  const old = s.plan[day].recipeId
+  const votes = old && old !== plan[day].recipeId ? [implicitVote(s.week, old, 'reroll')] : []
+  commitPlan(s, plan, s.week, [{ type: 'put', collection: 'votes', rows: votes }])
   return warnings
 }
 
@@ -84,7 +88,9 @@ export function setDayRecipe(day, recipeId) {
   const s = snapshot()
   const plan = s.plan.map((d) => ({ ...d }))
   plan[day] = { recipeId, locked: !!recipeId }
-  commitPlan(s, plan)
+  // Gezielt ausgewähltes Rezept zählt als "öfter"
+  const votes = recipeId ? [implicitVote(s.week, recipeId, 'pick')] : []
+  commitPlan(s, plan, s.week, [{ type: 'put', collection: 'votes', rows: votes }])
 }
 
 export function toggleLock(day) {

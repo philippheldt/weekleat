@@ -7,7 +7,8 @@ Wochenplaner für iOS **und** Android: Aus euren Lieblingsrezepten (`public/reze
 - **Rezepte generieren**: plant alle aktiven, nicht festgehaltenen Tage neu.
   - Häufigkeit pro Kategorie (Nudeln, Reis, Kartoffeln, Gebackenes, Sonstiges): nie / selten / mittel / häufig
   - Ernährung: alles / vegetarisch / vegan, dazu „Fleisch & Fisch“: nie / selten (1×) / mittel (2×) / häufig (4×) pro Woche
-  - **Upvotes/Downvotes**: jedes 👍 macht ein Rezept ca. 30 % wahrscheinlicher, jedes 👎 entsprechend seltener
+  - **Öfter/Seltener**: jede Stimme macht ein Rezept ca. 30 % wahrscheinlicher bzw. seltener
+  - **Automatische Stimmen**: einen Tag neu würfeln zählt für das weggewürfelte Rezept als „seltener“, ein Rezept gezielt auswählen als „öfter“ (je höchstens einmal pro Rezept und Woche)
   - **Abwechslung**: Rezepte der letzten N Wochen werden übersprungen
   - gleiche Kategorien an aufeinanderfolgenden Tagen werden vermieden
   - `nur_an: [fr, sa, so]` im Rezept beschränkt es auf bestimmte Tage

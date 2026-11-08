@@ -40,6 +40,15 @@ export function scores(votes) {
   return map
 }
 
+/**
+ * Automatische Stimme aus dem Verhalten: Neu würfeln = −1, gezielt auswählen = +1.
+ * Höchstens eine pro Rezept, Art und Woche – mehrfaches Würfeln zählt nicht mehrfach.
+ * Getrennt von den Knöpfen gespeichert (eigene id), fließt aber in die Gewichtung ein.
+ */
+export function implicitVote(week, recipeId, kind) {
+  return { id: `${week}:${recipeId}:${kind}`, recipeId, week, value: kind === 'reroll' ? -1 : 1, auto: true }
+}
+
 export function voteFactor(score = 0) {
   return Math.min(5, Math.max(0.15, Math.pow(1.3, score)))
 }
