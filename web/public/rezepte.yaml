@@ -13,6 +13,8 @@
 #                 (optional – wird sonst aus den Zutaten erraten)
 #    tags:        [schnell, ...]       (optional, nur zur Anzeige)
 #    nur_an:      [fr, sa, so]         (optional – nur an diesen Tagen einplanen)
+#    planen:      nein                 (optional – nie automatisch einplanen, z. B.
+#                                       Beilagen und Soßen; von Hand wählbar)
 #    quelle:      HelloFresh           (optional – wo das Rezept steht, z. B.
 #                                       HelloFresh, Marley Spoon, Omas Kochbuch S. 42)
 #    link:        https://...          (optional – Originalrezept; ohne "quelle"
@@ -532,3 +534,1095 @@ rezepte:
       - 2 EL Butter
     notiz: |
       Statt „Hello Curry“ (12 g): Koriander, Kurkuma, Bockshornklee, Kreuzkümmel, Muskat, Paprika.
+
+  - titel: Gefüllte Paprika mit Djuvec-Reis
+    quelle: Monsieur Cuisine
+    link: https://www.monsieur-cuisine.com/de/recipe/paprika-mit-djuvec-reis-gefullte-3
+    portionen: 4
+    kategorie: reis
+    ernaehrung: fleisch
+    bild: paprika
+    tags: [One-Pot]
+    zutaten:
+      - 520 g rote Paprikaschoten
+      - 200 g Zwiebeln
+      - 2 Zehe Knoblauch
+      - 500 g Rinderhackfleisch
+      - 1 Ei
+      - 1 TL Paprikapulver, edelsüß
+      - 10 g Senf, mittelscharf
+      - 20 g Tomatenmark
+      - 20 g Paniermehl
+      - 3 Prise Pfeffer
+      - 0.5 TL Salz
+      - 400 g passierte Tomaten
+      - 2 TL Oregano, getrocknet
+      - 15 g Zucker
+      - 250 g Langkornreis
+      - 700 ml Gemüsebrühe
+      - 100 g Sahne
+      - 25 g Ajvar
+      - 1 EL Petersilie, gehackt
+
+  - titel: Hühnchen-Curry mit Karotten und Brokkoli
+    quelle: Monsieur Cuisine
+    link: https://www.monsieur-cuisine.com/de/recipe/huehnchen-curry-mit-karotten-und-brokkoli
+    portionen: 4
+    kategorie: sonstiges
+    ernaehrung: fleisch
+    bild: brokkoli
+    tags: [schnell]
+    zutaten:
+      - 500 g Hähnchenbrustfilet
+      - 2 TL Olivenöl
+      - 1 TL Senf, mittelscharf
+      - 1 TL Salz
+      - 0.5 TL Pfeffer, weiß
+      - 2 TL Paprikapulver, edelsüß
+      - 1 TL Kurkuma
+      - 400 g Karotten
+      - 2 Spitzpaprika
+      - 2 Zwiebeln
+      - 250 g Brokkoli
+      - 1000 ml Wasser
+      - 150 ml Schlagsahne
+      - 2 TL Currypulver
+      - 2 TL Kreuzkümmel
+      - 1 TL Gemüsebrühe
+      - 1 TL rote Currypaste
+
+  - titel: Penne mit Erbsen und Schinken
+    quelle: Monsieur Cuisine
+    link: https://www.monsieur-cuisine.com/de/recipe/penne-mit-erbsen-und-schinken-2
+    portionen: 8
+    kategorie: nudeln
+    ernaehrung: fleisch
+    bild: pasta
+    tags: [schnell]
+    zutaten:
+      - 160 g Parmesan am Stück
+      - 60 g Schalotten
+      - 400 g Sahne
+      - 400 ml Gemüsebrühe
+      - 20 g Speisestärke
+      - 400 g Kochschinken am Stück
+      - 400 g Erbsen (TK)
+      - 800 g Penne
+      - Salz
+      - Pfeffer
+
+  - titel: Hähnchen-Geschnetzeltes mit Spätzle
+    quelle: Monsieur Cuisine
+    link: https://www.monsieur-cuisine.com/de/recipe/hahnchen-geschnetzeltes
+    portionen: 4
+    kategorie: nudeln
+    ernaehrung: fleisch
+    bild: chicken
+    zutaten:
+      - 70 g Zwiebeln
+      - 250 g Zucchini
+      - 150 g Staudensellerie
+      - 200 g Möhren
+      - 200 g Kohlrabi
+      - 20 g Olivenöl
+      - 1000 ml Gemüsebrühe
+      - 500 g Hähnchenschnitzel
+      - 1 TL Salz
+      - 0.5 TL Pfeffer
+      - 1 TL Paprikapulver, edelsüß
+      - 1 EL Kräuter der Provence
+      - 800 g Spätzle (Kühlregal)
+      - 40 g Crème fraîche
+      - 10 g Senf, mittelscharf
+      - 10 ml Zitronensaft
+      - 1 Prise Muskat
+
+  - titel: Chili sin carne
+    quelle: Monsieur Cuisine
+    link: https://www.monsieur-cuisine.com/de/recipe/chili-sin-carne-2
+    portionen: 4
+    kategorie: sonstiges
+    ernaehrung: vegetarisch
+    bild: enchilada
+    zutaten:
+      - 125 g Sojaschnetzel, fein
+      - 400 ml Gemüsebrühe
+      - 150 g Mais (Dose)
+      - 400 g Kidneybohnen (Dose)
+      - 150 g rote Paprikaschoten
+      - 125 g Zwiebeln
+      - 2 Zehe Knoblauch
+      - 30 g Olivenöl
+      - 50 g Tomatenmark
+      - 10 g Zucker
+      - 800 g stückige Tomaten (Dose)
+      - 1 TL Paprikapulver, geräuchert
+      - 0.5 TL Zimt
+      - 1 TL Kreuzkümmel, gemahlen
+      - 1 TL Salz
+      - 0.5 TL Pfeffer
+      - Tabasco
+      - 150 g saure Sahne
+      - 1 Bund Schnittlauch
+
+  - titel: Puten-Nudel-One-Pot
+    quelle: Monsieur Cuisine
+    link: https://www.monsieur-cuisine.com/de/recipe/puten-nudel-one-pot
+    portionen: 4
+    kategorie: nudeln
+    ernaehrung: fleisch
+    bild: pasta
+    tags: [One-Pot]
+    zutaten:
+      - 200 g rote Paprikaschoten
+      - 75 g Zwiebeln
+      - 400 g Putengeschnetzeltes
+      - 30 g Olivenöl
+      - 400 g stückige Tomaten (Dose)
+      - 50 g Tomatenmark
+      - 400 ml Geflügelbrühe
+      - 100 g Sahne
+      - 5 g Worcestersauce
+      - 1 EL Oregano, getrocknet
+      - 5 g Zucker
+      - 1 TL Salz
+      - 0.25 TL Pfeffer
+      - 350 g Penne Rigate
+      - 1 Bund Basilikum
+
+  - titel: Erdnuss-Hähnchen mit Gemüse und Süßkartoffelstampf
+    quelle: Monsieur Cuisine
+    link: https://www.monsieur-cuisine.com/de/recipe/erdnuss-haehnchen-mit-gemuese-und-suesskartoffelstampf
+    portionen: 4
+    kategorie: kartoffeln
+    ernaehrung: fleisch
+    bild: chicken
+    tags: [One-Pot]
+    zutaten:
+      - 40 g milde Chilischoten
+      - 10 g Ingwer
+      - 1 Zehe Knoblauch
+      - 1 Limette
+      - 60 g Pflanzenöl
+      - 2 TL Salz
+      - 800 g Blumenkohl
+      - 500 g Brokkoli
+      - 200 g rote Paprikaschoten
+      - 600 g Hähnchenbrustfilets
+      - 40 g Schalotten
+      - 30 g Erdnussbutter, smooth
+      - 300 g Kokosmilch
+      - 30 ml Sojasauce, dunkel
+      - 750 g Süßkartoffeln
+      - 1 TL Currypulver, mild
+
+  - titel: Wikinger-Auflauf
+    quelle: Monsieur Cuisine
+    link: https://www.monsieur-cuisine.com/de/recipe/wikinger-auflauf-2
+    portionen: 6
+    kategorie: gebackenes
+    ernaehrung: fleisch
+    bild: potatoe
+    zutaten:
+      - 250 g Schweinefleisch, durchwachsen
+      - 250 g Rindfleisch
+      - 1 Ei
+      - 15 g Senf, mittelscharf
+      - 1 TL Paprikapulver, edelsüß
+      - Salz
+      - Pfeffer
+      - 20 g Pflanzenöl
+      - 600 g Kartoffeln, festkochend
+      - 500 g Hokkaidokürbis
+      - 200 g Möhren
+      - 40 g Butter
+      - 40 g Mehl
+      - 350 g Sahne
+      - 350 ml Milch
+      - 1 TL getrocknete Kräuter
+      - 1 Prise Muskat
+      - 200 g Erbsen (TK)
+      - Petersilie
+
+  - titel: Spinat-Gorgonzola-Gnocchi
+    quelle: Monsieur Cuisine
+    link: https://www.monsieur-cuisine.com/de/recipe/spinat-gorgonzola-gnocchi-2
+    portionen: 4
+    kategorie: nudeln
+    ernaehrung: vegetarisch
+    bild: cheese
+    zutaten:
+      - 80 g Zwiebeln
+      - 2 Zehe Knoblauch
+      - 10 g Olivenöl
+      - 250 g Blattspinat
+      - 200 g Gorgonzola
+      - 200 g Sahne
+      - 100 ml Gemüsebrühe
+      - 1 TL Chiliflocken
+      - 10 ml Zitronensaft
+      - 0.5 TL Salz
+      - 0.25 TL Pfeffer
+      - 500 g Gnocchi (Kühlregal)
+      - 30 g Walnusskerne
+
+  - titel: Blumenkohlsteaks mit Asia-Marinade
+    quelle: Monsieur Cuisine
+    link: https://www.monsieur-cuisine.com/de/recipe/blumenkohl-steaks-mit-asia-marinade
+    portionen: 4
+    kategorie: sonstiges
+    ernaehrung: vegetarisch
+    zutaten:
+      - 1 Zehe Knoblauch
+      - 20 g milde Chilischoten
+      - 50 ml Sojasauce, dunkel
+      - 5 g Honig
+      - 1 Limette
+      - 10 ml Sesamöl
+      - 1600 g Blumenkohl
+      - 180 g Avocado
+      - 0.5 TL Salz
+      - 10 g Wasabipaste
+      - 30 g Pflanzenöl
+
+  - titel: Gnocchi selbst gemacht
+    planen: nein
+    quelle: Monsieur Cuisine
+    link: https://www.monsieur-cuisine.com/de/recipe/gnocchi-selbst-gemacht-2
+    portionen: 4
+    kategorie: kartoffeln
+    ernaehrung: vegetarisch
+    zutaten:
+      - 1 TL Salz
+      - 1000 g Kartoffeln, mehligkochend
+      - 3 Eigelb
+      - 200 g Mehl
+      - 3 Prise Pfeffer
+      - 1 Prise Muskat
+
+  - titel: Blumenkohlgratin
+    quelle: Monsieur Cuisine
+    link: https://www.monsieur-cuisine.com/de/recipe/blumenkohlgratin
+    portionen: 4
+    kategorie: gebackenes
+    ernaehrung: vegetarisch
+    bild: cheese
+    zutaten:
+      - 2 Stange Rosmarin
+      - 50 g Mandeln, blanchiert
+      - 160 g Gouda am Stück
+      - 75 g Parmesan am Stück
+      - 1000 g Blumenkohl
+      - Butter
+      - 3 Eier
+      - 150 g Crème fraîche
+      - 200 g Sahne
+      - 1 Prise Muskat
+      - 1 TL Zitronenabrieb
+      - Salz
+      - Pfeffer
+      - Schnittlauch
+
+  - titel: Schweinefilet mit Currysahne und Kartoffelpüree
+    quelle: Monsieur Cuisine
+    link: https://www.monsieur-cuisine.com/de/recipe/schweinefilet-mit-currysahne-und-kartoffelpueree
+    portionen: 4
+    kategorie: kartoffeln
+    ernaehrung: fleisch
+    bild: steak
+    zutaten:
+      - 700 g Schweinefilet
+      - Salz
+      - Pfeffer
+      - 12 Scheibe Bacon
+      - 10 g Pflanzenöl
+      - 80 g Zwiebeln
+      - 4 TL Majoran, getrocknet
+      - 200 g Sahne
+      - 150 g Crème fraîche
+      - 20 g Tomatenmark
+      - 20 g süßer Senf
+      - 2 TL Currypulver, mild
+      - 5 g Gemüse-Gewürzpaste
+      - 0.5 TL Paprikapulver, edelsüß
+      - 1000 g Kartoffeln, mehligkochend
+      - 360 ml Milch
+      - 50 g Butter
+      - 1 Prise Muskat
+
+  - titel: Puten-Geschnetzeltes mit Metaxasauce
+    quelle: Monsieur Cuisine
+    link: https://www.monsieur-cuisine.com/de/recipe/puten-geschnetzeltes-mit-metaxasauce-2
+    portionen: 4
+    kategorie: reis
+    ernaehrung: fleisch
+    bild: mushroom
+    zutaten:
+      - 300 g braune Champignons
+      - 250 g Zucchini
+      - 1 TL Pfeffer
+      - 2 TL Salz
+      - 500 g Putenschnitzel
+      - 120 g Zwiebeln
+      - 15 g Olivenöl
+      - 0.5 TL Paprikapulver, rosenscharf
+      - 1 TL Oregano, getrocknet
+      - 250 g Basmatireis
+      - 100 ml Geflügelbrühe
+      - 100 g Sahne
+      - 30 ml Metaxa
+      - 40 g Tomatenmark
+      - 1 TL Gyrosgewürz
+      - 100 g Schmand
+
+  - titel: Ofen-Tortellini Tomate-Mozzarella
+    quelle: Monsieur Cuisine
+    link: https://www.monsieur-cuisine.com/de/recipe/ofen-tortellini-tomate-mozzarella
+    portionen: 4
+    kategorie: nudeln
+    ernaehrung: vegetarisch
+    bild: pasta
+    tags: [schnell]
+    zutaten:
+      - 80 g Zwiebeln
+      - 2 Zehe Knoblauch
+      - 400 g stückige Tomaten (Dose)
+      - 250 g Sahne
+      - 1.5 EL italienische Kräuter, getrocknet
+      - 1.5 TL Salz
+      - 0.5 TL Pfeffer
+      - 800 g Tortellini (Kühlregal)
+      - 200 g Cocktailtomaten
+      - 250 g Mini-Mozzarellakugeln
+      - frische Kräuter nach Wahl
+
+  - titel: Hähnchenbrust mit Penne in Tomatenrahmsauce
+    quelle: Monsieur Cuisine
+    link: https://www.monsieur-cuisine.com/de/recipe/hahnchenbrust-mit-penne-in-tomatenrahmsauce
+    portionen: 4
+    kategorie: nudeln
+    ernaehrung: fleisch
+    bild: pasta
+    zutaten:
+      - 50 g Parmesan am Stück
+      - 80 g Zwiebeln
+      - 1 Zehe Knoblauch
+      - 300 g Hähnchenbrustfilets
+      - 20 g Olivenöl
+      - 50 g Speckwürfel
+      - 150 g weiße Champignons
+      - 100 g Cocktailtomaten
+      - 400 ml Geflügelbrühe
+      - 500 g passierte Tomaten
+      - 200 g Sahne
+      - 20 g Tomatenmark
+      - 1 TL Salz
+      - 0.25 TL Pfeffer
+      - Zucker
+      - 350 g Penne
+
+  - titel: Möhren untereinander
+    quelle: Monsieur Cuisine
+    link: https://www.monsieur-cuisine.com/de/recipe/mohren-untereinander
+    portionen: 4
+    kategorie: kartoffeln
+    ernaehrung: vegetarisch
+    bild: potatoe
+    tags: [One-Pot]
+    zutaten:
+      - 1 Bund Petersilie
+      - 1000 g Möhren
+      - 500 g Kartoffeln, mehligkochend
+      - 0.5 TL Salz
+      - 5 g Zucker
+      - 80 g rote Zwiebeln
+      - 30 g Butter
+      - 50 ml Geflügelbrühe
+      - 50 g Sahne
+      - Pfeffer
+
+  - titel: Hähnchen-Nuggets mit Dip
+    quelle: Monsieur Cuisine
+    link: https://www.monsieur-cuisine.com/de/recipe/hahnchen-nuggets-mit-dip
+    portionen: 4
+    kategorie: sonstiges
+    ernaehrung: fleisch
+    bild: chicken
+    tags: [schnell]
+    zutaten:
+      - 80 g Cornflakes, ungesüßt
+      - 200 g Crème fraîche
+      - 20 g Senf, mittelscharf
+      - 30 g Honig
+      - 5 ml Apfelessig
+      - 2 TL Salz
+      - 1 Prise Pfeffer
+      - 300 g Hähnchenbrustfilets
+      - 70 g Mehl
+      - 2 Eier
+      - 30 g Pflanzenöl
+
+  - titel: Paprika-Nudel-Auflauf mit Hackfleisch
+    quelle: Monsieur Cuisine
+    link: https://www.monsieur-cuisine.com/de/recipe/paprika-nudel-auflauf-mit-hackfleisch
+    portionen: 4
+    kategorie: gebackenes
+    ernaehrung: fleisch
+    bild: pasta
+    zutaten:
+      - 20 g Olivenöl
+      - 400 g Fusilli
+      - 200 g Emmentaler am Stück
+      - 400 g gemischtes Hackfleisch
+      - 85 g Zwiebeln
+      - 1 Zehe Knoblauch
+      - 155 g rote Paprikaschoten
+      - 155 g gelbe Paprikaschoten
+      - 20 g Tomatenmark
+      - 1 TL Paprikapulver, edelsüß
+      - 0.5 TL Salz
+      - 0.5 TL Pfeffer
+      - 200 g Sahne
+      - 800 g stückige Tomaten (Dose)
+      - 10 g Gemüse-Gewürzpaste
+      - 2 TL getrocknete Kräuter
+      - 250 g Erbsen (TK)
+
+  - titel: Indisches Butter Chicken
+    quelle: Monsieur Cuisine
+    link: https://www.monsieur-cuisine.com/de/recipe/indisches-butter-chicken
+    portionen: 2
+    kategorie: sonstiges
+    ernaehrung: fleisch
+    bild: chicken
+    tags: [One-Pot]
+    zutaten:
+      - 2 Zehe Knoblauch
+      - 10 g Ingwer
+      - 2 EL Garam Masala
+      - 1 TL Salz
+      - 150 g griechischer Joghurt
+      - 400 g Hähnchenbrustfilets
+      - 30 g Schalotten
+      - 60 g Butter
+      - 1 Prise Kreuzkümmel, gemahlen
+      - 2 Prise Pfeffer
+      - 1 Prise Chiliflocken
+      - 250 g passierte Tomaten
+      - 10 ml Zitronensaft
+      - 200 g Kokosmilch
+      - 20 g Tomatenmark
+
+  - titel: Rucolarisotto
+    quelle: Monsieur Cuisine
+    link: https://www.monsieur-cuisine.com/de/recipe/rucolarisotto-2
+    portionen: 4
+    kategorie: reis
+    ernaehrung: vegetarisch
+    bild: rice
+    tags: [One-Pot]
+    zutaten:
+      - 120 g Schalotten
+      - 1 Zehe Knoblauch
+      - 30 g Olivenöl
+      - 350 g Risottoreis
+      - 1000 ml Gemüsebrühe
+      - 30 g Walnusskerne
+      - 100 g Rucola
+      - 120 g Ziegenfrischkäse
+      - Pfeffer
+      - Salz
+      - Zitronensaft
+
+  - titel: Chicken Satay mit Erdnusssauce
+    quelle: Monsieur Cuisine
+    link: https://www.monsieur-cuisine.com/de/recipe/chicken-satay-mit-erdnusssauce
+    portionen: 4
+    kategorie: reis
+    ernaehrung: fleisch
+    bild: chicken
+    tags: [One-Pot]
+    zutaten:
+      - 1 Zehe Knoblauch
+      - 10 g Ingwer
+      - 100 g Erdnussbutter, crunchy
+      - 30 ml Sojasauce, dunkel
+      - 30 g Honig
+      - 30 g Limetten
+      - 1 TL Currypulver, mild
+      - 500 g Hähnchenbrustfilets
+      - 550 g Gemüse nach Wahl
+      - 200 g Basmatireis
+      - 1 TL Salz
+
+  - titel: One-Pot-Gnocchi mit Käsesoße
+    quelle: Monsieur Cuisine
+    link: https://www.monsieur-cuisine.com/de/recipe/one-pot-gnocchi-mit-kaesesosse
+    portionen: 4
+    kategorie: nudeln
+    ernaehrung: vegetarisch
+    bild: cheese
+    tags: [One-Pot, schnell]
+    zutaten:
+      - 20 g Petersilie, gehackt
+      - 130 g Cheddar am Stück
+      - 35 g Butter
+      - 35 g Mehl
+      - 500 ml Milch
+      - Salz
+      - Pfeffer
+      - 0.5 TL Knoblauchpulver
+      - 0.5 TL Zwiebelpulver
+      - 10 g Senf, mittelscharf
+      - 800 g Gnocchi
+
+  - titel: Tomatensoße
+    planen: nein
+    quelle: Monsieur Cuisine
+    link: https://www.monsieur-cuisine.com/de/recipe/tomatensosse-14
+    portionen: 4
+    kategorie: sonstiges
+    ernaehrung: vegan
+    tags: [schnell]
+    zutaten:
+      - 2 Dose stückige Tomaten
+      - 2 EL Tomatenmark
+      - 2 Zehe Knoblauch
+      - 1 Zwiebel
+      - 1 Prise Salz
+      - 1 TL Zucker
+      - 3 TL Oregano, gerebelt
+      - 1 TL Basilikum, getrocknet
+      - 4 TL Gemüsebrühe
+      - 10 g Olivenöl
+      - 0.5 TL Pfeffer
+
+  - titel: Thailändische Maispuffer
+    quelle: Monsieur Cuisine
+    link: https://www.monsieur-cuisine.com/de/recipe/thailandische-maispuffer
+    portionen: 4
+    kategorie: gebackenes
+    ernaehrung: vegetarisch
+    bild: mais
+    tags: [schnell]
+    zutaten:
+      - 50 g Mehl
+      - 1 Ei
+      - 2 TL grüne Currypaste
+      - 5 EL Kokosmilch
+      - 400 g Mais (Dose oder TK)
+      - 4 Frühlingszwiebeln
+      - 1 EL Koriander, frisch
+      - 1 EL Basilikum, frisch
+      - Salz
+      - Pfeffer
+      - Öl
+      - Limettenspalten (optional)
+
+  - titel: Asia-Nudeln mit Huhn oder Schwein
+    quelle: Monsieur Cuisine
+    link: https://www.monsieur-cuisine.com/de/recipe/asia-nudeln-mit-huhn-oder-schwein
+    portionen: 4
+    kategorie: nudeln
+    ernaehrung: fleisch
+    bild: pasta
+    tags: [One-Pot, schnell]
+    zutaten:
+      - 250 g Mie-Nudeln
+      - 1 Chilischote
+      - 1 Zehe Knoblauch
+      - 1 Stück Ingwer
+      - 20 g Öl
+      - 40 ml Sojasauce
+      - 1 TL Reisessig
+      - 40 ml Wasser
+      - 1 TL Salz
+      - 1 Prise Paprikapulver, edelsüß
+      - 1 Prise Zucker
+      - 1 TL rote Currypaste
+      - 190 g asiatisches Mischgemüse (TK)
+      - 200 g Hähnchenbrust
+      - 20 g Sesamöl
+      - 3 Frühlingszwiebeln
+      - Chiliflocken
+
+  - titel: Kürbislasagne
+    quelle: Monsieur Cuisine
+    link: https://www.monsieur-cuisine.com/de/recipe/kurbislasagne-1
+    portionen: 4
+    kategorie: gebackenes
+    ernaehrung: fleisch
+    bild: pumpkin
+    zutaten:
+      - 500 ml Milch
+      - 50 g Butter
+      - 50 g Mehl
+      - 3 Prise Muskat
+      - 10 ml Zitronensaft
+      - 40 g Olivenöl
+      - 500 g gemischtes Hackfleisch
+      - 120 g Zwiebeln
+      - 2 Zehe Knoblauch
+      - 1000 g Hokkaidokürbis
+      - 3 Stange Rosmarin
+      - 50 ml Orangensaft
+      - 1 TL Salz
+      - 0.5 TL Pfeffer
+      - 150 g Kräuterfrischkäse
+      - 15 Lasagneplatten (ohne Vorkochen)
+      - 250 g Mozzarella
+      - 50 g Parmesan, gerieben
+
+  - titel: Paprika-Sahne-Hähnchen mit Reis
+    quelle: Monsieur Cuisine
+    link: https://www.monsieur-cuisine.com/de/recipe/paprika-sahne-haehnchen-mit-reis
+    portionen: 4
+    kategorie: reis
+    ernaehrung: fleisch
+    bild: paprika
+    tags: [One-Pot]
+    zutaten:
+      - 1 Bund Petersilie
+      - 80 g Zwiebeln
+      - 10 g Butter
+      - 450 g rote Paprikaschoten
+      - 1000 g Hähnchenbrustfilets
+      - 3 TL Paprikapulver, edelsüß
+      - 0.5 TL Salz
+      - 0.25 TL Pfeffer
+      - 300 g Langkornreis
+      - 1000 ml Gemüsebrühe
+      - 20 g Speisestärke
+      - 200 g Sahne
+      - 50 g Ajvar
+      - 20 g Tomatenmark
+
+  - titel: Rindergulasch klassisch
+    quelle: Monsieur Cuisine
+    link: https://www.monsieur-cuisine.com/de/recipe/rindergulasch-klassisch
+    portionen: 4
+    kategorie: sonstiges
+    ernaehrung: fleisch
+    bild: steak
+    zutaten:
+      - 450 g Zwiebeln
+      - 3 Zehe Knoblauch
+      - 30 g Pflanzenöl
+      - 750 g Rindergulasch
+      - 350 g Tomaten
+      - 200 ml Rotwein, trocken
+      - 50 g Tomatenmark
+      - 2 TL Salz
+      - 5 g Zucker
+      - 1 EL Paprikapulver, edelsüß
+      - 1 EL Paprikapulver, rosenscharf
+      - 0.5 TL Kümmel, ganz
+      - 1 TL Majoran, getrocknet
+      - 3 Lorbeerblätter
+      - 5 Wacholderbeeren
+      - 1 Prise Nelken, gemahlen
+      - 1 TL Zitronenabrieb
+      - 200 ml Rinderbrühe
+      - 30 g Mehl
+      - 350 g rote Paprikaschoten
+
+  - titel: Fruchtiges Puten-Curry
+    quelle: Monsieur Cuisine
+    link: https://www.monsieur-cuisine.com/de/recipe/fruchtiges-puten-curry
+    portionen: 6
+    kategorie: reis
+    ernaehrung: fleisch
+    bild: apricot
+    tags: [One-Pot]
+    zutaten:
+      - 1 Bund Petersilie
+      - 400 g Langkornreis
+      - 1.5 TL Salz
+      - 600 g Putenbrustfilets
+      - 400 g Möhren
+      - 300 g Lauch
+      - 0.5 TL Pfeffer
+      - 700 g Pfirsiche
+      - 160 g Zwiebeln
+      - 20 g Ingwer
+      - 10 g Pflanzenöl
+      - 3 TL Currypulver, mild
+      - 400 g Kokosmilch
+      - 200 ml Gemüsebrühe
+      - 15 g Speisestärke
+      - 200 g Erbsen (TK)
+      - 100 g Cashewkerne
+
+  - titel: Spätzle
+    planen: nein
+    quelle: Monsieur Cuisine
+    link: https://www.monsieur-cuisine.com/de/recipe/spatzle-11
+    portionen: 4
+    kategorie: nudeln
+    ernaehrung: vegetarisch
+    zutaten:
+      - 400 g Mehl
+      - 4 Eier (Größe L)
+      - 1.5 TL Salz
+      - 150 ml Mineralwasser, sprudelnd
+
+  - titel: Knusprige Kartoffelpuffer
+    quelle: Monsieur Cuisine
+    link: https://www.monsieur-cuisine.com/de/recipe/knusprige-kartoffelpuffer
+    portionen: 3
+    kategorie: kartoffeln
+    ernaehrung: vegetarisch
+    bild: potatoe
+    tags: [schnell]
+    zutaten:
+      - 700 g Kartoffeln, vorwiegend festkochend
+      - 70 g Zwiebel
+      - 2 Eier
+      - 5 EL Mehl
+      - 2 TL Salz
+      - 1 Prise Pfeffer
+      - 3 EL Haferflocken
+      - Rapsöl zum Ausbacken
+      - Apfelmus oder Zucker
+
+  - titel: Marinierter Schafskäse mit Gemüse
+    quelle: Monsieur Cuisine
+    link: https://www.monsieur-cuisine.com/de/recipe/marinierter-schafskaese-mit-gemuese
+    portionen: 4
+    kategorie: sonstiges
+    ernaehrung: vegetarisch
+    bild: cheese
+    tags: [schnell, viel Gemüse]
+    zutaten:
+      - 400 g Schafskäse
+      - 30 g Olivenöl
+      - 4 TL Kräuter der Provence
+      - 200 g Möhren
+      - 200 g Brokkoli
+      - 200 g Zucchini
+      - 100 g braune Champignons
+      - Salz
+      - Pfeffer
+
+  - titel: Cremiges Knoblauch-Parmesan-Hähnchen
+    quelle: Monsieur Cuisine
+    link: https://www.monsieur-cuisine.com/de/recipe/cremiges-knoblauch-parmesan-hahnchen
+    portionen: 4
+    kategorie: sonstiges
+    ernaehrung: fleisch
+    bild: chicken
+    tags: [schnell]
+    zutaten:
+      - 4 Hähnchenbrustfilets (à 160 g)
+      - Salz
+      - 4 Prise Pfeffer
+      - 0.5 TL Paprikapulver, edelsüß
+      - 45 g Mehl
+      - 20 g Pflanzenöl
+      - 160 g Schalotten
+      - 15 g Petersilie
+      - 75 g Parmesan am Stück
+      - 4 Zehe Knoblauch
+      - 200 g Sahne
+      - 150 g Kräuterfrischkäse
+      - 4 Stange Thymian
+
+  - titel: Asia-Nudeln mit Gemüse
+    quelle: Monsieur Cuisine
+    link: https://www.monsieur-cuisine.com/de/recipe/asia-nudeln-mit-gemuese
+    portionen: 4
+    kategorie: nudeln
+    ernaehrung: fleisch
+    bild: pasta
+    tags: [One-Pot, schnell]
+    zutaten:
+      - 200 g Cocktailtomaten
+      - 100 g Zuckerschoten
+      - 200 g Möhren
+      - 40 g Erdnüsse, geröstet, gesalzen
+      - 10 g Kokosöl
+      - 20 g Tom-Ka-Paste
+      - 250 g Kokosmilch
+      - 250 ml Geflügelbrühe
+      - 250 g Woknudeln
+      - 1 Bund Koriander
+
+  - titel: Schlemmerfilet auf Kartoffel-Möhren-Stampf
+    quelle: Monsieur Cuisine
+    link: https://www.monsieur-cuisine.com/de/recipe/schlemmerfilet-auf-kartoffel-moehren-stampf
+    portionen: 4
+    kategorie: kartoffeln
+    ernaehrung: fisch
+    bild: lemon
+    zutaten:
+      - 1 Bund Petersilie
+      - 3 Stange Thymian
+      - 50 g Cashewkerne, geröstet
+      - 50 g Parmesan am Stück
+      - 10 g Kapern
+      - 100 g getrocknete Tomaten
+      - 40 g Schalotten
+      - 10 g Pflanzenöl
+      - 3 Prise Salz
+      - 600 g Kabeljauloins
+      - 550 g Kartoffeln, festkochend
+      - 250 g Möhren
+      - 1000 ml Gemüsebrühe
+      - 50 g Butter
+      - 5 ml Zitronensaft
+      - 1 Prise Muskat
+      - 1 Prise Pfeffer
+      - 1 Zitrone
+
+  - titel: Rahm-Kalbsrouladen mit Rösti
+    quelle: Monsieur Cuisine
+    link: https://www.monsieur-cuisine.com/de/recipe/rahm-kalbsrouladen-mit-roesti
+    portionen: 4
+    kategorie: kartoffeln
+    ernaehrung: fleisch
+    bild: steak
+    zutaten:
+      - 800 g Kartoffeln, festkochend
+      - 3.25 TL Salz
+      - 0.5 TL Kümmel, gemahlen
+      - 80 g Butterschmalz
+      - 1 TL Pfeffer
+      - 4 Wirsingblätter
+      - 4 Kalbsrouladen (à 170 g)
+      - 400 ml Kalbsfond
+      - 150 g Sahne
+      - 3 Stange Thymian
+      - 5 ml Zitronensaft
+      - 1 Prise Muskat
+      - 20 g Speisestärke
+
+  - titel: Hähnchenbrust Toskana mit Reis
+    quelle: Monsieur Cuisine
+    link: https://www.monsieur-cuisine.com/de/recipe/hahnchenbrust-toskana-mit-reis
+    portionen: 4
+    kategorie: reis
+    ernaehrung: fleisch
+    bild: chicken
+    tags: [One-Pot]
+    zutaten:
+      - 25 g Olivenöl
+      - 700 g Hähnchenbrustfilets
+      - 2 TL italienische Kräuter, getrocknet
+      - 1 TL Salz
+      - 1 Prise Pfeffer
+      - 300 g Tomaten
+      - 250 g Mozzarella
+      - 60 g Schalotten
+      - 40 g Tomatenmark
+      - 300 g Reis
+      - 1000 ml Gemüsebrühe
+      - 400 g stückige Tomaten (Dose)
+      - 100 g Sahne
+      - 5 g Speisestärke
+      - 1 Bund Basilikum
+
+  - titel: Gedämpfter Spargel mit Sauce Hollandaise
+    quelle: Monsieur Cuisine
+    link: https://www.monsieur-cuisine.com/de/recipe/spargel-gedaempfter
+    portionen: 4
+    kategorie: kartoffeln
+    ernaehrung: vegetarisch
+    bild: potatoe
+    zutaten:
+      - 500 g Kartoffeln, festkochend
+      - 1000 g weißer Spargel
+      - 1 TL Salz
+      - Zucker
+      - 190 g Butter
+      - 20 g Petersilie (TK)
+      - 3 Eigelb
+      - 20 ml Geflügelfond
+      - 5 ml Zitronensaft
+      - Pfeffer
+
+  - titel: Semmelknödel mit Pfifferling-Rahm-Sauce
+    quelle: Monsieur Cuisine
+    link: https://www.monsieur-cuisine.com/de/recipe/semmelknoedel-mit-pfifferling-rahm-sauce
+    portionen: 4
+    kategorie: sonstiges
+    ernaehrung: vegetarisch
+    bild: kloss
+    zutaten:
+      - 6 Brötchen vom Vortag
+      - 240 ml Milch
+      - 1 Bund Petersilie
+      - 100 g Zwiebeln
+      - 20 g Butter
+      - 750 ml Gemüsebrühe
+      - 250 g Sahne
+      - 3 Eier
+      - 20 g Mehl
+      - 0.5 TL Salz
+      - 1 Prise Muskat
+      - 500 g Pfifferlinge
+      - 50 g Schmand
+      - 10 g Speisestärke
+      - Pfeffer
+
+  - titel: Ratzfatz Nudelauflauf – ohne Vorkochen
+    quelle: Monsieur Cuisine
+    link: https://www.monsieur-cuisine.com/de/recipe/ratzfatz-nudelauflauf-ohne-vorkochen
+    portionen: 4
+    kategorie: gebackenes
+    ernaehrung: vegetarisch
+    bild: pasta
+    zutaten:
+      - 100 g Zwiebeln
+      - 2 Zehe Knoblauch
+      - 350 g rote Paprikaschoten
+      - 20 g Olivenöl
+      - 2 TL Gemüse-Gewürzpaste
+      - 500 g passierte Tomaten
+      - 2 EL italienische Kräuter, getrocknet
+      - 300 g Rigatoni
+      - 200 g Erbsen (TK)
+      - 200 g Crème fraîche
+      - 150 g Mozzarella, gerieben
+      - 5 Basilikumblätter
+
+  - titel: Ofen-Medaillons mit Speck in Winterrahm
+    quelle: Monsieur Cuisine
+    link: https://www.monsieur-cuisine.com/de/recipe/ofen-medaillons-mit-speck-in-winterrahm
+    portionen: 4
+    kategorie: gebackenes
+    ernaehrung: fleisch
+    bild: steak
+    zutaten:
+      - 80 g Zwiebeln
+      - 3 Zehe Knoblauch
+      - 4 Stange Petersilie
+      - 30 g Butter
+      - 90 ml Weißwein, trocken
+      - 150 g Sahne
+      - 150 ml Geflügelbrühe
+      - 15 g Mehl
+      - 2 TL Gemüse-Gewürzpaste
+      - 3 TL Ranch-Gewürz
+      - 150 g Crème fraîche
+      - 5 g süßer Senf
+      - Salz
+      - Pfeffer
+      - 20 g Pflanzenöl
+      - 800 g Schweinefilet
+      - 200 g braune Champignons
+      - 600 g grüne Bohnen
+      - 200 g Räucherspeck, gewürfelt
+
+  - titel: Frühlingsauflauf mit Bacon-Hähnchen und Honig-Senf-Soße
+    quelle: Monsieur Cuisine
+    link: https://www.monsieur-cuisine.com/de/recipe/fruhlingsauflauf-mit-bacon-hahnchen-und-honig-senf-sosse
+    portionen: 4
+    kategorie: gebackenes
+    ernaehrung: fleisch
+    bild: chicken
+    zutaten:
+      - 600 g Hähnchenbrustfilets
+      - 8 Scheibe Frühstücksspeck
+      - 300 g Drillinge
+      - 120 g Schalotten
+      - 300 g Möhren
+      - 2 Stange Petersilie
+      - 1 Zehe Knoblauch
+      - 20 g Pflanzenöl
+      - 400 g Sahne
+      - 40 g Honig
+      - 40 g Senf, mittelscharf
+      - 10 g Speisestärke
+      - 5 g Gemüse-Gewürzpaste
+      - Salz
+      - Pfeffer
+      - 200 g Quark (20 % Fett)
+      - 20 g gemischte Kräuter (TK)
+
+  - titel: Kaiserschmarrn
+    quelle: Monsieur Cuisine
+    link: https://www.monsieur-cuisine.com/de/recipe/kaiserschmarrn-2
+    portionen: 4
+    kategorie: gebackenes
+    ernaehrung: vegetarisch
+    tags: [schnell]
+    zutaten:
+      - 50 g Rosinen
+      - 30 ml Apfelsaft
+      - 4 Eier
+      - 1 Prise Salz
+      - 40 g Zucker
+      - 10 g Vanillezucker
+      - 200 ml Milch
+      - 100 g Mehl
+      - 125 g Butter
+      - 50 g Mandelstifte
+      - 20 g Puderzucker
+
+  - titel: Take-5-Fitness-Geschnetzeltes
+    quelle: Monsieur Cuisine
+    link: https://www.monsieur-cuisine.com/de/recipe/take-5-fitness-geschnetzeltes
+    portionen: 4
+    kategorie: reis
+    ernaehrung: fleisch
+    bild: brokkoli
+    tags: [viel Gemüse]
+    zutaten:
+      - 200 g Brokkoli
+      - 250 g Zucchini
+      - 180 g Möhren
+      - 200 g rote Paprikaschoten
+      - 250 g Parboiled Reis
+      - 2 TL Gemüse-Gewürzpaste
+      - Salz
+      - Pfeffer
+      - 100 g Erbsen (TK)
+      - 20 g Pflanzenöl
+      - 500 g Hähnchenbrustfilets
+      - 20 g Ingwer
+      - 100 g Zwiebeln
+      - 2 Zehe Knoblauch
+      - 100 ml Milch (1,5 %)
+      - 150 g Frischkäse natur (3 % Fett)
+      - 5 g Speisestärke
+      - 1 TL Petersilie, gehackt
+
+  - titel: Dönersoße
+    planen: nein
+    quelle: Monsieur Cuisine
+    link: https://www.monsieur-cuisine.com/de/recipe/donersosse
+    portionen: 10
+    kategorie: sonstiges
+    ernaehrung: vegetarisch
+    zutaten:
+      - 2 Zehe Knoblauch
+      - 250 g griechischer Joghurt
+      - 150 g Pommes-Sauce
+      - 100 g Ketchup
+      - 1 EL Zitronensaft
+      - 2 TL Zucker
+      - 2 TL Paprikapulver, edelsüß
+      - 1 Prise Salz
+      - 1 Prise Chiliflocken
+
+  - titel: Pfannkuchen-Auflauf mit Schinken und Tomatensoße
+    quelle: Monsieur Cuisine
+    link: https://www.monsieur-cuisine.com/de/recipe/pfannkuchen-auflauf-mit-schinken-und-tomatensosse
+    portionen: 4
+    kategorie: gebackenes
+    ernaehrung: fleisch
+    zutaten:
+      - 150 g Gouda am Stück
+      - 200 g Mehl
+      - 400 ml Milch
+      - 2 Eier
+      - 1.5 TL Salz
+      - 2 Zehe Knoblauch
+      - 20 g Pflanzenöl
+      - 40 g Tomatenmark
+      - 2 TL italienische Kräuter, getrocknet
+      - 800 g stückige Tomaten (Dose)
+      - 0.5 TL Pfeffer
+      - 100 g grünes Pesto
+      - 12 Scheibe Kochschinken
+      - 50 g Pinienkerne

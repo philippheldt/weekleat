@@ -112,7 +112,7 @@ export function generatePlan({ recipes, settings: rawSettings, plan, history = [
       .map((h) => h.recipeId),
   )
 
-  const pool = recipes.filter((r) => allowedByDiet(r, settings.diet))
+  const pool = recipes.filter((r) => r.plannable !== false && allowedByDiet(r, settings.diet))
   if (!pool.length) {
     warnings.push('Keine Rezepte passen zur gewählten Ernährungsweise.')
     return { plan: result, warnings }

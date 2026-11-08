@@ -58,6 +58,15 @@ describe('Katalog', () => {
     expect(recipes.length).toBeGreaterThan(0)
     for (const r of recipes) expect(r.ingredients.every((i) => i.name)).toBe(true)
   })
+  it('planen: nein wird nie automatisch eingeplant', () => {
+    const { recipes } = parseCatalog(
+      'rezepte:\n  - titel: Soße\n    planen: nein\n    zutaten: [1 Ei]\n  - titel: Essen\n    zutaten: [1 Ei]\n',
+    )
+    expect(recipes.map((r) => r.plannable)).toEqual([false, true])
+    const empty = Array.from({ length: 7 }, () => ({ recipeId: null, locked: false }))
+    const { plan } = generatePlan({ recipes, settings: DEFAULT_SETTINGS, plan: empty, week: '2026-11-09' })
+    expect(plan.every((d) => d.recipeId === 'essen')).toBe(true)
+  })
   it('Quelle: Text, sonst Domain des Links', () => {
     const { recipes } = parseCatalog(
       'rezepte:\n  - titel: A\n    quelle: HelloFresh\n    zutaten: [1 Ei]\n  - titel: B\n    link: https://www.chefkoch.de/rezepte/1\n    zutaten: [1 Ei]\n  - titel: C\n    zutaten: [1 Ei]\n',

@@ -11,6 +11,7 @@ Wochenplaner für iOS **und** Android: Aus euren Lieblingsrezepten (`public/reze
   - **Abwechslung**: Rezepte der letzten N Wochen werden übersprungen
   - gleiche Kategorien an aufeinanderfolgenden Tagen werden vermieden
   - `nur_an: [fr, sa, so]` im Rezept beschränkt es auf bestimmte Tage
+  - `planen: nein` plant ein Rezept nie automatisch ein (z. B. Beilagen, Soßen) – von Hand wählbar bleibt es
 - **Einzelnen Tag neu würfeln**: Karte nach links wischen (wie in der iOS-App) oder im Tag auf „Neu würfeln“ tippen.
 - **Rezepte fest einplanen**: im Tag „Festhalten“ oder „Anderes Rezept wählen“, oder in der Rezeptsammlung „Fest einplanen am …“.
 - **Einkaufsliste**: Zutaten der Woche, auf eure Portionen umgerechnet und zusammengefasst. Vorratszutaten (Salz, Pfeffer …) werden weggelassen. **Eigene Einträge** (Milch, Klopapier …) bleiben erhalten, wenn neu generiert wird.
