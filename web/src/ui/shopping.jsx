@@ -1,8 +1,8 @@
 import { useState } from 'preact/hooks'
 import { formatAmount } from '../lib/ingredients.js'
 import { chooseImage } from '../lib/images.js'
-import { addShoppingItem, clearBought, removeShopping, toggleShopping } from '../actions.js'
-import { BackLink, FoodImage, Icon, NavBar, Svg, Tag } from './common.jsx'
+import { addShoppingItem, clearBought, toggleShopping } from '../actions.js'
+import { BackLink, FoodImage, NavBar, Svg, Tag } from './common.jsx'
 
 function Item({ item }) {
   const amount = formatAmount(item.amount, item.unit)
@@ -21,7 +21,7 @@ function Item({ item }) {
         <div class="card-body">
           <div class="shop-name">{item.name}</div>
           <div class="tags">
-            {amount && <Tag icon="portion-black">{amount}</Tag>}
+            {amount && <Tag>{amount}</Tag>}
             {item.manual ? (
               <span class="muted small">eigener Eintrag</span>
             ) : (
@@ -33,11 +33,6 @@ function Item({ item }) {
         </div>
         <span class="check">{item.checked && <Svg name="check" size={16} />}</span>
       </button>
-      {item.manual && (
-        <button class="del-btn" aria-label={`${item.name} löschen`} onClick={() => removeShopping(item.id)}>
-          <Icon name="bin-black" class="icon-sm" />
-        </button>
-      )}
     </div>
   )
 }

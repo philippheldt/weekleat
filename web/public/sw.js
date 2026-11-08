@@ -1,5 +1,7 @@
 // Offline-Unterstützung: App-Dateien und Bilder aus dem Cache, Seite und Rezepte bevorzugt frisch.
-const CACHE = 'weekleat-v1'
+const CACHE = 'weekleat-v2'
+// Wie lange auf das Netz gewartet wird, bevor die gespeicherte Version angezeigt wird
+const NETWORK_TIMEOUT = 1500
 
 self.addEventListener('install', () => self.skipWaiting())
 self.addEventListener('activate', (e) => {
@@ -14,15 +16,23 @@ self.addEventListener('fetch', (e) => {
 
   const networkFirst = e.request.mode === 'navigate' || url.pathname.endsWith('.yaml') || url.pathname.endsWith('.webmanifest')
   if (networkFirst) {
+    const network = fetch(e.request).then((res) => {
+      if (res.ok) {
+        const copy = res.clone()
+        caches.open(CACHE).then((c) => c.put(e.request, copy))
+      }
+      return res
+    })
+    const cached = () =>
+      caches
+        .match(e.request, { ignoreSearch: true })
+        .then((r) => r || (e.request.mode === 'navigate' ? caches.match('./') : undefined))
+    // Bei schlechtem Netz nicht ewig warten: nach kurzer Zeit die gespeicherte Version nehmen
+    const timeout = new Promise((resolve) => setTimeout(resolve, NETWORK_TIMEOUT)).then(cached)
     e.respondWith(
-      fetch(e.request)
-        .then((res) => {
-          const copy = res.clone()
-          caches.open(CACHE).then((c) => c.put(e.request, copy))
-          return res
-        })
-        .catch(() => caches.match(e.request, { ignoreSearch: true }).then((r) => r || caches.match('./'))),
+      Promise.race([network.catch(cached), timeout.then((r) => r || network)]).then((r) => r || network),
     )
+    e.waitUntil(network.catch(() => {}))
     return
   }
   e.respondWith(

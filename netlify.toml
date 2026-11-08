@@ -19,3 +19,13 @@
   for = "/rezepte.yaml"
   [headers.values]
     Cache-Control = "no-cache"
+
+# Dateien mit Hash im Namen ändern sich nie: dauerhaft im Browser behalten
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+[[headers]]
+  for = "/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"

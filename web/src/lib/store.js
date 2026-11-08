@@ -7,6 +7,7 @@
 
 const CACHE_KEY = 'weekleat:data'
 const QUEUE_KEY = 'weekleat:queue'
+const AUTH_KEY = 'weekleat:auth'
 
 function readJson(key, fallback) {
   try {
@@ -36,8 +37,11 @@ class Store {
     this.queue = readJson(QUEUE_KEY, [])
     this.listeners = new Set()
     this.status = syncEnabled ? 'connecting' : 'local' // local | connecting | online | offline | error
-    this.session = null
+    // Gespeicherte Anmeldung sofort übernehmen, damit die App ohne Warten auf den
+    // Server startet. Ist sie abgelaufen, meldet Supabase das gleich danach.
+    this.session = syncEnabled ? readJson(AUTH_KEY, null) : null
     this.client = null
+    this.refreshing = null
     this.channel = null
     this.flushing = false
   }
@@ -111,17 +115,18 @@ class Store {
     }
     const { createClient } = await import('@supabase/supabase-js')
     this.client = createClient(supabaseConfig.url, supabaseConfig.key, {
-      auth: { persistSession: true, autoRefreshToken: true, storageKey: 'weekleat:auth' },
+      auth: { persistSession: true, autoRefreshToken: true, storageKey: AUTH_KEY },
     })
     const { data } = await this.client.auth.getSession()
     this.session = data.session
+    for (const fn of this.listeners) fn()
     this.client.auth.onAuthStateChange((_event, session) => {
       const was = !!this.session
       this.session = session
       if (!was && session) this.connect()
       for (const fn of this.listeners) fn()
     })
-    if (this.session) await this.connect()
+    if (this.session) this.connect()
     else this.setStatus('offline')
 
     window.addEventListener('online', () => this.refresh())
@@ -156,15 +161,21 @@ class Store {
           this.emit()
         })
         .subscribe((s) => {
-          if (s === 'SUBSCRIBED') this.refresh()
-          else if (s === 'CHANNEL_ERROR' || s === 'TIMED_OUT') this.setStatus('offline')
+          if (s === 'CHANNEL_ERROR' || s === 'TIMED_OUT') this.setStatus('offline')
+          else if (s === 'SUBSCRIBED') this.refresh()
         })
     }
     await this.refresh()
   }
 
   /** Kompletten Stand vom Server holen und noch nicht gesendete eigene Änderungen darüber legen. */
-  async refresh() {
+  refresh() {
+    // Läuft schon ein Abgleich, auf diesen warten statt doppelt zu laden
+    if (!this.refreshing) this.refreshing = this.doRefresh().finally(() => (this.refreshing = null))
+    return this.refreshing
+  }
+
+  async doRefresh() {
     if (!this.client || !this.session) return
     await this.flush()
     const rows = []

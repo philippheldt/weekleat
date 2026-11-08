@@ -27,6 +27,30 @@ export function VoteButtons({ app, recipe }) {
   )
 }
 
+/** Wo steht das Rezept? Link zum Original oder Hinweis wie "HelloFresh-Karte". */
+export function Source({ recipe }) {
+  if (!recipe.source && !recipe.link) return null
+  if (recipe.link) {
+    return (
+      <a class="source" href={recipe.link} target="_blank" rel="noopener">
+        <Icon name="book-black" class="icon-sm" />
+        <span>
+          Rezept bei <strong>{recipe.source || 'Originalseite'}</strong> öffnen
+        </span>
+        <Svg name="link" size={16} />
+      </a>
+    )
+  }
+  return (
+    <div class="source">
+      <Icon name="book-black" class="icon-sm" />
+      <span>
+        Quelle: <strong>{recipe.source}</strong>
+      </span>
+    </div>
+  )
+}
+
 export function RecipeDetail({ app, recipe, children }) {
   const factor = app.settings.portions / recipe.portions
   return (
@@ -35,6 +59,7 @@ export function RecipeDetail({ app, recipe, children }) {
       <div class="sheet-body">
         <h3 class="detail-title">{recipe.title}</h3>
         <RecipeTags recipe={recipe} portions={app.settings.portions} />
+        <Source recipe={recipe} />
         {recipe.days.length > 0 && (
           <p class="muted small" style={{ margin: '8px 0 0' }}>
             Nur an: {recipe.days.map((d) => DAY_NAMES[d] || d).join(', ')}
@@ -59,11 +84,6 @@ export function RecipeDetail({ app, recipe, children }) {
             </div>
             <p class="note">{recipe.note}</p>
           </>
-        )}
-        {recipe.link && (
-          <a class="btn block" style={{ marginTop: '16px' }} href={recipe.link} target="_blank" rel="noopener">
-            <Svg name="link" /> Originalrezept öffnen
-          </a>
         )}
       </div>
     </>

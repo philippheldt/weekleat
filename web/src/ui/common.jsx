@@ -54,7 +54,8 @@ export function RecipeTags({ recipe, score, portions }) {
       <Tag icon="portion-black">{portions ?? recipe.portions}</Tag>
       {recipe.category !== 'sonstiges' && <Tag icon="rice-black">{CATEGORY_LABELS[recipe.category]}</Tag>}
       <Tag>{DIET_LABELS[recipe.diet]}</Tag>
-      {recipe.tags.slice(0, 2).map((t) => (
+      {recipe.source && <Tag>{recipe.source}</Tag>}
+      {recipe.tags.slice(0, 1).map((t) => (
         <Tag key={t}>{t}</Tag>
       ))}
       {score > 0 && <Tag class="up">▲ {score}</Tag>}
@@ -64,7 +65,9 @@ export function RecipeTags({ recipe, score, portions }) {
 }
 
 export function FoodImage({ name, class: cls = 'card-img' }) {
-  return <img class={cls} src={imageUrl(name)} alt="" loading="lazy" style={{ background: imageBg(name) }} />
+  return (
+    <img class={cls} src={imageUrl(name)} alt="" loading="lazy" decoding="async" width="100" height="100" style={{ background: imageBg(name) }} />
+  )
 }
 
 export function Banner({ name, class: cls = 'banner' }) {

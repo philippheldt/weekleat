@@ -112,6 +112,18 @@ function DayCard({ app, day, large, onOpen }) {
       </button>
     )
   }
+  if (!recipe && !app.catalogLoaded) {
+    // Katalog lädt noch (nur beim allerersten Start): Platzhalter statt Fehlermeldung
+    return (
+      <div class="card skeleton" aria-busy="true">
+        <div class="card-img" />
+        <div class="card-body">
+          <div class="sk-line" />
+          <div class="sk-line short" />
+        </div>
+      </div>
+    )
+  }
   if (!recipe) {
     return (
       <button class="card missing" onClick={onOpen}>

@@ -55,6 +55,8 @@ Alle Rezepte stehen in [`public/rezepte.yaml`](public/rezepte.yaml); das Format 
 
 Fehler in der Datei (z. B. fehlender Titel, unbekannte Kategorie) werden in der Rezeptsammlung oben als Hinweis angezeigt.
 
+**Quelle**: Mit `quelle: HelloFresh` (oder `Marley Spoon`, `Omas Kochbuch S. 42` …) und/oder `link: https://…` steht in der App bei jedem Rezept, wo ihr es beim Kochen findet. Ein Link öffnet direkt das Originalrezept; ohne `quelle` wird die Website als Quelle angezeigt.
+
 > Tipp: Wenn ihr ein Rezept umbenennt, bekommt es eine neue `id` und verliert seine Bewertungen. Mit `id: alter-name` bleibt alles erhalten.
 
 ## Entwicklung

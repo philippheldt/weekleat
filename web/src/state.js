@@ -8,6 +8,13 @@ const CATALOG_CACHE = 'weekleat:catalog'
 
 let catalog = { recipes: [], problems: [], loaded: false, error: '' }
 const catalogListeners = new Set()
+let catalogText = null
+
+// Zuletzt geladenen Katalog sofort verwenden, die frische Version kommt im Hintergrund
+try {
+  catalogText = localStorage.getItem(CATALOG_CACHE)
+  if (catalogText != null) catalog = { ...parseCatalog(catalogText), loaded: true, error: '' }
+} catch {}
 
 export async function loadCatalog() {
   let text = null
@@ -15,6 +22,7 @@ export async function loadCatalog() {
     const res = await fetch(`${import.meta.env.BASE_URL}rezepte.yaml`, { cache: 'no-cache' })
     if (!res.ok) throw new Error(`HTTP ${res.status}`)
     text = await res.text()
+    if (text === catalogText) return
     try {
       localStorage.setItem(CATALOG_CACHE, text)
     } catch {}
@@ -22,12 +30,14 @@ export async function loadCatalog() {
     try {
       text = localStorage.getItem(CATALOG_CACHE)
     } catch {}
+    if (catalog.loaded) return
     if (text == null) {
       catalog = { recipes: [], problems: [], loaded: true, error: `Rezeptkatalog konnte nicht geladen werden (${e.message}).` }
       catalogListeners.forEach((fn) => fn())
       return
     }
   }
+  catalogText = text
   const parsed = parseCatalog(text)
   catalog = { ...parsed, loaded: true, error: '' }
   catalogListeners.forEach((fn) => fn())
