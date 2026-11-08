@@ -988,30 +988,77 @@ rezepte:
       - 2 TL getrocknete Kräuter
       - 250 g Erbsen (TK)
 
-  - titel: Indisches Butter Chicken
-    quelle: Monsieur Cuisine
-    link: https://www.monsieur-cuisine.com/de/recipe/indisches-butter-chicken
-    portionen: 2
+  - titel: Butter Chicken
+    id: indisches-butter-chicken
+    quelle: Monsieur Cuisine (eigenes Rezept)
+    portionen: 4
     kategorie: sonstiges
     ernaehrung: fleisch
     bild: chicken
-    tags: [One-Pot]
     zutaten:
-      - 2 Zehe Knoblauch
-      - 10 g Ingwer
-      - 2 EL Garam Masala
+      - 600 g Hähnchengeschnetzeltes
+      - 4 EL Joghurt
+      - 1.5 TL Salz
+      - 1 TL Chilipulver
+      - 2 Zehen Knoblauch
+      - 30 g Ingwer
+      - 0.5 TL Kreuzkümmelpulver
+      - 1 TL Koriander, gehackt
+      - 0.5 Zitrone (unbehandelt)
+      - 2 Zwiebeln (mittelgroß)
+      - 1 Dose stückige Tomaten
+      - 8 EL Butter
+      - 2 EL Tomatenmark
+      - 0.5 TL Garam Masala
+      - 0.5 TL Kurkuma
+      - 3 Nelken
+      - 2 Kardamomkapseln
+      - 1.5 EL Weißweinessig
+      - 1 Prise Zimt
+      - 1 Prise Zucker
+      - 1 Prise Pfeffer
+      - 100 g Sahne
+    notiz: |
+      Butter Chicken wie beim Inder um die Ecke.
+      Salz: 1 TL für die Marinade, 0,5 TL für die Soße.
+
+  - titel: Butter Halloumi mit Erbsen
+    quelle: Monsieur Cuisine (eigenes Rezept, vegetarische Variante)
+    portionen: 4
+    kategorie: sonstiges
+    ernaehrung: vegetarisch
+    bild: cheese
+    zutaten:
+      - 400 g Halloumi
+      - 300 g Erbsen (TK)
+      - 4 EL Joghurt
       - 1 TL Salz
-      - 150 g griechischer Joghurt
-      - 400 g Hähnchenbrustfilets
-      - 30 g Schalotten
-      - 60 g Butter
-      - 1 Prise Kreuzkümmel, gemahlen
-      - 2 Prise Pfeffer
-      - 1 Prise Chiliflocken
-      - 250 g passierte Tomaten
-      - 10 ml Zitronensaft
-      - 200 g Kokosmilch
-      - 20 g Tomatenmark
+      - 1 TL Chilipulver
+      - 2 Zehen Knoblauch
+      - 30 g Ingwer
+      - 0.5 TL Kreuzkümmelpulver
+      - 1 TL Koriander, gehackt
+      - 0.5 Zitrone (unbehandelt)
+      - 2 Zwiebeln (mittelgroß)
+      - 1 Dose stückige Tomaten
+      - 8 EL Butter
+      - 2 EL Tomatenmark
+      - 0.5 TL Garam Masala
+      - 0.5 TL Kurkuma
+      - 3 Nelken
+      - 2 Kardamomkapseln
+      - 1.5 EL Weißweinessig
+      - 1 Prise Zimt
+      - 1 Prise Zucker
+      - 1 Prise Pfeffer
+      - 100 g Sahne
+    notiz: |
+      Wie Butter Chicken, nur mit Halloumi und Erbsen statt Hähnchen:
+      Halloumi in ca. 2 cm große Würfel schneiden, kurz in Joghurt, Chili,
+      Kreuzkümmel und Zitrone marinieren und in etwas Butter rundum goldbraun
+      anbraten. Die Soße wie gewohnt kochen, die Erbsen die letzten 5 Minuten
+      mitköcheln lassen und den Halloumi erst zum Schluss unterheben, damit er
+      nicht gummiartig wird. Weniger Salz als beim Original – Halloumi ist salzig.
 
   - titel: Rucolarisotto
     quelle: Monsieur Cuisine
