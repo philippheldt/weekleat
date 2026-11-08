@@ -778,13 +778,6 @@ textarea.input {
   border-color: var(--fg);
   color: var(--bg);
 }
-.del-btn {
-  width: 44px;
-  height: 64px;
-  display: grid;
-  place-items: center;
-  flex: none;
-}
 .list-gap > * + * {
   margin-top: 8px;
 }
