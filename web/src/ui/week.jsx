@@ -10,10 +10,16 @@ function isoOf(d) {
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`
 }
 
-/** Karte, die man nach links wischen kann, um den Tag neu zu würfeln (wie in der iOS-App). */
-function SwipeCard({ onSwipe, onTap, large, children, label }) {
+/**
+ * Karte mit Wischgesten:
+ *  nach rechts → neu würfeln (Karte fliegt raus, neues Rezept kommt)
+ *  nach links  → bearbeiten (anderes Rezept auswählen)
+ */
+function SwipeCard({ onSwipeRight, onSwipeLeft, onTap, large, children, label }) {
   const ref = useRef()
   const start = useRef(null)
+  // Nach einer Wischbewegung feuert der Browser noch einen Klick – den ignorieren
+  const suppressClick = useRef(false)
   const [dx, setDx] = useState(0)
   const [phase, setPhase] = useState('idle') // idle | drag | out | in
 
@@ -33,7 +39,8 @@ function SwipeCard({ onSwipe, onTap, large, children, label }) {
     if (s.horizontal) {
       s.moved = true
       setPhase('drag')
-      setDx(Math.min(0, x))
+      // nach links nur ein Stück ziehen (Bearbeiten), nach rechts frei (Würfeln)
+      setDx(x < 0 ? Math.max(x, -(ref.current?.offsetWidth || 300) * 0.55) : x)
     }
   }
   const up = () => {
@@ -44,24 +51,31 @@ function SwipeCard({ onSwipe, onTap, large, children, label }) {
       setPhase('idle')
       return
     }
+    suppressClick.current = true
+    setTimeout(() => (suppressClick.current = false), 400)
     const width = ref.current?.offsetWidth || 300
-    if (dx < -width * 0.4) {
+    if (dx > width * 0.35) {
       navigator.vibrate?.(15)
       setPhase('out')
-      setDx(-width * 1.6)
+      setDx(width * 1.6)
       setTimeout(() => {
-        onSwipe()
+        onSwipeRight()
         setPhase('in')
         setDx(0)
         setTimeout(() => setPhase('idle'), 320)
       }, 260)
+    } else if (dx < -width * 0.3) {
+      navigator.vibrate?.(10)
+      setPhase('idle')
+      setDx(0)
+      onSwipeLeft()
     } else {
       setPhase('idle')
       setDx(0)
     }
   }
   const click = (e) => {
-    if (phase !== 'idle') return e.preventDefault()
+    if (suppressClick.current || phase !== 'idle') return e.preventDefault()
     onTap()
   }
 
@@ -69,14 +83,19 @@ function SwipeCard({ onSwipe, onTap, large, children, label }) {
     transform:
       phase === 'in'
         ? 'scale(1)'
-        : `translateX(${dx}px) rotate(${dx / 60}deg) scale(${1 - Math.min(0.08, Math.abs(dx) / 3000)})`,
+        : `translateX(${dx}px) rotate(${dx > 0 ? dx / 60 : 0}deg) scale(${1 - Math.min(0.08, Math.abs(dx) / 3000)})`,
     opacity: phase === 'out' ? 0 : 1,
   }
   return (
     <div class="day-wrap">
-      {phase === 'drag' && dx < -30 && (
-        <div class="swipe-hint">
+      {phase === 'drag' && dx > 30 && (
+        <div class="swipe-hint left">
           <Svg name="refresh" /> neu würfeln
+        </div>
+      )}
+      {phase === 'drag' && dx < -30 && (
+        <div class="swipe-hint right">
+          anderes wählen <Svg name="pencil" />
         </div>
       )}
       <button
@@ -96,7 +115,7 @@ function SwipeCard({ onSwipe, onTap, large, children, label }) {
   )
 }
 
-function DayCard({ app, day, large, onOpen }) {
+function DayCard({ app, day, large, onOpen, onEdit }) {
   const entry = app.plan[day]
   const recipe = app.byId.get(entry.recipeId)
 
@@ -145,7 +164,7 @@ function DayCard({ app, day, large, onOpen }) {
     if (w.length) toast(w[0])
   }
   return (
-    <SwipeCard onSwipe={swipe} onTap={onOpen} large={large} label={`${DAYS[day]}: ${recipe.title}`}>
+    <SwipeCard onSwipeRight={swipe} onSwipeLeft={onEdit} onTap={onOpen} large={large} label={`${DAYS[day]}: ${recipe.title}`}>
       {large ? (
         <>
           <Banner name={recipe.image} />
@@ -252,7 +271,7 @@ export function WeekView({ app }) {
                   {DAYS[day]} · {formatShort(date)}
                 </div>
               )}
-              <DayCard app={app} day={day} large={isToday} onOpen={() => setOpenDay(day)} />
+              <DayCard app={app} day={day} large={isToday} onOpen={() => setOpenDay({ day })} onEdit={() => setOpenDay({ day, pick: true })} />
             </section>
           )
         })
@@ -270,7 +289,9 @@ export function WeekView({ app }) {
         </div>
       </div>
 
-      {openDay != null && <DaySheet app={app} day={openDay} onClose={() => setOpenDay(null)} />}
+      {openDay != null && (
+        <DaySheet app={app} day={openDay.day} startPicking={openDay.pick} onClose={() => setOpenDay(null)} />
+      )}
       {settingsOpen && <SettingsSheet app={app} onClose={() => setSettingsOpen(false)} />}
     </>
   )
