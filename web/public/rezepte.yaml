@@ -182,3 +182,160 @@ rezepte:
       - 50 g Erdnussbutter
       - 40 g gesalzene Erdnüsse
       - 50 ml Sojasoße
+
+  - titel: Quesadillas mit käsiger Rinderhackfüllung und Radieschen-Salsa
+    quelle: HelloFresh
+    ernaehrung: fleisch
+    bild: enchilada
+    tags: [schnell]
+    zutaten:
+      - 400 g Rinderhackfleisch
+      - 4 Weizentortillas
+      - 300 g Radieschen
+      - 2 rote Zwiebeln
+      - 10 g Koriander & Petersilie
+      - 2 Limetten
+      - 150 g Naturjoghurt
+      - 100 g Gouda (gerieben)
+      - 70 g Tomatenmark
+    notiz: |
+      Statt „Hello Piri-Piri“ (8 g): Chiliflocken, Paprikapulver und etwas Knoblauch.
+
+  - titel: Schnelle Bratnudeln mit Hähnchen und buntem Gemüse
+    quelle: Marley Spoon
+    portionen: 2
+    kategorie: nudeln
+    ernaehrung: fleisch
+    bild: pasta
+    tags: [schnell]
+    zutaten:
+      - 250 g breite Mie-Nudeln
+      - 1 Pck. Hähnchenbrustfilet
+      - 1 rote Paprika
+      - 1 grüne Paprika
+      - 2 Frühlingszwiebeln
+      - 1 rote Zwiebel
+      - 1 Stück Ingwer
+      - 1 Zehe Knoblauch
+      - 50 ml Sojasoße
+
+  - titel: Hackbällchen in Senfsoße mit Gemüsereis aus Karotten und Porree
+    quelle: HelloFresh
+    kategorie: reis
+    ernaehrung: fleisch
+    bild: steak
+    tags: [Family]
+    zutaten:
+      - 500 g gemischtes Hackfleisch
+      - 300 g Basmatireis
+      - 2 Karotten
+      - 2 Stangen Porree
+      - 2 Zwiebeln
+      - 10 g Petersilie & Schnittlauch
+      - 300 g Kochsahne (leicht)
+      - 50 g Semmelbrösel
+      - 40 g körniger Senf
+      - 20 ml mittelscharfer Senf
+      - 8 g Rinderbrühe
+
+  - titel: Veggie Stroganoff mit Portobello und Champignons
+    quelle: HelloFresh
+    kategorie: reis
+    ernaehrung: vegetarisch
+    bild: mushroom
+    tags: [viel Gemüse]
+    zutaten:
+      - 300 g Basmati-Wildreis-Mischung
+      - 4 Portobello-Pilze
+      - 400 g braune Champignons
+      - 2 Karotten
+      - 300 g Babyspinat
+      - 10 g Petersilie
+      - 2 Zwiebeln
+      - 2 Zehen Knoblauch
+      - 300 g Kochsahne
+      - 50 ml Sojasoße
+      - 8 g Gemüsebrühpulver
+    notiz: |
+      Statt „Hello Paprika“ (8 g): Paprikapulver, Knoblauch, Pfeffer, Zwiebel- und Tomatenpulver.
+
+  - titel: Hähnchen mit Aprikosen-Curry-Soße, Ofenmöhren und Butter-Wildreis
+    quelle: HelloFresh
+    kategorie: reis
+    ernaehrung: fleisch
+    bild: apricot
+    tags: [Family]
+    zutaten:
+      - 500 g Hähnchenbrustfilet
+      - 300 g Basmati-Wildreis-Mischung
+      - 8 Karotten
+      - 2 Schalotten
+      - 2 Zehen Knoblauch
+      - 80 g Butter
+      - 10 g Petersilie
+      - 40 g getrocknete Aprikosen
+      - 100 g Aprikosenchutney
+      - 8 g Hühnerbrühe
+    notiz: |
+      Statt „Hello Paprika“ (4 g, für die Möhren): Paprika, Knoblauch, Pfeffer, Zwiebel, Tomatenpulver.
+      Statt „Hello Curry“ (8 g, für die Soße): Koriander, Kurkuma, Bockshornklee, Kreuzkümmel, Muskat, Paprika.
+
+  - titel: Cheesy Smashed Potatoes mit steirischem Salat und Kräuterschmand
+    quelle: HelloFresh
+    kategorie: kartoffeln
+    ernaehrung: vegetarisch
+    bild: potatoe
+    tags: [Family]
+    zutaten:
+      - 1 kg festkochende Kartoffeln
+      - 150 g Feldsalat
+      - 200 g Radieschen
+      - 2 Äpfel
+      - 10 g Petersilie & Schnittlauch
+      - 200 g Gouda (gerieben)
+      - 200 g Schmand
+      - 34 g süßer Senf
+      - 20 g Kürbiskerne
+      - 20 ml Kürbiskernöl
+    notiz: |
+      Statt „Hello Patatas“ (8 g): Paprikapulver, Knoblauch, Rosmarin und Pfeffer.
+
+  - titel: Mexikanische Maissuppe mit Kräuter-Feta und Tortillachips
+    quelle: Marley Spoon
+    portionen: 2
+    ernaehrung: vegetarisch
+    bild: mais
+    zutaten:
+      - 1 Karotte
+      - 2 Stangen Staudensellerie
+      - 1 Zwiebel
+      - 1 Dose Mais
+      - 1 Zehe Knoblauch
+      - 1 Pck. geräuchertes Paprikapulver
+      - 1 Pck. Gemüsebrühe
+      - 1 Pck. Tortillas
+      - 1 Pck. mexikanische Gewürzmischung
+      - 10 g Koriander
+      - 1 Frühlingszwiebel
+      - 1 Limette
+      - 150 g Feta
+    notiz: |
+      Nur ⅔ vom Mais (abgetropft) werden gebraucht.
+
+  - titel: Herzhafte Cremesuppe mit Kidneybohnen und Tortillachips
+    quelle: HelloFresh
+    ernaehrung: vegan
+    bild: soup
+    tags: [schnell]
+    zutaten:
+      - 4 Weizentortillas
+      - 780 g Kidneybohnen (2 Dosen)
+      - 2 Stangen Porree
+      - 2 Zehen Knoblauch
+      - 3 Frühlingszwiebeln
+      - 1 Limette
+      - 780 g stückige Tomaten (2 Dosen)
+      - 8 g Kokosraspeln
+      - 500 ml Kokosmilch
+    notiz: |
+      Statt „Hello Kokos Curry“ (8 g): Currypulver, etwas Kurkuma und Kreuzkümmel.
