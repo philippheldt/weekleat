@@ -1018,11 +1018,13 @@ rezepte:
       - 1 Prise Zucker
       - 1 Prise Pfeffer
       - 100 g Sahne
+      - 100 g Cashewkerne
     notiz: |
       Butter Chicken wie beim Inder um die Ecke.
       Salz: 1 TL für die Marinade, 0,5 TL für die Soße.
 
-  - titel: Butter Halloumi mit Erbsen
+  - titel: Paneer Butter Masala
+    id: butter-halloumi-mit-erbsen
     quelle: Monsieur Cuisine (eigenes Rezept, vegetarische Variante)
     portionen: 4
     kategorie: sonstiges
@@ -1052,6 +1054,7 @@ rezepte:
       - 1 Prise Zucker
       - 1 Prise Pfeffer
       - 100 g Sahne
+      - 100 g Cashewkerne
     notiz: |
       Wie Butter Chicken, nur mit Halloumi und Erbsen statt Hähnchen:
       Halloumi in ca. 2 cm große Würfel schneiden, kurz in Joghurt, Chili,
