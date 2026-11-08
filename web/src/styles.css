@@ -502,7 +502,6 @@ img {
   height: 5px;
   border-radius: 3px;
   background: var(--line);
-  margin: 8px auto 0;
 }
 .sheet-head {
   display: flex;
@@ -924,18 +923,15 @@ a.source:active {
   }
 }
 
-/* Schließen-Knopf oben rechts im Sheet */
-.close-btn {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  background: var(--chip);
-  color: var(--fg);
+/* Griff oben im Sheet (größere Tippfläche) */
+.sheet-grip-btn {
+  display: block;
+  width: 100%;
+  padding: 8px 0 10px;
 }
-.close-btn:active {
-  opacity: 0.6;
+.sheet-grip-btn .sheet-grip {
+  display: block;
+  margin: 0 auto;
 }
 
 /* Knöpfe auf dem Rezeptbild (festhalten, bearbeiten) */

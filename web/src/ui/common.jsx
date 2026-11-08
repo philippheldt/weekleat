@@ -216,15 +216,16 @@ export function Sheet({ title, onClose, children, action }) {
   return (
     <div class="overlay" ref={overlayRef} onClick={(e) => e.target === e.currentTarget && dismiss()}>
       <div class="sheet" ref={ref} role="dialog" aria-modal="true" aria-label={title}>
-        <div class="sheet-grip" />
-        <div class="sheet-head">
-          {title ? <h2>{title}</h2> : <span />}
-          {action ?? (
-            <button class="close-btn" onClick={dismiss} aria-label="Schließen">
-              <Svg name="x" size={18} />
-            </button>
-          )}
-        </div>
+        {/* Griff: Antippen schließt (z. B. für Bildschirmleser), Wischen nach unten auch */}
+        <button class="sheet-grip-btn" onClick={dismiss} aria-label="Schließen">
+          <span class="sheet-grip" />
+        </button>
+        {(title || action) && (
+          <div class="sheet-head">
+            {title ? <h2>{title}</h2> : <span />}
+            {action}
+          </div>
+        )}
         {children}
       </div>
     </div>
