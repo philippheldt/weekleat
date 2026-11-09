@@ -1791,3 +1791,442 @@ rezepte:
     - Pfeffer
     - Muskat
     - Käse
+
+# weekleat – Rezeptkatalog
+#
+#  Hier stehen eure Lieblingsrezepte. Nach dem Speichern und Pushen ist die
+#  Datei nach ca. 1 Minute in der App (einfach neu öffnen).
+
+- titel: Pizzasuppe
+  portionen: 4
+  kategorie: sonstiges
+  ernaehrung: fleisch
+  quelle: Jenny Rezepte S. 13
+  zutaten:
+    - 1 EL Öl
+    - 1 kleine Zwiebel, gewürfelt
+    - 50 g gemischtes Hackfleisch
+    - 100 g Tomaten
+    - 1 EL Tomatenmark
+    - 500 ml Gemüsebrühe
+    - 50 g grüne Bohnen
+    - 2 Champignons
+    - 50 g Sahne-Schmelzkäse
+    - 50 g Sahne
+    - Salz
+    - Pfeffer
+    - Oregano
+    - 1/2 Zehe Knoblauch
+    - Geriebener Parmesan
+
+- titel: Tom Ka Suppe
+  portionen: 4
+  kategorie: sonstiges
+  ernaehrung: fleisch
+  quelle: Jenny Rezepte S. 15
+  zutaten:
+    - Paprika
+    - Zucchini
+    - Tomaten
+    - Pilze
+    - Hähnchenfleisch
+    - Zwiebeln
+    - 400 ml Kokosmilch
+    - 1.5 EL Tom Ka Paste
+    - 400 ml Wasser
+    - Zitronensaft
+    - Fischsoße
+    - Reis
+
+- titel: Zucchini & Frischkäse Pasta
+  portionen: 4
+  kategorie: nudeln
+  ernaehrung: vegetarisch
+  quelle: Jenny Rezepte S. 37
+  zutaten:
+    - 60 g Pinienkerne
+    - 350 g Nudeln
+    - 1 EL Olivenöl
+    - 150 g Brokkoliröschen
+    - 2 Zucchini
+    - 150 ml Milch
+    - 200 g Frischkäse
+    - 150 g Champignons
+    - Basilikum
+    - Salz
+    - Pfeffer
+
+- titel: Linsen-Curry
+  portionen: 4
+  kategorie: reis
+  ernaehrung: vegan
+  quelle: Jenny Rezepte S. 63
+  zutaten:
+    - 1 Zwiebel
+    - 1 Knoblauchzehe
+    - 1 daumengroßes Stück Ingwer
+    - 2 Karotten in Scheiben
+    - 1 EL Rapsöl
+    - 0.5 EL rote Currypaste
+    - 300 g Belugalinsen
+    - 1 Dose Tomaten
+    - 1 Dose Kokosmilch
+    - 500 ml Gemüsebrühe
+    - 1 Süßkartoffel
+    - 250 g Blattspinat
+    - 1 Limette
+    - 15 g Koriander, frisch, gehackt
+
+- titel: Enchiladas (Tortilla-Teig)
+  portionen: 2
+  kategorie: gebackenes
+  ernaehrung: vegan
+  planen: nein
+  quelle: Jenny Rezepte S. 87
+  zutaten:
+    - 150 g Mehl
+    - 50 g Maismehl
+    - 100 ml Wasser
+    - 1 EL Öl
+    - 1/8 TL Salz
+
+- titel: Enchiladas (Füllung)
+  portionen: 2
+  kategorie: sonstiges
+  ernaehrung: vegan
+  planen: nein
+  quelle: Jenny Rezepte S. 89
+  zutaten:
+    - 1 Zwiebel
+    - 1 EL Öl
+    - 100 g Maiskörner
+    - 1/2 Dose Kidneybohnen
+    - 100 g Tomaten, gewürfelt
+    - 1/2 Bund Oregano
+    - 1/2 TL Paprikapulver
+    - 1/4 TL Kreuzkümmel
+    - Salz
+
+- titel: Enchiladas (Soße)
+  portionen: 2
+  kategorie: sonstiges
+  ernaehrung: vegetarisch
+  planen: nein
+  quelle: Jenny Rezepte S. 91
+  zutaten:
+    - 1/2 Zwiebel
+    - 100 g Tomaten
+    - 1 EL Öl
+    - 1 Knoblauchzehe
+    - 1 TL Balsamicoessig
+    - 1 TL Tomatenmark
+    - 1 TL Honig
+    - Salz
+    - Pfeffer
+    - Muskat
+    - Käse
+
+- titel: Kritharaki One Pot
+  portionen: 2
+  kategorie: nudeln
+  ernaehrung: vegetarisch
+  quelle: Instagram
+  notiz: |
+    1. Alle Zutaten (bis auf den Parmesan) in einen Topf mit Öl geben und 15-20 min bei mittlerer Hitze (mit Deckel) köcheln lassen. Dabei gelegentlich umrühren.
+    2. Zum Schluss den Parmesan unterrühren, bis alles schön cremig ist.
+  zutaten:
+    - 300 g Brokkoli (tiefgefroren)
+    - 150 g Kritharaki
+    - 2 EL Frischkäse
+    - 300 ml Gemüsebrühe
+    - 1 EL Kürbiskerne (gemahlen)
+    - 50 g Parmesan (frisch gerieben)
+
+- titel: Null-Stress-Pfanne
+  portionen: 4
+  kategorie: nudeln
+  ernaehrung: fleisch
+  quelle: Instagram
+  notiz: |
+    Alles in eine Pfanne geben und 15-20 Minuten köcheln lassen, bis die Risoni weich sind (zwischendurch immer wieder umrühren). Für Babys unter 12 Monaten die Erbsen zerdrücken.
+  zutaten:
+    - 200 g Brokkoli
+    - 200 g Erbsen
+    - 200 g Creme fraiche
+    - 200 g Risoni
+    - 200 g Hähnchen
+    - 500 ml Gemüsebrühe
+
+- titel: Kürbis Pasta
+  portionen: 4
+  kategorie: nudeln
+  ernaehrung: vegetarisch
+  quelle: Instagram
+  notiz: |
+    1. Den Ofen auf 200 °C Ober-/Unterhitze vorheizen.
+    2. Den Butternut-Kürbis schälen und mit der Zwiebel klein schneiden.
+    3. Anschließend 30-32 min goldbraun backen und mit dem Frischkäse, der Milch und dem Parmesan cremig mixen.
+    4. Alles mit gekochter Pasta vermengen und nach Bedarf garnieren.
+  zutaten:
+    - 500 g Butternut-Kürbis
+    - 1 Zwiebel
+    - 60 g Parmesan
+    - 60 g Frischkäse
+    - 100 ml Milch (oder Pflanzendrink)
+    - 150 g Pasta
+
+- titel: Taco Crunch Supreme Wrap
+  portionen: 4
+  kategorie: gebackenes
+  ernaehrung: fleisch
+  quelle: Instagram
+  notiz: |
+    1. Öl in einer großen Pfanne erhitzen. Zwiebel und Knoblauch darin glasig dünsten.
+    2. Hackfleisch dazugeben und krümelig braun anbraten. Gewürze, Jalapeño, Tomatenmark und Wasser hinzufügen. 8-10 Minuten köcheln lassen.
+    3. Eine große Tortilla auslegen, Hackfleisch, Tostada/Chips, Salat, Tomate, Zwiebel, Saure Sahne, Guacamole, Salsa und Käse in die Mitte geben.
+    4. Eine kleine Tortilla auf die Füllung legen. Ränder der großen Tortilla kreisförmig zur Mitte hin falten/einschlagen.
+    5. Wrap auf der Faltenseite in einer eingeölten Pfanne bei mittlerer Hitze ca. 3 Min. goldbraun anbraten. Wenden und weitere 3 Min. braten.
+  zutaten:
+    - 900 g Hackfleisch
+    - 2 Zwiebeln (weiß)
+    - 2 Zehen Knoblauch (gehackt)
+    - 1 Jalapeño (gewürfelt)
+    - 2 EL Tomatenmark
+    - 120 ml Wasser
+    - 1 EL Knoblauchpulver
+    - 1 EL Zwiebelpulver
+    - 1 EL Paprikapulver (edelsüß/geräuchert)
+    - 1 EL Kreuzkümmel
+    - 1 TL Pfeffer
+    - Salz
+    - 10 Tortillas (groß)
+    - 10 Tortillas (klein)
+    - 10 Tostadas (oder 1 Tasse Nacho-Chips)
+    - 1 Kopf Salat (geschnitten)
+    - 1 Tomate (gewürfelt)
+    - 1 Zwiebel (rot, gewürfelt)
+    - 1 Becher Saure Sahne
+    - 1 Becher Guacamole
+    - 1 Becher Salsa
+    - 100 g Cheddar (gerieben)
+    - 100 g Monterey Jack (gerieben)
+    - Öl zum Braten
+
+- titel: Kürbis Mac n Cheese
+  portionen: 3
+  kategorie: nudeln
+  ernaehrung: fleisch
+  quelle: Instagram
+  notiz: |
+    1. Hähnchenbrust marinieren und in einer Pfanne von beiden Seiten scharf anbraten, dann langsam durchgaren lassen und herausnehmen.
+    2. Zwiebeln und Knoblauch mit etwas Butter 2-3 Minuten in der gleichen Pfanne anrösten, mit Sahne ablöschen.
+    3. Kürbispüree und Cheddar einrühren, bis der Käse geschmolzen ist. Mit Gewürzen und Petersilie abschmecken.
+    4. Gekochte Makkaroni unter die Soße rühren. Mit dem aufgeschnittenen Hähnchen und etwas Käse servieren.
+  zutaten:
+    - 250 g Makkaroni
+    - 200 g Hähnchenbrust
+    - 1 Zwiebel
+    - 2 Zehen Knoblauch
+    - 200 g Kürbispüree
+    - 100 ml Sahne
+    - 80 g Cheddar
+    - Parmesan
+    - Petersilie
+    - Salz
+    - Pfeffer
+    - Paprikapulver
+    - Öl
+
+- titel: Ruckzuck Auflauf
+  portionen: 4
+  kategorie: nudeln
+  ernaehrung: vegetarisch
+  quelle: Instagram
+  notiz: |
+    1. Ofen auf 180-200 °C Ober-/Unterhitze vorheizen.
+    2. Kritharaki ungekocht in eine große Auflaufform geben. Gemüse klein schneiden und darüber verteilen.
+    3. Tomaten, passierte Tomaten und Sahne verrühren, würzen und über Nudeln und Gemüse gießen. Alles gut vermengen.
+    4. Für ca. 20 Minuten im Ofen backen.
+    5. Mit Käse bestreuen und weitere 15 Minuten goldbraun überbacken.
+  zutaten:
+    - 350 g Kritharaki
+    - 1 Dose Tomaten (gehackt)
+    - 250 ml Passierte Tomaten
+    - 150 ml Sahne
+    - 1 Kopf Brokkoli (oder anderes Gemüse nach Wahl)
+    - Käse (gerieben)
+    - Salz
+    - Pfeffer
+    - Oregano
+
+- titel: Hühnersuppe mit Reis & Zitrone
+  portionen: 3
+  kategorie: sonstiges
+  ernaehrung: fleisch
+  quelle: Instagram
+  notiz: |
+    1. Hähnchen, Suppengemüse, Ingwer und Gewürze in einem großen Topf mit Wasser bedecken und mindestens 2 Stunden köcheln lassen.
+    2. Brühe abseihen, Fleisch abzupfen und Karotten klein schneiden.
+    3. Zitronenabrieb, Zitronensaft, Crème fraîche und gehackten Dill in die Brühe rühren.
+    4. Reis in der Brühe 5-10 Minuten gar köcheln. Fleisch und Karotten wieder dazugeben und abschmecken.
+  zutaten:
+    - 2 Hähnchenschenkel
+    - 2 Karotten
+    - 1/2 Stange Porree
+    - 1/4 Kopf Knollensellerie
+    - 1 Zwiebel
+    - 2 Zehen Knoblauch
+    - 1 Stück Ingwer
+    - 150 g Reis
+    - 80 g Creme fraiche
+    - 1 Zitrone
+    - 1 Bund Dill
+    - Lorbeerblätter
+    - Pfefferkörner
+    - Salz
+
+- titel: Kartoffel-Blumenkohl-Onepot
+  portionen: 4
+  kategorie: kartoffeln
+  ernaehrung: vegetarisch
+  quelle: Instagram
+  notiz: |
+    1. Zwiebeln achteln, Kartoffeln würfeln, Blumenkohl röschen und Ingwer fein hacken.
+    2. Zwiebeln und Ingwer anbraten, Blumenkohl und Kartoffeln dazugeben. Mit Kreuzkümmelsamen, Kurkuma, Zucker und Kreuzkümmel kurz anrösten.
+    3. Gewürfelte Tomaten, gehackte Dosentomaten, Wasser und Salz hinzugeben. 15 Minuten köcheln lassen.
+    4. Hitze reduzieren, Crème fraîche einrühren und mit Garam Masala und Salz abschmecken. Vor dem Servieren mit Frühlingszwiebelringen bestreuen.
+  zutaten:
+    - 500 g Kartoffeln
+    - 1 Kopf Blumenkohl
+    - 3 Zwiebeln
+    - 1 Stück Ingwer
+    - 4 Tomaten
+    - 1 Dose Tomaten (gehackt)
+    - 250 ml Wasser
+    - 150 g Creme fraiche
+    - 3 Stange Frühlingszwiebeln
+    - 1/2 TL Kreuzkümmel (Ganz)
+    - 1 TL Kurkuma
+    - 1 TL Kreuzkümmel (gemahlen)
+    - 1 TL Garam Masala
+    - 1 TL Zucker
+    - Salz
+    - Öl
+
+- titel: Kürbis-Feta Pasta
+  portionen: 4
+  kategorie: nudeln
+  ernaehrung: vegetarisch
+  quelle: Instagram
+  notiz: |
+    1. Kürbisstücke, Hirtenkäse/Feta, Thymian und Tomaten in eine Auflaufform geben, mit Olivenöl beträufeln, würzen und bei 200 °C Umluft ca. 30 Min. backen.
+    2. Fusilli kochen, dabei 150 ml Nudelwasser aufbewahren.
+    3. Den Inhalt der Auflaufform zusammen mit dem Nudelwasser pürieren, bis eine cremige Soße entsteht. Mit den Nudeln vermengen.
+  zutaten:
+    - 400 g Fusilli
+    - 600 g Hokkaidokürbis
+    - 200 g Hirtenkäse
+    - 150 g Tomaten
+    - 4 Stange Thymian
+    - 2 EL Olivenöl
+    - Salz
+    - Pfeffer
+
+- titel: Brokkoli-Cheddarsuppe
+  portionen: 4
+  kategorie: sonstiges
+  ernaehrung: vegetarisch
+  quelle: Instagram
+  notiz: |
+    1. Brokkoli in Röschen schneiden, Möhren stifteln/raspeln, Zwiebeln und Knoblauch fein hacken.
+    2. Zwiebeln und Knoblauch in Butter andünsten, Mehl dazugeben und kurz anschwitzen.
+    3. Mit Wasser und Milch ablöschen, Gewürze, Brokkoli und Möhren dazugeben und ca. 12 Minuten sanft köcheln lassen.
+    4. Sahne und geriebenen Cheddar einrühren, schmelzen lassen und heiß servieren.
+  zutaten:
+    - 250 g Brokkoli
+    - 150 g Möhren
+    - 2 Zwiebeln
+    - 1 Zehe Knoblauch
+    - 40 g Butter
+    - 55 g Mehl
+    - 600 ml Wasser
+    - 200 ml Milch
+    - 150 g Sahne
+    - 170 g Cheddar (gerieben)
+    - 1 TL Paprikapulver (edelsüß)
+    - 2 TL Gemüsebrühe
+    - Salz
+    - Pfeffer
+
+- titel: Halloumi Gnocchi
+  portionen: 2
+  kategorie: sonstiges
+  ernaehrung: vegetarisch
+  quelle: Instagram
+  notiz: |
+    1. Halloumi würfeln und in einer Pfanne goldbraun anbraten, dann herausnehmen.
+    2. Zwiebel und Paprika klein schneiden, in derselben Pfanne anbraten. Nach 2-3 Minuten Gnocchi dazugeben und ca. 5 Minuten mitrösten.
+    3. Mit Sahne und passierten Tomaten ablöschen, würzen und einkochen lassen.
+    4. Halloumi zurück in die Pfanne geben, durchschwenken und mit Parmesan und Basilikum servieren.
+  zutaten:
+    - 400 g Gnocchi
+    - 1 Packung Halloumi
+    - 1 Zwiebel
+    - 1 Paprika
+    - 200 ml Passierte Tomaten
+    - 50 ml Sahne
+    - Parmesan
+    - Basilikum
+    - Salz
+    - Pfeffer
+    - Paprikapulver
+
+- titel: Hähnchen-Erbsen-Pfanne
+  portionen: 4
+  kategorie: sonstiges
+  ernaehrung: fleisch
+  quelle: Instagram
+  notiz: |
+    1. Zwiebel und Knoblauch fein hacken und in Öl anbraten.
+    2. Hähnchenbrust in Streifen schneiden und ca. 6 Minuten mitanbraten.
+    3. Erbsen, Wasser, Sahne, Röstzwiebeln, Tomatenmark, Senf, Kräuter und Gewürze hinzufügen und ca. 6 Minuten köcheln lassen.
+    4. Stärke mit 4 EL kaltem Wasser glattrühren, unter die Soße rühren und kurz andicken lassen.
+  zutaten:
+    - 500 g Hähnchenbrust
+    - 300 g Erbsen (tiefgefroren)
+    - 1 Zwiebel (rot)
+    - 1 Zehe Knoblauch
+    - 200 ml Wasser
+    - 200 ml Sahne
+    - 20 g Röstzwiebeln
+    - 1.5 EL Tomatenmark
+    - 1.5 EL Senf
+    - 2 EL Kräuter (tiefgefroren)
+    - 2 TL Stärke
+    - Salz
+    - Pfeffer
+    - Öl
+
+- titel: Ofengeröstete Paprikasauce mit Linguine
+  portionen: 4
+  kategorie: nudeln
+  ernaehrung: vegetarisch
+  quelle: Instagram
+  notiz: |
+    1. Ofen auf 220 °C Ober-/Unterhitze vorheizen.
+    2. Paprika, Tomaten, Zwiebeln und Knoblauch grob schneiden und in eine Auflaufform geben. Tomatenmark, Wasser, Gewürze und Sahne dazugeben.
+    3. Alles im Ofen ca. 45 Minuten schmoren lassen.
+    4. Währenddessen Linguine kochen. Das geschmorte Gemüse fein pürieren, mit der verbliebenen Flüssigkeit vermengen und unter die Pasta heben.
+  zutaten:
+    - 350 g Linguine
+    - 300 g Paprika (rot)
+    - 150 g Datteltomaten
+    - 1 Zwiebel (rot)
+    - 2 Zehen Knoblauch
+    - 1 EL Tomatenmark
+    - 100 ml Wasser
+    - 150 ml Sahne
+    - 2 TL Petersilie (tiefgefroren)
+    - 2 TL Gemüsebrühe
+    - Salz
+    - Pfeffer
