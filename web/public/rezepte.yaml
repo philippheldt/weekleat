@@ -1676,3 +1676,118 @@ rezepte:
       - 100 g grünes Pesto
       - 12 Scheibe Kochschinken
       - 50 g Pinienkerne
+
+# weekleat – Rezeptkatalog
+
+- titel: Pizzasuppe
+  portionen: 4
+  kategorie: sonstiges
+  ernaehrung: fleisch
+  quelle: Jenny Rezepte S. 13
+  zutaten:
+    - 1 EL Öl
+    - 1 kleine Zwiebel, gewürfelt
+    - 50 g gemischtes Hackfleisch
+    - 100 g Tomaten
+    - 1 EL Tomatenmark
+    - 500 ml Gemüsebrühe
+    - 50 g grüne Bohnen
+    - 2 Champignons
+    - 50 g Sahne-Schmelzkäse
+    - 50 g Sahne
+    - Salz
+    - Pfeffer
+    - Oregano
+    - 1/2 Zehe Knoblauch
+    - Geriebener Parmesan
+
+- titel: Tom Ka Suppe
+  portionen: 4
+  kategorie: sonstiges
+  ernaehrung: fleisch
+  quelle: Jenny Rezepte S. 15
+  zutaten:
+    - Paprika
+    - Zucchini
+    - Tomaten
+    - Pilze
+    - Hähnchenfleisch
+    - Zwiebeln
+    - 400 ml Kokosmilch
+    - 1.5 EL Tom Ka Paste
+    - 400 ml Wasser
+    - Zitronensaft
+    - Fischsoße
+    - Reis
+
+- titel: Zucchini & Frischkäse Pasta
+  portionen: 4
+  kategorie: nudeln
+  ernaehrung: vegetarisch
+  quelle: Jenny Rezepte S. 37
+  zutaten:
+    - 60 g Pinienkerne
+    - 350 g Nudeln
+    - 1 EL Olivenöl
+    - 150 g Brokkoliröschen
+    - 2 Zucchini
+    - 150 ml Milch
+    - 200 g Frischkäse
+    - 150 g Champignons
+    - Basilikum
+    - Salz
+    - Pfeffer
+
+- titel: Linsen-Curry
+  portionen: 4
+  kategorie: reis
+  ernaehrung: vegan
+  quelle: Jenny Rezepte S. 63
+  zutaten:
+    - 1 Zwiebel
+    - 1 Knoblauchzehe
+    - 1 daumengroßes Stück Ingwer
+    - 2 Karotten in Scheiben
+    - 1 EL Rapsöl
+    - 0.5 EL rote Currypaste
+    - 300 g Belugalinsen
+    - 1 Dose Tomaten
+    - 1 Dose Kokosmilch
+    - 500 ml Gemüsebrühe
+    - 1 Süßkartoffel
+    - 250 g Blattspinat
+    - 1 Limette
+    - 15 g Koriander, frisch, gehackt
+
+- titel: Enchiladas (Füllung)
+  portionen: 2
+  kategorie: sonstiges
+  ernaehrung: vegan
+  planen: nein
+  quelle: Jenny Rezepte S. 89
+  zutaten:
+     - 150 g Mehl
+    - 50 g Maismehl
+    - 100 ml Wasser
+    - 1 EL Öl
+    - 1/8 TL Salz
+    - 1 Zwiebel
+    - 1 EL Öl
+    - 100 g Maiskörner
+    - 1/2 Dose Kidneybohnen
+    - 100 g Tomaten, gewürfelt
+    - 1/2 Bund Oregano
+    - 1/2 TL Paprikapulver
+    - 1/4 TL Kreuzkümmel
+    - Salz
+    - 1/2 Zwiebel
+    - 100 g Tomaten
+    - 1 EL Öl
+    - 1 Knoblauchzehe
+    - 1 TL Balsamicoessig
+    - 1 TL Tomatenmark
+    - 1 TL Honig
+    - Salz
+    - Pfeffer
+    - Muskat
+    - Käse
