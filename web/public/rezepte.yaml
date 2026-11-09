@@ -1757,26 +1757,20 @@ rezepte:
       - 1 Limette
       - 15 g Koriander, frisch, gehackt
 
-  - titel: Enchiladas (Tortilla-Teig)
+  - titel: Enchiladas
+    quelle: Jenny Rezepte S. 87, 89, 91
     portionen: 2
     kategorie: gebackenes
-    ernaehrung: vegan
-    planen: nein
-    quelle: Jenny Rezepte S. 87
+    ernaehrung: vegetarisch
+    bild: enchilada
     zutaten:
+      # Tortilla-Teig (S. 87)
       - 150 g Mehl
       - 50 g Maismehl
       - 100 ml Wasser
       - 1 EL Öl
       - 1/8 TL Salz
-
-  - titel: Enchiladas (Füllung)
-    portionen: 2
-    kategorie: sonstiges
-    ernaehrung: vegan
-    planen: nein
-    quelle: Jenny Rezepte S. 89
-    zutaten:
+      # Füllung (S. 89)
       - 1 Zwiebel
       - 1 EL Öl
       - 100 g Maiskörner
@@ -1786,25 +1780,21 @@ rezepte:
       - 1/2 TL Paprikapulver
       - 1/4 TL Kreuzkümmel
       - Salz
-
-  - titel: Enchiladas (Soße)
-    portionen: 2
-    kategorie: sonstiges
-    ernaehrung: vegetarisch
-    planen: nein
-    quelle: Jenny Rezepte S. 91
-    zutaten:
+      # Soße (S. 91)
       - 1/2 Zwiebel
       - 100 g Tomaten
       - 1 EL Öl
-      - 1 Knoblauchzehe
+      - 1 Zehe Knoblauch
       - 1 TL Balsamicoessig
       - 1 TL Tomatenmark
       - 1 TL Honig
-      - Salz
       - Pfeffer
       - Muskat
       - Käse
+    notiz: |
+      Tortilla-Teig: Jenny Rezepte S. 87
+      Füllung: Jenny Rezepte S. 89
+      Soße: Jenny Rezepte S. 91
 
   - titel: Kritharaki One Pot
     portionen: 2
