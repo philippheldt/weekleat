@@ -5,6 +5,8 @@ import { CATEGORY_LABELS } from '../lib/catalog.js'
 import { updateSettings } from '../actions.js'
 import { store, syncEnabled } from '../lib/store.js'
 import { Segmented, Sheet, Stepper } from './common.jsx'
+import { pantryMatcher } from '../lib/shopping.js'
+import { canonicalName } from '../lib/canonical.js'
 
 const STATUS = {
   local: 'Nur auf diesem Gerät (Supabase nicht eingerichtet)',
@@ -17,6 +19,10 @@ const STATUS = {
 export function SettingsSheet({ app, onClose }) {
   const s = app.settings
   const [pantry, setPantry] = useState(s.pantry)
+  const inPantry = pantryMatcher({ pantry })
+  const covered = [
+    ...new Set(app.recipes.flatMap((r) => r.ingredients.map((i) => canonicalName(i.name))).filter((n) => inPantry(n))),
+  ].sort((a, b) => a.localeCompare(b, 'de'))
 
   return (
     <Sheet title="Einstellungen" onClose={() => {
@@ -112,7 +118,15 @@ export function SettingsSheet({ app, onClose }) {
           />
         </div>
       </div>
-      <div class="form-foot">Diese Zutaten habt ihr immer da – sie kommen nicht auf die Einkaufsliste (mit Komma trennen).</div>
+      <div class="form-foot">
+        Diese Zutaten habt ihr immer da – sie kommen nicht auf die Einkaufsliste. Mit Komma oder neuer Zeile
+        trennen, Schreibweise egal. „Paprikapulver“ gilt für alle Sorten, „Paprikapulver edelsüß“ nur für diese.
+        {covered.length > 0 && (
+          <div style={{ marginTop: '6px' }}>
+            Deckt aus euren Rezepten ab: {covered.join(', ')}
+          </div>
+        )}
+      </div>
 
       <div class="form-head caption">Synchronisierung</div>
       <div class="form-section">

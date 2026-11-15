@@ -3,7 +3,7 @@ import fs from 'node:fs'
 import { parseIngredient, formatAmount, aggregate } from '../src/lib/ingredients.js'
 import { parseCatalog } from '../src/lib/catalog.js'
 import { generatePlan, DEFAULT_SETTINGS, implicitVote, scores } from '../src/lib/generator.js'
-import { buildAutoItems, diffShopping } from '../src/lib/shopping.js'
+import { buildAutoItems, diffShopping, pantryMatcher } from '../src/lib/shopping.js'
 import { upcomingWeek } from '../src/lib/week.js'
 
 function seeded(seed) {
@@ -237,6 +237,22 @@ describe('Einheitliche Zutaten', () => {
     const dupes = names.filter((n, i) => names.indexOf(n) !== i)
     // erlaubt nur, wenn eine Einheit bewusst nicht umgerechnet wird
     expect(dupes).toEqual([])
+  })
+})
+
+describe('Vorrat', () => {
+  it('erkennt Zutaten unabhängig von Schreibweise', () => {
+    const has = pantryMatcher({ pantry: 'Paprikapulver\nsenf; Öl, Salz, Kreuzkümmel, Chiliflocken' })
+    for (const n of ['Paprikapulver, edelsüß', 'Paprikapulver, geräuchert', 'geräuchertes Paprikapulver', 'Senf, mittelscharf', 'süßer Senf', 'körniger Senf', 'Öl', 'Pflanzenöl', 'Rapsöl', 'Rapsöl zum Ausbacken', 'Salz', 'Kreuzkümmel (Ganz)', 'Kreuzkümmelpulver'])
+      expect(has(n), n).toBe(true)
+    for (const n of ['Olivenöl', 'Sesamöl', 'Paprika', 'Pfeffer', 'Chilipulver', 'gehackter Knoblauch & Ingwer in Öl'])
+      expect(has(n), n).toBe(false)
+  })
+  it('mit Sorte nur diese Sorte', () => {
+    const has = pantryMatcher({ pantry: 'Paprikapulver edelsüß' })
+    expect(has('Paprikapulver, edelsüß')).toBe(true)
+    expect(has('Paprikapulver (edelsüß)')).toBe(true)
+    expect(has('Paprikapulver, rosenscharf')).toBe(false)
   })
 })
 
