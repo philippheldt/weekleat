@@ -40,6 +40,27 @@ export const MONTHS = ['jan', 'feb', 'mär', 'apr', 'mai', 'jun', 'jul', 'aug', 
 export const MONTH_LETTERS = ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D']
 export const MONTH_NAMES = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember']
 
+/** Saison-Stufen je Monat: 2 = Saison, 1 = seltener (von weiter weg), 0 = gibt es nicht */
+export const SEASON_FULL = 2
+export const SEASON_RARE = 1
+export const SEASON_NONE = 0
+
+/**
+ * saison: Monate mit voller Saison
+ * selten: Monate, in denen es das Rezept nur seltener gibt (optional)
+ * ausserhalb: was für die übrigen Monate gilt – "selten" (Standard) oder "nie"
+ * Ohne "saison" ist das Rezept ganzjährig (null).
+ */
+function parseSeason(raw) {
+  const full = parseMonths(raw.saison)
+  if (!full.length) return null
+  const rare = parseMonths(raw.selten)
+  const rest = String(raw.ausserhalb ?? raw['außerhalb'] ?? 'selten').toLowerCase().trim() === 'nie' ? SEASON_NONE : SEASON_RARE
+  return Array.from({ length: 12 }, (_, i) =>
+    full.includes(i + 1) ? SEASON_FULL : rare.includes(i + 1) ? SEASON_RARE : rest,
+  )
+}
+
 /** "saison: [okt, nov]" oder "[10, 11]" → [10, 11]; leer = ganzjährig */
 function parseMonths(v) {
   const out = new Set()
@@ -172,7 +193,7 @@ export function parseCatalog(text) {
       note: String(raw.notiz ?? raw.zubereitung ?? '').trim(),
       image: chooseImage(title, raw.bild),
       days: toList(raw.nur_an ?? raw.tage).map((d) => d.toLowerCase().slice(0, 2)),
-      months: parseMonths(raw.saison),
+      season: parseSeason(raw),
       plannable: !['nein', 'no', 'false', '0'].includes(String(raw.planen ?? '').toLowerCase().trim()) && raw.planen !== false,
     })
   })

@@ -12,7 +12,7 @@ Wochenplaner für iOS **und** Android: Aus euren Lieblingsrezepten (`public/reze
   - **Abwechslung**: Rezepte der letzten N Wochen werden übersprungen
   - gleiche Kategorien an aufeinanderfolgenden Tagen werden vermieden
   - `nur_an: [fr, sa, so]` im Rezept beschränkt es auf bestimmte Tage
-  - **Saison**: `saison: [sep, okt, nov]` – außerhalb dieser Monate wird das Rezept nicht automatisch eingeplant; in der Rezeptansicht per Monat änderbar (gilt dann für beide Handys)
+  - **Saison** in drei Stufen: `saison: [sep, okt, nov]` = volle Saison, übrige Monate nur etwa ¼ so oft (von weiter weg); mit `ausserhalb: nie` gar nicht (z. B. Spargel), mit `selten: [aug]` einzelne Monate dazwischen. In der Rezeptansicht per Monat umschaltbar (gilt für beide Handys)
   - `planen: nein` plant ein Rezept nie automatisch ein (z. B. Beilagen, Soßen) – von Hand wählbar bleibt es
 - **Tage tauschen**: Karte lange drücken, bis sie sich anhebt, auf einen anderen Tag ziehen und loslassen – die Rezepte tauschen die Tage (Festhalten wandert mit).
 - **Einzelnen Tag neu würfeln**: Karte nach links wischen (wie in der iOS-App) oder im Tag auf „Neu würfeln“ tippen.

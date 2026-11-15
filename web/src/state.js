@@ -53,9 +53,9 @@ export function snapshot() {
   })
   // Saison aus der App (Monate antippen) überschreibt die aus rezepte.yaml
   const seasons = store.all('season')
-  const seasonById = new Map(seasons.map((x) => [x.id, x.months]))
+  const seasonById = new Map(seasons.filter((x) => 'levels' in x).map((x) => [x.id, x.levels]))
   const recipes = seasonById.size
-    ? catalog.recipes.map((r) => (seasonById.has(r.id) ? { ...r, months: seasonById.get(r.id), seasonEdited: true } : r))
+    ? catalog.recipes.map((r) => (seasonById.has(r.id) ? { ...r, season: seasonById.get(r.id), seasonEdited: true } : r))
     : catalog.recipes
   return {
     settings,

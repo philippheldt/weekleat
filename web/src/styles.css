@@ -1032,3 +1032,47 @@ a.source:active {
   color: var(--fg);
   font-size: inherit;
 }
+
+/* Saison-Stufen */
+.month-pick .season-2,
+.dot.season-2 {
+  background: var(--fg);
+  color: var(--bg);
+  border-color: var(--fg);
+}
+.month-pick .season-1,
+.dot.season-1 {
+  background: color-mix(in srgb, var(--fg) 30%, var(--bg));
+  color: var(--fg);
+  border-color: color-mix(in srgb, var(--fg) 30%, var(--bg));
+}
+.month-pick .season-0 {
+  background: var(--bg);
+  color: var(--muted);
+  text-decoration: line-through;
+}
+.dot.season-0 {
+  background: var(--bg);
+}
+.season-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  align-items: center;
+  margin-top: 8px;
+}
+.season-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  border: 1px solid var(--line);
+}
+.season-legend .link-inline {
+  margin-left: auto;
+}

@@ -53,51 +53,52 @@ export function Source({ recipe }) {
   )
 }
 
-/** Saison wie die Wochentage: Monate antippen. Nichts oder alles markiert = ganzjährig. */
+const SEASON_LABEL = { 2: 'Saison', 1: 'seltener', 0: 'nicht' }
+
+/**
+ * Saison wie die Wochentage, aber mit drei Stufen. Antippen schaltet durch:
+ * Saison (voll) → seltener (von weiter weg) → nicht (gibt es nicht) → Saison
+ */
 export function SeasonPicker({ recipe }) {
-  const months = recipe.months || []
-  const all = months.length === 0
-  const toggle = (m) => {
-    const base = all ? [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12] : months
-    const next = base.includes(m) ? base.filter((x) => x !== m) : [...base, m]
-    if (next.length === 0) return // mindestens ein Monat bleibt
+  const levels = recipe.season || Array(12).fill(2)
+  const all = !recipe.season
+  const now = new Date().getMonth() + 1
+  const cycle = (i) => {
+    const next = [...levels]
+    next[i] = levels[i] === 2 ? 1 : levels[i] === 1 ? 0 : 2
     setSeason(recipe.id, next)
   }
-  const now = new Date().getMonth() + 1
+  const nowLevel = levels[now - 1]
   return (
     <>
       <div class="caption" style={{ marginTop: '22px', display: 'flex', justifyContent: 'space-between' }}>
         <span>Saison</span>
-        <span>{all ? 'ganzjährig' : months.includes(now) ? 'gerade Saison' : 'gerade keine Saison'}</span>
+        <span>
+          {all ? 'ganzjährig' : nowLevel === 2 ? 'gerade Saison' : nowLevel === 1 ? 'gerade seltener' : 'gerade nicht'}
+        </span>
       </div>
       <div class="month-pick" role="group" aria-label="Saison">
-        {MONTH_LETTERS.map((l, i) => {
-          const m = i + 1
-          const on = all || months.includes(m)
-          return (
-            <button
-              key={m}
-              class={`day-toggle ${on ? 'on' : ''} ${m === now ? 'today' : ''}`}
-              aria-pressed={on}
-              aria-label={MONTH_NAMES[i]}
-              onClick={() => toggle(m)}
-            >
-              {l}
-            </button>
-          )
-        })}
+        {MONTH_LETTERS.map((l, i) => (
+          <button
+            key={i}
+            class={`day-toggle season-${levels[i]} ${i + 1 === now ? 'today' : ''}`}
+            aria-label={`${MONTH_NAMES[i]}: ${SEASON_LABEL[levels[i]]}`}
+            onClick={() => cycle(i)}
+          >
+            {l}
+          </button>
+        ))}
       </div>
-      <p class="muted small" style={{ margin: '6px 0 0' }}>
-        {all ? 'Monate abwählen, in denen es das Rezept nicht geben soll.' : 'Außerhalb der Saison wird es nicht automatisch eingeplant.'}
+      <div class="season-legend muted small">
+        <span><i class="dot season-2" /> Saison</span>
+        <span><i class="dot season-1" /> seltener</span>
+        <span><i class="dot season-0" /> nicht</span>
         {!all && (
-          <>
-            {' '}
-            <button class="link-inline" onClick={() => setSeason(recipe.id, [])}>
-              Ganzjährig
-            </button>
-          </>
+          <button class="link-inline" onClick={() => setSeason(recipe.id, null)}>
+            Ganzjährig
+          </button>
         )}
-      </p>
+      </div>
     </>
   )
 }

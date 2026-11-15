@@ -13,8 +13,12 @@
 #                 (optional – wird sonst aus den Zutaten erraten)
 #    tags:        [schnell, ...]       (optional, nur zur Anzeige)
 #    nur_an:      [fr, sa, so]         (optional – nur an diesen Tagen einplanen)
-#    saison:      [sep, okt, nov]      (optional – nur in diesen Monaten automatisch
-#                                       einplanen; in der App per Monat änderbar)
+#    saison:      [sep, okt, nov]      (optional – Monate mit voller Saison; in den
+#                                       übrigen Monaten wird es seltener eingeplant)
+#    selten:      [aug, dez]           (optional – Monate, in denen es seltener kommt)
+#    ausserhalb:  nie                  (optional – übrige Monate gar nicht einplanen,
+#                                       für Zutaten, die es dann nicht gibt)
+#                                       In der App per Monat änderbar (3 Stufen).
 #    planen:      nein                 (optional – nie automatisch einplanen, z. B.
 #                                       Beilagen und Soßen; von Hand wählbar)
 #    quelle:      HelloFresh           (optional – wo das Rezept steht, z. B.
@@ -37,6 +41,8 @@
 rezepte:
   - titel: Gnocchi mit Ofenkürbis und Kräuter-Frischecreme
     saison: [sep, okt, nov, dez, jan]
+    selten: [aug, feb, mär]
+    ausserhalb: nie
     quelle: HelloFresh
     kategorie: nudeln
     ernaehrung: vegetarisch
@@ -388,6 +394,8 @@ rezepte:
 
   - titel: Vegetarisches Kürbisgulasch mit Pastinakenpüree
     saison: [sep, okt, nov, dez, jan]
+    selten: [aug, feb, mär]
+    ausserhalb: nie
     quelle: HelloFresh
     kategorie: kartoffeln
     ernaehrung: vegetarisch
@@ -725,6 +733,8 @@ rezepte:
 
   - titel: Wikinger-Auflauf
     saison: [sep, okt, nov, dez, jan]
+    selten: [aug, feb, mär]
+    ausserhalb: nie
     quelle: Monsieur Cuisine
     link: https://www.monsieur-cuisine.com/de/recipe/wikinger-auflauf-2
     portionen: 6
@@ -1209,6 +1219,8 @@ rezepte:
 
   - titel: Kürbislasagne
     saison: [sep, okt, nov, dez, jan]
+    selten: [aug, feb, mär]
+    ausserhalb: nie
     quelle: Monsieur Cuisine
     link: https://www.monsieur-cuisine.com/de/recipe/kurbislasagne-1
     portionen: 4
@@ -1291,6 +1303,8 @@ rezepte:
 
   - titel: Fruchtiges Puten-Curry
     saison: [jun, jul, aug, sep]
+    selten: [mai, okt]
+    ausserhalb: nie
     quelle: Monsieur Cuisine
     link: https://www.monsieur-cuisine.com/de/recipe/fruchtiges-puten-curry
     portionen: 6
@@ -1489,6 +1503,8 @@ rezepte:
 
   - titel: Gedämpfter Spargel mit Sauce Hollandaise
     saison: [apr, mai, jun]
+    selten: [mär]
+    ausserhalb: nie
     quelle: Monsieur Cuisine
     link: https://www.monsieur-cuisine.com/de/recipe/spargel-gedaempfter
     portionen: 4
@@ -1509,6 +1525,8 @@ rezepte:
 
   - titel: Semmelknödel mit Pfifferling-Rahm-Sauce
     saison: [jul, aug, sep, okt]
+    selten: [jun, nov]
+    ausserhalb: nie
     quelle: Monsieur Cuisine
     link: https://www.monsieur-cuisine.com/de/recipe/semmelknoedel-mit-pfifferling-rahm-sauce
     portionen: 4
@@ -2009,6 +2027,8 @@ rezepte:
 
   - titel: Kürbis-Feta Pasta
     saison: [sep, okt, nov, dez, jan]
+    selten: [aug, feb, mär]
+    ausserhalb: nie
     portionen: 4
     kategorie: nudeln
     ernaehrung: vegetarisch

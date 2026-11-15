@@ -125,7 +125,7 @@ export function generatePlan({ recipes, settings: rawSettings, plan, history = [
   const thursday = new Date(week + 'T00:00:00')
   thursday.setDate(thursday.getDate() + 3)
   const month = thursday.getMonth() + 1
-  const inSeason = (r) => !r.months?.length || r.months.includes(month)
+  const seasonLevel = (r) => (r.season ? r.season[month - 1] : 2)
 
   const pool = recipes.filter((r) => r.plannable !== false && allowedByDiet(r, settings.diet))
   if (!pool.length) {
@@ -179,13 +179,15 @@ export function generatePlan({ recipes, settings: rawSettings, plan, history = [
         if (lv.slot && slotType[day] === 'meat' && !isMeat(r)) return false
         if (lv.slot && slotType[day] === 'veg' && isMeat(r)) return false
         if (lv.nie && settings.freq[r.category] === 'nie') return false
-        if (lv.season && !inSeason(r)) return false
+        if (lv.season && seasonLevel(r) === 0) return false
         return true
       })
       if (!cands.length) continue
       const weights = cands.map((r) => {
         let w = baseWeight(r, settings, scoreMap)
         if (!lv.nie && w === 0) w = 0.05
+        // außerhalb der Saison (von weiter weg): deutlich seltener
+        if (seasonLevel(r) === 1) w *= 0.25
         if (neighbours.includes(r.category)) w *= 0.35
         return w
       })

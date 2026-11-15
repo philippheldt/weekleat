@@ -67,18 +67,30 @@ describe('Katalog', () => {
     const { plan } = generatePlan({ recipes, settings: DEFAULT_SETTINGS, plan: empty, week: '2026-11-09' })
     expect(plan.every((d) => d.recipeId === 'essen')).toBe(true)
   })
-  it('Saison: Monate werden gelesen, außerhalb wird nicht eingeplant', () => {
+  it('Saison: drei Stufen werden gelesen', () => {
     const { recipes } = parseCatalog(
-      'rezepte:\n  - titel: Kürbis\n    saison: [sep, okt, nov]\n    zutaten: [1 Ei]\n  - titel: Immer\n    zutaten: [1 Ei]\n  - titel: Alle\n    saison: [1,2,3,4,5,6,7,8,9,10,11,12]\n    zutaten: [1 Ei]\n',
+      'rezepte:\n  - titel: A\n    saison: [sep, okt]\n    zutaten: [1 Ei]\n' +
+        '  - titel: B\n    saison: [apr, mai]\n    selten: [jun]\n    ausserhalb: nie\n    zutaten: [1 Ei]\n' +
+        '  - titel: C\n    zutaten: [1 Ei]\n',
     )
-    expect(recipes.map((r) => r.months)).toEqual([[9, 10, 11], [], []])
-    const empty = Array.from({ length: 7 }, () => ({ recipeId: null, locked: false }))
-    const ids = (week) =>
-      generatePlan({ recipes: recipes.slice(0, 2), settings: { ...DEFAULT_SETTINGS, noRepeatWeeks: 0 }, plan: empty, week }).plan.map((d) => d.recipeId)
-    expect(ids('2026-10-12')).toContain('kuerbis')
-    // im Juni außer Saison: wird nur genommen, wenn sonst gar nichts geht (Lockerung), aber nicht vorrangig
-    const june = generatePlan({ recipes: recipes.slice(0, 2), settings: DEFAULT_SETTINGS, plan: [{ recipeId: null }, ...Array(6).fill({ recipeId: null, locked: true })], week: '2026-06-08' }).plan
-    expect(june[0].recipeId).toBe('immer')
+    expect(recipes[0].season).toEqual([1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 1, 1])
+    expect(recipes[1].season).toEqual([0, 0, 0, 2, 2, 1, 0, 0, 0, 0, 0, 0])
+    expect(recipes[2].season).toBeNull()
+  })
+
+  it('Saison: "nicht" wird nie, "seltener" seltener eingeplant', () => {
+    const mk = (id, season) => ({ id, title: id, portions: 4, category: 'sonstiges', diet: 'vegan', tags: [], ingredients: [], days: [], season })
+    const none = Array(12).fill(0), rare = Array(12).fill(1)
+    const recipes = [mk('immer', null), mk('selten', rare), mk('nie', none), ...['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'].map((x) => mk(x, null))]
+    let selten = 0, nie = 0
+    for (let s = 1; s < 200; s++) {
+      const ids = generatePlan({ recipes, settings: DEFAULT_SETTINGS, plan: Array.from({ length: 7 }, () => ({ recipeId: null })), week: '2026-11-16', random: seeded(s) }).plan.map((d) => d.recipeId)
+      if (ids.includes('selten')) selten++
+      if (ids.includes('nie')) nie++
+    }
+    expect(nie).toBe(0)
+    expect(selten).toBeGreaterThan(0)
+    expect(selten).toBeLessThan(120) // ohne Abwertung wäre es in ~7/10 der Wochen dabei
   })
 
   it('Quelle: Text, sonst Domain des Links', () => {
