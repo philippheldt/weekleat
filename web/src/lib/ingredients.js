@@ -1,3 +1,4 @@
+import { canonicalize } from './canonical.js'
 // Zutaten verstehen ("375g Kartoffeln", "1 EL Öl", "½ Bund Petersilie", "Salz")
 // und für die Einkaufsliste zusammenrechnen.
 
@@ -110,7 +111,9 @@ export function ingredientKey(name) {
  */
 export function aggregate(list) {
   const map = new Map()
-  for (const ing of list) {
+  for (const raw of list) {
+    // gleiche Zutat, gleiche Einheit (z. B. "Kochsahne 200 ml" → "Sahne 200 g")
+    const ing = canonicalize(raw)
     const key = `${ingredientKey(ing.name)}|${ing.unit}`
     const cur = map.get(key)
     if (!cur) {
@@ -122,7 +125,20 @@ export function aggregate(list) {
       if (ing.recipe && !cur.recipes.includes(ing.recipe)) cur.recipes.push(ing.recipe)
     }
   }
-  return [...map.values()]
+  // Einträge ohne Menge ("Salz", "Käse") in einen gleichnamigen Eintrag mit Menge aufnehmen
+  const items = [...map.values()]
+  const result = []
+  for (const it of items) {
+    if (it.amount == null) {
+      const other = items.find((o) => o !== it && o.amount != null && ingredientKey(o.name) === ingredientKey(it.name))
+      if (other) {
+        for (const r of it.recipes) if (!other.recipes.includes(r)) other.recipes.push(r)
+        continue
+      }
+    }
+    result.push(it)
+  }
+  return result
 }
 
 function fmtNumber(n) {

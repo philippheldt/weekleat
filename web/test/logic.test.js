@@ -3,7 +3,7 @@ import fs from 'node:fs'
 import { parseIngredient, formatAmount, aggregate } from '../src/lib/ingredients.js'
 import { parseCatalog } from '../src/lib/catalog.js'
 import { generatePlan, DEFAULT_SETTINGS, implicitVote, scores } from '../src/lib/generator.js'
-import { buildAutoItems, diffShopping } from '../src/lib/shopping.js'
+import { buildAutoItems, diffShopping, pantryMatcher } from '../src/lib/shopping.js'
 import { upcomingWeek } from '../src/lib/week.js'
 
 function seeded(seed) {
@@ -188,11 +188,11 @@ describe('Einkaufsliste', () => {
     plan[0] = { recipeId: 'kartoffelsuppe' }
     plan[1] = { recipeId: 'kartoffelpuffer-mit-apfelmus' }
     const items = buildAutoItems(plan, recipes, { ...DEFAULT_SETTINGS, portions: 2 })
-    const kart = items.find((i) => i.name === 'Kartoffeln')
+    const kart = items.find((i) => i.name === 'Kartoffeln, festkochend')
     expect(kart.amount).toBe(875) // (750 + 1000) / 2
     expect(kart.recipes).toHaveLength(2)
     expect(items.find((i) => i.name === 'Salz')).toBeUndefined()
-    expect(items.find((i) => i.name === 'Zwiebel').amount).toBe(1)
+    expect(items.find((i) => i.name === 'Zwiebeln').amount).toBe(1)
   })
   it('behält Häkchen und eigene Einträge', () => {
     const existing = [
@@ -203,6 +203,79 @@ describe('Einkaufsliste', () => {
     const { upserts, deletes } = diffShopping(existing, [{ id: 'auto:kartoffel|g', name: 'Kartoffeln', amount: 800, unit: 'g', recipes: ['x'] }])
     expect(upserts[0].checked).toBe(true)
     expect(deletes).toEqual(['auto:alt|'])
+  })
+})
+
+describe('Einheitliche Zutaten', () => {
+  it('fasst Schreibweisen und Einheiten zusammen', () => {
+    const r = aggregate([
+      { amount: 200, unit: 'g', name: 'Sahne' },
+      { amount: 150, unit: 'ml', name: 'Kochsahne' },
+      { amount: 100, unit: 'ml', name: 'Schlagsahne' },
+      { amount: 2, unit: '', name: 'Zwiebel' },
+      { amount: 100, unit: 'g', name: 'Zwiebeln' },
+      { amount: 1, unit: 'Dose', name: 'stückige Tomaten' },
+      { amount: 400, unit: 'g', name: 'stückige Tomaten (Dose)' },
+      { amount: 2, unit: 'EL', name: 'Tomatenmark' },
+      { amount: 20, unit: 'g', name: 'Tomatenmark' },
+      { amount: null, unit: '', name: 'Salz' },
+      { amount: 1, unit: 'TL', name: 'Salz' },
+    ])
+    const by = Object.fromEntries(r.map((x) => [x.name, x]))
+    expect(by['Sahne']).toMatchObject({ amount: 450, unit: 'g' })
+    expect(by['Zwiebeln']).toMatchObject({ amount: 3, unit: '' })
+    expect(by['Stückige Tomaten']).toMatchObject({ amount: 800, unit: 'g' })
+    expect(by['Tomatenmark']).toMatchObject({ amount: 50, unit: 'g' })
+    expect(r.filter((x) => x.name === 'Salz')).toHaveLength(1)
+  })
+
+  it('jede Zutat einer Art landet in genau einer Zeile', () => {
+    const { recipes } = parseCatalog(realCatalog)
+    const all = recipes.flatMap((r) => r.ingredients.filter((i) => i.amount != null))
+    const items = aggregate(all)
+    const names = items.map((i) => i.name)
+    const dupes = names.filter((n, i) => names.indexOf(n) !== i)
+    // erlaubt nur, wenn eine Einheit bewusst nicht umgerechnet wird
+    expect(dupes).toEqual([])
+  })
+})
+
+describe('Vorrat', () => {
+  it('erkennt Zutaten unabhängig von Schreibweise', () => {
+    const has = pantryMatcher({ pantry: 'Paprikapulver\nsenf; Öl, Salz, Kreuzkümmel, Chiliflocken' })
+    for (const n of ['Paprikapulver, edelsüß', 'Paprikapulver, geräuchert', 'geräuchertes Paprikapulver', 'Senf, mittelscharf', 'süßer Senf', 'körniger Senf', 'Öl', 'Pflanzenöl', 'Rapsöl', 'Rapsöl zum Ausbacken', 'Salz', 'Kreuzkümmel (Ganz)', 'Kreuzkümmelpulver'])
+      expect(has(n), n).toBe(true)
+    for (const n of ['Olivenöl', 'Sesamöl', 'Paprika', 'Pfeffer', 'Chilipulver', 'gehackter Knoblauch & Ingwer in Öl'])
+      expect(has(n), n).toBe(false)
+  })
+  it('mit Sorte nur diese Sorte', () => {
+    const has = pantryMatcher({ pantry: 'Paprikapulver edelsüß' })
+    expect(has('Paprikapulver, edelsüß')).toBe(true)
+    expect(has('Paprikapulver (edelsüß)')).toBe(true)
+    expect(has('Paprikapulver, rosenscharf')).toBe(false)
+  })
+})
+
+describe('Bestehende Einkaufsliste', () => {
+  it('Häkchen bleiben erhalten, wenn alte Zeilen zusammengefasst werden', () => {
+    const existing = [
+      { id: 'auto:kochsahne|g', name: 'Kochsahne', amount: 200, unit: 'g', checked: true },
+      { id: 'auto:sahne|ml', name: 'Sahne', amount: 100, unit: 'ml', checked: true },
+      { id: 'auto:zwiebel|', name: 'Zwiebel', amount: 1, unit: '', checked: true },
+      { id: 'auto:zwiebel|g', name: 'Zwiebeln', amount: 100, unit: 'g', checked: false },
+      { id: 'm:1', name: 'Milch', manual: true, checked: true },
+    ]
+    const auto = aggregate([
+      { amount: 200, unit: 'g', name: 'Kochsahne' },
+      { amount: 100, unit: 'ml', name: 'Sahne' },
+      { amount: 1, unit: '', name: 'Zwiebel' },
+      { amount: 100, unit: 'g', name: 'Zwiebeln' },
+    ]).map(({ key, ...r }) => ({ id: 'auto:' + key, ...r }))
+    const { upserts, deletes } = diffShopping(existing, auto)
+    const by = Object.fromEntries(upserts.map((x) => [x.name, x]))
+    expect(by['Sahne'].checked).toBe(true) // beide alten Sahne-Zeilen waren abgehakt
+    expect(by['Zwiebeln'].checked).toBe(false) // nur eine von zwei war abgehakt
+    expect(deletes).not.toContain('m:1') // eigene Einträge bleiben
   })
 })
 
