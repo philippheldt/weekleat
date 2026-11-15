@@ -121,6 +121,12 @@ export function generatePlan({ recipes, settings: rawSettings, plan, history = [
       .map((h) => h.recipeId),
   )
 
+  // Monat der geplanten Woche (Donnerstag entscheidet, wie bei Kalenderwochen)
+  const thursday = new Date(week + 'T00:00:00')
+  thursday.setDate(thursday.getDate() + 3)
+  const month = thursday.getMonth() + 1
+  const seasonLevel = (r) => (r.season ? r.season[month - 1] : 2)
+
   const pool = recipes.filter((r) => r.plannable !== false && allowedByDiet(r, settings.diet))
   if (!pool.length) {
     warnings.push('Keine Rezepte passen zur gewählten Ernährungsweise.')
@@ -148,12 +154,13 @@ export function generatePlan({ recipes, settings: rawSettings, plan, history = [
 
   // Lockerungsstufen, falls zu wenige Rezepte passen
   const levels = [
-    { recent: true, days: true, slot: true, nie: true, dup: true },
-    { recent: false, days: true, slot: true, nie: true, dup: true },
-    { recent: false, days: false, slot: true, nie: true, dup: true },
-    { recent: false, days: false, slot: false, nie: true, dup: true },
-    { recent: false, days: false, slot: false, nie: false, dup: true },
-    { recent: false, days: false, slot: false, nie: false, dup: false },
+    { recent: true, days: true, slot: true, nie: true, season: true, dup: true },
+    { recent: false, days: true, slot: true, nie: true, season: true, dup: true },
+    { recent: false, days: false, slot: true, nie: true, season: true, dup: true },
+    { recent: false, days: false, slot: false, nie: true, season: true, dup: true },
+    { recent: false, days: false, slot: false, nie: false, season: true, dup: true },
+    { recent: false, days: false, slot: false, nie: false, season: false, dup: true },
+    { recent: false, days: false, slot: false, nie: false, season: false, dup: false },
   ]
 
   for (const day of shuffle(targets, random)) {
@@ -172,12 +179,15 @@ export function generatePlan({ recipes, settings: rawSettings, plan, history = [
         if (lv.slot && slotType[day] === 'meat' && !isMeat(r)) return false
         if (lv.slot && slotType[day] === 'veg' && isMeat(r)) return false
         if (lv.nie && settings.freq[r.category] === 'nie') return false
+        if (lv.season && seasonLevel(r) === 0) return false
         return true
       })
       if (!cands.length) continue
       const weights = cands.map((r) => {
         let w = baseWeight(r, settings, scoreMap)
         if (!lv.nie && w === 0) w = 0.05
+        // außerhalb der Saison (von weiter weg): deutlich seltener
+        if (seasonLevel(r) === 1) w *= 0.25
         if (neighbours.includes(r.category)) w *= 0.35
         return w
       })

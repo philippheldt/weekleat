@@ -67,6 +67,32 @@ describe('Katalog', () => {
     const { plan } = generatePlan({ recipes, settings: DEFAULT_SETTINGS, plan: empty, week: '2026-11-09' })
     expect(plan.every((d) => d.recipeId === 'essen')).toBe(true)
   })
+  it('Saison: drei Stufen werden gelesen', () => {
+    const { recipes } = parseCatalog(
+      'rezepte:\n  - titel: A\n    saison: [sep, okt]\n    zutaten: [1 Ei]\n' +
+        '  - titel: B\n    saison: [apr, mai]\n    selten: [jun]\n    ausserhalb: nie\n    zutaten: [1 Ei]\n' +
+        '  - titel: C\n    zutaten: [1 Ei]\n',
+    )
+    expect(recipes[0].season).toEqual([1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 1, 1])
+    expect(recipes[1].season).toEqual([0, 0, 0, 2, 2, 1, 0, 0, 0, 0, 0, 0])
+    expect(recipes[2].season).toBeNull()
+  })
+
+  it('Saison: "nicht" wird nie, "seltener" seltener eingeplant', () => {
+    const mk = (id, season) => ({ id, title: id, portions: 4, category: 'sonstiges', diet: 'vegan', tags: [], ingredients: [], days: [], season })
+    const none = Array(12).fill(0), rare = Array(12).fill(1)
+    const recipes = [mk('immer', null), mk('selten', rare), mk('nie', none), ...['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'].map((x) => mk(x, null))]
+    let selten = 0, nie = 0
+    for (let s = 1; s < 200; s++) {
+      const ids = generatePlan({ recipes, settings: DEFAULT_SETTINGS, plan: Array.from({ length: 7 }, () => ({ recipeId: null })), week: '2026-11-16', random: seeded(s) }).plan.map((d) => d.recipeId)
+      if (ids.includes('selten')) selten++
+      if (ids.includes('nie')) nie++
+    }
+    expect(nie).toBe(0)
+    expect(selten).toBeGreaterThan(0)
+    expect(selten).toBeLessThan(120) // ohne Abwertung wäre es in ~7/10 der Wochen dabei
+  })
+
   it('Quelle: Text, sonst Domain des Links', () => {
     const { recipes } = parseCatalog(
       'rezepte:\n  - titel: A\n    quelle: HelloFresh\n    zutaten: [1 Ei]\n  - titel: B\n    link: https://www.chefkoch.de/rezepte/1\n    zutaten: [1 Ei]\n  - titel: C\n    zutaten: [1 Ei]\n',

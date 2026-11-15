@@ -36,6 +36,46 @@ const CAT_WORDS = {
   gebackenes: ['pizza', 'flammkuchen', 'auflauf', 'gratin', 'quiche', 'blech', 'ofen', 'lasagne', 'moussaka'],
 }
 
+export const MONTHS = ['jan', 'feb', 'mär', 'apr', 'mai', 'jun', 'jul', 'aug', 'sep', 'okt', 'nov', 'dez']
+export const MONTH_LETTERS = ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D']
+export const MONTH_NAMES = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember']
+
+/** Saison-Stufen je Monat: 2 = Saison, 1 = seltener (von weiter weg), 0 = gibt es nicht */
+export const SEASON_FULL = 2
+export const SEASON_RARE = 1
+export const SEASON_NONE = 0
+
+/**
+ * saison: Monate mit voller Saison
+ * selten: Monate, in denen es das Rezept nur seltener gibt (optional)
+ * ausserhalb: was für die übrigen Monate gilt – "selten" (Standard) oder "nie"
+ * Ohne "saison" ist das Rezept ganzjährig (null).
+ */
+function parseSeason(raw) {
+  const full = parseMonths(raw.saison)
+  if (!full.length) return null
+  const rare = parseMonths(raw.selten)
+  const rest = String(raw.ausserhalb ?? raw['außerhalb'] ?? 'selten').toLowerCase().trim() === 'nie' ? SEASON_NONE : SEASON_RARE
+  return Array.from({ length: 12 }, (_, i) =>
+    full.includes(i + 1) ? SEASON_FULL : rare.includes(i + 1) ? SEASON_RARE : rest,
+  )
+}
+
+/** "saison: [okt, nov]" oder "[10, 11]" → [10, 11]; leer = ganzjährig */
+function parseMonths(v) {
+  const out = new Set()
+  for (const raw of toList(v)) {
+    const t = raw.toLowerCase().replace('maerz', 'mär').replace('marz', 'mär')
+    const n = Number(t)
+    if (n >= 1 && n <= 12) out.add(n)
+    else {
+      const i = MONTHS.findIndex((m) => t.startsWith(m))
+      if (i >= 0) out.add(i + 1)
+    }
+  }
+  return out.size === 12 ? [] : [...out].sort((a, b) => a - b)
+}
+
 export function slugify(s) {
   return String(s)
     .toLowerCase()
@@ -153,6 +193,7 @@ export function parseCatalog(text) {
       note: String(raw.notiz ?? raw.zubereitung ?? '').trim(),
       image: chooseImage(title, raw.bild),
       days: toList(raw.nur_an ?? raw.tage).map((d) => d.toLowerCase().slice(0, 2)),
+      season: parseSeason(raw),
       plannable: !['nein', 'no', 'false', '0'].includes(String(raw.planen ?? '').toLowerCase().trim()) && raw.planen !== false,
     })
   })

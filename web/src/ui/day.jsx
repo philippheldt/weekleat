@@ -3,7 +3,8 @@ import { DAYS, DAY_LETTERS, DAY_KEYS } from '../lib/week.js'
 import { scores } from '../lib/generator.js'
 import { formatAmount } from '../lib/ingredients.js'
 import { displayName } from '../lib/canonical.js'
-import { setDayRecipe, toggleLock, vote } from '../actions.js'
+import { setDayRecipe, setSeason, toggleLock, vote } from '../actions.js'
+import { MONTH_LETTERS, MONTH_NAMES } from '../lib/catalog.js'
 import { Banner, Chevron, FoodImage, Icon, Sheet, Svg, toast } from './common.jsx'
 
 const DAY_NAMES = { mo: 'Mo', di: 'Di', mi: 'Mi', do: 'Do', fr: 'Fr', sa: 'Sa', so: 'So' }
@@ -52,6 +53,56 @@ export function Source({ recipe }) {
   )
 }
 
+const SEASON_LABEL = { 2: 'Saison', 1: 'seltener', 0: 'nicht' }
+
+/**
+ * Saison wie die Wochentage, aber mit drei Stufen. Antippen schaltet durch:
+ * Saison (voll) → seltener (von weiter weg) → nicht (gibt es nicht) → Saison
+ */
+export function SeasonPicker({ recipe }) {
+  const levels = recipe.season || Array(12).fill(2)
+  const all = !recipe.season
+  const now = new Date().getMonth() + 1
+  const cycle = (i) => {
+    const next = [...levels]
+    next[i] = levels[i] === 2 ? 1 : levels[i] === 1 ? 0 : 2
+    setSeason(recipe.id, next)
+  }
+  const nowLevel = levels[now - 1]
+  return (
+    <>
+      <div class="caption" style={{ marginTop: '22px', display: 'flex', justifyContent: 'space-between' }}>
+        <span>Saison</span>
+        <span>
+          {all ? 'ganzjährig' : nowLevel === 2 ? 'gerade Saison' : nowLevel === 1 ? 'gerade seltener' : 'gerade nicht'}
+        </span>
+      </div>
+      <div class="month-pick" role="group" aria-label="Saison">
+        {MONTH_LETTERS.map((l, i) => (
+          <button
+            key={i}
+            class={`day-toggle season-${levels[i]} ${i + 1 === now ? 'today' : ''}`}
+            aria-label={`${MONTH_NAMES[i]}: ${SEASON_LABEL[levels[i]]}`}
+            onClick={() => cycle(i)}
+          >
+            {l}
+          </button>
+        ))}
+      </div>
+      <div class="season-legend muted small">
+        <span><i class="dot season-2" /> Saison</span>
+        <span><i class="dot season-1" /> seltener</span>
+        <span><i class="dot season-0" /> nicht</span>
+        {!all && (
+          <button class="link-inline" onClick={() => setSeason(recipe.id, null)}>
+            Ganzjährig
+          </button>
+        )}
+      </div>
+    </>
+  )
+}
+
 export function RecipeDetail({ app, recipe, children, bannerLeft, bannerRight }) {
   const factor = app.settings.portions / recipe.portions
   return (
@@ -70,6 +121,7 @@ export function RecipeDetail({ app, recipe, children, bannerLeft, bannerRight })
           </p>
         )}
         {children}
+        <SeasonPicker recipe={recipe} />
         <div class="caption" style={{ marginTop: '22px' }}>
           Zutaten für {app.settings.portions} Portionen
         </div>

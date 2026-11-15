@@ -51,6 +51,12 @@ export function snapshot() {
     const d = store.get('plan', String(i))
     return { recipeId: d?.recipeId ?? null, locked: !!d?.locked }
   })
+  // Saison aus der App (Monate antippen) überschreibt die aus rezepte.yaml
+  const seasons = store.all('season')
+  const seasonById = new Map(seasons.filter((x) => 'levels' in x).map((x) => [x.id, x.levels]))
+  const recipes = seasonById.size
+    ? catalog.recipes.map((r) => (seasonById.has(r.id) ? { ...r, season: seasonById.get(r.id), seasonEdited: true } : r))
+    : catalog.recipes
   return {
     settings,
     plan,
@@ -59,8 +65,8 @@ export function snapshot() {
     votes: store.all('votes'),
     history: store.all('history'),
     shopping: store.all('shopping'),
-    recipes: catalog.recipes,
-    byId: new Map(catalog.recipes.map((r) => [r.id, r])),
+    recipes,
+    byId: new Map(recipes.map((r) => [r.id, r])),
     problems: catalog.problems,
     catalogLoaded: catalog.loaded,
     catalogError: catalog.error,
