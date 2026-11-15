@@ -14,6 +14,7 @@ Wochenplaner für iOS **und** Android: Aus euren Lieblingsrezepten (`public/reze
   - `nur_an: [fr, sa, so]` im Rezept beschränkt es auf bestimmte Tage
   - **Saison** in drei Stufen: `saison: [sep, okt, nov]` = volle Saison, übrige Monate nur etwa ¼ so oft (von weiter weg); mit `ausserhalb: nie` gar nicht (z. B. Spargel), mit `selten: [aug]` einzelne Monate dazwischen. In der Rezeptansicht per Monat umschaltbar (gilt für beide Handys). Ohne `saison` wird sie aus saisonalen Zutaten abgeleitet (Paprika, Zucchini, Gurke, grüne Bohnen, Blumenkohl, Kürbis, Spargel, Pfifferlinge, Pfirsiche): außerhalb nur seltener; Rezeptansicht und Einkaufsliste schlagen dann Alternativen mit Saison vor (Kalender in `web/src/lib/seasonal.js`)
   - `planen: nein` plant ein Rezept nie automatisch ein (z. B. Beilagen, Soßen) – von Hand wählbar bleibt es
+- **Gepinnte Tage** sind gesperrt: kein Neu-Würfeln, kein anderes Rezept, kein Tauschen oder Verschieben (weder von noch auf den Tag) – erst den Pin lösen.
 - **Tage tauschen**: Karte lange drücken, bis sie sich anhebt, auf einen anderen Tag ziehen und loslassen – die Rezepte tauschen die Tage (Festhalten wandert mit).
 - **Einzelnen Tag neu würfeln**: Karte nach links wischen (wie in der iOS-App) oder im Tag auf „Neu würfeln“ tippen.
 - **Rezepte fest einplanen**: im Tag „Festhalten“ oder „Anderes Rezept wählen“, oder in der Rezeptsammlung „Fest einplanen am …“.

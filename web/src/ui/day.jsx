@@ -228,7 +228,12 @@ export function DaySheet({ app, day, onClose, startPicking = false }) {
           </button>
         }
         bannerRight={
-          <button class="banner-btn" aria-label="Anderes Rezept wählen" onClick={() => setPicking(true)}>
+          <button
+            class={`banner-btn ${entry.locked ? 'disabled' : ''}`}
+            aria-label="Anderes Rezept wählen"
+            aria-disabled={entry.locked}
+            onClick={() => (entry.locked ? toast('Gepinnt – erst den Pin lösen') : setPicking(true))}
+          >
             <Svg name="pencil" />
           </button>
         }
@@ -249,12 +254,15 @@ export function PlanOnDay({ app, recipe, onDone }) {
       <div class="day-pick">
         {DAY_LETTERS.map((l, i) => {
           const here = app.plan[i].recipeId === recipe.id
+          const pinned = app.plan[i].locked
           return (
             <button
               key={i}
-              class={`btn ${here ? 'on' : ''}`}
-              aria-label={DAYS[i]}
+              class={`btn ${here ? 'on' : ''} ${pinned ? 'pinned' : ''}`}
+              aria-label={pinned ? `${DAYS[i]} (gepinnt)` : DAYS[i]}
+              aria-disabled={pinned}
               onClick={() => {
+                if (pinned) return toast(`${DAYS[i]} ist gepinnt – erst den Pin lösen`)
                 setDayRecipe(i, here ? null : recipe.id)
                 toast(here ? `${DAYS[i]} wieder frei` : `${recipe.title} am ${DAYS[i]} eingeplant`)
                 onDone?.()

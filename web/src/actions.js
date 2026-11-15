@@ -65,8 +65,15 @@ export function generateWeek() {
   return warnings
 }
 
+/** Gepinnte Tage dürfen weder ersetzt noch getauscht werden – erst den Pin lösen. */
+export const PINNED_MSG = 'Gepinnt – erst den Pin lösen'
+export function isPinned(day) {
+  return !!snapshot().plan[day]?.locked
+}
+
 export function rerollDay(day) {
   const s = snapshot()
+  if (s.plan[day].locked) return [PINNED_MSG]
   const { plan, warnings } = generatePlan({
     recipes: s.recipes,
     settings: s.settings,
@@ -86,11 +93,13 @@ export function rerollDay(day) {
 
 export function setDayRecipe(day, recipeId) {
   const s = snapshot()
+  if (s.plan[day].locked) return false
   const plan = s.plan.map((d) => ({ ...d }))
   plan[day] = { recipeId, locked: !!recipeId }
   // Gezielt ausgewähltes Rezept zählt als "öfter"
   const votes = recipeId ? [implicitVote(s.week, recipeId, 'pick')] : []
   commitPlan(s, plan, s.week, [{ type: 'put', collection: 'votes', rows: votes }])
+  return true
 }
 
 /** Saison eines Rezepts setzen: 12 Stufen (2 Saison, 1 seltener, 0 nie) oder null = ganzjährig. */
@@ -101,11 +110,13 @@ export function setSeason(recipeId, levels) {
 
 /** Rezepte zweier Tage tauschen (Drag & Drop). Festhalten wandert mit dem Rezept mit. */
 export function swapDays(a, b) {
-  if (a === b) return
+  if (a === b) return false
   const s = snapshot()
+  if (s.plan[a].locked || s.plan[b].locked) return false
   const plan = s.plan.map((d) => ({ ...d }))
   ;[plan[a], plan[b]] = [plan[b], plan[a]]
   commitPlan(s, plan)
+  return true
 }
 
 export function toggleLock(day) {

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'preact/hooks'
 import { DAYS, DAY_LETTERS, dateOfDay, formatShort, weekLabel, weekdayIndex, mondayOf } from '../lib/week.js'
-import { generateWeek, rerollDay, swapDays, toggleDayActive } from '../actions.js'
+import { PINNED_MSG, generateWeek, rerollDay, swapDays, toggleDayActive } from '../actions.js'
 import { Banner, Chevron, FoodImage, Icon, NavBar, Svg, toast } from './common.jsx'
 import { DaySheet } from './day.jsx'
 import { SettingsSheet } from './settings.jsx'
@@ -18,7 +18,7 @@ const LONG_PRESS_MS = 400
  *  nach links wischen  → bearbeiten (anderes Rezept auswählen)
  *  lange drücken + ziehen → auf einen anderen Tag verschieben (Drag & Drop)
  */
-function SwipeCard({ onSwipeRight, onSwipeLeft, onTap, onLift, onLiftMove, onLiftEnd, large, children, label }) {
+function SwipeCard({ onSwipeRight, onSwipeLeft, onTap, onLift, onLiftMove, onLiftEnd, onBlocked, pinned, large, children, label }) {
   const ref = useRef()
   const start = useRef(null)
   const lifted = useRef(false)
@@ -47,6 +47,11 @@ function SwipeCard({ onSwipeRight, onSwipeLeft, onTap, onLift, onLiftMove, onLif
       pressTimer.current = setTimeout(() => {
         const s = start.current
         if (!s || s.horizontal != null) return
+        if (pinned) {
+          navigator.vibrate?.(10)
+          onBlocked?.()
+          return
+        }
         lifted.current = true
         s.moved = true
         ref.current?.setPointerCapture?.(s.id)
@@ -75,7 +80,9 @@ function SwipeCard({ onSwipeRight, onSwipeLeft, onTap, onLift, onLiftMove, onLif
       s.moved = true
       setPhase('drag')
       // nach links nur ein Stück ziehen (Bearbeiten), nach rechts frei (Würfeln)
-      setDx(x < 0 ? Math.max(x, -(ref.current?.offsetWidth || 300) * 0.55) : x)
+      const w = ref.current?.offsetWidth || 300
+      // gepinnt: nur ein kleines Stück ziehen lassen (Widerstand)
+      setDx(pinned ? Math.max(-w * 0.35, Math.min(w * 0.35, x * 0.4)) : x < 0 ? Math.max(x, -w * 0.55) : x)
     }
   }
   const up = (e) => {
@@ -98,6 +105,13 @@ function SwipeCard({ onSwipeRight, onSwipeLeft, onTap, onLift, onLiftMove, onLif
     suppressClick.current = true
     setTimeout(() => (suppressClick.current = false), 400)
     const width = ref.current?.offsetWidth || 300
+    if (pinned && Math.abs(dx) > width * 0.3) {
+      // gepinnt: zurückfedern statt würfeln/bearbeiten
+      setPhase('idle')
+      setDx(0)
+      onBlocked?.()
+      return
+    }
     if (dx > width * 0.35) {
       navigator.vibrate?.(15)
       setPhase('out')
@@ -132,12 +146,17 @@ function SwipeCard({ onSwipeRight, onSwipeLeft, onTap, onLift, onLiftMove, onLif
   }
   return (
     <div class="day-wrap">
-      {phase === 'drag' && dx > 30 && (
+      {phase === 'drag' && pinned && Math.abs(dx) > 20 && (
+        <div class={`swipe-hint ${dx > 0 ? 'left' : 'right'}`}>
+          <Svg name="pin" /> gepinnt
+        </div>
+      )}
+      {phase === 'drag' && !pinned && dx > 30 && (
         <div class="swipe-hint left">
           <Svg name="refresh" /> neu würfeln
         </div>
       )}
-      {phase === 'drag' && dx < -30 && (
+      {phase === 'drag' && !pinned && dx < -30 && (
         <div class="swipe-hint right">
           anderes wählen <Svg name="pencil" />
         </div>
@@ -216,6 +235,8 @@ function DayCard({ app, day, large, onOpen, onEdit, drag }) {
       onLift={() => drag.start(day)}
       onLiftMove={drag.move}
       onLiftEnd={drag.end}
+      pinned={entry.locked}
+      onBlocked={() => toast(PINNED_MSG)}
       large={large}
       label={`${DAYS[day]}: ${recipe.title}`}
     >
@@ -267,7 +288,8 @@ export function WeekView({ app }) {
   const [dragFrom, setDragFrom] = useState(null)
   const [dragOver, setDragOver] = useState(null)
   const overRef = useRef(null)
-  const canDrop = (d) => d != null && (app.settings.days[d] || app.plan[d].locked)
+  // gepinnte Tage nehmen nichts an; Tage ohne Kochen auch nicht
+  const canDrop = (d) => d != null && app.settings.days[d] && !app.plan[d].locked
   const drag = {
     start(day) {
       setDragFrom(day)
@@ -297,6 +319,7 @@ export function WeekView({ app }) {
       setDragFrom(null)
       setDragOver(null)
       overRef.current = null
+      if (commit && from != null && to != null && to !== from && app.plan[to].locked) toast(PINNED_MSG)
       if (commit && from != null && canDrop(to) && to !== from) {
         swapDays(from, to)
         const moved = app.byId.get(app.plan[from].recipeId)?.title
