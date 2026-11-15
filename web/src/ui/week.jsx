@@ -1,6 +1,6 @@
-import { useRef, useState } from 'preact/hooks'
+import { useEffect, useRef, useState } from 'preact/hooks'
 import { DAYS, DAY_LETTERS, dateOfDay, formatShort, weekLabel, weekdayIndex, mondayOf } from '../lib/week.js'
-import { generateWeek, rerollDay, toggleDayActive } from '../actions.js'
+import { generateWeek, rerollDay, swapDays, toggleDayActive } from '../actions.js'
 import { Banner, Chevron, FoodImage, Icon, NavBar, Svg, toast } from './common.jsx'
 import { DaySheet } from './day.jsx'
 import { SettingsSheet } from './settings.jsx'
@@ -10,14 +10,30 @@ function isoOf(d) {
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`
 }
 
+const LONG_PRESS_MS = 400
+
 /**
- * Karte mit Wischgesten:
- *  nach rechts → neu würfeln (Karte fliegt raus, neues Rezept kommt)
- *  nach links  → bearbeiten (anderes Rezept auswählen)
+ * Karte mit Gesten:
+ *  nach rechts wischen → neu würfeln (Karte fliegt raus, neues Rezept kommt)
+ *  nach links wischen  → bearbeiten (anderes Rezept auswählen)
+ *  lange drücken + ziehen → auf einen anderen Tag verschieben (Drag & Drop)
  */
-function SwipeCard({ onSwipeRight, onSwipeLeft, onTap, large, children, label }) {
+function SwipeCard({ onSwipeRight, onSwipeLeft, onTap, onLift, onLiftMove, onLiftEnd, large, children, label }) {
   const ref = useRef()
   const start = useRef(null)
+  const lifted = useRef(false)
+  const pressTimer = useRef(null)
+  const [liftDy, setLiftDy] = useState(null)
+
+  // Während die Karte angehoben ist, darf die Seite nicht scrollen
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const block = (e) => lifted.current && e.cancelable && e.preventDefault()
+    el.addEventListener('touchmove', block, { passive: false })
+    return () => el.removeEventListener('touchmove', block)
+  }, [])
+
   // Nach einer Wischbewegung feuert der Browser noch einen Klick – den ignorieren
   const suppressClick = useRef(false)
   const [dx, setDx] = useState(0)
@@ -26,12 +42,31 @@ function SwipeCard({ onSwipeRight, onSwipeLeft, onTap, large, children, label })
   const down = (e) => {
     if (phase === 'out' || phase === 'in') return
     start.current = { x: e.clientX, y: e.clientY, id: e.pointerId, moved: false, horizontal: null }
+    clearTimeout(pressTimer.current)
+    if (onLift) {
+      pressTimer.current = setTimeout(() => {
+        const s = start.current
+        if (!s || s.horizontal != null) return
+        lifted.current = true
+        s.moved = true
+        ref.current?.setPointerCapture?.(s.id)
+        navigator.vibrate?.(20)
+        setLiftDy(0)
+        onLift()
+      }, LONG_PRESS_MS)
+    }
   }
   const move = (e) => {
     const s = start.current
     if (!s || s.id !== e.pointerId) return
     const x = e.clientX - s.x
     const y = e.clientY - s.y
+    if (lifted.current) {
+      setLiftDy(y)
+      onLiftMove(e.clientX, e.clientY)
+      return
+    }
+    if (Math.abs(x) > 8 || Math.abs(y) > 8) clearTimeout(pressTimer.current)
     if (s.horizontal == null && (Math.abs(x) > 8 || Math.abs(y) > 8)) {
       s.horizontal = Math.abs(x) > Math.abs(y)
       if (s.horizontal) ref.current?.setPointerCapture?.(e.pointerId)
@@ -43,10 +78,19 @@ function SwipeCard({ onSwipeRight, onSwipeLeft, onTap, large, children, label })
       setDx(x < 0 ? Math.max(x, -(ref.current?.offsetWidth || 300) * 0.55) : x)
     }
   }
-  const up = () => {
+  const up = (e) => {
+    clearTimeout(pressTimer.current)
     const s = start.current
     start.current = null
     if (!s) return
+    if (lifted.current) {
+      lifted.current = false
+      suppressClick.current = true
+      setTimeout(() => (suppressClick.current = false), 400)
+      setLiftDy(null)
+      onLiftEnd(e?.type !== 'pointercancel')
+      return
+    }
     if (!s.moved) {
       setPhase('idle')
       return
@@ -79,7 +123,7 @@ function SwipeCard({ onSwipeRight, onSwipeLeft, onTap, large, children, label })
     onTap()
   }
 
-  const style = {
+  const style = liftDy != null ? { transform: `translateY(${liftDy}px) scale(1.03)`, zIndex: 30 } : {
     transform:
       phase === 'in'
         ? 'scale(1)'
@@ -100,7 +144,8 @@ function SwipeCard({ onSwipeRight, onSwipeLeft, onTap, large, children, label })
       )}
       <button
         ref={ref}
-        class={`card ${large ? 'large' : ''} ${phase === 'drag' ? 'swiping' : 'animate'} ${phase === 'in' ? 'pop' : ''}`}
+        class={`card ${large ? 'large' : ''} ${phase === 'drag' || liftDy != null ? 'swiping' : 'animate'} ${phase === 'in' ? 'pop' : ''} ${liftDy != null ? 'lifted' : ''}`}
+        onContextMenu={(e) => e.preventDefault()}
         style={style}
         onPointerDown={down}
         onPointerMove={move}
@@ -115,7 +160,7 @@ function SwipeCard({ onSwipeRight, onSwipeLeft, onTap, large, children, label })
   )
 }
 
-function DayCard({ app, day, large, onOpen, onEdit }) {
+function DayCard({ app, day, large, onOpen, onEdit, drag }) {
   const entry = app.plan[day]
   const recipe = app.byId.get(entry.recipeId)
 
@@ -164,7 +209,16 @@ function DayCard({ app, day, large, onOpen, onEdit }) {
     if (w.length) toast(w[0])
   }
   return (
-    <SwipeCard onSwipeRight={swipe} onSwipeLeft={onEdit} onTap={onOpen} large={large} label={`${DAYS[day]}: ${recipe.title}`}>
+    <SwipeCard
+      onSwipeRight={swipe}
+      onSwipeLeft={onEdit}
+      onTap={onOpen}
+      onLift={() => drag.start(day)}
+      onLiftMove={drag.move}
+      onLiftEnd={drag.end}
+      large={large}
+      label={`${DAYS[day]}: ${recipe.title}`}
+    >
       {large ? (
         <>
           <Banner name={recipe.image} />
@@ -208,6 +262,50 @@ export function WeekView({ app }) {
   }
 
   const order = [0, 1, 2, 3, 4, 5, 6]
+
+  // Drag & Drop zwischen Tagen
+  const [dragFrom, setDragFrom] = useState(null)
+  const [dragOver, setDragOver] = useState(null)
+  const overRef = useRef(null)
+  const canDrop = (d) => d != null && (app.settings.days[d] || app.plan[d].locked)
+  const drag = {
+    start(day) {
+      setDragFrom(day)
+      overRef.current = day
+      setDragOver(day)
+    },
+    move(x, y) {
+      // Nahe am Rand automatisch scrollen
+      const edge = 90
+      if (y < edge) window.scrollBy(0, -12)
+      else if (y > window.innerHeight - edge - 70) window.scrollBy(0, 12)
+      // die angehobene Karte selbst liegt unter dem Finger – darunter nach dem Tag suchen
+      const el = document
+        .elementsFromPoint(x, y)
+        .find((n) => !n.closest('.card.lifted') && n.closest('[data-day]'))
+        ?.closest('[data-day]')
+      const d = el ? Number(el.dataset.day) : null
+      if (d !== overRef.current) {
+        overRef.current = d
+        setDragOver(d)
+        if (d != null) navigator.vibrate?.(5)
+      }
+    },
+    end(commit) {
+      const from = dragFromRef.current
+      const to = overRef.current
+      setDragFrom(null)
+      setDragOver(null)
+      overRef.current = null
+      if (commit && from != null && canDrop(to) && to !== from) {
+        swapDays(from, to)
+        const moved = app.byId.get(app.plan[from].recipeId)?.title
+        toast(app.plan[to].recipeId ? `${DAYS[from]} und ${DAYS[to]} getauscht` : `${moved} auf ${DAYS[to]} verschoben`)
+      }
+    },
+  }
+  const dragFromRef = useRef(null)
+  dragFromRef.current = dragFrom
 
   return (
     <>
@@ -258,7 +356,11 @@ export function WeekView({ app }) {
           const date = dateOfDay(app.week, day)
           const isToday = day === todayIdx
           return (
-            <section key={day} class={todayIdx > day ? 'past' : ''}>
+            <section
+              key={day}
+              data-day={day}
+              class={`${todayIdx > day ? 'past' : ''} ${dragFrom != null && dragOver === day && day !== dragFrom ? (canDrop(day) ? 'drop-target' : 'drop-blocked') : ''} ${dragFrom === day ? 'drag-source' : ''}`}
+            >
               {isToday ? (
                 <div class="page-head" style={{ paddingBottom: '12px' }}>
                   <h1 class="title">Heute</h1>
@@ -271,7 +373,7 @@ export function WeekView({ app }) {
                   {DAYS[day]} · {formatShort(date)}
                 </div>
               )}
-              <DayCard app={app} day={day} large={isToday} onOpen={() => setOpenDay({ day })} onEdit={() => setOpenDay({ day, pick: true })} />
+              <DayCard app={app} day={day} large={isToday} onOpen={() => setOpenDay({ day })} onEdit={() => setOpenDay({ day, pick: true })} drag={drag} />
             </section>
           )
         })
