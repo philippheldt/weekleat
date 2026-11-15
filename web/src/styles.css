@@ -1085,3 +1085,12 @@ a.source:active {
   margin-top: 2px;
   font-weight: 400;
 }
+
+/* Gepinnt: Ersetzen nicht möglich */
+.banner-btn.disabled {
+  opacity: 0.45;
+}
+.day-pick .btn.pinned {
+  opacity: 0.4;
+  border-style: dashed;
+}
