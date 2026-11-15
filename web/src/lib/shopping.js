@@ -42,11 +42,18 @@ export function buildAutoItems(plan, recipes, rawSettings) {
  * @returns {{ upserts: object[], deletes: string[] }}
  */
 export function diffShopping(existing, autoItems) {
-  const old = new Map(existing.filter((x) => !x.manual).map((x) => [x.id, x]))
+  const autos = existing.filter((x) => !x.manual)
+  const old = new Map(autos.map((x) => [x.id, x]))
   const upserts = []
   for (const item of autoItems) {
     const prev = old.get(item.id)
-    const next = { ...item, manual: false, checked: prev?.checked ?? false }
+    // Neue Zeile, die alte Zeilen zusammenfasst (z. B. "Kochsahne" + "Sahne" → "Sahne"):
+    // abgehakt, wenn alle alten Zeilen dazu abgehakt waren
+    const merged = autos.filter(
+      (x) => x === prev || ingredientKey(canonicalName(x.name)) === ingredientKey(item.name),
+    )
+    const checked = merged.length > 0 && merged.every((x) => x.checked)
+    const next = { ...item, manual: false, checked }
     if (!prev || prev.amount !== next.amount || prev.name !== next.name || String(prev.recipes) !== String(next.recipes)) {
       upserts.push(next)
     }

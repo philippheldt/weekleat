@@ -240,6 +240,29 @@ describe('Einheitliche Zutaten', () => {
   })
 })
 
+describe('Bestehende Einkaufsliste', () => {
+  it('Häkchen bleiben erhalten, wenn alte Zeilen zusammengefasst werden', () => {
+    const existing = [
+      { id: 'auto:kochsahne|g', name: 'Kochsahne', amount: 200, unit: 'g', checked: true },
+      { id: 'auto:sahne|ml', name: 'Sahne', amount: 100, unit: 'ml', checked: true },
+      { id: 'auto:zwiebel|', name: 'Zwiebel', amount: 1, unit: '', checked: true },
+      { id: 'auto:zwiebel|g', name: 'Zwiebeln', amount: 100, unit: 'g', checked: false },
+      { id: 'm:1', name: 'Milch', manual: true, checked: true },
+    ]
+    const auto = aggregate([
+      { amount: 200, unit: 'g', name: 'Kochsahne' },
+      { amount: 100, unit: 'ml', name: 'Sahne' },
+      { amount: 1, unit: '', name: 'Zwiebel' },
+      { amount: 100, unit: 'g', name: 'Zwiebeln' },
+    ]).map(({ key, ...r }) => ({ id: 'auto:' + key, ...r }))
+    const { upserts, deletes } = diffShopping(existing, auto)
+    const by = Object.fromEntries(upserts.map((x) => [x.name, x]))
+    expect(by['Sahne'].checked).toBe(true) // beide alten Sahne-Zeilen waren abgehakt
+    expect(by['Zwiebeln'].checked).toBe(false) // nur eine von zwei war abgehakt
+    expect(deletes).not.toContain('m:1') // eigene Einträge bleiben
+  })
+})
+
 describe('Woche', () => {
   it('ab Freitag wird die nächste Woche geplant', () => {
     expect(upcomingWeek(new Date('2026-11-11T12:00'))).toBe('2026-11-09') // Mi
