@@ -1,12 +1,13 @@
 // Baut die Einkaufsliste aus dem Wochenplan.
 import { aggregate, ingredientKey } from './ingredients.js'
 import { withDefaults } from './generator.js'
+import { canonicalName } from './canonical.js'
 
 export function pantrySet(settings) {
   return new Set(
     String(settings.pantry || '')
       .split(/[,\n]/)
-      .map((s) => ingredientKey(s))
+      .flatMap((s) => [ingredientKey(s), ingredientKey(canonicalName(s))])
       .filter(Boolean),
   )
 }
@@ -26,7 +27,7 @@ export function buildAutoItems(plan, recipes, rawSettings) {
     if (!recipe) return
     const factor = settings.portions / recipe.portions
     for (const ing of recipe.ingredients) {
-      if (!ing.name || pantry.has(ingredientKey(ing.name))) continue
+      if (!ing.name || pantry.has(ingredientKey(ing.name)) || pantry.has(ingredientKey(canonicalName(ing.name)))) continue
       all.push({ ...ing, amount: ing.amount != null ? ing.amount * factor : null, recipe: recipe.title })
     }
   })

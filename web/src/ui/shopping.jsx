@@ -2,11 +2,13 @@ import { useState } from 'preact/hooks'
 import { formatAmount } from '../lib/ingredients.js'
 import { chooseImage } from '../lib/images.js'
 import { groupByAisle } from '../lib/aisles.js'
+import { displayName } from '../lib/canonical.js'
 import { addShoppingItem, clearBought, toggleShopping } from '../actions.js'
 import { BackLink, FoodImage, NavBar, Svg, Tag } from './common.jsx'
 
 function Item({ item }) {
   const amount = formatAmount(item.amount, item.unit)
+  const name = displayName(item.name, item.amount, item.unit)
   return (
     <div class={`shop-item ${item.checked ? 'done' : ''}`}>
       <button
@@ -16,11 +18,11 @@ function Item({ item }) {
           toggleShopping(item)
         }}
         aria-pressed={item.checked}
-        aria-label={`${item.name}${amount ? ', ' + amount : ''}`}
+        aria-label={`${name}${amount ? ', ' + amount : ''}`}
       >
         <FoodImage name={chooseImage(item.name)} />
         <div class="card-body">
-          <div class="shop-name">{item.name}</div>
+          <div class="shop-name">{name}</div>
           <div class="tags">
             {amount && <Tag>{amount}</Tag>}
             {item.manual ? (

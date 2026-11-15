@@ -2,6 +2,7 @@ import { useState } from 'preact/hooks'
 import { DAYS, DAY_LETTERS, DAY_KEYS } from '../lib/week.js'
 import { scores } from '../lib/generator.js'
 import { formatAmount } from '../lib/ingredients.js'
+import { displayName } from '../lib/canonical.js'
 import { setDayRecipe, toggleLock, vote } from '../actions.js'
 import { Banner, Chevron, FoodImage, Icon, Sheet, Svg, toast } from './common.jsx'
 
@@ -73,12 +74,15 @@ export function RecipeDetail({ app, recipe, children, bannerLeft, bannerRight })
           Zutaten für {app.settings.portions} Portionen
         </div>
         <ul class="ing-list">
-          {recipe.ingredients.map((ing, i) => (
-            <li key={i}>
-              <span>{ing.name}</span>
-              <span class="ing-amount">{formatAmount(ing.amount != null ? ing.amount * factor : null, ing.unit)}</span>
-            </li>
-          ))}
+          {recipe.ingredients.map((ing, i) => {
+            const amount = ing.amount != null ? ing.amount * factor : null
+            return (
+              <li key={i}>
+                <span>{displayName(ing.name, amount, ing.unit)}</span>
+                <span class="ing-amount">{formatAmount(amount, ing.unit)}</span>
+              </li>
+            )
+          })}
         </ul>
         {recipe.note && (
           <>

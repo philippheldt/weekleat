@@ -59,15 +59,15 @@ rezepte:
     zutaten:
       - 300 g Jasminreis
       - 2 Paprika
-      - 300 g braune Champignons
+      - 300 g Champignons, braun
       - 1 Brokkoli
       - 2 Schalotten
       - 2 Limetten
       - 10 g Koriander & Petersilie
       - 500 ml Kokosmilch
-      - 50 g grüne Currypaste
-      - 40 g gesalzene Erdnüsse
-      - 8 g Gemüsebrühpulver
+      - 50 g Grüne Currypaste
+      - 40 g Erdnüsse, gesalzen
+      - 8 g Gemüsebrühe
 
   - titel: Ingwer-Sesam-Hähnchen mit knackigem Gemüse und Jasminreis
     quelle: HelloFresh
@@ -84,7 +84,7 @@ rezepte:
       - 100 ml Sojasoße
       - 20 ml Sesamöl
       - 20 g Sesam
-      - 8 g Maisstärke
+      - 8 g Speisestärke
 
   - titel: Indische Kichererbsen-Kokos-Suppe mit Babyspinat
     quelle: HelloFresh
@@ -98,11 +98,11 @@ rezepte:
       - 500 ml Kokosmilch
       - 50 g gelbe Currypaste
       - 60 g gehackter Knoblauch & Ingwer in Öl
-      - 4 g Madras-Curry-Pulver
-      - 16 g Gemüsebrühpulver
-      - 100 g Babyspinat
+      - 4 g Madras-Currypulver
+      - 16 g Gemüsebrühe
+      - 100 g Spinat
       - 1 Limette
-      - 200 g saure Sahne
+      - 200 g Saure Sahne
     notiz: |
       Statt „Hello Piri-Piri“ (4 g): Chiliflocken, Paprikapulver und etwas Knoblauch
       für die gerösteten Kichererbsen.
@@ -122,7 +122,7 @@ rezepte:
       - 12 g Hühnerbrühe
       - 10 g Oregano & Petersilie
       - 2 Zitronen
-      - 100 g Babyspinat
+      - 100 g Spinat
       - 200 g Crème fraîche
     notiz: |
       Statt Gewürzmischung „Hello Paprika“ (8 g): edelsüßes Paprikapulver,
@@ -136,10 +136,10 @@ rezepte:
       - 250 g Schweinehackfleisch
       - 150 g Vollkorn-Couscous
       - 1 Orange (unbehandelt)
-      - 1 rote Paprika
+      - 1 Paprika, rot
       - 1 Zwiebel
       - 1 Zehe Knoblauch
-      - 1 Dose gehackte Tomaten
+      - 1 Dose Stückige Tomaten
       - 20 g Petersilie & Minze
       - 1 Pck. Gemüsebrühe
     notiz: |
@@ -174,15 +174,15 @@ rezepte:
       - 300 g Basmatireis
       - 2 Paprika
       - 4 Karotten
-      - 300 g braune Champignons
-      - 200 g Buschbohnen
-      - 2 rote Chilischoten
+      - 300 g Champignons, braun
+      - 200 g Grüne Bohnen
+      - 2 Chilischoten
       - 2 Frühlingszwiebeln
       - 1 Limette
       - 60 g gehackter Knoblauch & Ingwer in Öl
       - 360 ml Kokosmilch
       - 50 g Erdnussbutter
-      - 40 g gesalzene Erdnüsse
+      - 40 g Erdnüsse, gesalzen
       - 50 ml Sojasoße
 
   - titel: Quesadillas mit käsiger Rinderhackfüllung und Radieschen-Salsa
@@ -192,13 +192,13 @@ rezepte:
     tags: [schnell]
     zutaten:
       - 400 g Rinderhackfleisch
-      - 4 Weizentortillas
+      - 4 Tortillas
       - 300 g Radieschen
       - 2 rote Zwiebeln
       - 10 g Koriander & Petersilie
       - 2 Limetten
       - 150 g Naturjoghurt
-      - 100 g Gouda (gerieben)
+      - 100 g Gouda
       - 70 g Tomatenmark
     notiz: |
       Statt „Hello Piri-Piri“ (8 g): Chiliflocken, Paprikapulver und etwas Knoblauch.
@@ -212,9 +212,9 @@ rezepte:
     tags: [schnell]
     zutaten:
       - 250 g breite Mie-Nudeln
-      - 1 Pck. Hähnchenbrustfilet
-      - 1 rote Paprika
-      - 1 grüne Paprika
+      - 1 Pck. Hähnchenbrust
+      - 1 Paprika, rot
+      - 1 Paprika, grün
       - 2 Frühlingszwiebeln
       - 1 rote Zwiebel
       - 1 Stück Ingwer
@@ -228,7 +228,7 @@ rezepte:
     bild: steak
     tags: [Family]
     zutaten:
-      - 500 g gemischtes Hackfleisch
+      - 500 g Hackfleisch, gemischt
       - 300 g Basmatireis
       - 2 Karotten
       - 2 Stangen Porree
@@ -237,7 +237,7 @@ rezepte:
       - 300 g Kochsahne (leicht)
       - 50 g Semmelbrösel
       - 40 g körniger Senf
-      - 20 ml mittelscharfer Senf
+      - 20 ml Senf, mittelscharf
       - 8 g Rinderbrühe
 
   - titel: Veggie Stroganoff mit Portobello und Champignons
@@ -249,15 +249,15 @@ rezepte:
     zutaten:
       - 300 g Basmati-Wildreis-Mischung
       - 4 Portobello-Pilze
-      - 400 g braune Champignons
+      - 400 g Champignons, braun
       - 2 Karotten
-      - 300 g Babyspinat
+      - 300 g Spinat
       - 10 g Petersilie
       - 2 Zwiebeln
       - 2 Zehen Knoblauch
-      - 300 g Kochsahne
+      - 300 g Sahne
       - 50 ml Sojasoße
-      - 8 g Gemüsebrühpulver
+      - 8 g Gemüsebrühe
     notiz: |
       Statt „Hello Paprika“ (8 g): Paprikapulver, Knoblauch, Pfeffer, Zwiebel- und Tomatenpulver.
 
@@ -268,7 +268,7 @@ rezepte:
     bild: apricot
     tags: [Family]
     zutaten:
-      - 500 g Hähnchenbrustfilet
+      - 500 g Hähnchenbrust
       - 300 g Basmati-Wildreis-Mischung
       - 8 Karotten
       - 2 Schalotten
@@ -289,12 +289,12 @@ rezepte:
     bild: potatoe
     tags: [Family]
     zutaten:
-      - 1 kg festkochende Kartoffeln
+      - 1 kg Kartoffeln, festkochend
       - 150 g Feldsalat
       - 200 g Radieschen
       - 2 Äpfel
       - 10 g Petersilie & Schnittlauch
-      - 200 g Gouda (gerieben)
+      - 200 g Gouda
       - 200 g Schmand
       - 34 g süßer Senf
       - 20 g Kürbiskerne
@@ -313,7 +313,7 @@ rezepte:
       - 1 Zwiebel
       - 1 Dose Mais
       - 1 Zehe Knoblauch
-      - 1 Pck. geräuchertes Paprikapulver
+      - 1 Pck. Paprikapulver, geräuchert
       - 1 Pck. Gemüsebrühe
       - 1 Pck. Tortillas
       - 1 Pck. mexikanische Gewürzmischung
@@ -330,7 +330,7 @@ rezepte:
     bild: soup
     tags: [schnell]
     zutaten:
-      - 4 Weizentortillas
+      - 4 Tortillas
       - 780 g Kidneybohnen (2 Dosen)
       - 2 Stangen Porree
       - 2 Zehen Knoblauch
@@ -349,13 +349,13 @@ rezepte:
     tags: [Family]
     zutaten:
       - 750 g Mini-Klöße
-      - 300 g Kochsahne
+      - 300 g Sahne
       - 2 Zwiebeln
       - 150 g würziger Reibekäse
       - 10 g Petersilie & Schnittlauch
       - 2 Stangen Porree
       - 4 Karotten
-      - 200 g Babyspinat
+      - 200 g Spinat
       - 20 g Haselnüsse
       - 8 g Gemüsebrühe
     notiz: |
@@ -372,15 +372,15 @@ rezepte:
       - 1 rote Zwiebel
       - 1 Stück Ingwer
       - 1 Karotte
-      - 1 Süßkartoffel
+      - 1 Süßkartoffeln
       - 200 g rote Linsen
       - 1 Pck. Gemüsebrühe
-      - 1 Dose gehackte Tomaten
+      - 1 Dose Stückige Tomaten
       - 1 Pck. Madras-Currypulver
       - 1 Limette
       - 1 Pck. Erdnussbutter
-      - 100 g Babyspinat
-      - 50 g gesalzene Erdnüsse
+      - 100 g Spinat
+      - 50 g Erdnüsse, gesalzen
 
   - titel: Vegetarisches Kürbisgulasch mit Pastinakenpüree
     quelle: HelloFresh
@@ -391,7 +391,7 @@ rezepte:
     zutaten:
       - 720 g Pastinaken
       - 2 Ofenkartoffeln
-      - 400 g Hokkaido-Kürbis (geschält und gewürfelt)
+      - 400 g Hokkaido-Kürbis
       - 4 Karotten
       - 4 Zwiebeln
       - 4 Zehen Knoblauch
@@ -412,14 +412,14 @@ rezepte:
     zutaten:
       - 400 g Grillkäse
       - 300 g Risottoreis
-      - 200 g Buschbohnen
+      - 200 g Grüne Bohnen
       - 2 Paprika
       - 1 Zitrone
       - 2 Zwiebeln
       - 4 Zehen Knoblauch
       - 10 g Petersilie
       - 100 g Tomatenpesto
-      - 12 g Gemüsebrühpulver
+      - 12 g Gemüsebrühe
     notiz: |
       Statt „Hello Souflaki“ (8 g): Knoblauch, Oregano, Tomaten, Chili (mild), Cayennepfeffer, Paprika.
 
@@ -432,9 +432,9 @@ rezepte:
       - 360 g Tofu (süßer Chili-Grill-Tofu)
       - 300 g Basmatireis
       - 2 Karotten
-      - 40 g geröstete Cashewkerne
+      - 40 g Cashewkerne
       - 2 Tomaten
-      - 2 grüne Paprika
+      - 2 Paprika, grün
       - 2 Zwiebeln
       - 20 g Petersilie
       - 100 g Korma-Paste
@@ -450,11 +450,11 @@ rezepte:
       - 800 g Eierspätzle
       - 100 g würziger Reibekäse
       - 2 Birnen
-      - 300 g Kochsahne
+      - 300 g Sahne
       - 10 g Petersilie & Schnittlauch
       - 2 Zwiebeln
       - 40 g Hartkäse (gerieben)
-      - 100 g Babyspinat
+      - 100 g Spinat
       - 160 g Bacon (Streifen)
 
   - titel: Hähnchen-Pasta mit Brokkoliröschen in Tomaten-Sahne-Soße
@@ -469,7 +469,7 @@ rezepte:
       - 500 g Hähnchengeschnetzeltes
       - 2 Tomaten
       - 8 g Hühnerbrühe
-      - 300 g Kochsahne
+      - 300 g Sahne
       - 70 g Tomatenmark
       - 1 Zehe Knoblauch
       - 40 g Hartkäse (gerieben)
@@ -485,12 +485,12 @@ rezepte:
     tags: [schnell]
     zutaten:
       - 500 g Gnocchi
-      - 1 Pck. Hähnchenbrustfilet
+      - 1 Pck. Hähnchenbrust
       - 1 Zwiebel
       - 1 Zehe Knoblauch
       - 1 Limette
       - 1 Becher Crème fraîche
-      - 100 g Babyspinat
+      - 100 g Spinat
       - 1 EL Butter
       - 1 TL Mehl
 
@@ -503,7 +503,7 @@ rezepte:
       - 2 Kiwis
       - 2 Tomaten
       - 150 g Salatherz (Romana)
-      - 750 g festkochende Kartoffeln
+      - 750 g Kartoffeln, festkochend
       - 2 Zehen Knoblauch
       - 200 g Sahnejoghurt
       - 50 g Mayonnaise
@@ -544,7 +544,7 @@ rezepte:
     bild: paprika
     tags: [One-Pot]
     zutaten:
-      - 520 g rote Paprikaschoten
+      - 520 g Paprika, rot
       - 200 g Zwiebeln
       - 2 Zehe Knoblauch
       - 500 g Rinderhackfleisch
@@ -555,14 +555,14 @@ rezepte:
       - 20 g Paniermehl
       - 3 Prise Pfeffer
       - 0.5 TL Salz
-      - 400 g passierte Tomaten
+      - 400 g Passierte Tomaten
       - 2 TL Oregano, getrocknet
       - 15 g Zucker
       - 250 g Langkornreis
       - 700 ml Gemüsebrühe
       - 100 g Sahne
       - 25 g Ajvar
-      - 1 EL Petersilie, gehackt
+      - 1 EL Petersilie
 
   - titel: Hühnchen-Curry mit Karotten und Brokkoli
     quelle: Monsieur Cuisine
@@ -573,7 +573,7 @@ rezepte:
     bild: brokkoli
     tags: [schnell]
     zutaten:
-      - 500 g Hähnchenbrustfilet
+      - 500 g Hähnchenbrust
       - 2 TL Olivenöl
       - 1 TL Senf, mittelscharf
       - 1 TL Salz
@@ -585,11 +585,11 @@ rezepte:
       - 2 Zwiebeln
       - 250 g Brokkoli
       - 1000 ml Wasser
-      - 150 ml Schlagsahne
+      - 150 ml Sahne
       - 2 TL Currypulver
-      - 2 TL Kreuzkümmel
+      - 2 TL Kreuzkümmel, gemahlen
       - 1 TL Gemüsebrühe
-      - 1 TL rote Currypaste
+      - 1 TL Rote Currypaste
 
   - titel: Penne mit Erbsen und Schinken
     quelle: Monsieur Cuisine
@@ -600,12 +600,12 @@ rezepte:
     bild: pasta
     tags: [schnell]
     zutaten:
-      - 160 g Parmesan am Stück
+      - 160 g Parmesan
       - 60 g Schalotten
       - 400 g Sahne
       - 400 ml Gemüsebrühe
       - 20 g Speisestärke
-      - 400 g Kochschinken am Stück
+      - 400 g Kochschinken
       - 400 g Erbsen (TK)
       - 800 g Penne
       - Salz
@@ -622,7 +622,7 @@ rezepte:
       - 70 g Zwiebeln
       - 250 g Zucchini
       - 150 g Staudensellerie
-      - 200 g Möhren
+      - 200 g Karotten
       - 200 g Kohlrabi
       - 20 g Olivenöl
       - 1000 ml Gemüsebrühe
@@ -647,22 +647,22 @@ rezepte:
     zutaten:
       - 125 g Sojaschnetzel, fein
       - 400 ml Gemüsebrühe
-      - 150 g Mais (Dose)
-      - 400 g Kidneybohnen (Dose)
-      - 150 g rote Paprikaschoten
+      - 150 g Mais
+      - 400 g Kidneybohnen
+      - 150 g Paprika, rot
       - 125 g Zwiebeln
       - 2 Zehe Knoblauch
       - 30 g Olivenöl
       - 50 g Tomatenmark
       - 10 g Zucker
-      - 800 g stückige Tomaten (Dose)
+      - 800 g Stückige Tomaten
       - 1 TL Paprikapulver, geräuchert
       - 0.5 TL Zimt
       - 1 TL Kreuzkümmel, gemahlen
       - 1 TL Salz
       - 0.5 TL Pfeffer
       - Tabasco
-      - 150 g saure Sahne
+      - 150 g Saure Sahne
       - 1 Bund Schnittlauch
 
   - titel: Puten-Nudel-One-Pot
@@ -674,13 +674,13 @@ rezepte:
     bild: pasta
     tags: [One-Pot]
     zutaten:
-      - 200 g rote Paprikaschoten
+      - 200 g Paprika, rot
       - 75 g Zwiebeln
       - 400 g Putengeschnetzeltes
       - 30 g Olivenöl
-      - 400 g stückige Tomaten (Dose)
+      - 400 g Stückige Tomaten
       - 50 g Tomatenmark
-      - 400 ml Geflügelbrühe
+      - 400 ml Hühnerbrühe
       - 100 g Sahne
       - 5 g Worcestersauce
       - 1 EL Oregano, getrocknet
@@ -699,7 +699,7 @@ rezepte:
     bild: chicken
     tags: [One-Pot]
     zutaten:
-      - 40 g milde Chilischoten
+      - 40 g Chilischoten
       - 10 g Ingwer
       - 1 Zehe Knoblauch
       - 1 Limette
@@ -707,12 +707,12 @@ rezepte:
       - 2 TL Salz
       - 800 g Blumenkohl
       - 500 g Brokkoli
-      - 200 g rote Paprikaschoten
-      - 600 g Hähnchenbrustfilets
+      - 200 g Paprika, rot
+      - 600 g Hähnchenbrust
       - 40 g Schalotten
       - 30 g Erdnussbutter, smooth
       - 300 g Kokosmilch
-      - 30 ml Sojasauce, dunkel
+      - 30 ml Sojasoße
       - 750 g Süßkartoffeln
       - 1 TL Currypulver, mild
 
@@ -733,13 +733,13 @@ rezepte:
       - Pfeffer
       - 20 g Pflanzenöl
       - 600 g Kartoffeln, festkochend
-      - 500 g Hokkaidokürbis
-      - 200 g Möhren
+      - 500 g Hokkaido-Kürbis
+      - 200 g Karotten
       - 40 g Butter
       - 40 g Mehl
       - 350 g Sahne
       - 350 ml Milch
-      - 1 TL getrocknete Kräuter
+      - 1 TL Italienische Kräuter
       - 1 Prise Muskat
       - 200 g Erbsen (TK)
       - Petersilie
@@ -755,7 +755,7 @@ rezepte:
       - 80 g Zwiebeln
       - 2 Zehe Knoblauch
       - 10 g Olivenöl
-      - 250 g Blattspinat
+      - 250 g Spinat
       - 200 g Gorgonzola
       - 200 g Sahne
       - 100 ml Gemüsebrühe
@@ -774,8 +774,8 @@ rezepte:
     ernaehrung: vegetarisch
     zutaten:
       - 1 Zehe Knoblauch
-      - 20 g milde Chilischoten
-      - 50 ml Sojasauce, dunkel
+      - 20 g Chilischoten
+      - 50 ml Sojasoße
       - 5 g Honig
       - 1 Limette
       - 10 ml Sesamöl
@@ -810,8 +810,8 @@ rezepte:
     zutaten:
       - 2 Stange Rosmarin
       - 50 g Mandeln, blanchiert
-      - 160 g Gouda am Stück
-      - 75 g Parmesan am Stück
+      - 160 g Gouda
+      - 75 g Parmesan
       - 1000 g Blumenkohl
       - Butter
       - 3 Eier
@@ -858,7 +858,7 @@ rezepte:
     ernaehrung: fleisch
     bild: mushroom
     zutaten:
-      - 300 g braune Champignons
+      - 300 g Champignons, braun
       - 250 g Zucchini
       - 1 TL Pfeffer
       - 2 TL Salz
@@ -868,7 +868,7 @@ rezepte:
       - 0.5 TL Paprikapulver, rosenscharf
       - 1 TL Oregano, getrocknet
       - 250 g Basmatireis
-      - 100 ml Geflügelbrühe
+      - 100 ml Hühnerbrühe
       - 100 g Sahne
       - 30 ml Metaxa
       - 40 g Tomatenmark
@@ -886,9 +886,9 @@ rezepte:
     zutaten:
       - 80 g Zwiebeln
       - 2 Zehe Knoblauch
-      - 400 g stückige Tomaten (Dose)
+      - 400 g Stückige Tomaten
       - 250 g Sahne
-      - 1.5 EL italienische Kräuter, getrocknet
+      - 1.5 EL Italienische Kräuter
       - 1.5 TL Salz
       - 0.5 TL Pfeffer
       - 800 g Tortellini (Kühlregal)
@@ -904,16 +904,16 @@ rezepte:
     ernaehrung: fleisch
     bild: pasta
     zutaten:
-      - 50 g Parmesan am Stück
+      - 50 g Parmesan
       - 80 g Zwiebeln
       - 1 Zehe Knoblauch
-      - 300 g Hähnchenbrustfilets
+      - 300 g Hähnchenbrust
       - 20 g Olivenöl
       - 50 g Speckwürfel
       - 150 g weiße Champignons
       - 100 g Cocktailtomaten
-      - 400 ml Geflügelbrühe
-      - 500 g passierte Tomaten
+      - 400 ml Hühnerbrühe
+      - 500 g Passierte Tomaten
       - 200 g Sahne
       - 20 g Tomatenmark
       - 1 TL Salz
@@ -931,13 +931,13 @@ rezepte:
     tags: [One-Pot]
     zutaten:
       - 1 Bund Petersilie
-      - 1000 g Möhren
+      - 1000 g Karotten
       - 500 g Kartoffeln, mehligkochend
       - 0.5 TL Salz
       - 5 g Zucker
       - 80 g rote Zwiebeln
       - 30 g Butter
-      - 50 ml Geflügelbrühe
+      - 50 ml Hühnerbrühe
       - 50 g Sahne
       - Pfeffer
 
@@ -957,7 +957,7 @@ rezepte:
       - 5 ml Apfelessig
       - 2 TL Salz
       - 1 Prise Pfeffer
-      - 300 g Hähnchenbrustfilets
+      - 300 g Hähnchenbrust
       - 70 g Mehl
       - 2 Eier
       - 30 g Pflanzenöl
@@ -973,19 +973,19 @@ rezepte:
       - 20 g Olivenöl
       - 400 g Fusilli
       - 200 g Emmentaler am Stück
-      - 400 g gemischtes Hackfleisch
+      - 400 g Hackfleisch, gemischt
       - 85 g Zwiebeln
       - 1 Zehe Knoblauch
-      - 155 g rote Paprikaschoten
-      - 155 g gelbe Paprikaschoten
+      - 155 g Paprika, rot
+      - 155 g Paprika, gelb
       - 20 g Tomatenmark
       - 1 TL Paprikapulver, edelsüß
       - 0.5 TL Salz
       - 0.5 TL Pfeffer
       - 200 g Sahne
-      - 800 g stückige Tomaten (Dose)
+      - 800 g Stückige Tomaten
       - 10 g Gemüse-Gewürzpaste
-      - 2 TL getrocknete Kräuter
+      - 2 TL Italienische Kräuter
       - 250 g Erbsen (TK)
 
   - titel: Butter Chicken
@@ -997,16 +997,16 @@ rezepte:
     bild: chicken
     zutaten:
       - 600 g Hähnchengeschnetzeltes
-      - 4 EL Joghurt
+      - 4 EL Naturjoghurt
       - 1.5 TL Salz
       - 1 TL Chilipulver
       - 2 Zehen Knoblauch
       - 30 g Ingwer
-      - 0.5 TL Kreuzkümmelpulver
-      - 1 TL Koriander, gehackt
-      - 0.5 Zitrone (unbehandelt)
-      - 2 Zwiebeln (mittelgroß)
-      - 1 Dose stückige Tomaten
+      - 0.5 TL Kreuzkümmel, gemahlen
+      - 1 TL Koriander
+      - 0.5 Zitrone
+      - 2 Zwiebeln
+      - 1 Dose Stückige Tomaten
       - 8 EL Butter
       - 2 EL Tomatenmark
       - 0.5 TL Garam Masala
@@ -1033,16 +1033,16 @@ rezepte:
     zutaten:
       - 400 g Halloumi
       - 300 g Erbsen (TK)
-      - 4 EL Joghurt
+      - 4 EL Naturjoghurt
       - 1 TL Salz
       - 1 TL Chilipulver
       - 2 Zehen Knoblauch
       - 30 g Ingwer
-      - 0.5 TL Kreuzkümmelpulver
-      - 1 TL Koriander, gehackt
-      - 0.5 Zitrone (unbehandelt)
-      - 2 Zwiebeln (mittelgroß)
-      - 1 Dose stückige Tomaten
+      - 0.5 TL Kreuzkümmel, gemahlen
+      - 1 TL Koriander
+      - 0.5 Zitrone
+      - 2 Zwiebeln
+      - 1 Dose Stückige Tomaten
       - 8 EL Butter
       - 2 EL Tomatenmark
       - 0.5 TL Garam Masala
@@ -1096,11 +1096,11 @@ rezepte:
       - 1 Zehe Knoblauch
       - 10 g Ingwer
       - 100 g Erdnussbutter, crunchy
-      - 30 ml Sojasauce, dunkel
+      - 30 ml Sojasoße
       - 30 g Honig
       - 30 g Limetten
       - 1 TL Currypulver, mild
-      - 500 g Hähnchenbrustfilets
+      - 500 g Hähnchenbrust
       - 550 g Gemüse nach Wahl
       - 200 g Basmatireis
       - 1 TL Salz
@@ -1114,8 +1114,8 @@ rezepte:
     bild: cheese
     tags: [One-Pot, schnell]
     zutaten:
-      - 20 g Petersilie, gehackt
-      - 130 g Cheddar am Stück
+      - 20 g Petersilie
+      - 130 g Cheddar
       - 35 g Butter
       - 35 g Mehl
       - 500 ml Milch
@@ -1135,13 +1135,13 @@ rezepte:
     ernaehrung: vegan
     tags: [schnell]
     zutaten:
-      - 2 Dose stückige Tomaten
+      - 2 Dose Stückige Tomaten
       - 2 EL Tomatenmark
       - 2 Zehe Knoblauch
       - 1 Zwiebel
       - 1 Prise Salz
       - 1 TL Zucker
-      - 3 TL Oregano, gerebelt
+      - 3 TL Oregano, getrocknet
       - 1 TL Basilikum, getrocknet
       - 4 TL Gemüsebrühe
       - 10 g Olivenöl
@@ -1158,15 +1158,15 @@ rezepte:
     zutaten:
       - 50 g Mehl
       - 1 Ei
-      - 2 TL grüne Currypaste
+      - 2 TL Grüne Currypaste
       - 5 EL Kokosmilch
       - 400 g Mais (Dose oder TK)
       - 4 Frühlingszwiebeln
-      - 1 EL Koriander, frisch
-      - 1 EL Basilikum, frisch
+      - 1 EL Koriander
+      - 1 EL Basilikum
       - Salz
       - Pfeffer
-      - Öl
+      - Pflanzenöl
       - Limettenspalten (optional)
 
   - titel: Asia-Nudeln mit Huhn oder Schwein
@@ -1182,14 +1182,14 @@ rezepte:
       - 1 Chilischote
       - 1 Zehe Knoblauch
       - 1 Stück Ingwer
-      - 20 g Öl
-      - 40 ml Sojasauce
+      - 20 g Pflanzenöl
+      - 40 ml Sojasoße
       - 1 TL Reisessig
       - 40 ml Wasser
       - 1 TL Salz
       - 1 Prise Paprikapulver, edelsüß
       - 1 Prise Zucker
-      - 1 TL rote Currypaste
+      - 1 TL Rote Currypaste
       - 190 g asiatisches Mischgemüse (TK)
       - 200 g Hähnchenbrust
       - 20 g Sesamöl
@@ -1210,10 +1210,10 @@ rezepte:
       - 3 Prise Muskat
       - 10 ml Zitronensaft
       - 40 g Olivenöl
-      - 500 g gemischtes Hackfleisch
+      - 500 g Hackfleisch, gemischt
       - 120 g Zwiebeln
       - 2 Zehe Knoblauch
-      - 1000 g Hokkaidokürbis
+      - 1000 g Hokkaido-Kürbis
       - 3 Stange Rosmarin
       - 50 ml Orangensaft
       - 1 TL Salz
@@ -1221,7 +1221,7 @@ rezepte:
       - 150 g Kräuterfrischkäse
       - 15 Lasagneplatten (ohne Vorkochen)
       - 250 g Mozzarella
-      - 50 g Parmesan, gerieben
+      - 50 g Parmesan
 
   - titel: Paprika-Sahne-Hähnchen mit Reis
     quelle: Monsieur Cuisine
@@ -1235,8 +1235,8 @@ rezepte:
       - 1 Bund Petersilie
       - 80 g Zwiebeln
       - 10 g Butter
-      - 450 g rote Paprikaschoten
-      - 1000 g Hähnchenbrustfilets
+      - 450 g Paprika, rot
+      - 1000 g Hähnchenbrust
       - 3 TL Paprikapulver, edelsüß
       - 0.5 TL Salz
       - 0.25 TL Pfeffer
@@ -1274,7 +1274,7 @@ rezepte:
       - 1 TL Zitronenabrieb
       - 200 ml Rinderbrühe
       - 30 g Mehl
-      - 350 g rote Paprikaschoten
+      - 350 g Paprika, rot
 
   - titel: Fruchtiges Puten-Curry
     quelle: Monsieur Cuisine
@@ -1288,9 +1288,9 @@ rezepte:
       - 1 Bund Petersilie
       - 400 g Langkornreis
       - 1.5 TL Salz
-      - 600 g Putenbrustfilets
-      - 400 g Möhren
-      - 300 g Lauch
+      - 600 g Putenbrust
+      - 400 g Karotten
+      - 300 g Porree
       - 0.5 TL Pfeffer
       - 700 g Pfirsiche
       - 160 g Zwiebeln
@@ -1325,8 +1325,8 @@ rezepte:
     bild: potatoe
     tags: [schnell]
     zutaten:
-      - 700 g Kartoffeln, vorwiegend festkochend
-      - 70 g Zwiebel
+      - 700 g Kartoffeln, festkochend
+      - 70 g Zwiebeln
       - 2 Eier
       - 5 EL Mehl
       - 2 TL Salz
@@ -1347,10 +1347,10 @@ rezepte:
       - 400 g Schafskäse
       - 30 g Olivenöl
       - 4 TL Kräuter der Provence
-      - 200 g Möhren
+      - 200 g Karotten
       - 200 g Brokkoli
       - 200 g Zucchini
-      - 100 g braune Champignons
+      - 100 g Champignons, braun
       - Salz
       - Pfeffer
 
@@ -1371,7 +1371,7 @@ rezepte:
       - 20 g Pflanzenöl
       - 160 g Schalotten
       - 15 g Petersilie
-      - 75 g Parmesan am Stück
+      - 75 g Parmesan
       - 4 Zehe Knoblauch
       - 200 g Sahne
       - 150 g Kräuterfrischkäse
@@ -1388,12 +1388,12 @@ rezepte:
     zutaten:
       - 200 g Cocktailtomaten
       - 100 g Zuckerschoten
-      - 200 g Möhren
-      - 40 g Erdnüsse, geröstet, gesalzen
+      - 200 g Karotten
+      - 40 g Erdnüsse, gesalzen
       - 10 g Kokosöl
       - 20 g Tom-Ka-Paste
       - 250 g Kokosmilch
-      - 250 ml Geflügelbrühe
+      - 250 ml Hühnerbrühe
       - 250 g Woknudeln
       - 1 Bund Koriander
 
@@ -1407,8 +1407,8 @@ rezepte:
     zutaten:
       - 1 Bund Petersilie
       - 3 Stange Thymian
-      - 50 g Cashewkerne, geröstet
-      - 50 g Parmesan am Stück
+      - 50 g Cashewkerne
+      - 50 g Parmesan
       - 10 g Kapern
       - 100 g getrocknete Tomaten
       - 40 g Schalotten
@@ -1416,7 +1416,7 @@ rezepte:
       - 3 Prise Salz
       - 600 g Kabeljauloins
       - 550 g Kartoffeln, festkochend
-      - 250 g Möhren
+      - 250 g Karotten
       - 1000 ml Gemüsebrühe
       - 50 g Butter
       - 5 ml Zitronensaft
@@ -1456,8 +1456,8 @@ rezepte:
     tags: [One-Pot]
     zutaten:
       - 25 g Olivenöl
-      - 700 g Hähnchenbrustfilets
-      - 2 TL italienische Kräuter, getrocknet
+      - 700 g Hähnchenbrust
+      - 2 TL Italienische Kräuter
       - 1 TL Salz
       - 1 Prise Pfeffer
       - 300 g Tomaten
@@ -1466,7 +1466,7 @@ rezepte:
       - 40 g Tomatenmark
       - 300 g Reis
       - 1000 ml Gemüsebrühe
-      - 400 g stückige Tomaten (Dose)
+      - 400 g Stückige Tomaten
       - 100 g Sahne
       - 5 g Speisestärke
       - 1 Bund Basilikum
@@ -1524,15 +1524,15 @@ rezepte:
     zutaten:
       - 100 g Zwiebeln
       - 2 Zehe Knoblauch
-      - 350 g rote Paprikaschoten
+      - 350 g Paprika, rot
       - 20 g Olivenöl
       - 2 TL Gemüse-Gewürzpaste
-      - 500 g passierte Tomaten
-      - 2 EL italienische Kräuter, getrocknet
+      - 500 g Passierte Tomaten
+      - 2 EL Italienische Kräuter
       - 300 g Rigatoni
       - 200 g Erbsen (TK)
       - 200 g Crème fraîche
-      - 150 g Mozzarella, gerieben
+      - 150 g Mozzarella
       - 5 Basilikumblätter
 
   - titel: Ofen-Medaillons mit Speck in Winterrahm
@@ -1549,7 +1549,7 @@ rezepte:
       - 30 g Butter
       - 90 ml Weißwein, trocken
       - 150 g Sahne
-      - 150 ml Geflügelbrühe
+      - 150 ml Hühnerbrühe
       - 15 g Mehl
       - 2 TL Gemüse-Gewürzpaste
       - 3 TL Ranch-Gewürz
@@ -1559,8 +1559,8 @@ rezepte:
       - Pfeffer
       - 20 g Pflanzenöl
       - 800 g Schweinefilet
-      - 200 g braune Champignons
-      - 600 g grüne Bohnen
+      - 200 g Champignons, braun
+      - 600 g Grüne Bohnen
       - 200 g Räucherspeck, gewürfelt
 
   - titel: Frühlingsauflauf mit Bacon-Hähnchen und Honig-Senf-Soße
@@ -1571,11 +1571,11 @@ rezepte:
     ernaehrung: fleisch
     bild: chicken
     zutaten:
-      - 600 g Hähnchenbrustfilets
+      - 600 g Hähnchenbrust
       - 8 Scheibe Frühstücksspeck
       - 300 g Drillinge
       - 120 g Schalotten
-      - 300 g Möhren
+      - 300 g Karotten
       - 2 Stange Petersilie
       - 1 Zehe Knoblauch
       - 20 g Pflanzenöl
@@ -1620,22 +1620,22 @@ rezepte:
     zutaten:
       - 200 g Brokkoli
       - 250 g Zucchini
-      - 180 g Möhren
-      - 200 g rote Paprikaschoten
+      - 180 g Karotten
+      - 200 g Paprika, rot
       - 250 g Parboiled Reis
       - 2 TL Gemüse-Gewürzpaste
       - Salz
       - Pfeffer
       - 100 g Erbsen (TK)
       - 20 g Pflanzenöl
-      - 500 g Hähnchenbrustfilets
+      - 500 g Hähnchenbrust
       - 20 g Ingwer
       - 100 g Zwiebeln
       - 2 Zehe Knoblauch
       - 100 ml Milch (1,5 %)
       - 150 g Frischkäse natur (3 % Fett)
       - 5 g Speisestärke
-      - 1 TL Petersilie, gehackt
+      - 1 TL Petersilie
 
   - titel: Dönersoße
     planen: nein
@@ -1662,7 +1662,7 @@ rezepte:
     kategorie: gebackenes
     ernaehrung: fleisch
     zutaten:
-      - 150 g Gouda am Stück
+      - 150 g Gouda
       - 200 g Mehl
       - 400 ml Milch
       - 2 Eier
@@ -1670,8 +1670,8 @@ rezepte:
       - 2 Zehe Knoblauch
       - 20 g Pflanzenöl
       - 40 g Tomatenmark
-      - 2 TL italienische Kräuter, getrocknet
-      - 800 g stückige Tomaten (Dose)
+      - 2 TL Italienische Kräuter
+      - 800 g Stückige Tomaten
       - 0.5 TL Pfeffer
       - 100 g grünes Pesto
       - 12 Scheibe Kochschinken
@@ -1683,13 +1683,13 @@ rezepte:
     ernaehrung: fleisch
     quelle: Jenny Rezepte S. 13
     zutaten:
-      - 1 EL Öl
-      - 1 kleine Zwiebel, gewürfelt
-      - 50 g gemischtes Hackfleisch
+      - 1 EL Pflanzenöl
+      - 1 Zwiebel
+      - 50 g Hackfleisch, gemischt
       - 100 g Tomaten
       - 1 EL Tomatenmark
       - 500 ml Gemüsebrühe
-      - 50 g grüne Bohnen
+      - 50 g Grüne Bohnen
       - 2 Champignons
       - 50 g Sahne-Schmelzkäse
       - 50 g Sahne
@@ -1712,7 +1712,7 @@ rezepte:
       - Hähnchenfleisch
       - Zwiebeln
       - 400 ml Kokosmilch
-      - 1.5 EL Tom Ka Paste
+      - 1.5 EL Tom-Ka-Paste
       - 400 ml Wasser
       - Zitronensaft
       - Fischsoße
@@ -1743,19 +1743,19 @@ rezepte:
     quelle: Jenny Rezepte S. 63
     zutaten:
       - 1 Zwiebel
-      - 1 Knoblauchzehe
+      - 1 Knoblauch
       - 1 daumengroßes Stück Ingwer
-      - 2 Karotten in Scheiben
-      - 1 EL Rapsöl
-      - 0.5 EL rote Currypaste
+      - 2 Karotten
+      - 1 EL Pflanzenöl
+      - 0.5 EL Rote Currypaste
       - 300 g Belugalinsen
-      - 1 Dose Tomaten
+      - 1 Dose Stückige Tomaten
       - 1 Dose Kokosmilch
       - 500 ml Gemüsebrühe
-      - 1 Süßkartoffel
-      - 250 g Blattspinat
+      - 1 Süßkartoffeln
+      - 250 g Spinat
       - 1 Limette
-      - 15 g Koriander, frisch, gehackt
+      - 15 g Koriander
 
   - titel: Enchiladas
     quelle: Jenny Rezepte S. 87, 89, 91
@@ -1768,22 +1768,22 @@ rezepte:
       - 150 g Mehl
       - 50 g Maismehl
       - 100 ml Wasser
-      - 1 EL Öl
+      - 1 EL Pflanzenöl
       - 1/8 TL Salz
       # Füllung (S. 89)
       - 1 Zwiebel
-      - 1 EL Öl
-      - 100 g Maiskörner
+      - 1 EL Pflanzenöl
+      - 100 g Mais
       - 1/2 Dose Kidneybohnen
-      - 100 g Tomaten, gewürfelt
+      - 100 g Tomaten
       - 1/2 Bund Oregano
-      - 1/2 TL Paprikapulver
-      - 1/4 TL Kreuzkümmel
+      - 1/2 TL Paprikapulver, edelsüß
+      - 1/4 TL Kreuzkümmel, gemahlen
       - Salz
       # Soße (S. 91)
       - 1/2 Zwiebel
       - 100 g Tomaten
-      - 1 EL Öl
+      - 1 EL Pflanzenöl
       - 1 Zehe Knoblauch
       - 1 TL Balsamicoessig
       - 1 TL Tomatenmark
@@ -1821,8 +1821,8 @@ rezepte:
       Alles in eine Pfanne geben und 15-20 Minuten köcheln lassen, bis die Risoni weich sind (zwischendurch immer wieder umrühren). Für Babys unter 12 Monaten die Erbsen zerdrücken.
     zutaten:
       - 200 g Brokkoli
-      - 200 g Erbsen
-      - 200 g Creme fraiche
+      - 200 g Erbsen (TK)
+      - 200 g Crème fraîche
       - 200 g Risoni
       - 200 g Hähnchen
       - 500 ml Gemüsebrühe
@@ -1857,28 +1857,28 @@ rezepte:
       4. Eine kleine Tortilla auf die Füllung legen. Ränder der großen Tortilla kreisförmig zur Mitte hin falten/einschlagen.
       5. Wrap auf der Faltenseite in einer eingeölten Pfanne bei mittlerer Hitze ca. 3 Min. goldbraun anbraten. Wenden und weitere 3 Min. braten.
     zutaten:
-      - 900 g Hackfleisch
-      - 2 Zwiebeln (weiß)
-      - 2 Zehen Knoblauch (gehackt)
+      - 900 g Hackfleisch, gemischt
+      - 2 Zwiebeln
+      - 2 Zehen Knoblauch
       - 1 Jalapeño (gewürfelt)
       - 2 EL Tomatenmark
       - 120 ml Wasser
       - 1 EL Knoblauchpulver
       - 1 EL Zwiebelpulver
       - 1 EL Paprikapulver (edelsüß/geräuchert)
-      - 1 EL Kreuzkümmel
+      - 1 EL Kreuzkümmel, gemahlen
       - 1 TL Pfeffer
       - Salz
       - 10 Tortillas (groß)
       - 10 Tortillas (klein)
       - 10 Tostadas (oder 1 Tasse Nacho-Chips)
       - 1 Kopf Salat (geschnitten)
-      - 1 Tomate (gewürfelt)
-      - 1 Zwiebel (rot, gewürfelt)
+      - 1 Tomate
+      - 1 rote Zwiebel
       - 1 Becher Saure Sahne
       - 1 Becher Guacamole
       - 1 Becher Salsa
-      - 100 g Cheddar (gerieben)
+      - 100 g Cheddar
       - 100 g Monterey Jack (gerieben)
       - Öl zum Braten
 
@@ -1904,8 +1904,8 @@ rezepte:
       - Petersilie
       - Salz
       - Pfeffer
-      - Paprikapulver
-      - Öl
+      - Paprikapulver, edelsüß
+      - Pflanzenöl
 
   - titel: Ruckzuck Auflauf
     portionen: 4
@@ -1920,7 +1920,7 @@ rezepte:
       5. Mit Käse bestreuen und weitere 15 Minuten goldbraun überbacken.
     zutaten:
       - 350 g Kritharaki
-      - 1 Dose Tomaten (gehackt)
+      - 1 Dose Stückige Tomaten
       - 250 ml Passierte Tomaten
       - 150 ml Sahne
       - 1 Kopf Brokkoli (oder anderes Gemüse nach Wahl)
@@ -1948,7 +1948,7 @@ rezepte:
       - 2 Zehen Knoblauch
       - 1 Stück Ingwer
       - 150 g Reis
-      - 80 g Creme fraiche
+      - 80 g Crème fraîche
       - 1 Zitrone
       - 1 Bund Dill
       - Lorbeerblätter
@@ -1966,22 +1966,22 @@ rezepte:
       3. Gewürfelte Tomaten, gehackte Dosentomaten, Wasser und Salz hinzugeben. 15 Minuten köcheln lassen.
       4. Hitze reduzieren, Crème fraîche einrühren und mit Garam Masala und Salz abschmecken. Vor dem Servieren mit Frühlingszwiebelringen bestreuen.
     zutaten:
-      - 500 g Kartoffeln
+      - 500 g Kartoffeln, festkochend
       - 1 Kopf Blumenkohl
       - 3 Zwiebeln
       - 1 Stück Ingwer
       - 4 Tomaten
-      - 1 Dose Tomaten (gehackt)
+      - 1 Dose Stückige Tomaten
       - 250 ml Wasser
-      - 150 g Creme fraiche
+      - 150 g Crème fraîche
       - 3 Stange Frühlingszwiebeln
       - 1/2 TL Kreuzkümmel (Ganz)
       - 1 TL Kurkuma
-      - 1 TL Kreuzkümmel (gemahlen)
+      - 1 TL Kreuzkümmel, gemahlen
       - 1 TL Garam Masala
       - 1 TL Zucker
       - Salz
-      - Öl
+      - Pflanzenöl
 
   - titel: Kürbis-Feta Pasta
     portionen: 4
@@ -1994,7 +1994,7 @@ rezepte:
       3. Den Inhalt der Auflaufform zusammen mit dem Nudelwasser pürieren, bis eine cremige Soße entsteht. Mit den Nudeln vermengen.
     zutaten:
       - 400 g Fusilli
-      - 600 g Hokkaidokürbis
+      - 600 g Hokkaido-Kürbis
       - 200 g Hirtenkäse
       - 150 g Tomaten
       - 4 Stange Thymian
@@ -2014,7 +2014,7 @@ rezepte:
       4. Sahne und geriebenen Cheddar einrühren, schmelzen lassen und heiß servieren.
     zutaten:
       - 250 g Brokkoli
-      - 150 g Möhren
+      - 150 g Karotten
       - 2 Zwiebeln
       - 1 Zehe Knoblauch
       - 40 g Butter
@@ -2022,8 +2022,8 @@ rezepte:
       - 600 ml Wasser
       - 200 ml Milch
       - 150 g Sahne
-      - 170 g Cheddar (gerieben)
-      - 1 TL Paprikapulver (edelsüß)
+      - 170 g Cheddar
+      - 1 TL Paprikapulver, edelsüß
       - 2 TL Gemüsebrühe
       - Salz
       - Pfeffer
@@ -2049,7 +2049,7 @@ rezepte:
       - Basilikum
       - Salz
       - Pfeffer
-      - Paprikapulver
+      - Paprikapulver, edelsüß
 
   - titel: Hähnchen-Erbsen-Pfanne
     portionen: 4
@@ -2063,19 +2063,19 @@ rezepte:
       4. Stärke mit 4 EL kaltem Wasser glattrühren, unter die Soße rühren und kurz andicken lassen.
     zutaten:
       - 500 g Hähnchenbrust
-      - 300 g Erbsen (tiefgefroren)
-      - 1 Zwiebel (rot)
+      - 300 g Erbsen (TK)
+      - 1 rote Zwiebel
       - 1 Zehe Knoblauch
       - 200 ml Wasser
       - 200 ml Sahne
       - 20 g Röstzwiebeln
       - 1.5 EL Tomatenmark
-      - 1.5 EL Senf
+      - 1.5 EL Senf, mittelscharf
       - 2 EL Kräuter (tiefgefroren)
-      - 2 TL Stärke
+      - 2 TL Speisestärke
       - Salz
       - Pfeffer
-      - Öl
+      - Pflanzenöl
 
   - titel: Ofengeröstete Paprikasauce mit Linguine
     portionen: 4
@@ -2089,9 +2089,9 @@ rezepte:
       4. Währenddessen Linguine kochen. Das geschmorte Gemüse fein pürieren, mit der verbliebenen Flüssigkeit vermengen und unter die Pasta heben.
     zutaten:
       - 350 g Linguine
-      - 300 g Paprika (rot)
+      - 300 g Paprika, rot
       - 150 g Datteltomaten
-      - 1 Zwiebel (rot)
+      - 1 rote Zwiebel
       - 2 Zehen Knoblauch
       - 1 EL Tomatenmark
       - 100 ml Wasser

@@ -188,11 +188,11 @@ describe('Einkaufsliste', () => {
     plan[0] = { recipeId: 'kartoffelsuppe' }
     plan[1] = { recipeId: 'kartoffelpuffer-mit-apfelmus' }
     const items = buildAutoItems(plan, recipes, { ...DEFAULT_SETTINGS, portions: 2 })
-    const kart = items.find((i) => i.name === 'Kartoffeln')
+    const kart = items.find((i) => i.name === 'Kartoffeln, festkochend')
     expect(kart.amount).toBe(875) // (750 + 1000) / 2
     expect(kart.recipes).toHaveLength(2)
     expect(items.find((i) => i.name === 'Salz')).toBeUndefined()
-    expect(items.find((i) => i.name === 'Zwiebel').amount).toBe(1)
+    expect(items.find((i) => i.name === 'Zwiebeln').amount).toBe(1)
   })
   it('behält Häkchen und eigene Einträge', () => {
     const existing = [
@@ -203,6 +203,40 @@ describe('Einkaufsliste', () => {
     const { upserts, deletes } = diffShopping(existing, [{ id: 'auto:kartoffel|g', name: 'Kartoffeln', amount: 800, unit: 'g', recipes: ['x'] }])
     expect(upserts[0].checked).toBe(true)
     expect(deletes).toEqual(['auto:alt|'])
+  })
+})
+
+describe('Einheitliche Zutaten', () => {
+  it('fasst Schreibweisen und Einheiten zusammen', () => {
+    const r = aggregate([
+      { amount: 200, unit: 'g', name: 'Sahne' },
+      { amount: 150, unit: 'ml', name: 'Kochsahne' },
+      { amount: 100, unit: 'ml', name: 'Schlagsahne' },
+      { amount: 2, unit: '', name: 'Zwiebel' },
+      { amount: 100, unit: 'g', name: 'Zwiebeln' },
+      { amount: 1, unit: 'Dose', name: 'stückige Tomaten' },
+      { amount: 400, unit: 'g', name: 'stückige Tomaten (Dose)' },
+      { amount: 2, unit: 'EL', name: 'Tomatenmark' },
+      { amount: 20, unit: 'g', name: 'Tomatenmark' },
+      { amount: null, unit: '', name: 'Salz' },
+      { amount: 1, unit: 'TL', name: 'Salz' },
+    ])
+    const by = Object.fromEntries(r.map((x) => [x.name, x]))
+    expect(by['Sahne']).toMatchObject({ amount: 450, unit: 'g' })
+    expect(by['Zwiebeln']).toMatchObject({ amount: 3, unit: '' })
+    expect(by['Stückige Tomaten']).toMatchObject({ amount: 800, unit: 'g' })
+    expect(by['Tomatenmark']).toMatchObject({ amount: 50, unit: 'g' })
+    expect(r.filter((x) => x.name === 'Salz')).toHaveLength(1)
+  })
+
+  it('jede Zutat einer Art landet in genau einer Zeile', () => {
+    const { recipes } = parseCatalog(realCatalog)
+    const all = recipes.flatMap((r) => r.ingredients.filter((i) => i.amount != null))
+    const items = aggregate(all)
+    const names = items.map((i) => i.name)
+    const dupes = names.filter((n, i) => names.indexOf(n) !== i)
+    // erlaubt nur, wenn eine Einheit bewusst nicht umgerechnet wird
+    expect(dupes).toEqual([])
   })
 })
 
