@@ -282,6 +282,30 @@ describe('Vorrat', () => {
   })
 })
 
+import { seasonFromIngredients, seasonalAlternatives, inSeason } from '../src/lib/seasonal.js'
+
+describe('Saison aus Zutaten', () => {
+  it('Nebenzutat außerhalb der Saison → seltener, Datei-Saison hat Vorrang', () => {
+    const { recipes } = parseCatalog(
+      'rezepte:\n  - titel: Chili\n    zutaten: [1 rote Paprika, 1 Zwiebel]\n' +
+        '  - titel: Gefüllt\n    saison: [jul, aug]\n    ausserhalb: nie\n    zutaten: [4 rote Paprika]\n' +
+        '  - titel: Nudeln\n    zutaten: [500 g Penne]\n',
+    )
+    expect(recipes[0].season).toEqual([1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 1, 1])
+    expect(recipes[0].seasonDerived).toBe(true)
+    expect(recipes[1].season[0]).toBe(0)
+    expect(recipes[2].season).toBeNull()
+  })
+  it('schlägt Alternativen mit Saison vor', () => {
+    expect(inSeason('Paprika, rot', 1)).toBe(false)
+    expect(inSeason('Paprika, rot', 8)).toBe(true)
+    expect(inSeason('Zwiebeln', 1)).toBeNull()
+    expect(seasonalAlternatives('rote Paprika', 1)).toEqual(['Karotten', 'Kürbis', 'Süßkartoffeln', 'Rote Bete'])
+    expect(seasonalAlternatives('rote Paprika', 3)).toEqual(['Karotten', 'Süßkartoffeln', 'Rote Bete']) // Kürbis im März nicht
+    expect(seasonalAlternatives('Zucchini', 7)).toEqual([])
+  })
+})
+
 describe('Bestehende Einkaufsliste', () => {
   it('Häkchen bleiben erhalten, wenn alte Zeilen zusammengefasst werden', () => {
     const existing = [

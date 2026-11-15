@@ -1076,3 +1076,12 @@ a.source:active {
 .season-legend .link-inline {
   margin-left: auto;
 }
+
+/* Zutat außerhalb der Saison */
+.season-tip {
+  display: block;
+  font-size: 12px;
+  color: var(--vote-down);
+  margin-top: 2px;
+  font-weight: 400;
+}

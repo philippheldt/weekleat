@@ -2,6 +2,7 @@
 import { load as loadYaml } from 'js-yaml'
 import { parseIngredient } from './ingredients.js'
 import { chooseImage } from './images.js'
+import { seasonFromIngredients } from './seasonal.js'
 
 export const CATEGORIES = ['nudeln', 'reis', 'kartoffeln', 'gebackenes', 'sonstiges']
 export const CATEGORY_LABELS = {
@@ -193,7 +194,9 @@ export function parseCatalog(text) {
       note: String(raw.notiz ?? raw.zubereitung ?? '').trim(),
       image: chooseImage(title, raw.bild),
       days: toList(raw.nur_an ?? raw.tage).map((d) => d.toLowerCase().slice(0, 2)),
-      season: parseSeason(raw),
+      // Saison aus der Datei; sonst aus saisonalen Zutaten abgeleitet (außerhalb nur seltener)
+      season: parseSeason(raw) ?? seasonFromIngredients(ingredients),
+      seasonDerived: !parseSeason(raw) && !!seasonFromIngredients(ingredients),
       plannable: !['nein', 'no', 'false', '0'].includes(String(raw.planen ?? '').toLowerCase().trim()) && raw.planen !== false,
     })
   })
