@@ -13,6 +13,8 @@
 #                 (optional – wird sonst aus den Zutaten erraten)
 #    tags:        [schnell, ...]       (optional, nur zur Anzeige)
 #    nur_an:      [fr, sa, so]         (optional – nur an diesen Tagen einplanen)
+#    saison:      [sep, okt, nov]      (optional – nur in diesen Monaten automatisch
+#                                       einplanen; in der App per Monat änderbar)
 #    planen:      nein                 (optional – nie automatisch einplanen, z. B.
 #                                       Beilagen und Soßen; von Hand wählbar)
 #    quelle:      HelloFresh           (optional – wo das Rezept steht, z. B.
@@ -34,6 +36,7 @@
 
 rezepte:
   - titel: Gnocchi mit Ofenkürbis und Kräuter-Frischecreme
+    saison: [sep, okt, nov, dez, jan]
     quelle: HelloFresh
     kategorie: nudeln
     ernaehrung: vegetarisch
@@ -283,6 +286,7 @@ rezepte:
       Statt „Hello Curry“ (8 g, für die Soße): Koriander, Kurkuma, Bockshornklee, Kreuzkümmel, Muskat, Paprika.
 
   - titel: Cheesy Smashed Potatoes mit steirischem Salat und Kräuterschmand
+    saison: [okt, nov, dez, jan, feb, mär]
     quelle: HelloFresh
     kategorie: kartoffeln
     ernaehrung: vegetarisch
@@ -383,6 +387,7 @@ rezepte:
       - 50 g Erdnüsse, gesalzen
 
   - titel: Vegetarisches Kürbisgulasch mit Pastinakenpüree
+    saison: [sep, okt, nov, dez, jan]
     quelle: HelloFresh
     kategorie: kartoffeln
     ernaehrung: vegetarisch
@@ -442,6 +447,7 @@ rezepte:
       - 4 EL Mehl
 
   - titel: Alpine Käsespätzlepfanne mit Birne und Bacon
+    saison: [sep, okt, nov, dez, jan, feb, mär]
     quelle: HelloFresh
     kategorie: nudeln
     ernaehrung: fleisch
@@ -536,6 +542,7 @@ rezepte:
       Statt „Hello Curry“ (12 g): Koriander, Kurkuma, Bockshornklee, Kreuzkümmel, Muskat, Paprika.
 
   - titel: Gefüllte Paprika mit Djuvec-Reis
+    saison: [jul, aug, sep, okt]
     quelle: Monsieur Cuisine
     link: https://www.monsieur-cuisine.com/de/recipe/paprika-mit-djuvec-reis-gefullte-3
     portionen: 4
@@ -717,6 +724,7 @@ rezepte:
       - 1 TL Currypulver, mild
 
   - titel: Wikinger-Auflauf
+    saison: [sep, okt, nov, dez, jan]
     quelle: Monsieur Cuisine
     link: https://www.monsieur-cuisine.com/de/recipe/wikinger-auflauf-2
     portionen: 6
@@ -767,6 +775,7 @@ rezepte:
       - 30 g Walnusskerne
 
   - titel: Blumenkohlsteaks mit Asia-Marinade
+    saison: [jun, jul, aug, sep, okt, nov]
     quelle: Monsieur Cuisine
     link: https://www.monsieur-cuisine.com/de/recipe/blumenkohl-steaks-mit-asia-marinade
     portionen: 4
@@ -801,6 +810,7 @@ rezepte:
       - 1 Prise Muskat
 
   - titel: Blumenkohlgratin
+    saison: [jun, jul, aug, sep, okt, nov]
     quelle: Monsieur Cuisine
     link: https://www.monsieur-cuisine.com/de/recipe/blumenkohlgratin
     portionen: 4
@@ -922,6 +932,7 @@ rezepte:
       - 350 g Penne
 
   - titel: Möhren untereinander
+    saison: [okt, nov, dez, jan, feb, mär]
     quelle: Monsieur Cuisine
     link: https://www.monsieur-cuisine.com/de/recipe/mohren-untereinander
     portionen: 4
@@ -1197,6 +1208,7 @@ rezepte:
       - Chiliflocken
 
   - titel: Kürbislasagne
+    saison: [sep, okt, nov, dez, jan]
     quelle: Monsieur Cuisine
     link: https://www.monsieur-cuisine.com/de/recipe/kurbislasagne-1
     portionen: 4
@@ -1248,6 +1260,7 @@ rezepte:
       - 20 g Tomatenmark
 
   - titel: Rindergulasch klassisch
+    saison: [okt, nov, dez, jan, feb, mär, apr]
     quelle: Monsieur Cuisine
     link: https://www.monsieur-cuisine.com/de/recipe/rindergulasch-klassisch
     portionen: 4
@@ -1277,6 +1290,7 @@ rezepte:
       - 350 g Paprika, rot
 
   - titel: Fruchtiges Puten-Curry
+    saison: [jun, jul, aug, sep]
     quelle: Monsieur Cuisine
     link: https://www.monsieur-cuisine.com/de/recipe/fruchtiges-puten-curry
     portionen: 6
@@ -1336,6 +1350,7 @@ rezepte:
       - Apfelmus oder Zucker
 
   - titel: Marinierter Schafskäse mit Gemüse
+    saison: [jun, jul, aug, sep, okt]
     quelle: Monsieur Cuisine
     link: https://www.monsieur-cuisine.com/de/recipe/marinierter-schafskaese-mit-gemuese
     portionen: 4
@@ -1425,6 +1440,7 @@ rezepte:
       - 1 Zitrone
 
   - titel: Rahm-Kalbsrouladen mit Rösti
+    saison: [okt, nov, dez, jan, feb, mär]
     quelle: Monsieur Cuisine
     link: https://www.monsieur-cuisine.com/de/recipe/rahm-kalbsrouladen-mit-roesti
     portionen: 4
@@ -1472,6 +1488,7 @@ rezepte:
       - 1 Bund Basilikum
 
   - titel: Gedämpfter Spargel mit Sauce Hollandaise
+    saison: [apr, mai, jun]
     quelle: Monsieur Cuisine
     link: https://www.monsieur-cuisine.com/de/recipe/spargel-gedaempfter
     portionen: 4
@@ -1491,6 +1508,7 @@ rezepte:
       - Pfeffer
 
   - titel: Semmelknödel mit Pfifferling-Rahm-Sauce
+    saison: [jul, aug, sep, okt]
     quelle: Monsieur Cuisine
     link: https://www.monsieur-cuisine.com/de/recipe/semmelknoedel-mit-pfifferling-rahm-sauce
     portionen: 4
@@ -1536,6 +1554,7 @@ rezepte:
       - 5 Basilikumblätter
 
   - titel: Ofen-Medaillons mit Speck in Winterrahm
+    saison: [okt, nov, dez, jan, feb, mär]
     quelle: Monsieur Cuisine
     link: https://www.monsieur-cuisine.com/de/recipe/ofen-medaillons-mit-speck-in-winterrahm
     portionen: 4
@@ -1564,6 +1583,7 @@ rezepte:
       - 200 g Räucherspeck, gewürfelt
 
   - titel: Frühlingsauflauf mit Bacon-Hähnchen und Honig-Senf-Soße
+    saison: [mär, apr, mai, jun]
     quelle: Monsieur Cuisine
     link: https://www.monsieur-cuisine.com/de/recipe/fruhlingsauflauf-mit-bacon-hahnchen-und-honig-senf-sosse
     portionen: 4
@@ -1719,6 +1739,7 @@ rezepte:
       - Reis
 
   - titel: Zucchini & Frischkäse Pasta
+    saison: [jun, jul, aug, sep]
     portionen: 4
     kategorie: nudeln
     ernaehrung: vegetarisch
@@ -1828,6 +1849,7 @@ rezepte:
       - 500 ml Gemüsebrühe
 
   - titel: Kürbis Pasta
+    saison: [sep, okt, nov, dez, jan]
     portionen: 4
     kategorie: nudeln
     ernaehrung: vegetarisch
@@ -1883,6 +1905,7 @@ rezepte:
       - Öl zum Braten
 
   - titel: Kürbis Mac n Cheese
+    saison: [sep, okt, nov, dez, jan]
     portionen: 3
     kategorie: nudeln
     ernaehrung: fleisch
@@ -1956,6 +1979,7 @@ rezepte:
       - Salz
 
   - titel: Kartoffel-Blumenkohl-Onepot
+    saison: [jun, jul, aug, sep, okt, nov]
     portionen: 4
     kategorie: kartoffeln
     ernaehrung: vegetarisch
@@ -1984,6 +2008,7 @@ rezepte:
       - Pflanzenöl
 
   - titel: Kürbis-Feta Pasta
+    saison: [sep, okt, nov, dez, jan]
     portionen: 4
     kategorie: nudeln
     ernaehrung: vegetarisch
@@ -2078,6 +2103,7 @@ rezepte:
       - Pflanzenöl
 
   - titel: Ofengeröstete Paprikasauce mit Linguine
+    saison: [jul, aug, sep, okt]
     portionen: 4
     kategorie: nudeln
     ernaehrung: vegetarisch

@@ -67,6 +67,20 @@ describe('Katalog', () => {
     const { plan } = generatePlan({ recipes, settings: DEFAULT_SETTINGS, plan: empty, week: '2026-11-09' })
     expect(plan.every((d) => d.recipeId === 'essen')).toBe(true)
   })
+  it('Saison: Monate werden gelesen, außerhalb wird nicht eingeplant', () => {
+    const { recipes } = parseCatalog(
+      'rezepte:\n  - titel: Kürbis\n    saison: [sep, okt, nov]\n    zutaten: [1 Ei]\n  - titel: Immer\n    zutaten: [1 Ei]\n  - titel: Alle\n    saison: [1,2,3,4,5,6,7,8,9,10,11,12]\n    zutaten: [1 Ei]\n',
+    )
+    expect(recipes.map((r) => r.months)).toEqual([[9, 10, 11], [], []])
+    const empty = Array.from({ length: 7 }, () => ({ recipeId: null, locked: false }))
+    const ids = (week) =>
+      generatePlan({ recipes: recipes.slice(0, 2), settings: { ...DEFAULT_SETTINGS, noRepeatWeeks: 0 }, plan: empty, week }).plan.map((d) => d.recipeId)
+    expect(ids('2026-10-12')).toContain('kuerbis')
+    // im Juni außer Saison: wird nur genommen, wenn sonst gar nichts geht (Lockerung), aber nicht vorrangig
+    const june = generatePlan({ recipes: recipes.slice(0, 2), settings: DEFAULT_SETTINGS, plan: [{ recipeId: null }, ...Array(6).fill({ recipeId: null, locked: true })], week: '2026-06-08' }).plan
+    expect(june[0].recipeId).toBe('immer')
+  })
+
   it('Quelle: Text, sonst Domain des Links', () => {
     const { recipes } = parseCatalog(
       'rezepte:\n  - titel: A\n    quelle: HelloFresh\n    zutaten: [1 Ei]\n  - titel: B\n    link: https://www.chefkoch.de/rezepte/1\n    zutaten: [1 Ei]\n  - titel: C\n    zutaten: [1 Ei]\n',

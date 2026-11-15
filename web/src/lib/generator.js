@@ -121,6 +121,12 @@ export function generatePlan({ recipes, settings: rawSettings, plan, history = [
       .map((h) => h.recipeId),
   )
 
+  // Monat der geplanten Woche (Donnerstag entscheidet, wie bei Kalenderwochen)
+  const thursday = new Date(week + 'T00:00:00')
+  thursday.setDate(thursday.getDate() + 3)
+  const month = thursday.getMonth() + 1
+  const inSeason = (r) => !r.months?.length || r.months.includes(month)
+
   const pool = recipes.filter((r) => r.plannable !== false && allowedByDiet(r, settings.diet))
   if (!pool.length) {
     warnings.push('Keine Rezepte passen zur gewählten Ernährungsweise.')
@@ -148,12 +154,13 @@ export function generatePlan({ recipes, settings: rawSettings, plan, history = [
 
   // Lockerungsstufen, falls zu wenige Rezepte passen
   const levels = [
-    { recent: true, days: true, slot: true, nie: true, dup: true },
-    { recent: false, days: true, slot: true, nie: true, dup: true },
-    { recent: false, days: false, slot: true, nie: true, dup: true },
-    { recent: false, days: false, slot: false, nie: true, dup: true },
-    { recent: false, days: false, slot: false, nie: false, dup: true },
-    { recent: false, days: false, slot: false, nie: false, dup: false },
+    { recent: true, days: true, slot: true, nie: true, season: true, dup: true },
+    { recent: false, days: true, slot: true, nie: true, season: true, dup: true },
+    { recent: false, days: false, slot: true, nie: true, season: true, dup: true },
+    { recent: false, days: false, slot: false, nie: true, season: true, dup: true },
+    { recent: false, days: false, slot: false, nie: false, season: true, dup: true },
+    { recent: false, days: false, slot: false, nie: false, season: false, dup: true },
+    { recent: false, days: false, slot: false, nie: false, season: false, dup: false },
   ]
 
   for (const day of shuffle(targets, random)) {
@@ -172,6 +179,7 @@ export function generatePlan({ recipes, settings: rawSettings, plan, history = [
         if (lv.slot && slotType[day] === 'meat' && !isMeat(r)) return false
         if (lv.slot && slotType[day] === 'veg' && isMeat(r)) return false
         if (lv.nie && settings.freq[r.category] === 'nie') return false
+        if (lv.season && !inSeason(r)) return false
         return true
       })
       if (!cands.length) continue

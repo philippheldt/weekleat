@@ -93,6 +93,12 @@ export function setDayRecipe(day, recipeId) {
   commitPlan(s, plan, s.week, [{ type: 'put', collection: 'votes', rows: votes }])
 }
 
+/** Saison eines Rezepts setzen (Monate 1–12; leer oder alle = ganzjährig). */
+export function setSeason(recipeId, months) {
+  const m = [...new Set(months)].filter((x) => x >= 1 && x <= 12).sort((a, b) => a - b)
+  store.put('season', { id: recipeId, months: m.length === 12 ? [] : m })
+}
+
 /** Rezepte zweier Tage tauschen (Drag & Drop). Festhalten wandert mit dem Rezept mit. */
 export function swapDays(a, b) {
   if (a === b) return

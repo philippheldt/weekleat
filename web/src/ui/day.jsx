@@ -3,7 +3,8 @@ import { DAYS, DAY_LETTERS, DAY_KEYS } from '../lib/week.js'
 import { scores } from '../lib/generator.js'
 import { formatAmount } from '../lib/ingredients.js'
 import { displayName } from '../lib/canonical.js'
-import { setDayRecipe, toggleLock, vote } from '../actions.js'
+import { setDayRecipe, setSeason, toggleLock, vote } from '../actions.js'
+import { MONTH_LETTERS, MONTH_NAMES } from '../lib/catalog.js'
 import { Banner, Chevron, FoodImage, Icon, Sheet, Svg, toast } from './common.jsx'
 
 const DAY_NAMES = { mo: 'Mo', di: 'Di', mi: 'Mi', do: 'Do', fr: 'Fr', sa: 'Sa', so: 'So' }
@@ -52,6 +53,55 @@ export function Source({ recipe }) {
   )
 }
 
+/** Saison wie die Wochentage: Monate antippen. Nichts oder alles markiert = ganzjährig. */
+export function SeasonPicker({ recipe }) {
+  const months = recipe.months || []
+  const all = months.length === 0
+  const toggle = (m) => {
+    const base = all ? [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12] : months
+    const next = base.includes(m) ? base.filter((x) => x !== m) : [...base, m]
+    if (next.length === 0) return // mindestens ein Monat bleibt
+    setSeason(recipe.id, next)
+  }
+  const now = new Date().getMonth() + 1
+  return (
+    <>
+      <div class="caption" style={{ marginTop: '22px', display: 'flex', justifyContent: 'space-between' }}>
+        <span>Saison</span>
+        <span>{all ? 'ganzjährig' : months.includes(now) ? 'gerade Saison' : 'gerade keine Saison'}</span>
+      </div>
+      <div class="month-pick" role="group" aria-label="Saison">
+        {MONTH_LETTERS.map((l, i) => {
+          const m = i + 1
+          const on = all || months.includes(m)
+          return (
+            <button
+              key={m}
+              class={`day-toggle ${on ? 'on' : ''} ${m === now ? 'today' : ''}`}
+              aria-pressed={on}
+              aria-label={MONTH_NAMES[i]}
+              onClick={() => toggle(m)}
+            >
+              {l}
+            </button>
+          )
+        })}
+      </div>
+      <p class="muted small" style={{ margin: '6px 0 0' }}>
+        {all ? 'Monate abwählen, in denen es das Rezept nicht geben soll.' : 'Außerhalb der Saison wird es nicht automatisch eingeplant.'}
+        {!all && (
+          <>
+            {' '}
+            <button class="link-inline" onClick={() => setSeason(recipe.id, [])}>
+              Ganzjährig
+            </button>
+          </>
+        )}
+      </p>
+    </>
+  )
+}
+
 export function RecipeDetail({ app, recipe, children, bannerLeft, bannerRight }) {
   const factor = app.settings.portions / recipe.portions
   return (
@@ -70,6 +120,7 @@ export function RecipeDetail({ app, recipe, children, bannerLeft, bannerRight })
           </p>
         )}
         {children}
+        <SeasonPicker recipe={recipe} />
         <div class="caption" style={{ marginTop: '22px' }}>
           Zutaten für {app.settings.portions} Portionen
         </div>
