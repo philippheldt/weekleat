@@ -285,14 +285,14 @@ describe('Vorrat', () => {
 import { seasonFromIngredients, seasonalAlternatives, inSeason } from '../src/lib/seasonal.js'
 
 describe('Saison aus Zutaten', () => {
-  it('Nebenzutat außerhalb der Saison → seltener, Datei-Saison hat Vorrang', () => {
+  it('Nebenzutat ändert die Häufigkeit nicht, Datei-Saison gilt', () => {
     const { recipes } = parseCatalog(
       'rezepte:\n  - titel: Chili\n    zutaten: [1 rote Paprika, 1 Zwiebel]\n' +
         '  - titel: Gefüllt\n    saison: [jul, aug]\n    ausserhalb: nie\n    zutaten: [4 rote Paprika]\n' +
         '  - titel: Nudeln\n    zutaten: [500 g Penne]\n',
     )
-    expect(recipes[0].season).toEqual([1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 1, 1])
-    expect(recipes[0].seasonDerived).toBe(true)
+    expect(recipes[0].season).toBeNull()
+    expect(seasonFromIngredients(recipes[0].ingredients)).toEqual([1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 1, 1])
     expect(recipes[1].season[0]).toBe(0)
     expect(recipes[2].season).toBeNull()
   })

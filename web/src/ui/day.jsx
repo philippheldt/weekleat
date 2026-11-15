@@ -90,9 +90,6 @@ export function SeasonPicker({ recipe }) {
           </button>
         ))}
       </div>
-      {recipe.seasonDerived && !recipe.seasonEdited && (
-        <p class="muted small" style={{ margin: '6px 0 0' }}>Aus den Zutaten abgeleitet – außerhalb der Saison kommt es seltener.</p>
-      )}
       <div class="season-legend muted small">
         <span><i class="dot season-2" /> Saison</span>
         <span><i class="dot season-1" /> seltener</span>
