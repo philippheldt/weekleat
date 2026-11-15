@@ -3,6 +3,7 @@ import { DAYS, DAY_LETTERS, DAY_KEYS } from '../lib/week.js'
 import { scores } from '../lib/generator.js'
 import { formatAmount } from '../lib/ingredients.js'
 import { displayName } from '../lib/canonical.js'
+import { monthOfWeek, seasonalAlternatives } from '../lib/seasonal.js'
 import { setDayRecipe, setSeason, toggleLock, vote } from '../actions.js'
 import { MONTH_LETTERS, MONTH_NAMES } from '../lib/catalog.js'
 import { Banner, Chevron, FoodImage, Icon, Sheet, Svg, toast } from './common.jsx'
@@ -89,6 +90,9 @@ export function SeasonPicker({ recipe }) {
           </button>
         ))}
       </div>
+      {recipe.seasonDerived && !recipe.seasonEdited && (
+        <p class="muted small" style={{ margin: '6px 0 0' }}>Aus den Zutaten abgeleitet – außerhalb der Saison kommt es seltener.</p>
+      )}
       <div class="season-legend muted small">
         <span><i class="dot season-2" /> Saison</span>
         <span><i class="dot season-1" /> seltener</span>
@@ -105,6 +109,7 @@ export function SeasonPicker({ recipe }) {
 
 export function RecipeDetail({ app, recipe, children, bannerLeft, bannerRight }) {
   const factor = app.settings.portions / recipe.portions
+  const month = monthOfWeek(app.week)
   return (
     <>
       <div class="banner-wrap">
@@ -128,9 +133,13 @@ export function RecipeDetail({ app, recipe, children, bannerLeft, bannerRight })
         <ul class="ing-list">
           {recipe.ingredients.map((ing, i) => {
             const amount = ing.amount != null ? ing.amount * factor : null
+            const alts = seasonalAlternatives(ing.name, month)
             return (
-              <li key={i}>
-                <span>{displayName(ing.name, amount, ing.unit)}</span>
+              <li key={i} class={alts.length ? 'off-season' : ''}>
+                <span>
+                  {displayName(ing.name, amount, ing.unit)}
+                  {alts.length > 0 && <span class="season-tip">keine Saison – stattdessen z. B. {alts.slice(0, 3).join(', ')}</span>}
+                </span>
                 <span class="ing-amount">{formatAmount(amount, ing.unit)}</span>
               </li>
             )

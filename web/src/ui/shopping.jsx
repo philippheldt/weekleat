@@ -3,12 +3,14 @@ import { formatAmount } from '../lib/ingredients.js'
 import { chooseImage } from '../lib/images.js'
 import { groupByAisle } from '../lib/aisles.js'
 import { displayName } from '../lib/canonical.js'
+import { monthOfWeek, seasonalAlternatives } from '../lib/seasonal.js'
 import { addShoppingItem, clearBought, toggleShopping } from '../actions.js'
 import { BackLink, FoodImage, NavBar, Svg, Tag } from './common.jsx'
 
-function Item({ item }) {
+function Item({ item, month }) {
   const amount = formatAmount(item.amount, item.unit)
   const name = displayName(item.name, item.amount, item.unit)
+  const alts = item.checked ? [] : seasonalAlternatives(item.name, month)
   return (
     <div class={`shop-item ${item.checked ? 'done' : ''}`}>
       <button
@@ -23,6 +25,7 @@ function Item({ item }) {
         <FoodImage name={chooseImage(item.name)} />
         <div class="card-body">
           <div class="shop-name">{name}</div>
+          {alts.length > 0 && <div class="season-tip">keine Saison – z. B. {alts.slice(0, 3).join(', ')}</div>}
           <div class="tags">
             {amount && <Tag>{amount}</Tag>}
             {item.manual ? (
@@ -42,6 +45,7 @@ function Item({ item }) {
 
 export function ShoppingView({ app }) {
   const [text, setText] = useState('')
+  const month = monthOfWeek(app.week)
   const sortFn = (a, b) => a.name.localeCompare(b.name, 'de')
   const open = app.shopping.filter((x) => !x.checked).sort(sortFn)
   // Offene Artikel in der Reihenfolge, in der man durch den Laden läuft
@@ -75,7 +79,7 @@ export function ShoppingView({ app }) {
           <section key={aisle.id}>
             <div class="section-head caption">{aisle.label}</div>
             {aisle.items.map((item) => (
-              <Item key={item.id} item={item} />
+              <Item key={item.id} item={item} month={month} />
             ))}
           </section>
         ))
@@ -96,7 +100,7 @@ export function ShoppingView({ app }) {
             )}
           </div>
           {done.map((item) => (
-            <Item key={item.id} item={item} />
+            <Item key={item.id} item={item} month={month} />
           ))}
         </>
       )}
