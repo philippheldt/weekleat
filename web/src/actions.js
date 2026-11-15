@@ -93,6 +93,15 @@ export function setDayRecipe(day, recipeId) {
   commitPlan(s, plan, s.week, [{ type: 'put', collection: 'votes', rows: votes }])
 }
 
+/** Rezepte zweier Tage tauschen (Drag & Drop). Festhalten wandert mit dem Rezept mit. */
+export function swapDays(a, b) {
+  if (a === b) return
+  const s = snapshot()
+  const plan = s.plan.map((d) => ({ ...d }))
+  ;[plan[a], plan[b]] = [plan[b], plan[a]]
+  commitPlan(s, plan)
+}
+
 export function toggleLock(day) {
   const s = snapshot()
   const d = s.plan[day]
